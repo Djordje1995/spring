@@ -1,0 +1,381 @@
+1
+00:00:00,296 --> 00:00:01,683
+<v Darby>Alrighty, so just a quick recap.</v>
+
+2
+00:00:01,683 --> 00:00:02,833
+So we've covered step one
+
+3
+00:00:02,833 --> 00:00:04,872
+of creating a custom validation
+
+4
+00:00:04,872 --> 00:00:07,391
+where that includes our annotation
+
+5
+00:00:07,391 --> 00:00:09,232
+and our constraint validators.
+
+6
+00:00:09,232 --> 00:00:12,060
+So that was all the real heavy lifting here.
+
+7
+00:00:12,060 --> 00:00:14,607
+The remaining steps we've kinda seen a lot of this before,
+
+8
+00:00:14,607 --> 00:00:16,416
+so step two will simply add
+
+9
+00:00:16,416 --> 00:00:18,825
+the validation rules to the class.
+
+10
+00:00:18,825 --> 00:00:22,099
+Step three is displaying the error message on the form
+
+11
+00:00:22,099 --> 00:00:25,398
+and then step four is simply updating the confirmation page.
+
+12
+00:00:25,398 --> 00:00:26,826
+These steps go really quickly
+
+13
+00:00:26,826 --> 00:00:30,993
+and we'll take care of all of these in this video.
+
+14
+00:00:32,182 --> 00:00:33,344
+So with step two,
+
+15
+00:00:33,344 --> 00:00:36,301
+adding a validation rule to the customer class.
+
+16
+00:00:36,301 --> 00:00:37,134
+So at this point,
+
+17
+00:00:37,134 --> 00:00:39,744
+we simply need to open up our customer class,
+
+18
+00:00:39,744 --> 00:00:40,916
+our entity,
+
+19
+00:00:40,916 --> 00:00:42,470
+and actually place the rule there.
+
+20
+00:00:42,470 --> 00:00:46,173
+So go down into to my customer.java file,
+
+21
+00:00:46,173 --> 00:00:47,090
+open it up.
+
+22
+00:00:50,855 --> 00:00:53,718
+And this is where we have all of our other validation rules
+
+23
+00:00:53,718 --> 00:00:56,407
+for like first name, last name, and so on.
+
+24
+00:00:56,407 --> 00:00:59,368 line:15% 
+Well first need to create a
+(laughs)
+
+25
+00:00:59,368 --> 00:01:01,664 line:15% 
+I need to create a field here for course code.
+
+26
+00:01:01,664 --> 00:01:02,790 line:15% 
+So I'll just create a field,
+
+27
+00:01:02,790 --> 00:01:04,662 line:15% 
+private string course code,
+
+28
+00:01:04,662 --> 00:01:08,730 line:15% 
+and this field we can give any name, right,
+
+29
+00:01:08,730 --> 00:01:09,940
+which is course code.
+
+30
+00:01:09,940 --> 00:01:12,497
+And then we'll also generate some getters
+
+31
+00:01:12,497 --> 00:01:15,265
+and setters here for this field.
+
+32
+00:01:15,265 --> 00:01:16,791
+But again, this field could be called anything,
+
+33
+00:01:16,791 --> 00:01:20,874
+food bar or whatever you would like to have here.
+
+34
+00:01:22,250 --> 00:01:23,617
+So I'll just generate the getters and setters
+
+35
+00:01:23,617 --> 00:01:25,688
+using our normal technique.
+
+36
+00:01:25,688 --> 00:01:27,762
+Select everything there for course code
+
+37
+00:01:27,762 --> 00:01:29,429
+and then click okay.
+
+38
+00:01:34,305 --> 00:01:35,138
+Okay, great, so there we go.
+
+39
+00:01:35,138 --> 00:01:36,954
+So we have those
+
+40
+00:01:36,954 --> 00:01:39,176
+getters and setters here for course code.
+
+41
+00:01:39,176 --> 00:01:41,176
+Okay, good stuff so far.
+
+42
+00:01:44,963 --> 00:01:46,426
+Alright, so now let's go ahead and do the real work.
+
+43
+00:01:46,426 --> 00:01:50,093
+Let's drop in our custom annotation, woohoo!
+
+44
+00:01:51,021 --> 00:01:52,506
+So @CourseCode,
+
+45
+00:01:52,506 --> 00:01:54,361
+and remember, Java's case sensitive, right?
+
+46
+00:01:54,361 --> 00:01:55,556
+So this is a capital c,
+
+47
+00:01:55,556 --> 00:01:57,593
+so it's different from the other stuff
+
+48
+00:01:57,593 --> 00:01:59,050
+and this is our custom annotation
+
+49
+00:01:59,050 --> 00:01:59,994
+and wow!
+
+50
+00:01:59,994 --> 00:02:02,322
+The clips found our annotation.
+
+51
+00:02:02,322 --> 00:02:06,054
+So we can do an import on course code, yeah.
+
+52
+00:02:06,054 --> 00:02:07,602
+All right, so that's my annotation
+
+53
+00:02:07,602 --> 00:02:09,123
+that I just did an import on
+
+54
+00:02:09,123 --> 00:02:12,898
+and just verify and there it is for my validation package.
+
+55
+00:02:12,898 --> 00:02:15,176
+Course code, yeah baby,
+
+56
+00:02:15,176 --> 00:02:18,259
+using my custom validation over here.
+
+57
+00:02:19,841 --> 00:02:22,467
+And there you go and that's our @CourseCode annotation
+
+58
+00:02:22,467 --> 00:02:25,351
+We're not not gonna pass any attribute values here,
+
+59
+00:02:25,351 --> 00:02:26,251
+we're simply gonna use the defaults right
+
+60
+00:02:26,251 --> 00:02:28,598
+'cause we've already coded it accordingly
+
+61
+00:02:28,598 --> 00:02:31,301
+to handle the appropriate defaults.
+
+62
+00:02:31,301 --> 00:02:35,014
+So we're in good shape with this so far.
+
+63
+00:02:35,014 --> 00:02:35,949
+All right.
+
+64
+00:02:35,949 --> 00:02:39,186
+Now I need to display the error messages on the HTML form.
+
+65
+00:02:39,186 --> 00:02:40,180
+That's step three.
+
+66
+00:02:40,180 --> 00:02:44,018
+So I need to go into my customer-form.jsp
+
+67
+00:02:44,018 --> 00:02:44,916
+and again,
+
+68
+00:02:44,916 --> 00:02:47,180
+just follow the same process I've done before
+
+69
+00:02:47,180 --> 00:02:49,333
+for displaying the error messages.
+
+70
+00:02:49,333 --> 00:02:51,564
+So I actually need to add a new field
+
+71
+00:02:51,564 --> 00:02:52,716
+here for course code,
+
+72
+00:02:52,716 --> 00:02:55,748
+So I'm just gonna copy postal code
+
+73
+00:02:55,748 --> 00:02:58,381
+and I'll just do a little copy paste exercise
+
+74
+00:02:58,381 --> 00:03:00,906
+and drop postal code here,
+
+75
+00:03:00,906 --> 00:03:05,073
+but I'll go through and rename this to course code.
+
+76
+00:03:06,161 --> 00:03:07,494
+So, course code.
+
+77
+00:03:10,154 --> 00:03:11,654
+Path, course code.
+
+78
+00:03:15,740 --> 00:03:16,698
+All right, there we go.
+
+79
+00:03:16,698 --> 00:03:19,324 line:15% 
+So we have our new form field
+
+80
+00:03:19,324 --> 00:03:22,324 line:15% 
+and we also have on line 39 an entry
+
+81
+00:03:23,210 --> 00:03:25,581 line:15% 
+so we can actually display the error message
+
+82
+00:03:25,581 --> 00:03:29,248 line:15% 
+in case the validation fails for this field.
+
+83
+00:03:32,828 --> 00:03:34,302 line:15% 
+Now moving ahead to step four,
+
+84
+00:03:34,302 --> 00:03:35,749 line:15% 
+updating our confirmation page,
+
+85
+00:03:35,749 --> 00:03:39,357 line:15% 
+we simply wanna echo whatever the value user entered.
+
+86
+00:03:39,357 --> 00:03:40,986 line:15% 
+So, real simple right?
+
+87
+00:03:40,986 --> 00:03:45,149
+So again, I'll just do another little copy paste here.
+
+88
+00:03:45,149 --> 00:03:46,316
+And I will say
+
+89
+00:03:47,836 --> 00:03:49,541
+course code
+
+90
+00:03:49,541 --> 00:03:51,003
+and a dollar sign customer
+
+91
+00:03:51,003 --> 00:03:52,336
+dot course code.
+
+92
+00:03:56,147 --> 00:03:57,543
+Go and save that and there we go.
+
+93
+00:03:57,543 --> 00:03:58,864
+So we'll just echo whatever the you user
+
+94
+00:03:58,864 --> 00:04:01,639
+entered on their HTML form.
+
+95
+00:04:01,639 --> 00:04:02,889
+Okay, good job.
+

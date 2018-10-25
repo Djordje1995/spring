@@ -1,0 +1,292 @@
+1
+00:00:01,369 --> 00:00:03,650
+<v Instructor>Alright, let's go ahead and write some code.</v>
+
+2
+00:00:03,650 --> 00:00:05,807
+So we're gonna follow our development process here.
+
+3
+00:00:05,807 --> 00:00:10,684
+Define init and destroy methods and add the annotations.
+
+4
+00:00:10,684 --> 00:00:12,233 line:15% 
+Alright, so the first thing we need to do is
+
+5
+00:00:12,233 --> 00:00:14,921 line:15% 
+change the scope on tennis coach.
+
+6
+00:00:14,921 --> 00:00:17,480 line:15% 
+In the previous videos, we were playing around
+
+7
+00:00:17,480 --> 00:00:20,457 line:15% 
+with the scope and then we had scopes at the prototype.
+
+8
+00:00:20,457 --> 00:00:22,358 line:15% 
+I actually wanna remove the prototype scope.
+
+9
+00:00:22,358 --> 00:00:24,665 line:15% 
+I wanna just go back to using our default scope
+
+10
+00:00:24,665 --> 00:00:26,356 line:15% 
+which is singleton scope.
+
+11
+00:00:26,356 --> 00:00:30,628 line:15% 
+Alright, so I remove that, save this file.
+
+12
+00:00:30,628 --> 00:00:32,076
+And now what I'd like to do is go through
+
+13
+00:00:32,076 --> 00:00:34,693 line:15% 
+and actually define our init and destroy methods,
+
+14
+00:00:34,693 --> 00:00:37,058 line:15% 
+and actually set up the annotations for them.
+
+15
+00:00:37,058 --> 00:00:38,109
+So first off I'll just go ahead
+
+16
+00:00:38,109 --> 00:00:39,939
+and write some comments to myself
+
+17
+00:00:39,939 --> 00:00:42,856
+just so I can keep myself on track.
+
+18
+00:00:44,991 --> 00:00:46,331
+Alright, so my comments are in place.
+
+19
+00:00:46,331 --> 00:00:47,719
+Alright, so let's go ahead and dig in
+
+20
+00:00:47,719 --> 00:00:50,552
+and let's start writing some code.
+
+21
+00:00:53,559 --> 00:00:55,574
+I'll start right here with my init method
+
+22
+00:00:55,574 --> 00:00:59,267
+and I'll call it do my start up stuff
+
+23
+00:00:59,267 --> 00:01:01,894
+and inside I'll simply just do a print line
+
+24
+00:01:01,894 --> 00:01:03,629
+just so I know that Spring's actually
+
+25
+00:01:03,629 --> 00:01:06,711
+call init's method and doing something.
+
+26
+00:01:06,711 --> 00:01:09,088
+So here I'll just put tennis coach,
+
+27
+00:01:09,088 --> 00:01:13,750
+and then I'll say inside, do my start up stuff.
+
+28
+00:01:13,750 --> 00:01:15,712
+(writing some code...) 
+
+29
+00:01:15,712 --> 00:01:18,045
+(writing some code...) 
+
+30
+00:01:20,831 --> 00:01:23,859
+And that's the method and add my annotation,
+
+31
+00:01:23,859 --> 00:01:25,178
+whoops I almost forgot.
+
+32
+00:01:25,178 --> 00:01:27,879
+So here I'll say @postconstruct.
+
+33
+00:01:27,879 --> 00:01:29,041
+Just to let Spring know that
+
+34
+00:01:29,041 --> 00:01:31,560 line:15% 
+hey call this one once you construct the object.
+
+35
+00:01:31,560 --> 00:01:34,810 line:15% 
+I'll go ahead and fix the imports here.
+
+36
+00:01:38,712 --> 00:01:41,830 line:15% 
+And that looks OK, so let me just step back
+
+37
+00:01:41,830 --> 00:01:45,916 line:15% 
+and admire my beautiful work and yeah, looks good.
+
+38
+00:01:45,916 --> 00:01:47,333 line:15% 
+Looks good to me.
+
+39
+00:01:50,021 --> 00:01:51,436
+Well, let's go ahead and move on down and let's just
+
+40
+00:01:51,436 --> 00:01:54,971
+repeat the process here for our destroy method.
+
+41
+00:01:54,971 --> 00:01:56,548
+So again, we can give it any method name
+
+42
+00:01:56,548 --> 00:01:59,489
+so I'll call it do my clean up stuff.
+
+43
+00:01:59,489 --> 00:02:02,406
+And again, I'll do my system out print line,
+
+44
+00:02:02,406 --> 00:02:04,776
+and I'll simply print out what's happening inside of my
+
+45
+00:02:04,776 --> 00:02:06,859
+do clean up stuff method.
+
+46
+00:02:11,203 --> 00:02:13,309
+Make sure I add the annotation here.
+
+47
+00:02:13,309 --> 00:02:15,734
+So I'll say @predestroy,
+
+48
+00:02:15,734 --> 00:02:19,066
+and again you'll be able to fix the imports.
+
+49
+00:02:19,066 --> 00:02:21,107
+And basically there's my destroy method
+
+50
+00:02:21,107 --> 00:02:23,599
+along with the appropriate annotation.
+
+51
+00:02:23,599 --> 00:02:25,099
+Looks pretty good.
+
+52
+00:02:29,324 --> 00:02:30,776 line:15% 
+Well, I think my work is done here
+
+53
+00:02:30,776 --> 00:02:32,268 line:15% 
+right now on tennis coach.
+
+54
+00:02:32,268 --> 00:02:34,241 line:15% 
+Let's go ahead and move back over to
+
+55
+00:02:34,241 --> 00:02:37,324 line:15% 
+our main program annotation demo app.
+
+56
+00:02:40,718 --> 00:02:42,570 line:15% 
+So I'm in annotation demo app.
+
+57
+00:02:42,570 --> 00:02:45,408
+Again, this is our same main program that we've used before.
+
+58
+00:02:45,408 --> 00:02:46,741
+No changes here.
+
+59
+00:02:48,161 --> 00:02:50,997
+And I'll simply just do a right click and run it.
+
+60
+00:02:50,997 --> 00:02:53,664
+Run this baby. Run this program.
+
+61
+00:02:57,296 --> 00:02:58,520
+So our program's running now.
+
+62
+00:02:58,520 --> 00:03:01,159
+We can go take a look at some of the output.
+
+63
+00:03:01,159 --> 00:03:03,924
+So here inside default constructor, that's good.
+
+64
+00:03:03,924 --> 00:03:07,099
+And, oh yeah! Inside of do my start up stuff.
+
+65
+00:03:07,099 --> 00:03:10,605
+Yeah, that's the @postconstruct word, I like that.
+
+66
+00:03:10,605 --> 00:03:11,826
+Very good, very good.
+
+67
+00:03:11,826 --> 00:03:13,291
+And then finally here,
+
+68
+00:03:13,291 --> 00:03:17,262
+inside of do my clean up stuff, so that's @predestroy,
+
+69
+00:03:17,262 --> 00:03:19,532
+so our custom hooks are in place.
+
+70
+00:03:19,532 --> 00:03:23,461
+They're executing as desired and I think we're good to go.
+
+71
+00:03:23,461 --> 00:03:24,786
+So we add some annotations here
+
+72
+00:03:24,786 --> 00:03:27,901
+to handle bean life-cycle methods.
+
+73
+00:03:27,901 --> 00:03:30,068
+Congratulations. Good job!
+

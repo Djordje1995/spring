@@ -1,0 +1,344 @@
+1
+00:00:01,264 --> 00:00:02,264
+<v Instructor>In this video,</v>
+
+2
+00:00:02,264 --> 00:00:03,806
+we're gonna learn how to configure
+
+3
+00:00:03,806 --> 00:00:06,723
+a Spring container using Java code.
+
+4
+00:00:09,883 --> 00:00:13,742
+So instead of configuring our container using XML,
+
+5
+00:00:13,742 --> 00:00:17,278
+instead what we're gonna do is make use of Java source code
+
+6
+00:00:17,278 --> 00:00:18,998
+to configure the container.
+
+7
+00:00:18,998 --> 00:00:21,780
+When we use Java source code to configure the container,
+
+8
+00:00:21,780 --> 00:00:24,925
+there's actually no requirement for XML,
+
+9
+00:00:24,925 --> 00:00:28,425
+so this will be a pure Java configuration.
+
+10
+00:00:31,768 --> 00:00:32,835
+So just as a reminder,
+
+11
+00:00:32,835 --> 00:00:35,233
+there's three ways of configuring a Spring container,
+
+12
+00:00:35,233 --> 00:00:36,433
+and we've gone through the first two,
+
+13
+00:00:36,433 --> 00:00:38,640
+so the first one here is a full XML config
+
+14
+00:00:38,640 --> 00:00:42,308
+where you'll list each bean in the XML file.
+
+15
+00:00:42,308 --> 00:00:44,989
+The second approach was the XML component scan,
+
+16
+00:00:44,989 --> 00:00:46,610
+and we made use of annotations,
+
+17
+00:00:46,610 --> 00:00:49,208
+and it would simply scan and look for classes
+
+18
+00:00:49,208 --> 00:00:51,455
+with the at component annotation.
+
+19
+00:00:51,455 --> 00:00:53,937
+It made the XML a little bit smaller.
+
+20
+00:00:53,937 --> 00:00:56,227
+And this next one we're gonna take a look at here
+
+21
+00:00:56,227 --> 00:00:58,336
+is a Java configuration class.
+
+22
+00:00:58,336 --> 00:01:00,755
+So you simply write Java source code
+
+23
+00:01:00,755 --> 00:01:02,863
+to actually configure the container.
+
+24
+00:01:02,863 --> 00:01:04,480
+And the important thing here is that
+
+25
+00:01:04,480 --> 00:01:06,892
+there's actually no use of XML
+
+26
+00:01:06,892 --> 00:01:09,069
+when you make use of option three,
+
+27
+00:01:09,069 --> 00:01:11,486
+the Java configuration class.
+
+28
+00:01:13,501 --> 00:01:15,411
+Now here's the development process,
+
+29
+00:01:15,411 --> 00:01:17,805
+and we'll go through this step by step.
+
+30
+00:01:17,805 --> 00:01:20,544
+So the first step is that we create a Java class
+
+31
+00:01:20,544 --> 00:01:23,708
+and we annotate it as at configuration.
+
+32
+00:01:23,708 --> 00:01:26,375
+Step two is add component scanning support
+
+33
+00:01:26,375 --> 00:01:28,212
+with at component scan,
+
+34
+00:01:28,212 --> 00:01:30,315
+and this is an optional step.
+
+35
+00:01:30,315 --> 00:01:33,078
+Step three is reading the Java configuration class
+
+36
+00:01:33,078 --> 00:01:35,066
+in our main application.
+
+37
+00:01:35,066 --> 00:01:36,647
+And then finally with step four,
+
+38
+00:01:36,647 --> 00:01:40,167
+we retrieve the bean from the Spring container.
+
+39
+00:01:40,167 --> 00:01:42,026
+All right, so let's go look at each one of these steps
+
+40
+00:01:42,026 --> 00:01:42,859
+in detail.
+
+41
+00:01:44,812 --> 00:01:47,588
+So in step one, we simply create the Java class
+
+42
+00:01:47,588 --> 00:01:50,895
+and we annotate it as at configuration.
+
+43
+00:01:50,895 --> 00:01:51,914
+And so at this point,
+
+44
+00:01:51,914 --> 00:01:54,790
+I have a class called sport config at configuration.
+
+45
+00:01:54,790 --> 00:01:56,620
+It's an empty config right now.
+
+46
+00:01:56,620 --> 00:01:58,158
+There's not anything there.
+
+47
+00:01:58,158 --> 00:02:00,551
+We need to go through and add some steps as far as
+
+48
+00:02:00,551 --> 00:02:03,884
+adding some beans to this configuration.
+
+49
+00:02:06,243 --> 00:02:07,693
+Now this one leads us up to step two
+
+50
+00:02:07,693 --> 00:02:09,314
+of adding component scanning.
+
+51
+00:02:09,314 --> 00:02:11,663
+So we could manually add beans.
+
+52
+00:02:11,663 --> 00:02:12,961
+We'll talk about that later,
+
+53
+00:02:12,961 --> 00:02:15,014
+but for right now, we'll take the easy approach
+
+54
+00:02:15,014 --> 00:02:17,212
+and we simply say component scan.
+
+55
+00:02:17,212 --> 00:02:19,598
+So we'll make use of that same at component
+
+56
+00:02:19,598 --> 00:02:21,355
+that we used in previous examples,
+
+57
+00:02:21,355 --> 00:02:24,725
+and it would simply tell Spring to scan a given package,
+
+58
+00:02:24,725 --> 00:02:27,492
+and it works exactly like it worked in the XML,
+
+59
+00:02:27,492 --> 00:02:29,214
+we're simply scanning for classes
+
+60
+00:02:29,214 --> 00:02:31,387
+that support at component,
+
+61
+00:02:31,387 --> 00:02:36,359
+and it'll automatically register those with the container.
+
+62
+00:02:36,359 --> 00:02:37,192
+Now with step three,
+
+63
+00:02:37,192 --> 00:02:39,592
+we simply read the Spring configuration class
+
+64
+00:02:39,592 --> 00:02:40,885
+that we've just created.
+
+65
+00:02:40,885 --> 00:02:42,383
+So in our main program,
+
+66
+00:02:42,383 --> 00:02:43,864
+we make use of this new class
+
+67
+00:02:43,864 --> 00:02:47,866
+called annotation config application context.
+
+68
+00:02:47,866 --> 00:02:48,699
+Big word.
+
+69
+00:02:48,699 --> 00:02:50,638
+And we simply give a reference there
+
+70
+00:02:50,638 --> 00:02:53,351
+to the configuration class that we just created,
+
+71
+00:02:53,351 --> 00:02:54,920
+sport dot config.
+
+72
+00:02:54,920 --> 00:02:56,760
+So it'll actually create the Spring container
+
+73
+00:02:56,760 --> 00:02:59,810
+based on that Java source configuration,
+
+74
+00:02:59,810 --> 00:03:02,977
+and make the context available for us.
+
+75
+00:03:05,821 --> 00:03:07,201
+And then finally here,
+
+76
+00:03:07,201 --> 00:03:08,431
+just like we've seen before,
+
+77
+00:03:08,431 --> 00:03:09,709
+once your context is created,
+
+78
+00:03:09,709 --> 00:03:11,580
+you simply retrieve a bean.
+
+79
+00:03:11,580 --> 00:03:13,768
+So here I say context get bean,
+
+80
+00:03:13,768 --> 00:03:15,805
+you give the bean name, and there you go, that's it.
+
+81
+00:03:15,805 --> 00:03:18,564
+So this is very similar to what we've already seen
+
+82
+00:03:18,564 --> 00:03:22,591
+in all the other configuration methods.
+
+83
+00:03:22,591 --> 00:03:24,180
+So that's the basic process.
+
+84
+00:03:24,180 --> 00:03:26,284
+We're gonna move ahead into the next video.
+
+85
+00:03:26,284 --> 00:03:27,767
+We're gonna dive into Eclipse
+
+86
+00:03:27,767 --> 00:03:31,934
+and we'll actually build this out using some Java code.
+

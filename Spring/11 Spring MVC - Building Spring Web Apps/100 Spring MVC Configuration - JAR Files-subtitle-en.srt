@@ -1,0 +1,272 @@
+1
+00:00:01,321 --> 00:00:02,440
+<v Instructor>All right, so let's go ahead</v>
+
+2
+00:00:02,440 --> 00:00:04,109
+and move into Eclipse.
+
+3
+00:00:04,109 --> 00:00:05,686
+What we're gonna focus on in this video
+
+4
+00:00:05,686 --> 00:00:08,573
+is setting up our Spring MVC configuration,
+
+5
+00:00:08,573 --> 00:00:12,740
+and in particular, adding the JAR files to a Spring project.
+
+6
+00:00:29,524 --> 00:00:31,252
+So the first thing I'll do is actually go through
+
+7
+00:00:31,252 --> 00:00:33,064
+and create a new project.
+
+8
+00:00:33,064 --> 00:00:34,641
+So I'll go to File &gt; New,
+
+9
+00:00:34,641 --> 00:00:37,641
+and I'll choose Dynamic Web Project.
+
+10
+00:00:40,715 --> 00:00:42,577
+And the actual name I'll give for the project,
+
+11
+00:00:42,577 --> 00:00:44,994
+I'll call it spring-mvc-demo.
+
+12
+00:00:49,863 --> 00:00:51,495
+And once you're happy with that name,
+
+13
+00:00:51,495 --> 00:00:55,662
+keep all of the other defaults and then hit Finish.
+
+14
+00:00:56,644 --> 00:00:57,477
+Okay, great.
+
+15
+00:00:57,477 --> 00:01:00,574
+So now we have this very basic project that's empty.
+
+16
+00:01:00,574 --> 00:01:03,324
+There's not much there right now.
+
+17
+00:01:05,571 --> 00:01:07,124 line:15% 
+So the next you want to do is actually
+
+18
+00:01:07,124 --> 00:01:11,918 line:15% 
+copy over the Spring JAR files from our previous download,
+
+19
+00:01:11,918 --> 00:01:14,197 line:15% 
+and we're actually gonna place them into this lib directory
+
+20
+00:01:14,197 --> 00:01:16,364 line:15% 
+in WEB-INF/lib.
+
+21
+00:01:19,129 --> 00:01:21,602
+So let me swing back over to my file system
+
+22
+00:01:21,602 --> 00:01:24,051
+into that Downloads directory, and this is where
+
+23
+00:01:24,051 --> 00:01:27,586
+we downloaded the Spring Framework JAR files earlier
+
+24
+00:01:27,586 --> 00:01:29,253
+in a previous video.
+
+25
+00:01:30,907 --> 00:01:35,470
+So we already have this ZIP file unzipped, or uncompressed.
+
+26
+00:01:35,470 --> 00:01:37,393
+I'll expand this directory here,
+
+27
+00:01:37,393 --> 00:01:39,194
+and I'll go into the libs directory,
+
+28
+00:01:39,194 --> 00:01:41,869
+and this is where we have all of the Spring JAR files.
+
+29
+00:01:41,869 --> 00:01:44,808
+So this is from the Spring Framework, the core JAR files.
+
+30
+00:01:44,808 --> 00:01:47,711
+And I'll go ahead and just select all of the .jar files
+
+31
+00:01:47,711 --> 00:01:51,864
+located in this directory, and I'll highlight all of them
+
+32
+00:01:51,864 --> 00:01:54,864
+and then I'm gonna simply copy them.
+
+33
+00:01:58,621 --> 00:02:00,397
+And then I'll move back over to Eclipse,
+
+34
+00:02:00,397 --> 00:02:03,287 line:15% 
+I'll move into this WEB-INF/lib directory,
+
+35
+00:02:03,287 --> 00:02:04,325 line:15% 
+and this is a special directory
+
+36
+00:02:04,325 --> 00:02:06,000 line:15% 
+where we place the JAR files.
+
+37
+00:02:06,000 --> 00:02:09,519 line:15% 
+I'll simply do a right-click and choose Paste,
+
+38
+00:02:09,519 --> 00:02:11,464 line:15% 
+and by putting them in the WEB-INF/lib directory,
+
+39
+00:02:11,464 --> 00:02:14,210
+they're automatically on our build path.
+
+40
+00:02:14,210 --> 00:02:16,302
+They're automatically on our class path.
+
+41
+00:02:16,302 --> 00:02:18,469
+So this looks good so far.
+
+42
+00:02:21,195 --> 00:02:23,551 line:15% 
+Now there's some additional files that we're gonna need.
+
+43
+00:02:23,551 --> 00:02:24,853 line:15% 
+Basically what we're gonna do now
+
+44
+00:02:24,853 --> 00:02:26,067 line:15% 
+is copy over some JAR files
+
+45
+00:02:26,067 --> 00:02:28,331 line:15% 
+from the Udemy source code download.
+
+46
+00:02:28,331 --> 00:02:30,674 line:15% 
+So in a previous lecture, I gave you a link to download
+
+47
+00:02:30,674 --> 00:02:33,764 line:15% 
+the Udemy source code for this class.
+
+48
+00:02:33,764 --> 00:02:35,584 line:15% 
+So you simply download that ZIP file
+
+49
+00:02:35,584 --> 00:02:38,167 line:15% 
+and unzip it, or uncompress it,
+
+50
+00:02:40,699 --> 00:02:43,099 line:15% 
+and then inside of this directory here,
+
+51
+00:02:43,099 --> 00:02:45,616 line:15% 
+we have some supporting files that we're gonna use,
+
+52
+00:02:45,616 --> 00:02:46,919 line:15% 
+and in particular, we're gonna make use
+
+53
+00:02:46,919 --> 00:02:48,487 line:15% 
+of some starter files.
+
+54
+00:02:48,487 --> 00:02:50,791 line:15% 
+So in this directory structure here,
+
+55
+00:02:50,791 --> 00:02:54,958 line:15% 
+go to spring/mvc/starter-files/spring-mvc-demo/lib.
+
+56
+00:03:03,306 --> 00:03:04,859
+So go ahead and grab those files.
+
+57
+00:03:04,859 --> 00:03:06,785
+Just do a right-click and choose Copy,
+
+58
+00:03:06,785 --> 00:03:10,952
+and we're gonna put those into our Eclipse project also.
+
+59
+00:03:13,804 --> 00:03:16,746 line:15% 
+And then we'll swing back over to Eclipse,
+
+60
+00:03:16,746 --> 00:03:20,246 line:15% 
+and in the lib directory, we'll hit Paste.
+
+61
+00:03:26,007 --> 00:03:27,653
+All right, so we're kind of good to go right now.
+
+62
+00:03:27,653 --> 00:03:30,529
+So at this point, we have the Spring Framework JAR files,
+
+63
+00:03:30,529 --> 00:03:32,878
+and the JSTL support JAR files.
+
+64
+00:03:32,878 --> 00:03:34,312
+So this is good so far.
+
+65
+00:03:34,312 --> 00:03:35,495
+We're in good shape.
+
+66
+00:03:35,495 --> 00:03:37,145
+In the next video, we'll start moving in
+
+67
+00:03:37,145 --> 00:03:39,415
+some of the Spring configuration files,
+
+68
+00:03:39,415 --> 00:03:41,248
+so I'll see you there.
+

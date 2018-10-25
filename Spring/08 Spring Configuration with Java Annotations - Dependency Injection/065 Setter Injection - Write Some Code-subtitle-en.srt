@@ -1,0 +1,400 @@
+1
+00:00:00,841 --> 00:00:02,115
+<v Instructor>Alright, so let's</v>
+
+2
+00:00:02,115 --> 00:00:03,469
+go ahead and write some code.
+
+3
+00:00:03,469 --> 00:00:05,663
+So with our development process the first step
+
+4
+00:00:05,663 --> 00:00:08,492
+is actually creating the setter methods in our class,
+
+5
+00:00:08,492 --> 00:00:10,864
+and then the second step is to configure
+
+6
+00:00:10,864 --> 00:00:15,031
+the dependency injection using that @Autowired Annotation.
+
+7
+00:00:18,062 --> 00:00:20,326 line:15% 
+Alright, so for this example we're gonna make use of
+
+8
+00:00:20,326 --> 00:00:22,672 line:15% 
+our tennis coach, the same one we've been working on so far.
+
+9
+00:00:22,672 --> 00:00:25,481 line:15% 
+We're very familiar with this class now.
+
+10
+00:00:25,481 --> 00:00:27,107
+Let's go ahead and open up TennisCoach
+
+11
+00:00:27,107 --> 00:00:29,274
+and expand my window here.
+
+12
+00:00:33,330 --> 00:00:36,023
+Now in the previous videos online, 11-14,
+
+13
+00:00:36,023 --> 00:00:38,833
+we actually made use of the @Autowired Annotation
+
+14
+00:00:38,833 --> 00:00:41,747
+for constructors, but in this video we're actually
+
+15
+00:00:41,747 --> 00:00:44,330 line:15% 
+going to just comment that out.
+
+16
+00:00:46,844 --> 00:00:48,539 line:15% 
+We're not gonna use constructor injection here,
+
+17
+00:00:48,539 --> 00:00:52,039 line:15% 
+we're actually gonna use setter injection.
+
+18
+00:00:55,377 --> 00:00:56,341
+Now what I want to do is actually
+
+19
+00:00:56,341 --> 00:00:59,603
+first set up a default constructor.
+
+20
+00:00:59,603 --> 00:01:00,787
+So a default constructor is simply
+
+21
+00:01:00,787 --> 00:01:02,250
+a no-argument constructor, just
+
+22
+00:01:02,250 --> 00:01:04,874
+an open paren, closed paren.
+
+23
+00:01:04,874 --> 00:01:06,186
+And I want to do this mainly just
+
+24
+00:01:06,186 --> 00:01:07,927
+so I can keep track of Spring when they
+
+25
+00:01:07,927 --> 00:01:12,165
+create my objects, and also add a little diagnostic message.
+
+26
+00:01:12,165 --> 00:01:13,941
+So this is not really required in this example,
+
+27
+00:01:13,941 --> 00:01:16,670
+but I'm just adding it here just to give us more insight
+
+28
+00:01:16,670 --> 00:01:19,828
+as far as what Spring's doing in the background.
+
+29
+00:01:19,828 --> 00:01:21,975
+Alright, so here's my constructor TennisCoach.
+
+30
+00:01:21,975 --> 00:01:24,135
+And I'll do a simple sys out printline,
+
+31
+00:01:24,135 --> 00:01:26,364
+and I'll just do, again, a little diagnostic message
+
+32
+00:01:26,364 --> 00:01:29,197
+saying hey inside default constructor
+
+33
+00:01:29,197 --> 00:01:31,356
+so when I run the app, I can see that Spring is
+
+34
+00:01:31,356 --> 00:01:34,770
+actually calling the default constructor.
+
+35
+00:01:34,770 --> 00:01:36,848
+Again, mainly just for debugging here.
+
+36
+00:01:36,848 --> 00:01:40,765
+Mainly just for my own benefit and for tracing.
+
+37
+00:01:42,374 --> 00:01:44,650
+Alright, so that's my basic default constructor right now.
+
+38
+00:01:44,650 --> 00:01:46,567
+This looks pretty good.
+
+39
+00:01:49,331 --> 00:01:50,910
+Now for the real stuff.
+
+40
+00:01:50,910 --> 00:01:52,687
+The step one, so this is actually creating
+
+41
+00:01:52,687 --> 00:01:56,007
+a setter method in our class for injections.
+
+42
+00:01:56,007 --> 00:01:57,981
+So it's just a normal setter method
+
+43
+00:01:57,981 --> 00:02:02,079
+that will define for injecting this FortuneService.
+
+44
+00:02:02,079 --> 00:02:05,943
+So here I'll call it public void, setFortuneService,
+
+45
+00:02:05,943 --> 00:02:09,943
+I'll pass on the params here, theFortuneService,
+
+46
+00:02:12,122 --> 00:02:14,966
+typing it all out longhand and I simply make
+
+47
+00:02:14,966 --> 00:02:18,089
+an assignment inside so I'll say fortuneService, the field,
+
+48
+00:02:18,089 --> 00:02:21,630
+equals theFortuneService, which is
+
+49
+00:02:21,630 --> 00:02:24,858
+the actual parameter being passed into this method.
+
+50
+00:02:24,858 --> 00:02:27,296
+Again, very simple setter method
+
+51
+00:02:27,296 --> 00:02:30,767
+just making an assignment for theFortuneService.
+
+52
+00:02:30,767 --> 00:02:33,517
+And that's it. Looks good so far.
+
+53
+00:02:35,318 --> 00:02:37,095
+Now the next step, step two is actually
+
+54
+00:02:37,095 --> 00:02:39,545
+configuring the dependency injection
+
+55
+00:02:39,545 --> 00:02:43,562
+with @Autowired, so we need to actually tell Spring
+
+56
+00:02:43,562 --> 00:02:47,010
+hey I want you to autowire this dependency
+
+57
+00:02:47,010 --> 00:02:51,445
+and we'll autowire it using this setter method.
+
+58
+00:02:51,445 --> 00:02:53,929
+So basically when Spring sees this @Autowired,
+
+59
+00:02:53,929 --> 00:02:55,671
+it'll say hey I need to resolve a dependency,
+
+60
+00:02:55,671 --> 00:02:58,190
+I need to inject a dependency, and they'll look
+
+61
+00:02:58,190 --> 00:03:01,220
+for any class of implements FortuneService.
+
+62
+00:03:01,220 --> 00:03:02,915
+And that's how we have that set up.
+
+63
+00:03:02,915 --> 00:03:05,226
+So instead of doing constructor injection,
+
+64
+00:03:05,226 --> 00:03:07,722
+we're going to do setter injection.
+
+65
+00:03:07,722 --> 00:03:08,871
+And we basically put that
+
+66
+00:03:08,871 --> 00:03:12,192
+@Autowired on the actual method name.
+
+67
+00:03:12,192 --> 00:03:13,980
+And again on line 19, again, I'm just adding
+
+68
+00:03:13,980 --> 00:03:16,119
+some diagnostic messages here
+
+69
+00:03:16,119 --> 00:03:19,146
+just so I can see what's happening with Spring
+
+70
+00:03:19,146 --> 00:03:21,364
+behind the scenes when our application
+
+71
+00:03:21,364 --> 00:03:22,734
+actually executes.
+
+72
+00:03:22,734 --> 00:03:25,513
+So again, just more debugging for myself.
+
+73
+00:03:25,513 --> 00:03:28,090
+So there we go. We've set our injection.
+
+74
+00:03:28,090 --> 00:03:32,173
+Put the @Autowired annotation on a setter method.
+
+75
+00:03:37,065 --> 00:03:39,967 line:15% 
+Alright, so our work's all done here in the TennisCoach.
+
+76
+00:03:39,967 --> 00:03:44,134 line:15% 
+Let's go back to our main program, AnnotationDemoApp.java.
+
+77
+00:03:47,622 --> 00:03:49,364
+Again, this is our main program, it goes through,
+
+78
+00:03:49,364 --> 00:03:51,314
+it reads the Spring config file, you know,
+
+79
+00:03:51,314 --> 00:03:53,601
+it gets the bean from the container,
+
+80
+00:03:53,601 --> 00:03:57,166
+call methods on the bean to get the daily workout,
+
+81
+00:03:57,166 --> 00:03:59,778
+to get the daily fortune and so on.
+
+82
+00:03:59,778 --> 00:04:04,294
+So no changes over here I'll just kind of keep this as-is.
+
+83
+00:04:04,294 --> 00:04:09,194
+Clean up an extra white space, but that's basically it.
+
+84
+00:04:09,194 --> 00:04:10,273
+And what I'll do is I'll go ahead
+
+85
+00:04:10,273 --> 00:04:11,643
+and actually run the application now.
+
+86
+00:04:11,643 --> 00:04:15,810
+Just do a right-click, I'll choose Run as, java application.
+
+87
+00:04:19,132 --> 00:04:22,603
+So it's up and running, and oh yeah,
+
+88
+00:04:22,603 --> 00:04:24,472
+I see some good stuff out here.
+
+89
+00:04:24,472 --> 00:04:27,189
+So here is our one message inside the default constructor.
+
+90
+00:04:27,189 --> 00:04:29,523
+So they're calling that person correctly,
+
+91
+00:04:29,523 --> 00:04:32,588
+and they're also calling our inside setFortuneService
+
+92
+00:04:32,588 --> 00:04:36,036
+so that dependency injection for that method
+
+93
+00:04:36,036 --> 00:04:38,474
+is actually working out just fine.
+
+94
+00:04:38,474 --> 00:04:42,189
+So that @Autowired is working for us for our setter methods,
+
+95
+00:04:42,189 --> 00:04:44,523
+and all of our other messages print out just fine:
+
+96
+00:04:44,523 --> 00:04:47,541
+backhand volley, your lucky day, and so on.
+
+97
+00:04:47,541 --> 00:04:50,479
+So this is awesome. So we've accomplished the process
+
+98
+00:04:50,479 --> 00:04:54,728
+of using setter injections with annotations.
+
+99
+00:04:54,728 --> 00:04:57,979
+And that's by simply adding that @Autowired annotation
+
+100
+00:04:57,979 --> 00:05:02,146
+to our setter method. So this is great. Congratulations!
+

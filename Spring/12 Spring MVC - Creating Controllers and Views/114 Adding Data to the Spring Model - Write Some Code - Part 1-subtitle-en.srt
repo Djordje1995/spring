@@ -1,0 +1,320 @@
+1
+00:00:01,132 --> 00:00:01,965
+<v Instructor>Alrighty,</v>
+
+2
+00:00:01,965 --> 00:00:03,711
+so let's go ahead and move into Eclipse here
+
+3
+00:00:03,711 --> 00:00:05,207
+and we are actually going to add some
+
+4
+00:00:05,207 --> 00:00:08,745
+methods to our HelloWorldController to handle that new
+
+5
+00:00:08,745 --> 00:00:11,745
+example code that we want to set up.
+
+6
+00:00:14,617 --> 00:00:17,228
+So let's go ahead and move into HelloWorldController
+
+7
+00:00:17,228 --> 00:00:19,895
+and let's expand the window here
+
+8
+00:00:22,019 --> 00:00:24,120
+and clear out some white space
+
+9
+00:00:24,120 --> 00:00:25,975
+and again I always like to write a little comment
+
+10
+00:00:25,975 --> 00:00:30,142
+to kind of keep myself on track as far as what I need to do.
+
+11
+00:00:31,876 --> 00:00:34,060
+So we're going to add a new controller method
+
+12
+00:00:34,060 --> 00:00:35,477
+to read form data
+
+13
+00:00:36,913 --> 00:00:39,507
+and also add data to the model.
+
+14
+00:00:39,507 --> 00:00:43,674
+So that's kinda our game plan as far as what we need to do.
+
+15
+00:00:45,284 --> 00:00:48,828
+So let's go ahead and define that method here letsShoutDude.
+
+16
+00:00:48,828 --> 00:00:51,578
+We're going to shout in all caps.
+
+17
+00:00:54,083 --> 00:00:57,708
+So we passing those two parameters the httpServerRequest
+
+18
+00:00:57,708 --> 00:00:59,291
+and also the Model.
+
+19
+00:01:00,164 --> 00:01:02,804
+We're going to return, "helloworld".
+
+20
+00:01:02,804 --> 00:01:06,087
+So that'll go back over to our helloworld.jsp.
+
+21
+00:01:06,087 --> 00:01:08,836
+So that's the basic stub here, for this method.
+
+22
+00:01:08,836 --> 00:01:11,861
+Let me slide over here and fix some of these imports.
+
+23
+00:01:11,861 --> 00:01:14,596
+So I'll fix the import httpServerRequest
+
+24
+00:01:14,596 --> 00:01:17,279
+and also fix the import for Model,
+
+25
+00:01:17,279 --> 00:01:20,029
+that's from the Spring Framework.
+
+26
+00:01:28,604 --> 00:01:31,412
+Alright, so let's just copy that @RequestMapping
+
+27
+00:01:31,412 --> 00:01:32,745
+from line 21
+
+28
+00:01:32,745 --> 00:01:34,225
+and let's move down
+
+29
+00:01:34,225 --> 00:01:36,957
+and let's paste it in right above our
+
+30
+00:01:36,957 --> 00:01:38,707
+letsShoutDude method.
+
+31
+00:01:44,581 --> 00:01:46,776
+Alright, clean up that extra white space there.
+
+32
+00:01:46,776 --> 00:01:47,693
+Okay, cool.
+
+33
+00:01:49,929 --> 00:01:54,591
+So we're going to change the RequestMapping path
+
+34
+00:01:54,591 --> 00:01:56,674
+to processFormVersionTwo.
+
+35
+00:01:57,694 --> 00:01:59,021
+So a unique path, where,
+
+36
+00:01:59,021 --> 00:02:00,077
+and we'll actually update our form
+
+37
+00:02:00,077 --> 00:02:02,025
+to point to this path also.
+
+38
+00:02:02,025 --> 00:02:04,280
+Alright so that's kinda the basic layout here
+
+39
+00:02:04,280 --> 00:02:06,485
+for this controller method,
+
+40
+00:02:06,485 --> 00:02:08,349
+but we still need to kind of fill in the blanks
+
+41
+00:02:08,349 --> 00:02:10,432
+and do some stuff inside.
+
+42
+00:02:12,269 --> 00:02:15,141
+So before I start writing code, as far as what I need to do,
+
+43
+00:02:15,141 --> 00:02:17,212
+I'll actually write some comments (laughs).
+
+44
+00:02:17,212 --> 00:02:19,470
+Again, I love to keep myself on track here.
+
+45
+00:02:19,470 --> 00:02:21,134
+So the first thing we need to do is
+
+46
+00:02:21,134 --> 00:02:25,329
+read the request parameter from the HTML form,
+
+47
+00:02:25,329 --> 00:02:29,496
+then I need to basically convert that data to all uppercase
+
+48
+00:02:30,562 --> 00:02:32,562
+because I want to shout.
+
+49
+00:02:34,112 --> 00:02:36,817
+Then we'll actually create our message.
+
+50
+00:02:36,817 --> 00:02:39,409
+So I'll say like, "Yo, dude.",
+
+51
+00:02:39,409 --> 00:02:43,651
+and finally I'm gonna add that message to the model.
+
+52
+00:02:43,651 --> 00:02:47,122
+So that's kind of the basic game plan of what I want to here
+
+53
+00:02:47,122 --> 00:02:47,955
+in this code
+
+54
+00:02:47,955 --> 00:02:52,122
+and it's very similar to what we had in the slides.
+
+55
+00:02:56,345 --> 00:02:57,765
+So again to read the form data
+
+56
+00:02:57,765 --> 00:03:00,313
+we simply say request.getParameter
+
+57
+00:03:00,313 --> 00:03:04,480
+and we give the actually form filled name of studentName
+
+58
+00:03:08,251 --> 00:03:09,682
+and then we actually go through
+
+59
+00:03:09,682 --> 00:03:11,837
+and convert this data to all caps.
+
+60
+00:03:11,837 --> 00:03:13,920
+I say theName.toUpperCase
+
+61
+00:03:20,389 --> 00:03:22,467
+and then next go through and I create the message.
+
+62
+00:03:22,467 --> 00:03:23,952
+So I'll say result equals
+
+63
+00:03:23,952 --> 00:03:25,452
+and I'll say "Yo!"
+
+64
+00:03:26,697 --> 00:03:29,697
+and I'll concatenate it with thename
+
+65
+00:03:34,697 --> 00:03:36,049
+and then the important thing here
+
+66
+00:03:36,049 --> 00:03:37,613
+is adding this to the model.
+
+67
+00:03:37,613 --> 00:03:40,113
+So I'll say model.addAttribute
+
+68
+00:03:44,009 --> 00:03:46,553
+and I give the actual name comma value.
+
+69
+00:03:46,553 --> 00:03:48,636
+The name of the attribute is "message"
+
+70
+00:03:48,636 --> 00:03:50,327
+and the value is result.
+
+71
+00:03:50,327 --> 00:03:52,661
+So that's the information from the previous line
+
+72
+00:03:52,661 --> 00:03:54,689
+that we just set up.
+
+73
+00:03:54,689 --> 00:03:55,883
+So that's kind of the main piece here,
+
+74
+00:03:55,883 --> 00:03:57,966
+adding data to the model.
+
+75
+00:04:01,096 --> 00:04:02,569
+So that's it for our method.
+
+76
+00:04:02,569 --> 00:04:06,224
+So we have this new RequestMapping processFormVersionTwo
+
+77
+00:04:06,224 --> 00:04:09,650
+we take in some parameters, we read the form data,
+
+78
+00:04:09,650 --> 00:04:12,294
+convert the names to uppercase, create a new message,
+
+79
+00:04:12,294 --> 00:04:14,078
+and add that to the model.
+
+80
+00:04:14,078 --> 00:04:16,245
+So this looks good so far.
+

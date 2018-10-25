@@ -1,0 +1,596 @@
+1
+00:00:01,286 --> 00:00:02,119
+<v Instructor>All right, so we're making</v>
+
+2
+00:00:02,119 --> 00:00:03,647
+some good progress now.
+
+3
+00:00:03,647 --> 00:00:05,928
+So we just completed step one of defining
+
+4
+00:00:05,928 --> 00:00:08,960
+the dependency interface and the class.
+
+5
+00:00:08,960 --> 00:00:11,760
+Now let's go ahead and focus in on step two,
+
+6
+00:00:11,760 --> 00:00:15,927
+creating a constructor in our class for the injections.
+
+7
+00:00:20,336 --> 00:00:22,079
+All right, so back into Eclipse.
+
+8
+00:00:22,079 --> 00:00:24,410
+I need to actually create a constructor in my class
+
+9
+00:00:24,410 --> 00:00:25,470
+for injections.
+
+10
+00:00:25,470 --> 00:00:28,174
+So in my BaseballCoach class,
+
+11
+00:00:28,174 --> 00:00:30,073
+I need to do two things actually.
+
+12
+00:00:30,073 --> 00:00:32,139
+One is define a private field,
+
+13
+00:00:32,139 --> 00:00:33,765
+and then, two, define a constructor.
+
+14
+00:00:33,765 --> 00:00:34,976
+So let's go ahead and just write
+
+15
+00:00:34,976 --> 00:00:37,258
+some quick comments here in the file.
+
+16
+00:00:37,258 --> 00:00:39,309
+So here I'm gonna set up a
+
+17
+00:00:39,309 --> 00:00:41,709
+private field for FortuneService.
+
+18
+00:00:41,709 --> 00:00:43,831
+I'm also gonna give the variable name fortuneService
+
+19
+00:00:43,831 --> 00:00:46,119
+with a lowercase f.
+
+20
+00:00:46,119 --> 00:00:48,710
+Okay, so the capital F is the actual interface name.
+
+21
+00:00:48,710 --> 00:00:52,314
+The lowercase f version is our variable or field.
+
+22
+00:00:52,314 --> 00:00:54,791
+And then I define a constructor
+
+23
+00:00:54,791 --> 00:00:57,208
+for the dependency injection.
+
+24
+00:00:58,495 --> 00:01:00,537
+All these fancy buzz words here.
+
+25
+00:01:00,537 --> 00:01:04,198
+We're actually doing it, which is pretty cool.
+
+26
+00:01:04,198 --> 00:01:05,952
+So, creating a constructor, right?
+
+27
+00:01:05,952 --> 00:01:08,702
+Nothing fancy, the same name as the class,
+
+28
+00:01:08,702 --> 00:01:09,831
+BaseballCoach.
+
+29
+00:01:09,831 --> 00:01:11,157
+And now for the argument,
+
+30
+00:01:11,157 --> 00:01:13,897
+you simple set up the actual interface name here.
+
+31
+00:01:13,897 --> 00:01:17,180
+So FortuneService, I'll call it theFortuneService,
+
+32
+00:01:17,180 --> 00:01:18,602
+and then I simply make an assignment here
+
+33
+00:01:18,602 --> 00:01:20,170
+inside of this constructor.
+
+34
+00:01:20,170 --> 00:01:24,337
+So I say FortuneService, our field equals theFortuneService,
+
+35
+00:01:25,391 --> 00:01:29,284
+the actual parameter being passed in.
+
+36
+00:01:29,284 --> 00:01:32,175
+So Spring will actually construct our object,
+
+37
+00:01:32,175 --> 00:01:34,070
+they'll pass in a dependency,
+
+38
+00:01:34,070 --> 00:01:35,719
+and then we accept it,
+
+39
+00:01:35,719 --> 00:01:37,223
+and then we simply assign it.
+
+40
+00:01:37,223 --> 00:01:39,112
+And that's basically dependency injection.
+
+41
+00:01:39,112 --> 00:01:43,834
+So our class is ready to accept dependency injection
+
+42
+00:01:43,834 --> 00:01:45,834
+from the spring framework.
+
+43
+00:01:45,834 --> 00:01:48,584
+So we're in good shape right now.
+
+44
+00:01:51,143 --> 00:01:52,382
+All right, so we're making progress here
+
+45
+00:01:52,382 --> 00:01:54,143
+with this dependency injection.
+
+46
+00:01:54,143 --> 00:01:57,858
+Now let's go ahead and use this new FortuneService.
+
+47
+00:01:57,858 --> 00:02:01,199
+So down in that getDailyFortune method,
+
+48
+00:02:01,199 --> 00:02:05,339
+let me remove all of that auto generated stuff,
+
+49
+00:02:05,339 --> 00:02:07,688
+and I'll write a quick comment here to myself.
+
+50
+00:02:07,688 --> 00:02:08,967
+Actually, give me some white space.
+
+51
+00:02:08,967 --> 00:02:10,800
+I need to stretch out.
+
+52
+00:02:12,829 --> 00:02:14,475
+Okay, now here's my comment.
+
+53
+00:02:14,475 --> 00:02:18,428
+I'm gonna use my fortuneService to give the fortune, right?
+
+54
+00:02:18,428 --> 00:02:21,008
+So the coach can do daily workouts on his own.
+
+55
+00:02:21,008 --> 00:02:24,122
+But for fortunes, he actually needs a helper.
+
+56
+00:02:24,122 --> 00:02:26,577
+We're gonna use that dependency that was passed in.
+
+57
+00:02:26,577 --> 00:02:29,602
+So you all say fortuneService.getFortune
+
+58
+00:02:29,602 --> 00:02:30,736
+and that's what I return.
+
+59
+00:02:30,736 --> 00:02:32,573
+So I'm basically helping out the coach
+
+60
+00:02:32,573 --> 00:02:34,442
+by making use of this little helper class
+
+61
+00:02:34,442 --> 00:02:36,901
+or like an assistant to help the coach out.
+
+62
+00:02:36,901 --> 00:02:38,556
+We always wanna help the coach, right?
+
+63
+00:02:38,556 --> 00:02:39,958
+Helping well.
+
+64
+00:02:39,958 --> 00:02:40,814
+So that's basically it.
+
+65
+00:02:40,814 --> 00:02:43,176
+So we're making use of our dependency
+
+66
+00:02:43,176 --> 00:02:45,343
+in our actual application.
+
+67
+00:02:46,328 --> 00:02:47,161
+So this is cool.
+
+68
+00:02:47,161 --> 00:02:49,693
+We're doing some good dependency injection stuff here.
+
+69
+00:02:49,693 --> 00:02:50,526
+Getting excited.
+
+70
+00:02:50,526 --> 00:02:53,036
+We can probably go brag to our friends now that
+
+71
+00:02:53,036 --> 00:02:55,183
+we're doing some dependency injection.
+
+72
+00:02:55,183 --> 00:02:56,850
+We're doing some DI.
+
+73
+00:02:58,348 --> 00:03:01,926
+We can now one up our friends at the water cooler
+
+74
+00:03:01,926 --> 00:03:03,835
+when we talk again.
+
+75
+00:03:03,835 --> 00:03:08,002
+Yeah, man, I'm doing some screen dependency injection.
+
+76
+00:03:09,064 --> 00:03:12,397
+All right, so there we go, looking good.
+
+77
+00:03:13,981 --> 00:03:16,134
+So now the next step here is configuring
+
+78
+00:03:16,134 --> 00:03:19,385
+the dependency injection in our spring configuration file.
+
+79
+00:03:19,385 --> 00:03:21,730
+So we need to set this up in our spring config file
+
+80
+00:03:21,730 --> 00:03:24,147
+that application context.xml.
+
+81
+00:03:28,060 --> 00:03:30,074
+So I'm going to just get some white space here.
+
+82
+00:03:30,074 --> 00:03:34,241
+So I need to first define a bean here for that dependency.
+
+83
+00:03:37,326 --> 00:03:39,392
+And that dependency of course is our fortune teller,
+
+84
+00:03:39,392 --> 00:03:42,493
+our little helper, our assistant coach or whatever.
+
+85
+00:03:42,493 --> 00:03:44,956
+So here I'll set up this bean.
+
+86
+00:03:44,956 --> 00:03:47,539
+I give the id equals myFortune,
+
+87
+00:03:48,879 --> 00:03:50,875
+and then class.
+
+88
+00:03:50,875 --> 00:03:52,220
+I'll just set some double quotes here.
+
+89
+00:03:52,220 --> 00:03:54,530
+I'll make it empty for right now.
+
+90
+00:03:54,530 --> 00:03:55,937
+And what I need to do for classes,
+
+91
+00:03:55,937 --> 00:03:58,244
+I need to get the fully qualified class name.
+
+92
+00:03:58,244 --> 00:04:01,020
+So I'm gonna show you this really cool Eclipse trick
+
+93
+00:04:01,020 --> 00:04:02,520
+on how to do this.
+
+94
+00:04:04,313 --> 00:04:06,693
+So you can go back over to your HappyFortuneService,
+
+95
+00:04:06,693 --> 00:04:08,189
+that's the one that we want.
+
+96
+00:04:08,189 --> 00:04:11,011
+And you can simply click on the class name,
+
+97
+00:04:11,011 --> 00:04:12,595
+HappyFortuneService,
+
+98
+00:04:12,595 --> 00:04:15,968
+then you can right click and you can choose
+
+99
+00:04:15,968 --> 00:04:17,635
+Copy Qualified Name.
+
+100
+00:04:18,667 --> 00:04:19,750
+So what this will do is it'll give you
+
+101
+00:04:19,750 --> 00:04:21,529
+the fully qualified name,
+
+102
+00:04:21,529 --> 00:04:25,196
+meaning the package name dot the class name.
+
+103
+00:04:26,539 --> 00:04:30,258
+So I can move back over to my application context.xml.
+
+104
+00:04:30,258 --> 00:04:34,425
+I can right click on class=, and I can hit paste.
+
+105
+00:04:36,217 --> 00:04:37,760
+And then booyah!
+
+106
+00:04:37,760 --> 00:04:38,641
+All right, good.
+
+107
+00:04:38,641 --> 00:04:40,673
+So we have the fully qualified class name,
+
+108
+00:04:40,673 --> 00:04:42,946
+the package and the actual classes up.
+
+109
+00:04:42,946 --> 00:04:45,720
+This is very useful if you have a very long,
+
+110
+00:04:45,720 --> 00:04:48,719
+a very verbose package structure.
+
+111
+00:04:48,719 --> 00:04:50,502
+This is an easy way to get it in there
+
+112
+00:04:50,502 --> 00:04:52,315
+without having any typos or whatever,
+
+113
+00:04:52,315 --> 00:04:56,038
+because we always make mistakes when we hand type stuff.
+
+114
+00:04:56,038 --> 00:04:57,567
+All right, so that's a dependency.
+
+115
+00:04:57,567 --> 00:04:59,400
+Now let's go ahead and
+
+116
+00:05:00,329 --> 00:05:03,079
+set up the constructor injection.
+
+117
+00:05:05,180 --> 00:05:06,272
+Ooh fancy term.
+
+118
+00:05:06,272 --> 00:05:08,116
+I tell you, you'll really be able
+
+119
+00:05:08,116 --> 00:05:10,088
+to brag to your friends here.
+
+120
+00:05:10,088 --> 00:05:12,508
+So constructor injection.
+
+121
+00:05:12,508 --> 00:05:14,338
+Now, to use constructor injection,
+
+122
+00:05:14,338 --> 00:05:17,005
+you make use of constructor-arg,
+
+123
+00:05:18,294 --> 00:05:19,588
+and it gave me an end element.
+
+124
+00:05:19,588 --> 00:05:23,669
+Tell you what, I'm gonna just say space /&gt;.
+
+125
+00:05:23,669 --> 00:05:25,614
+Yeah, because I don't that extra thing there.
+
+126
+00:05:25,614 --> 00:05:27,659
+All right, and then I say ref=.
+
+127
+00:05:27,659 --> 00:05:30,674
+And now for ref=, I give the actual ID
+
+128
+00:05:30,674 --> 00:05:34,211
+of the bean that I'm gonna inject, the ID.
+
+129
+00:05:34,211 --> 00:05:36,425
+So that myFortune up there,
+
+130
+00:05:36,425 --> 00:05:37,805
+copy that bean name,
+
+131
+00:05:37,805 --> 00:05:38,698
+and then I'm gonna move it down here
+
+132
+00:05:38,698 --> 00:05:40,106
+and choose Paste.
+
+133
+00:05:40,106 --> 00:05:41,546
+You can hand pick it if you want,
+
+134
+00:05:41,546 --> 00:05:42,914
+but I like to kind of copy paste,
+
+135
+00:05:42,914 --> 00:05:45,497
+'cos I save some typing errors.
+
+136
+00:05:46,421 --> 00:05:47,254
+So that's it.
+
+137
+00:05:47,254 --> 00:05:48,841
+So they're going to...
+
+138
+00:05:48,841 --> 00:05:50,527
+What they're gonna do here is they're going to...
+
+139
+00:05:50,527 --> 00:05:51,963
+When I say they, meaning spring,
+
+140
+00:05:51,963 --> 00:05:53,571
+the spring framework or factory,
+
+141
+00:05:53,571 --> 00:05:56,096
+they're gonna create our coach object,
+
+142
+00:05:56,096 --> 00:05:57,662
+call the constructor,
+
+143
+00:05:57,662 --> 00:06:00,908
+and they're gonna pass in that fortune reference,
+
+144
+00:06:00,908 --> 00:06:04,540
+myFortune, which is effectively HappyFortuneService.
+
+145
+00:06:04,540 --> 00:06:07,035
+So again, this car factory,
+
+146
+00:06:07,035 --> 00:06:09,081
+they're actually gonna build a car for you.
+
+147
+00:06:09,081 --> 00:06:09,914
+So spring,
+
+148
+00:06:09,914 --> 00:06:11,904
+they're actually gonna construct the object for you,
+
+149
+00:06:11,904 --> 00:06:15,237
+and inject the appropriate dependencies.
+

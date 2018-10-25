@@ -1,0 +1,456 @@
+1
+00:00:01,444 --> 00:00:03,042
+<v Instructor>In this video, we're gonna develop</v>
+
+2
+00:00:03,042 --> 00:00:05,459
+Spring controllers and views.
+
+3
+00:00:09,281 --> 00:00:11,707
+So we've seen the big picture of Spring, right?
+
+4
+00:00:11,707 --> 00:00:13,783
+The MVC, you have the front controller,
+
+5
+00:00:13,783 --> 00:00:16,539
+you have a controller object, and a view template.
+
+6
+00:00:16,539 --> 00:00:18,461
+What we're gonna do here is actually
+
+7
+00:00:18,461 --> 00:00:21,706
+set up a request mapping for a given path,
+
+8
+00:00:21,706 --> 00:00:23,699
+and then we'll have a home controller
+
+9
+00:00:23,699 --> 00:00:25,474
+that's gonna handle the request,
+
+10
+00:00:25,474 --> 00:00:28,233
+then it's gonna forward it over to a view template,
+
+11
+00:00:28,233 --> 00:00:31,375
+which we'll call main-menu.jsp.
+
+12
+00:00:31,375 --> 00:00:33,951
+And it's very simple, very straightforward,
+
+13
+00:00:33,951 --> 00:00:35,034
+but I just wanna make sure we get
+
+14
+00:00:35,034 --> 00:00:38,784
+all the mechanics down for building this out.
+
+15
+00:00:39,883 --> 00:00:41,385
+All right, so again, I love this
+
+16
+00:00:41,385 --> 00:00:43,864
+step-by-step process, right?
+
+17
+00:00:43,864 --> 00:00:44,881
+The first thing we're gonna do is
+
+18
+00:00:44,881 --> 00:00:47,566
+create the controller class,
+
+19
+00:00:47,566 --> 00:00:50,220
+then we'll define the controller method.
+
+20
+00:00:50,220 --> 00:00:52,319
+Next we'll add request mappings
+
+21
+00:00:52,319 --> 00:00:54,447
+to the controller method,
+
+22
+00:00:54,447 --> 00:00:58,008
+and then we'll return the view name,
+
+23
+00:00:58,008 --> 00:01:00,852
+and then finally we'll develop the view page.
+
+24
+00:01:00,852 --> 00:01:03,033
+Woo, seems like a lot of stuff, right?
+
+25
+00:01:03,033 --> 00:01:05,590
+But don't worry, we'll go through all of this step-by-step,
+
+26
+00:01:05,590 --> 00:01:08,340
+and we'll do it all from scratch.
+
+27
+00:01:09,758 --> 00:01:11,992
+All right, so let's go ahead and start with step one,
+
+28
+00:01:11,992 --> 00:01:13,995
+creating the controller class.
+
+29
+00:01:13,995 --> 00:01:15,805
+Basically, you define a class,
+
+30
+00:01:15,805 --> 00:01:18,784
+and then you annotate it with @Controller.
+
+31
+00:01:18,784 --> 00:01:20,551
+Now, @Controller basically says that
+
+32
+00:01:20,551 --> 00:01:23,760
+this is a Spring MVC controller,
+
+33
+00:01:23,760 --> 00:01:26,010
+and also, one thing that's really cool is that
+
+34
+00:01:26,010 --> 00:01:29,093
+@Controller inherits from @Component,
+
+35
+00:01:30,037 --> 00:01:33,332
+so it's really just a specialized component
+
+36
+00:01:33,332 --> 00:01:35,901
+that supports web MVC.
+
+37
+00:01:35,901 --> 00:01:37,517
+The nice thing about this is that,
+
+38
+00:01:37,517 --> 00:01:40,041
+when Spring does its component scanning,
+
+39
+00:01:40,041 --> 00:01:42,845
+then it'll also pick up @Controllers
+
+40
+00:01:42,845 --> 00:01:46,245
+because they inherit or extend from @Component.
+
+41
+00:01:46,245 --> 00:01:47,713
+So this is the basic process here
+
+42
+00:01:47,713 --> 00:01:50,296
+of defining a controller class.
+
+43
+00:01:52,012 --> 00:01:53,565
+All right, so let's go ahead and take a look at
+
+44
+00:01:53,565 --> 00:01:55,787
+step two, defining a controller method.
+
+45
+00:01:55,787 --> 00:01:59,445
+So, here I have a method, public String showMyPage.
+
+46
+00:01:59,445 --> 00:02:01,652
+Now, this is a very simple method.
+
+47
+00:02:01,652 --> 00:02:03,538
+The actual method name is flexible.
+
+48
+00:02:03,538 --> 00:02:06,059
+You can give any method name that you want.
+
+49
+00:02:06,059 --> 00:02:07,644
+Here I called it showMyPage,
+
+50
+00:02:07,644 --> 00:02:10,135
+but I could've easily called it fubar.
+
+51
+00:02:10,135 --> 00:02:11,912
+The return type here is String.
+
+52
+00:02:11,912 --> 00:02:14,563
+I'm simply gonna return the actual view name
+
+53
+00:02:14,563 --> 00:02:15,995
+that I want them to show.
+
+54
+00:02:15,995 --> 00:02:19,871
+But again, this method here is actually very flexible.
+
+55
+00:02:19,871 --> 00:02:22,920
+So, in Spring, when you define your controller method,
+
+56
+00:02:22,920 --> 00:02:25,245
+you can actually pass in any number of parameters,
+
+57
+00:02:25,245 --> 00:02:27,213
+like request parameters, session objects,
+
+58
+00:02:27,213 --> 00:02:28,803
+and so on, or model objects.
+
+59
+00:02:28,803 --> 00:02:32,472
+And you can also return different variations here.
+
+60
+00:02:32,472 --> 00:02:34,787
+What I'll do is I'll keep it simple for right now,
+
+61
+00:02:34,787 --> 00:02:35,875
+but in the later videos,
+
+62
+00:02:35,875 --> 00:02:37,716
+I'll show you some other combinations,
+
+63
+00:02:37,716 --> 00:02:42,108
+some other forms of how we can define our controller method.
+
+64
+00:02:42,108 --> 00:02:46,759
+But this is a basic controller method for right now.
+
+65
+00:02:46,759 --> 00:02:49,212
+All right, so now that we have this method defined,
+
+66
+00:02:49,212 --> 00:02:51,645
+in step three we need to add the request mapping,
+
+67
+00:02:51,645 --> 00:02:55,301
+so we basically need to map some type of web request
+
+68
+00:02:55,301 --> 00:02:57,159
+to this given method, and we do this
+
+69
+00:02:57,159 --> 00:03:00,144
+with an annotation, @RequestMapping.
+
+70
+00:03:00,144 --> 00:03:01,535
+So you get the @RequestMapping
+
+71
+00:03:01,535 --> 00:03:03,860
+and you get the actual path that you wanna map.
+
+72
+00:03:03,860 --> 00:03:06,794 line:15% 
+So, in my example, I simply wanna map on the route,
+
+73
+00:03:06,794 --> 00:03:09,086 line:15% 
+so if they simply go to this website,
+
+74
+00:03:09,086 --> 00:03:11,232 line:15% 
+then they'll show this page here,
+
+75
+00:03:11,232 --> 00:03:13,153 line:15% 
+or they'll actually call this method here.
+
+76
+00:03:13,153 --> 00:03:15,402 line:15% 
+I'll show other examples of request mappings
+
+77
+00:03:15,402 --> 00:03:16,596 line:15% 
+in the following videos,
+
+78
+00:03:16,596 --> 00:03:19,057 line:15% 
+but this is just the basic one for right now.
+
+79
+00:03:19,057 --> 00:03:20,611 line:15% 
+And this request mapping will handle
+
+80
+00:03:20,611 --> 00:03:24,778 line:15% 
+all types of requests, get, post, and so on and so forth.
+
+81
+00:03:26,313 --> 00:03:28,175
+All right, so now, inside of the method,
+
+82
+00:03:28,175 --> 00:03:31,399
+with step four, we actually need to return the view name.
+
+83
+00:03:31,399 --> 00:03:34,681
+So, in this example I'm gonna return "main-menu."
+
+84
+00:03:34,681 --> 00:03:36,341
+That's the name of the view.
+
+85
+00:03:36,341 --> 00:03:38,296
+Now, remember here, there is some magic
+
+86
+00:03:38,296 --> 00:03:40,112
+that's gonna happen in the background.
+
+87
+00:03:40,112 --> 00:03:41,789
+Spring's actually gonna use information
+
+88
+00:03:41,789 --> 00:03:43,896
+from its configuration file,
+
+89
+00:03:43,896 --> 00:03:46,288
+and it'll actually find the view page.
+
+90
+00:03:46,288 --> 00:03:48,332
+So, based on the configs, it'll look
+
+91
+00:03:48,332 --> 00:03:50,862
+in a given prefix directory,
+
+92
+00:03:50,862 --> 00:03:53,187
+and it'll use the view name,
+
+93
+00:03:53,187 --> 00:03:57,059
+and then it'll pin the suffix ".jsp."
+
+94
+00:03:57,059 --> 00:03:58,992
+So, in this example here, it's gonna look for
+
+95
+00:03:58,992 --> 00:04:03,159
+/WEB-INf/view/main-menu.jsp.
+
+96
+00:04:04,951 --> 00:04:06,105
+So then step five is that
+
+97
+00:04:06,105 --> 00:04:07,937
+we actually have to create this page,
+
+98
+00:04:07,937 --> 00:04:10,381
+/WEB-INF/view/main-menu.jsp.
+
+99
+00:04:10,381 --> 00:04:14,619
+And again, it's any regular html page or jsp page.
+
+100
+00:04:14,619 --> 00:04:16,573
+You simply put in your html tags,
+
+101
+00:04:16,573 --> 00:04:18,334
+your markup, and so on.
+
+102
+00:04:18,334 --> 00:04:20,750
+So that's kinda the basic step here
+
+103
+00:04:20,750 --> 00:04:25,146
+for building a Spring MVC, I guess, page flow.
+
+104
+00:04:25,146 --> 00:04:27,450
+And here's just a quick recap of the steps.
+
+105
+00:04:27,450 --> 00:04:30,544
+Creating a controller, defining a controller method,
+
+106
+00:04:30,544 --> 00:04:32,626
+adding request mappings, the view,
+
+107
+00:04:32,626 --> 00:04:35,269
+and then the view page.
+
+108
+00:04:35,269 --> 00:04:36,287
+So what we'll do in the next video
+
+109
+00:04:36,287 --> 00:04:38,063
+is that we'll actually move into Eclipse,
+
+110
+00:04:38,063 --> 00:04:39,898
+and we'll actually build this out from scratch,
+
+111
+00:04:39,898 --> 00:04:41,201
+and then we'll run all the code,
+
+112
+00:04:41,201 --> 00:04:42,716
+and we'll get it up and running
+
+113
+00:04:42,716 --> 00:04:44,218
+on our local computer.
+
+114
+00:04:44,218 --> 00:04:47,051
+So I'll see you in the next video.
+

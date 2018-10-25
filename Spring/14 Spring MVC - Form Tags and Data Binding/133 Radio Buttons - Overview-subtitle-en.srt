@@ -1,0 +1,144 @@
+1
+00:00:01,257 --> 00:00:03,094
+<v Instructor>In this video, we're gonna cover</v>
+
+2
+00:00:03,094 --> 00:00:06,344
+Spring MVC Form Tags for radio buttons.
+
+3
+00:00:08,603 --> 00:00:11,936
+So here's a quick demo of radio buttons.
+
+4
+00:00:13,279 --> 00:00:15,058
+We'll enter the user's information.
+
+5
+00:00:15,058 --> 00:00:16,024
+And then they can choose their
+
+6
+00:00:16,024 --> 00:00:17,244
+favorite programming language.
+
+7
+00:00:17,244 --> 00:00:19,530
+So radio button, they can only choose one option.
+
+8
+00:00:19,530 --> 00:00:21,179
+They choose their one favorite language,
+
+9
+00:00:21,179 --> 00:00:23,198
+such as PHP in this example.
+
+10
+00:00:23,198 --> 00:00:25,104
+And then they can hit submit and then it will actually
+
+11
+00:00:25,104 --> 00:00:29,616
+show them the results on the confirmation page.
+
+12
+00:00:29,616 --> 00:00:31,308
+So their selected language there,
+
+13
+00:00:31,308 --> 00:00:33,641
+PHP, from that radio button.
+
+14
+00:00:35,754 --> 00:00:38,617
+Now, in the Spring MVC world, they have support
+
+15
+00:00:38,617 --> 00:00:40,932
+for radio buttons, and it's really simple here.
+
+16
+00:00:40,932 --> 00:00:43,349
+It's called form:radiobutton.
+
+17
+00:00:45,042 --> 00:00:46,900
+So let's look at a quick code example.
+
+18
+00:00:46,900 --> 00:00:48,293
+This is really simple.
+
+19
+00:00:48,293 --> 00:00:49,586
+So here, I'm gonna have radio buttons
+
+20
+00:00:49,586 --> 00:00:52,733
+for the four languages: Java, C#, PHP and Ruby.
+
+21
+00:00:52,733 --> 00:00:55,301
+We simply say, form:radiobutton,
+
+22
+00:00:55,301 --> 00:00:59,443
+path="favoriteLanguage", value="Java".
+
+23
+00:00:59,443 --> 00:01:01,030
+And the path="favoriteLanguage",
+
+24
+00:01:01,030 --> 00:01:03,477
+that's basically the property that we're binding
+
+25
+00:01:03,477 --> 00:01:06,246
+this radio button to, and that's basically it.
+
+26
+00:01:06,246 --> 00:01:08,435
+So they get to choose one of these options
+
+27
+00:01:08,435 --> 00:01:10,995
+and then we submit and then during the submission,
+
+28
+00:01:10,995 --> 00:01:14,582
+they'll call student.setFavoriteLanguage.
+
+29
+00:01:14,582 --> 00:01:16,692
+So we'll need to have a setter method there
+
+30
+00:01:16,692 --> 00:01:19,525
+to hold or handle this submission.
+
+31
+00:01:21,949 --> 00:01:23,695
+All righty, so that's basically it.
+
+32
+00:01:23,695 --> 00:01:25,303
+So what we'll do is we'll move into the clips,
+
+33
+00:01:25,303 --> 00:01:26,871
+we'll kind of pull it all together,
+
+34
+00:01:26,871 --> 00:01:28,815
+we'll add radio buttons to our form,
+
+35
+00:01:28,815 --> 00:01:31,897
+and then we'll display the results on our confirmation page.
+
+36
+00:01:31,897 --> 00:01:34,647
+So I'll see ya in the next video.
+

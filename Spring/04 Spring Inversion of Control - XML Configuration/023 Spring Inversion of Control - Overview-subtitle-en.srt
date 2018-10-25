@@ -1,0 +1,516 @@
+1
+00:00:01,229 --> 00:00:02,159
+<v Instructor>In this video,</v>
+
+2
+00:00:02,159 --> 00:00:05,992
+we're gonna cover Spring Inversion of Control.
+
+3
+00:00:07,489 --> 00:00:08,976
+Now in the previous videos,
+
+4
+00:00:08,976 --> 00:00:11,255
+we were working on our application.
+
+5
+00:00:11,255 --> 00:00:13,868
+However, we didn't get it to 100%
+
+6
+00:00:13,868 --> 00:00:17,079
+because we didn't have the support for the configuration.
+
+7
+00:00:17,079 --> 00:00:19,911
+And so, we need to make use of an object factory
+
+8
+00:00:19,911 --> 00:00:22,744
+to help us out with this solution.
+
+9
+00:00:24,265 --> 00:00:25,280
+And as I mentioned earlier,
+
+10
+00:00:25,280 --> 00:00:27,934
+this is exactly when Spring comes into play.
+
+11
+00:00:27,934 --> 00:00:30,193
+So Spring provides an object factory
+
+12
+00:00:30,193 --> 00:00:33,006
+so we can have our application talk to Spring say,
+
+13
+00:00:33,006 --> 00:00:34,583
+"Hey, give me an object
+
+14
+00:00:34,583 --> 00:00:37,971
+"based on a configuration file or annotation,"
+
+15
+00:00:37,971 --> 00:00:40,968
+Spring will give you the appropriate implementation
+
+16
+00:00:40,968 --> 00:00:42,875
+so then your app is configurable
+
+17
+00:00:42,875 --> 00:00:45,042
+and will have full support for that
+
+18
+00:00:45,042 --> 00:00:46,803
+based on our application requirements.
+
+19
+00:00:46,803 --> 00:00:49,643
+So this looks pretty good.
+
+20
+00:00:49,643 --> 00:00:51,663
+All right, so now we're into some real Spring stuff.
+
+21
+00:00:51,663 --> 00:00:53,323
+So the Spring container,
+
+22
+00:00:53,323 --> 00:00:56,438
+the primary functions of the Spring container is one,
+
+23
+00:00:56,438 --> 00:01:00,294
+create and manage objects, that's your inversion of control,
+
+24
+00:01:00,294 --> 00:01:03,403
+and then two, inject object's dependencies
+
+25
+00:01:03,403 --> 00:01:06,526
+and that's what they call dependency of injection.
+
+26
+00:01:06,526 --> 00:01:08,991
+Now, we'll actually cover all of this in the course.
+
+27
+00:01:08,991 --> 00:01:11,080
+I'll start off with inversion of control
+
+28
+00:01:11,080 --> 00:01:12,563
+and then the following videos,
+
+29
+00:01:12,563 --> 00:01:16,313
+we'll actually get into dependency injection.
+
+30
+00:01:17,924 --> 00:01:20,485
+There's three ways of configuring the Spring container.
+
+31
+00:01:20,485 --> 00:01:23,260
+One is by using an XML configuration file,
+
+32
+00:01:23,260 --> 00:01:25,592
+the other is using Java annotations,
+
+33
+00:01:25,592 --> 00:01:28,248
+and then finally you can make use of Java source code
+
+34
+00:01:28,248 --> 00:01:30,593
+and we'll actually cover all of these approaches
+
+35
+00:01:30,593 --> 00:01:33,314
+or all of these techniques in this course.
+
+36
+00:01:33,314 --> 00:01:35,770
+So let's talk about the XML configuration file.
+
+37
+00:01:35,770 --> 00:01:38,536
+It's the original configuration file that was used
+
+38
+00:01:38,536 --> 00:01:41,174
+when Spring was first released so it's a legacy,
+
+39
+00:01:41,174 --> 00:01:42,269
+but we'll still cover it
+
+40
+00:01:42,269 --> 00:01:44,856
+because most legacy apps still use this.
+
+41
+00:01:44,856 --> 00:01:47,244
+So if you're joining a Spring team
+
+42
+00:01:47,244 --> 00:01:48,463
+or you're joining a company
+
+43
+00:01:48,463 --> 00:01:51,150
+that has existing Spring applications,
+
+44
+00:01:51,150 --> 00:01:53,484
+it's a very high likelihood
+
+45
+00:01:53,484 --> 00:01:56,738
+that their applications still use XML config files
+
+46
+00:01:56,738 --> 00:01:58,473
+so we'll start off with that.
+
+47
+00:01:58,473 --> 00:02:01,060
+Also Java annotations is the latest fad,
+
+48
+00:02:01,060 --> 00:02:03,436
+the latest fashion, making annotations,
+
+49
+00:02:03,436 --> 00:02:06,013
+and also you can actually get rid of all config files
+
+50
+00:02:06,013 --> 00:02:07,308
+and you can configure the container
+
+51
+00:02:07,308 --> 00:02:09,276
+by using Java source code.
+
+52
+00:02:09,276 --> 00:02:12,256
+But again, we're gonna cover all of these techniques
+
+53
+00:02:12,256 --> 00:02:14,497
+so you'll understand how each one of them works
+
+54
+00:02:14,497 --> 00:02:16,247
+for your application.
+
+55
+00:02:18,152 --> 00:02:20,538
+All right, so here's the Spring development process.
+
+56
+00:02:20,538 --> 00:02:21,941
+And as you know, I love to do lists.
+
+57
+00:02:21,941 --> 00:02:23,357
+I love step-by-step approaches.
+
+58
+00:02:23,357 --> 00:02:26,834
+So the first step is configuring your Spring Beans.
+
+59
+00:02:26,834 --> 00:02:30,040
+The second step is creating a Spring container.
+
+60
+00:02:30,040 --> 00:02:31,116
+And then the third step
+
+61
+00:02:31,116 --> 00:02:33,853
+is retrieving the Beans from the container.
+
+62
+00:02:33,853 --> 00:02:36,347
+And we'll actually cover all of the step by step.
+
+63
+00:02:36,347 --> 00:02:38,121
+You'll see how everything works
+
+64
+00:02:38,121 --> 00:02:41,288
+and we'll do all of this from scratch.
+
+65
+00:02:42,698 --> 00:02:44,146
+All right, so let's start with step one,
+
+66
+00:02:44,146 --> 00:02:45,756
+configuring your Spring Beans.
+
+67
+00:02:45,756 --> 00:02:46,589
+So in this example,
+
+68
+00:02:46,589 --> 00:02:49,635
+I'm gonna make use of the XML configuration file.
+
+69
+00:02:49,635 --> 00:02:51,271
+So here in the XML config file
+
+70
+00:02:51,271 --> 00:02:53,809
+called applicationContext.xml,
+
+71
+00:02:53,809 --> 00:02:57,803
+I have a bean, I give the actual bean id myCoach
+
+72
+00:02:57,803 --> 00:02:58,884
+and I'll give the class
+
+73
+00:02:58,884 --> 00:03:02,232
+and that's the fully qualified name of the Java class.
+
+74
+00:03:02,232 --> 00:03:04,613
+So the id, that's simply the id
+
+75
+00:03:04,613 --> 00:03:07,076
+that your Java application will use
+
+76
+00:03:07,076 --> 00:03:11,021
+when they wanna retrieve a bean from the Spring container.
+
+77
+00:03:11,021 --> 00:03:14,361
+And again, class is the actual class or implementation
+
+78
+00:03:14,361 --> 00:03:17,528
+that you'll have for your application.
+
+79
+00:03:21,723 --> 00:03:23,140
+Okay, so let's move to step two.
+
+80
+00:03:23,140 --> 00:03:25,576
+So step two is creating a Spring container.
+
+81
+00:03:25,576 --> 00:03:26,981
+So in the Spring world,
+
+82
+00:03:26,981 --> 00:03:28,819
+a Spring container is generally known
+
+83
+00:03:28,819 --> 00:03:31,481
+as an ApplicationContext
+
+84
+00:03:31,481 --> 00:03:33,641
+so that's the term that you'll see a lot
+
+85
+00:03:33,641 --> 00:03:36,244
+in Spring documentation and in Spring apps.
+
+86
+00:03:36,244 --> 00:03:39,018
+So they have specialized implementations of it,
+
+87
+00:03:39,018 --> 00:03:41,489
+one for reading XML from the class path,
+
+88
+00:03:41,489 --> 00:03:45,451
+an annotation config, a web application context, and so on
+
+89
+00:03:45,451 --> 00:03:49,618
+and we'll take a look at all of these in this course.
+
+90
+00:03:51,455 --> 00:03:53,218
+All righty, so creating the Spring container,
+
+91
+00:03:53,218 --> 00:03:54,390
+so in this example,
+
+92
+00:03:54,390 --> 00:03:57,185
+I'm gonna read an XML file that's on my class path.
+
+93
+00:03:57,185 --> 00:04:01,736
+So I make use of this ClassPathXmlApplicationContext
+
+94
+00:04:01,736 --> 00:04:03,321
+and I construct this object
+
+95
+00:04:03,321 --> 00:04:06,990
+and I pass in the actual name of the configuration file
+
+96
+00:04:06,990 --> 00:04:08,185
+that I'm using for Spring.
+
+97
+00:04:08,185 --> 00:04:09,534
+So from step one,
+
+98
+00:04:09,534 --> 00:04:13,201
+we had a file called applicationContext.xml.
+
+99
+00:04:14,172 --> 00:04:15,452
+You can use any name that you want
+
+100
+00:04:15,452 --> 00:04:18,035
+as long as you're consistent between step one and step two
+
+101
+00:04:18,035 --> 00:04:21,914
+as far as reading that configuration file.
+
+102
+00:04:21,914 --> 00:04:24,247
+All right, so we have this container created.
+
+103
+00:04:24,247 --> 00:04:27,486
+Now the next step is retrieving the beans from the container
+
+104
+00:04:27,486 --> 00:04:29,801
+so your application is simply gonna talk
+
+105
+00:04:29,801 --> 00:04:31,389
+to the Spring container and say,
+
+106
+00:04:31,389 --> 00:04:34,088
+"Hey, give me a coach object,"
+
+107
+00:04:34,088 --> 00:04:36,826
+and based on information in the configuration file,
+
+108
+00:04:36,826 --> 00:04:40,993
+it'll give you an implementation of that given interface.
+
+109
+00:04:42,552 --> 00:04:44,338
+So here's step three as far as code.
+
+110
+00:04:44,338 --> 00:04:47,427
+So the previous line we already created our context.
+
+111
+00:04:47,427 --> 00:04:51,668
+Now we retrieve the bean from the container so here I say
+
+112
+00:04:51,668 --> 00:04:55,835
+context.getBean and here I say myCoach, Coach.class.
+
+113
+00:04:58,377 --> 00:05:01,310
+So myCoach relates to the actual bean id
+
+114
+00:05:01,310 --> 00:05:03,904
+defined in the configuration file,
+
+115
+00:05:03,904 --> 00:05:05,400
+you have to make sure those match up
+
+116
+00:05:05,400 --> 00:05:07,146
+with the exact same case,
+
+117
+00:05:07,146 --> 00:05:08,998
+and then Coach.class,
+
+118
+00:05:08,998 --> 00:05:11,746
+that's the name of the actual interface
+
+119
+00:05:11,746 --> 00:05:14,473
+that BaseballCoach implements.
+
+120
+00:05:14,473 --> 00:05:17,588
+So here, Coach.class is the interface,
+
+121
+00:05:17,588 --> 00:05:20,867
+BaseballCoach is the actual implementation
+
+122
+00:05:20,867 --> 00:05:22,033
+and then you assign it
+
+123
+00:05:22,033 --> 00:05:23,334
+and that's basically what you have to do
+
+124
+00:05:23,334 --> 00:05:27,167
+for retrieving a bean from a Spring container.
+
+125
+00:05:31,076 --> 00:05:33,233
+All righty, so that's the coding here.
+
+126
+00:05:33,233 --> 00:05:35,990
+In the next video, we're actually move into Eclipse.
+
+127
+00:05:35,990 --> 00:05:37,343
+We'll get our hands dirty
+
+128
+00:05:37,343 --> 00:05:39,227
+and we'll actually write this code and we'll run it
+
+129
+00:05:39,227 --> 00:05:43,227
+and we'll actually see it in action so woo hoo.
+

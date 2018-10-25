@@ -1,0 +1,220 @@
+1
+00:00:01,319 --> 00:00:02,875
+<v ->In this video, we're gonna learn about</v>
+
+2
+00:00:02,875 --> 00:00:06,025
+Spring MVC Validation for number ranges,
+
+3
+00:00:06,025 --> 00:00:07,692
+using @Min and @Max.
+
+4
+00:00:11,935 --> 00:00:15,032
+So what we'll do here is we will actually add a new field
+
+5
+00:00:15,032 --> 00:00:18,150
+to our HTML form for free passes.
+
+6
+00:00:18,150 --> 00:00:20,865
+So this Free Passes field, the user will be able to
+
+7
+00:00:20,865 --> 00:00:24,522
+enter a value between zero and 10.
+
+8
+00:00:24,522 --> 00:00:26,246
+And that's our number range.
+
+9
+00:00:26,246 --> 00:00:28,669
+Anything outside of that range then, we should have
+
+10
+00:00:28,669 --> 00:00:32,886
+a validation error displayed on the screen.
+
+11
+00:00:32,886 --> 00:00:34,900
+So let's look at the development process, and we've
+
+12
+00:00:34,900 --> 00:00:36,484
+kinda seen this before.
+
+13
+00:00:36,484 --> 00:00:38,687
+But with step one we'll add the validation rule
+
+14
+00:00:38,687 --> 00:00:41,816
+the the Customer class, and then from there we'll
+
+15
+00:00:41,816 --> 00:00:44,796
+display the error message on the HTML form.
+
+16
+00:00:44,796 --> 00:00:47,499
+Then next we'll actually perform the validation in
+
+17
+00:00:47,499 --> 00:00:50,452
+the Controller class, and then finally, we'll update
+
+18
+00:00:50,452 --> 00:00:54,899
+our confirmation page with the appropriate information.
+
+19
+00:00:54,899 --> 00:00:57,512
+Alrighty so let's dive in and take a look at step one,
+
+20
+00:00:57,512 --> 00:01:00,374
+adding the validation rule to the Customer class.
+
+21
+00:01:00,374 --> 00:01:02,433
+So basically what we're gonna do here is have this
+
+22
+00:01:02,433 --> 00:01:06,044
+new field in our Customer class called Free Passes.
+
+23
+00:01:06,044 --> 00:01:09,368
+So I'll define it as private int freePasses.
+
+24
+00:01:09,368 --> 00:01:12,075
+And now, what I'd like to do is actually make use of
+
+25
+00:01:12,075 --> 00:01:16,244
+two new annotations to set up our validation rules.
+
+26
+00:01:16,244 --> 00:01:19,947
+I'll make use of an @Min and an @Max.
+
+27
+00:01:19,947 --> 00:01:22,077
+Very self-explanatory, right?
+
+28
+00:01:22,077 --> 00:01:25,523
+So @Min, value equals zero, that's the minimum value
+
+29
+00:01:25,523 --> 00:01:27,742
+that we'll expect, or accept, and then the
+
+30
+00:01:27,742 --> 00:01:30,663
+message equals, that's the actual error message
+
+31
+00:01:30,663 --> 00:01:33,792
+that's generated if this validation fails.
+
+32
+00:01:33,792 --> 00:01:35,020
+So that's for @Min.
+
+33
+00:01:35,020 --> 00:01:37,929
+Then we'll also add one for @Max.
+
+34
+00:01:37,929 --> 00:01:41,075
+So the maximum value is 10, and then the appropriate
+
+35
+00:01:41,075 --> 00:01:43,888
+error message in case this validation fails.
+
+36
+00:01:43,888 --> 00:01:46,836
+So we've actually placed two annotations here,
+
+37
+00:01:46,836 --> 00:01:50,777
+on this given field, for a given range.
+
+38
+00:01:50,777 --> 00:01:53,533
+Now, we go through an do our normal work of adding the
+
+39
+00:01:53,533 --> 00:01:56,435
+getter and setter methods, so we can actually retrieve
+
+40
+00:01:56,435 --> 00:01:59,240
+the value for the free passes and also set the
+
+41
+00:01:59,240 --> 00:02:01,182
+value for the free passes.
+
+42
+00:02:01,182 --> 00:02:04,053
+But that's basically it as far as the coding here,
+
+43
+00:02:04,053 --> 00:02:06,421
+for the Customer class.
+
+44
+00:02:06,421 --> 00:02:09,237
+Alrighty so just a recap on the development process.
+
+45
+00:02:09,237 --> 00:02:10,903
+The first thing is adding the validation rule
+
+46
+00:02:10,903 --> 00:02:13,108
+to the Customer class, we just covered that.
+
+47
+00:02:13,108 --> 00:02:16,425
+Now steps two through four, I won't go through these
+
+48
+00:02:16,425 --> 00:02:17,540
+in the slides.
+
+49
+00:02:17,540 --> 00:02:19,883
+I'll actually save these, and we'll actually cover this
+
+50
+00:02:19,883 --> 00:02:23,347
+in the actual video because, steps two through four,
+
+51
+00:02:23,347 --> 00:02:25,838
+they're really similar to what we've already done before,
+
+52
+00:02:25,838 --> 00:02:28,336
+so there's really nothing new to cover in the slides.
+
+53
+00:02:28,336 --> 00:02:30,323
+We'll simply code this in Eclipse as we
+
+54
+00:02:30,323 --> 00:02:31,593
+go through the video.
+
+55
+00:02:31,593 --> 00:02:34,343
+So I'll see ya in the next video.
+

@@ -1,0 +1,504 @@
+1
+00:00:01,379 --> 00:00:03,867
+<v Instructor>Alright so just moving into Eclipse here</v>
+
+2
+00:00:03,867 --> 00:00:05,861
+and looking at the Development Process.
+
+3
+00:00:05,861 --> 00:00:07,487
+The first thing we are going to do is create
+
+4
+00:00:07,487 --> 00:00:09,154
+the Properties File.
+
+5
+00:00:12,274 --> 00:00:13,886
+So what I will do here is I will click
+
+6
+00:00:13,886 --> 00:00:15,105
+on my source directory.
+
+7
+00:00:15,105 --> 00:00:19,022
+I will do a right click and I'll say New File.
+
+8
+00:00:24,839 --> 00:00:27,911
+And for the actual name of the file I will call it
+
+9
+00:00:27,911 --> 00:00:29,328
+sport.properties.
+
+10
+00:00:34,669 --> 00:00:36,999
+And once you're happy with that go ahead and click
+
+11
+00:00:36,999 --> 00:00:38,749
+on the Finish button.
+
+12
+00:00:40,022 --> 00:00:42,571
+Now we simply add the values here for our Properties file.
+
+13
+00:00:42,571 --> 00:00:45,493
+So our first Property name is called foo.email
+
+14
+00:00:45,493 --> 00:00:48,394
+and then I simply just enter a value here for the
+
+15
+00:00:48,394 --> 00:00:49,561
+email address.
+
+16
+00:00:50,474 --> 00:00:53,146
+Then I do a similar thing here for the actual team name.
+
+17
+00:00:53,146 --> 00:00:56,988
+So foo.team= and I simply give the team name.
+
+18
+00:00:56,988 --> 00:01:00,318
+So again you can give any property name that you want,
+
+19
+00:01:00,318 --> 00:01:03,259
+you simply have to be consistent with the actual value
+
+20
+00:01:03,259 --> 00:01:05,624
+in this Props file and which you use in the
+
+21
+00:01:05,624 --> 00:01:07,207
+Spring config file.
+
+22
+00:01:09,624 --> 00:01:11,238
+Alright so this looks pretty good here for the basic
+
+23
+00:01:11,238 --> 00:01:13,738
+Properties file for right now.
+
+24
+00:01:15,657 --> 00:01:18,478
+Alright so let's go ahead and move over to Step 2.
+
+25
+00:01:18,478 --> 00:01:19,627
+So Step 2 is loading the Properties File in our
+
+26
+00:01:19,627 --> 00:01:21,210
+Spring config file.
+
+27
+00:01:22,697 --> 00:01:24,297
+So I am going to actually open up my application
+
+28
+00:01:24,297 --> 00:01:25,897
+context.xml file.
+
+29
+00:01:25,897 --> 00:01:27,814
+Expand the window here.
+
+30
+00:01:29,604 --> 00:01:32,945
+And what I want to do, right near the top here,
+
+31
+00:01:32,945 --> 00:01:34,294
+like around,
+
+32
+00:01:34,294 --> 00:01:35,544
+let's see here,
+
+33
+00:01:36,494 --> 00:01:38,461
+yes, like on line 10.
+
+34
+00:01:38,461 --> 00:01:41,987
+What I want to do here is actually add a reference
+
+35
+00:01:41,987 --> 00:01:44,253
+for that context property placeholder.
+
+36
+00:01:44,253 --> 00:01:46,451
+This is what we use to actually load the Props
+
+37
+00:01:46,451 --> 00:01:49,201
+file into the Spring environment.
+
+38
+00:01:51,291 --> 00:01:55,041
+So I make use of context:property-placeholder
+
+39
+00:01:56,636 --> 00:01:57,469
+and then I give the actual location.
+
+40
+00:01:57,469 --> 00:02:00,916
+So this file is going to be on our classpath:
+
+41
+00:02:00,916 --> 00:02:01,749
+So I say classpath: and then I give the name of our
+
+42
+00:02:01,749 --> 00:02:05,416
+actual Properties file, so sport.properties.
+
+43
+00:02:06,985 --> 00:02:08,893
+and that is file that we just created.
+
+44
+00:02:08,893 --> 00:02:12,560
+And, oh my, I normally put my comments first
+
+45
+00:02:13,859 --> 00:02:16,594
+but I will put the comments last. (chuckles)
+
+46
+00:02:16,594 --> 00:02:17,427
+So here I will just make comments for myself.
+
+47
+00:02:17,427 --> 00:02:19,427
+Load the Properties file
+
+48
+00:02:21,455 --> 00:02:22,288
+sport.properties.
+
+49
+00:02:22,288 --> 00:02:24,649
+It's just a way to kind of jog my memory when I go
+
+50
+00:02:24,649 --> 00:02:27,467
+back in and look at this file at a later time.
+
+51
+00:02:27,467 --> 00:02:28,467
+So good job.
+
+52
+00:02:33,490 --> 00:02:35,894
+Alright, so then the next step here is Step 3.
+
+53
+00:02:35,894 --> 00:02:38,168
+Reference the values from the Property file.
+
+54
+00:02:38,168 --> 00:02:40,672
+So again this is our CricketCoach here that we have
+
+55
+00:02:40,672 --> 00:02:44,901
+been working on so far, and on Lines 34 and 35 we have
+
+56
+00:02:44,901 --> 00:02:47,120
+values hard-coded.
+
+57
+00:02:47,120 --> 00:02:47,953
+And what I would like to do is instead, is make use
+
+58
+00:02:47,953 --> 00:02:50,809
+of that information from the Properties file.
+
+59
+00:02:50,809 --> 00:02:54,405
+So again I make use of that syntax right.
+
+60
+00:02:54,405 --> 00:02:56,961
+${ and the actual property name.
+
+61
+00:02:56,961 --> 00:03:00,367
+So here, that foo.email, that is the Property name.
+
+62
+00:03:00,367 --> 00:03:02,560
+And then I will just kind of move back over here
+
+63
+00:03:02,560 --> 00:03:05,143
+and use that ${ and then I give
+
+64
+00:03:06,030 --> 00:03:08,943
+the actual property name, foo.email.
+
+65
+00:03:08,943 --> 00:03:11,179
+Make sure that it's the same name that you have from
+
+66
+00:03:11,179 --> 00:03:12,512
+the config file.
+
+67
+00:03:13,869 --> 00:03:16,189
+Alright so that covers us for the email.
+
+68
+00:03:16,189 --> 00:03:19,772
+Let's do a similar thing here for foo.team.
+
+69
+00:03:21,035 --> 00:03:24,655
+Then I will just move back over to my configuration file.
+
+70
+00:03:24,655 --> 00:03:27,238
+And here I will say ${foo.team.
+
+71
+00:03:31,647 --> 00:03:32,480
+Alright.
+
+72
+00:03:35,794 --> 00:03:38,074
+Excellent. Looks very good so far.
+
+73
+00:03:38,074 --> 00:03:40,134
+So that is it. So instead of hard-coded values,
+
+74
+00:03:40,134 --> 00:03:43,915
+now I am going to read those values from the actual
+
+75
+00:03:43,915 --> 00:03:44,748
+Properties file.
+
+76
+00:03:44,748 --> 00:03:45,990
+So this is great. I like this.
+
+77
+00:03:45,990 --> 00:03:48,368
+The app is kind of very flexible at this point
+
+78
+00:03:48,368 --> 00:03:50,856
+and also very configurable.
+
+79
+00:03:50,856 --> 00:03:53,975
+So, in fact we actually have a config file
+
+80
+00:03:53,975 --> 00:03:56,279
+for the config file right. (chuckles)
+
+81
+00:03:56,279 --> 00:03:58,084
+We have this Sport.properties that is used in the
+
+82
+00:03:58,084 --> 00:04:01,424
+configure spring config. Anyways we are all good.
+
+83
+00:04:01,424 --> 00:04:05,591
+So what we can do now is actually run our demo app.
+
+84
+00:04:06,952 --> 00:04:10,250
+Set our demo app.java so once we open up this file
+
+85
+00:04:10,250 --> 00:04:12,530
+here there is really no changes that we have to do.
+
+86
+00:04:12,530 --> 00:04:15,030
+We are simply changing how the screen is reading
+
+87
+00:04:15,030 --> 00:04:16,393
+information from the configs.
+
+88
+00:04:16,393 --> 00:04:19,826
+So all this stuff we can keep the same, no changes,
+
+89
+00:04:19,826 --> 00:04:21,045
+and we can just simply run it.
+
+90
+00:04:21,045 --> 00:04:25,212
+So I just do a right click Run As Java Application.
+
+91
+00:04:28,362 --> 00:04:32,169
+And then we can take a look at the results here.
+
+92
+00:04:32,169 --> 00:04:34,761
+And, yeah, looking really good here.
+
+93
+00:04:34,761 --> 00:04:35,797
+Looking really good.
+
+94
+00:04:35,797 --> 00:04:39,605
+So at the bottom we have our coach's email address
+
+95
+00:04:39,605 --> 00:04:41,699
+and also the team, so it is actually reading that
+
+96
+00:04:41,699 --> 00:04:45,130
+information from that file Sport.properties and then
+
+97
+00:04:45,130 --> 00:04:46,656
+plugging those values in there.
+
+98
+00:04:46,656 --> 00:04:49,310
+So this is great. I love it. I love it.
+
+99
+00:04:49,310 --> 00:04:52,560
+Things work as planned. How about that.
+
+100
+00:04:53,473 --> 00:04:54,600
+Now let's test it out though.
+
+101
+00:04:54,600 --> 00:04:57,534
+Let's go back and change our Properties file.
+
+102
+00:04:57,534 --> 00:05:01,550
+Just to verify that it really really is working. (chuckles)
+
+103
+00:05:01,550 --> 00:05:03,643
+And I am going to change the email address here to
+
+104
+00:05:03,643 --> 00:05:08,181
+silly. And I am going to change the team name to
+
+105
+00:05:08,181 --> 00:05:11,777
+a really really awesome team here.
+
+106
+00:05:11,777 --> 00:05:15,804
+I am going to put in this special super team.
+
+107
+00:05:15,804 --> 00:05:19,554
+And it's called the Mighty Java Coders. Yeah.
+
+108
+00:05:21,009 --> 00:05:23,672
+And it's composed of all of us right because
+
+109
+00:05:23,672 --> 00:05:25,244
+we are all super heroes and we are all
+
+110
+00:05:25,244 --> 00:05:27,293
+super athletes.
+
+111
+00:05:27,293 --> 00:05:29,635
+And we can beat any other cricket team out there.
+
+112
+00:05:29,635 --> 00:05:31,269
+Right. (chuckles)
+
+113
+00:05:31,269 --> 00:05:33,390
+Alright. So let's try this. So we saved it.
+
+114
+00:05:33,390 --> 00:05:35,314
+Again, since it is a Properties file no need to
+
+115
+00:05:35,314 --> 00:05:38,110
+change the application, simply run the application again.
+
+116
+00:05:38,110 --> 00:05:40,447
+And it should pick up those new properties.
+
+117
+00:05:40,447 --> 00:05:42,074
+And let's take a look at it.
+
+118
+00:05:42,074 --> 00:05:44,670
+Yeah! Alright! Good Stuff!
+
+119
+00:05:44,670 --> 00:05:48,161
+So, there's our team name, Mighty Java Coders,
+
+120
+00:05:48,161 --> 00:05:50,173
+and our email address silly@luv2code.
+
+121
+00:05:50,173 --> 00:05:52,691
+So this is great. Woohoo!
+
+122
+00:05:52,691 --> 00:05:54,505
+We are rocking and rolling.
+
+123
+00:05:54,505 --> 00:05:57,367
+So we have accomplished that item of actually reading
+
+124
+00:05:57,367 --> 00:05:59,262
+information from the Properties file
+
+125
+00:05:59,262 --> 00:06:02,219
+so it is not hard-coded in our spring configs.
+
+126
+00:06:02,219 --> 00:06:06,386
+So I would like to say Good Job! and Congratulations!
+

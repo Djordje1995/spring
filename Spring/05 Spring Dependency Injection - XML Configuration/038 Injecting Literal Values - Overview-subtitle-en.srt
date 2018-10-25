@@ -1,0 +1,208 @@
+1
+00:00:01,083 --> 00:00:02,794
+<v Teacher>Hey, in this video we're gonna learn</v>
+
+2
+00:00:02,794 --> 00:00:06,961
+how to inject literal values into our Spring objects.
+
+3
+00:00:08,404 --> 00:00:10,335
+So, currently we have our CricketCoach.
+
+4
+00:00:10,335 --> 00:00:12,548
+We've learned how to inject a FortuneService
+
+5
+00:00:12,548 --> 00:00:13,654
+to our CricketCoach.
+
+6
+00:00:13,654 --> 00:00:15,781
+But now we'd like to inject some literal values
+
+7
+00:00:15,781 --> 00:00:17,417
+like some string values.
+
+8
+00:00:17,417 --> 00:00:18,929
+So I'd like to inject
+
+9
+00:00:18,929 --> 00:00:20,810
+the actual email address for the coach,
+
+10
+00:00:20,810 --> 00:00:22,985
+and the actual team name for the coach,
+
+11
+00:00:22,985 --> 00:00:24,473
+like the Sunrisers.
+
+12
+00:00:24,473 --> 00:00:25,760
+Alright, so let's go ahead
+
+13
+00:00:25,760 --> 00:00:29,505
+and check out our development process for this.
+
+14
+00:00:29,505 --> 00:00:32,147
+So again, I love to do things step by step.
+
+15
+00:00:32,147 --> 00:00:33,238
+The first thing we're gonna do here
+
+16
+00:00:33,238 --> 00:00:36,729
+is create setter methods in our class for injections.
+
+17
+00:00:36,729 --> 00:00:39,200
+And then we'll also configure the injection
+
+18
+00:00:39,200 --> 00:00:41,950
+in our Spring configuration file.
+
+19
+00:00:43,851 --> 00:00:46,003
+Alright, so let's go ahead and take a look at step one.
+
+20
+00:00:46,003 --> 00:00:48,241
+Create setter methods in your class.
+
+21
+00:00:48,241 --> 00:00:50,313
+So here's our class CricketCoach.
+
+22
+00:00:50,313 --> 00:00:52,169
+Actually the first thing we wanna do
+
+23
+00:00:52,169 --> 00:00:56,074
+is create some private fields to hold these values.
+
+24
+00:00:56,074 --> 00:00:58,741
+So I'll have a private String for emailAddress,
+
+25
+00:00:58,741 --> 00:01:01,052
+and then a private String for team.
+
+26
+00:01:01,052 --> 00:01:02,371
+Once I have that set up,
+
+27
+00:01:02,371 --> 00:01:05,018
+then I need to set up public setter methods
+
+28
+00:01:05,018 --> 00:01:06,122
+for these fields here.
+
+29
+00:01:06,122 --> 00:01:09,010
+So I have a public void setEmailAddress,
+
+30
+00:01:09,010 --> 00:01:11,371
+public void setTeam.
+
+31
+00:01:11,371 --> 00:01:15,204
+And we'll cover the coding piece in the video.
+
+32
+00:01:17,607 --> 00:01:21,342
+Alright, so now that's taken care of, now we do step two.
+
+33
+00:01:21,342 --> 00:01:24,593
+Configure the injection in the Spring config file.
+
+34
+00:01:24,593 --> 00:01:26,453
+So again, here's myCricketCoach,
+
+35
+00:01:26,453 --> 00:01:28,133
+then I have these two new entries here
+
+36
+00:01:28,133 --> 00:01:31,078
+for property name equals emailAddress,
+
+37
+00:01:31,078 --> 00:01:33,477
+and then value, and then I give the actual value
+
+38
+00:01:33,477 --> 00:01:34,533
+of the email address.
+
+39
+00:01:34,533 --> 00:01:36,895
+Thebestcoach@luv2code.com.
+
+40
+00:01:36,895 --> 00:01:39,533
+And note here the attribute name is value equals,
+
+41
+00:01:39,533 --> 00:01:40,828
+as opposed to ref.
+
+42
+00:01:40,828 --> 00:01:43,453
+So value is used for literal values,
+
+43
+00:01:43,453 --> 00:01:47,238
+ref is used to refer to other objects or dependencies.
+
+44
+00:01:47,238 --> 00:01:48,448
+And then I just repeat the process here
+
+45
+00:01:48,448 --> 00:01:50,864
+for this next property, team.
+
+46
+00:01:50,864 --> 00:01:52,086
+So I give the actual value,
+
+47
+00:01:52,086 --> 00:01:56,833
+and I give the actual literal value here for the team.
+
+48
+00:01:56,833 --> 00:01:58,946
+Alright, so that's the basic process there
+
+49
+00:01:58,946 --> 00:02:03,682
+for injecting literal values into your Spring application.
+
+50
+00:02:03,682 --> 00:02:06,410
+In the next video, we'll dive into Eclipse,
+
+51
+00:02:06,410 --> 00:02:09,394
+and we'll actually write the code to make this happen.
+
+52
+00:02:09,394 --> 00:02:12,977
+Okay, I'll see ya there, in the next video.
+

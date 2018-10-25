@@ -1,0 +1,284 @@
+1
+00:00:01,289 --> 00:00:02,737
+<v Instructor>In this video, we're gonna discuss</v>
+
+2
+00:00:02,737 --> 00:00:05,820
+annotation autowiring and qualifiers.
+
+3
+00:00:07,885 --> 00:00:09,522
+So far, we've been using autowiring
+
+4
+00:00:09,522 --> 00:00:12,601
+where Spring was basically scanned for components
+
+5
+00:00:12,601 --> 00:00:15,638
+and it'll ask, hey does anyone implement a given
+
+6
+00:00:15,638 --> 00:00:18,322
+FortuneService interface?
+
+7
+00:00:18,322 --> 00:00:21,321
+But I bet you are probably wondering. (laughs)
+
+8
+00:00:21,321 --> 00:00:26,207
+What happens if there's multiple implementations out there?
+
+9
+00:00:26,207 --> 00:00:29,611
+I mean, which one will Spring pick?
+
+10
+00:00:29,611 --> 00:00:31,182
+Will it pick the first one it finds?
+
+11
+00:00:31,182 --> 00:00:32,215
+Will it pick the last one?
+
+12
+00:00:32,215 --> 00:00:33,300
+I mean, what's the strategy?
+
+13
+00:00:33,300 --> 00:00:35,883
+Basically, what's up with that?
+
+14
+00:00:37,794 --> 00:00:40,478
+So, if we had multiple FortuneService implementations
+
+15
+00:00:40,478 --> 00:00:43,373
+like the HappyFortuneService, and then what if we had like
+
+16
+00:00:43,373 --> 00:00:46,371
+maybe a RandomFortuneService?
+
+17
+00:00:46,371 --> 00:00:49,362
+We get real fancy with a DatabaseFortuneService.
+
+18
+00:00:49,362 --> 00:00:52,074
+And then maybe a RESTFortuneService.
+
+19
+00:00:52,074 --> 00:00:53,163
+Well, I mean, which one?
+
+20
+00:00:53,163 --> 00:00:54,197
+I mean, there's so many out here.
+
+21
+00:00:54,197 --> 00:00:57,859
+How will Spring know which one to pick?
+
+22
+00:00:57,859 --> 00:00:59,777
+Well, if you actually had all those implementations
+
+23
+00:00:59,777 --> 00:01:02,542
+out there, you'd actually have a problem.
+
+24
+00:01:02,542 --> 00:01:04,559
+And this is the error message that Spring will give you.
+
+25
+00:01:04,559 --> 00:01:06,798
+Spring will say, hey, there was an error creating
+
+26
+00:01:06,798 --> 00:01:08,318
+a bean named tennisCoach.
+
+27
+00:01:08,318 --> 00:01:11,260
+The injection of the autowired dependencies failed.
+
+28
+00:01:11,260 --> 00:01:15,427
+And this was caused by NoUniqueBeanDefinitionException.
+
+29
+00:01:16,425 --> 00:01:18,293
+Ugh, sounds ugly.
+
+30
+00:01:18,293 --> 00:01:22,458
+So basically, it says that we expected a single match
+
+31
+00:01:22,458 --> 00:01:26,384
+of the bean, but we found four implementations.
+
+32
+00:01:26,384 --> 00:01:28,012
+And then Spring will even be nice.
+
+33
+00:01:28,012 --> 00:01:30,780
+It'll give you a list of all four that it found.
+
+34
+00:01:30,780 --> 00:01:33,940
+So basically, in order to resolve this,
+
+35
+00:01:33,940 --> 00:01:38,457
+you need to be able to give Spring a unique bean, all right.
+
+36
+00:01:38,457 --> 00:01:40,093
+So Spring can't figure it out on it's own
+
+37
+00:01:40,093 --> 00:01:41,969
+because there's more than one.
+
+38
+00:01:41,969 --> 00:01:44,117
+So you have to kind of be very specific,
+
+39
+00:01:44,117 --> 00:01:46,760
+and you have to qualify or tell Spring
+
+40
+00:01:46,760 --> 00:01:50,812
+which specific bean you want them to use.
+
+41
+00:01:50,812 --> 00:01:52,566
+So what you'll do is actually make use
+
+42
+00:01:52,566 --> 00:01:55,258
+of this annotation called Qualifier.
+
+43
+00:01:55,258 --> 00:01:57,210
+So here, we're gonna be specific.
+
+44
+00:01:57,210 --> 00:02:01,606
+So in this example for TennisCoach, I'll use @Qualifier,
+
+45
+00:02:01,606 --> 00:02:04,570
+and then I'll actually give the bean ID
+
+46
+00:02:04,570 --> 00:02:06,809
+of the bean that I wanted to use.
+
+47
+00:02:06,809 --> 00:02:10,499
+Now, remember in this example, we're using our @Components,
+
+48
+00:02:10,499 --> 00:02:13,261
+and we're actually just using the default name
+
+49
+00:02:13,261 --> 00:02:16,722
+for the component, so the default name will simply be
+
+50
+00:02:16,722 --> 00:02:18,427
+the class name with the lower case.
+
+51
+00:02:18,427 --> 00:02:21,177
+So our happyFortuneService class?
+
+52
+00:02:22,753 --> 00:02:24,222
+Well, the actual bean ID for it
+
+53
+00:02:24,222 --> 00:02:26,441
+is lower case happyFortuneService.
+
+54
+00:02:26,441 --> 00:02:27,316
+Right?
+
+55
+00:02:27,316 --> 00:02:28,191
+And we've covered all this before.
+
+56
+00:02:28,191 --> 00:02:29,646
+So that's how you use the qualifier.
+
+57
+00:02:29,646 --> 00:02:32,675
+You simply specify the bean ID of the component
+
+58
+00:02:32,675 --> 00:02:36,146
+or the bean that you want Spring to inject.
+
+59
+00:02:36,146 --> 00:02:38,964
+And this'll help resolve that problem
+
+60
+00:02:38,964 --> 00:02:41,297
+of too many implementations.
+
+61
+00:02:43,369 --> 00:02:45,266
+All right, so that's the @Qualifier.
+
+62
+00:02:45,266 --> 00:02:47,790
+You simply be specific, and you give the actual bean name.
+
+63
+00:02:47,790 --> 00:02:50,804
+Now, you can actually use this @Qualifier annotation
+
+64
+00:02:50,804 --> 00:02:53,169
+on all your different injection types.
+
+65
+00:02:53,169 --> 00:02:55,888
+So you can use it for constructor injection.
+
+66
+00:02:55,888 --> 00:02:58,293
+You can also use it for setter injection
+
+67
+00:02:58,293 --> 00:03:00,420
+and finally, for field injection.
+
+68
+00:03:00,420 --> 00:03:03,359
+And you simply apply it just like a normal annotation.
+
+69
+00:03:03,359 --> 00:03:06,606
+In the following video, we'll dive into Eclipse,
+
+70
+00:03:06,606 --> 00:03:07,998
+and we'll actually write some code
+
+71
+00:03:07,998 --> 00:03:10,831
+using this @Qualifier annotation.
+

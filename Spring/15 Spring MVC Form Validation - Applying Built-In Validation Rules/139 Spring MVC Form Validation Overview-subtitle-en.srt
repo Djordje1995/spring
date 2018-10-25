@@ -1,0 +1,240 @@
+1
+00:00:01,586 --> 00:00:03,248
+<v Darby>In this video, we're gonna learn about</v>
+
+2
+00:00:03,248 --> 00:00:05,498
+Spring MVC form validation.
+
+3
+00:00:08,329 --> 00:00:10,801
+So what's the need for validation?
+
+4
+00:00:10,801 --> 00:00:13,889
+Well, you may have a form, and you may wanna validate
+
+5
+00:00:13,889 --> 00:00:16,770
+the fields to make sure you have required fields.
+
+6
+00:00:16,770 --> 00:00:19,902
+You also may wanna validate numbers in a given range.
+
+7
+00:00:19,902 --> 00:00:22,349
+You may wanna validate the format, for example,
+
+8
+00:00:22,349 --> 00:00:23,970
+for a postal code.
+
+9
+00:00:23,970 --> 00:00:27,550
+Or you may wanna add your own custom business rule
+
+10
+00:00:27,550 --> 00:00:28,800
+for validation.
+
+11
+00:00:32,793 --> 00:00:36,960
+So we can make use of Java's standard Bean Validation API.
+
+12
+00:00:38,003 --> 00:00:41,170
+This API's defined in JSR-303 and 309.
+
+13
+00:00:42,270 --> 00:00:46,437
+And it defines a meta model and API for entity validation.
+
+14
+00:00:47,907 --> 00:00:50,823
+So this Bean Validation API is available for server-side
+
+15
+00:00:50,823 --> 00:00:53,980
+applications and also client-side applications using
+
+16
+00:00:53,980 --> 00:00:56,228
+like JavaFX or Swing.
+
+17
+00:00:56,228 --> 00:00:58,649
+This is all defined at this one website here,
+
+18
+00:00:58,649 --> 00:01:00,767
+beanvalidation.org.
+
+19
+00:01:00,767 --> 00:01:05,658
+It has all the documentation along with sample code.
+
+20
+00:01:05,658 --> 00:01:08,473
+Now let's talk about Spring support for validation.
+
+21
+00:01:08,473 --> 00:01:10,822
+So Spring version four and higher supports
+
+22
+00:01:10,822 --> 00:01:14,551
+the Bean Validation API, which is a good thing.
+
+23
+00:01:14,551 --> 00:01:17,260
+So it's actually the preferred method for validation
+
+24
+00:01:17,260 --> 00:01:19,189
+when building Spring apps.
+
+25
+00:01:19,189 --> 00:01:21,899
+You simply add the Validation JARs to our project,
+
+26
+00:01:21,899 --> 00:01:26,828
+use the appropriate annotations, and you're ready to go.
+
+27
+00:01:26,828 --> 00:01:28,979
+So the Bean Validation features, you can check to see
+
+28
+00:01:28,979 --> 00:01:31,842
+if a field is required, you can validate a length,
+
+29
+00:01:31,842 --> 00:01:35,431
+you can validate numbers, validate with regular expressions,
+
+30
+00:01:35,431 --> 00:01:37,848
+custom validation, and so on.
+
+31
+00:01:39,504 --> 00:01:41,029
+All right, so let's take a look at some validation
+
+32
+00:01:41,029 --> 00:01:44,162
+annotations, and these are all fairly self-explanatory,
+
+33
+00:01:44,162 --> 00:01:45,349
+but I'll go through them.
+
+34
+00:01:45,349 --> 00:01:49,205
+@NotNull makes sure that the given value is not null.
+
+35
+00:01:49,205 --> 00:01:52,656
+@Min and @Max, those basically apply to a number
+
+36
+00:01:52,656 --> 00:01:54,885
+to make sure it falls within a given range.
+
+37
+00:01:54,885 --> 00:01:58,050
+You also have @Size to make sure that the value
+
+38
+00:01:58,050 --> 00:02:00,844
+matches a given size as far as the number of characters
+
+39
+00:02:00,844 --> 00:02:02,875
+or the number of digits.
+
+40
+00:02:02,875 --> 00:02:05,464
+You can also apply regular expression patterns
+
+41
+00:02:05,464 --> 00:02:06,714
+using @Pattern.
+
+42
+00:02:07,624 --> 00:02:10,217
+And then you have @Future and @Past.
+
+43
+00:02:10,217 --> 00:02:12,909
+These apply to dates, so the date must be in the future,
+
+44
+00:02:12,909 --> 00:02:15,256
+or it must be in the past.
+
+45
+00:02:15,256 --> 00:02:17,448
+And there are also some others.
+
+46
+00:02:17,448 --> 00:02:18,577
+All right, so let's go ahead and take a look
+
+47
+00:02:18,577 --> 00:02:21,091
+at our road map here as far as what we're gonna do.
+
+48
+00:02:21,091 --> 00:02:22,930
+First thing we're gonna do is set up our
+
+49
+00:02:22,930 --> 00:02:25,125
+development environment, then we'll write code
+
+50
+00:02:25,125 --> 00:02:27,486
+to check for a required field.
+
+51
+00:02:27,486 --> 00:02:32,376
+Next we'll validate a number range with min and max.
+
+52
+00:02:32,376 --> 00:02:36,740
+Next we'll move forward and we'll apply regular expressions.
+
+53
+00:02:36,740 --> 00:02:39,497
+And then we'll do custom validation, this is kind of like
+
+54
+00:02:39,497 --> 00:02:41,373
+the big grand finale.
+
+55
+00:02:41,373 --> 00:02:44,037
+We'll actually create our own custom validation rule
+
+56
+00:02:44,037 --> 00:02:46,944
+along with our own custom Java annotation.
+
+57
+00:02:46,944 --> 00:02:48,950
+Really great stuff, so stay tuned.
+
+58
+00:02:48,950 --> 00:02:50,817
+We'll walk through each of these step by step
+
+59
+00:02:50,817 --> 00:02:52,056
+in the following videos.
+
+60
+00:02:52,056 --> 00:02:56,056
+So I'll see you there in the next video, yo, yo.
+

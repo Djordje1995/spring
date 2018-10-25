@@ -1,0 +1,588 @@
+1
+00:00:01,142 --> 00:00:02,128
+<v Instructor>In this video,</v>
+
+2
+00:00:02,128 --> 00:00:04,383
+I'm gonna give you a behind the scenes tour
+
+3
+00:00:04,383 --> 00:00:05,550
+of Spring MVC.
+
+4
+00:00:09,444 --> 00:00:12,551
+What are the components of a Spring MVC application?
+
+5
+00:00:12,551 --> 00:00:14,551
+Basically it's a collection of web pages
+
+6
+00:00:14,551 --> 00:00:16,316
+to layout your UI components.
+
+7
+00:00:16,316 --> 00:00:18,799
+It's also a collection of Spring beans,
+
+8
+00:00:18,799 --> 00:00:21,323
+for controlling, handling services,
+
+9
+00:00:21,323 --> 00:00:22,567
+and so on.
+
+10
+00:00:22,567 --> 00:00:25,035
+And then finally you have your Spring configuration.
+
+11
+00:00:25,035 --> 00:00:28,847
+You can choose XML, Annotations, or pure Java.
+
+12
+00:00:28,847 --> 00:00:31,008
+And those are kinda the main components
+
+13
+00:00:31,008 --> 00:00:33,341
+of a Spring MVC application.
+
+14
+00:00:34,800 --> 00:00:37,711 line:15% 
+Now, how does Spring MVC work behind the scenes?
+
+15
+00:00:37,711 --> 00:00:39,351 line:15% 
+In a previous video I showed you this
+
+16
+00:00:39,351 --> 00:00:41,799 line:15% 
+little diagram here of the process model.
+
+17
+00:00:41,799 --> 00:00:43,353 line:15% 
+What I wanna do is actually take this
+
+18
+00:00:43,353 --> 00:00:45,926 line:15% 
+little process model and kind of break it down,
+
+19
+00:00:45,926 --> 00:00:47,757 line:15% 
+and kinda dig into it a little bit,
+
+20
+00:00:47,757 --> 00:00:49,413 line:15% 
+and kinda go step-by-step.
+
+21
+00:00:49,413 --> 00:00:51,319 line:15% 
+Do a little deep dive on how the
+
+22
+00:00:51,319 --> 00:00:53,402 line:15% 
+whole process flow works.
+
+23
+00:00:56,273 --> 00:00:57,845 line:15% 
+Everything starts off with that first
+
+24
+00:00:57,845 --> 00:01:00,142 line:15% 
+incoming request and it encounters something
+
+25
+00:01:00,142 --> 00:01:01,694 line:15% 
+called a front controller.
+
+26
+00:01:01,694 --> 00:01:03,925 line:15% 
+So the front controller is known as
+
+27
+00:01:03,925 --> 00:01:05,851 line:15% 
+the dispatcher servelet.
+
+28
+00:01:05,851 --> 00:01:07,848 line:15% 
+This front controller's actually part
+
+29
+00:01:07,848 --> 00:01:09,512 line:15% 
+of the Spring framework.
+
+30
+00:01:09,512 --> 00:01:13,094 line:15% 
+It's already developed by the Spring development team
+
+31
+00:01:13,094 --> 00:01:15,067 line:15% 
+so you don't have to create this.
+
+32
+00:01:15,067 --> 00:01:16,987 line:15% 
+This is part of the Spring jar files
+
+33
+00:01:16,987 --> 00:01:17,828 line:15% 
+that you download,
+
+34
+00:01:17,828 --> 00:01:18,955 line:15% 
+so it's given to you for free.
+
+35
+00:01:18,955 --> 00:01:21,673 line:15% 
+So out of the box you have his front controller.
+
+36
+00:01:21,673 --> 00:01:23,051 line:15% 
+What this front controller will do
+
+37
+00:01:23,051 --> 00:01:25,172 line:15% 
+is it will actually delegate the request
+
+38
+00:01:25,172 --> 00:01:27,694 line:15% 
+to some other objects or items
+
+39
+00:01:27,694 --> 00:01:29,828 line:15% 
+here in our system.
+
+40
+00:01:29,828 --> 00:01:33,089 line:15% 
+As a developer, you will create
+
+41
+00:01:33,089 --> 00:01:36,756 line:15% 
+the model, the view, and the controller MVC.
+
+42
+00:01:38,515 --> 00:01:41,044 line:15% 
+So the model objects are in orange.
+
+43
+00:01:41,044 --> 00:01:43,394 line:15% 
+The model objects contain data.
+
+44
+00:01:43,394 --> 00:01:44,687 line:15% 
+The view templates,
+
+45
+00:01:44,687 --> 00:01:45,786 line:15% 
+that are in dark green,
+
+46
+00:01:45,786 --> 00:01:48,184 line:15% 
+that's your actual JSP page,
+
+47
+00:01:48,184 --> 00:01:50,051 line:15% 
+or your view page to actually
+
+48
+00:01:50,051 --> 00:01:51,599 line:15% 
+render the data.
+
+49
+00:01:51,599 --> 00:01:52,483 line:15% 
+And then C,
+
+50
+00:01:52,483 --> 00:01:54,376 line:15% 
+the controller classes that's in yellow,
+
+51
+00:01:54,376 --> 00:01:56,346 line:15% 
+that's your actual business logic
+
+52
+00:01:56,346 --> 00:01:58,391 line:15% 
+or your processing logic.
+
+53
+00:01:58,391 --> 00:02:00,232 line:15% 
+Coming up next, I'll actually talk about
+
+54
+00:02:00,232 --> 00:02:03,482 line:15% 
+each one of these components in detail.
+
+55
+00:02:05,454 --> 00:02:07,300 line:15% 
+Let's start with controller.
+
+56
+00:02:07,300 --> 00:02:10,311 line:15% 
+So when the front controller has a request,
+
+57
+00:02:10,311 --> 00:02:12,517 line:15% 
+it delegates the request to the controller.
+
+58
+00:02:12,517 --> 00:02:13,562 line:15% 
+That's in yellow.
+
+59
+00:02:13,562 --> 00:02:17,050 line:15% 
+The controller is the code that you will actually create.
+
+60
+00:02:17,050 --> 00:02:18,999 line:15% 
+Basically in this controller,
+
+61
+00:02:18,999 --> 00:02:21,194 line:15% 
+this contains your business logic.
+
+62
+00:02:21,194 --> 00:02:23,181 line:15% 
+So this is where you'll handle the request
+
+63
+00:02:23,181 --> 00:02:25,057 line:15% 
+where you'll maybe read some form data
+
+64
+00:02:25,057 --> 00:02:26,232 line:15% 
+then you'll take this data
+
+65
+00:02:26,232 --> 00:02:27,820 line:15% 
+and store it or retrieve it.
+
+66
+00:02:27,820 --> 00:02:29,856 line:15% 
+You may store it into a database or
+
+67
+00:02:29,856 --> 00:02:32,239 line:15% 
+retrieve information from a web service.
+
+68
+00:02:32,239 --> 00:02:34,185 line:15% 
+Basically, once you have your data
+
+69
+00:02:34,185 --> 00:02:35,320 line:15% 
+and you're using it,
+
+70
+00:02:35,320 --> 00:02:36,655 line:15% 
+then you can take that data
+
+71
+00:02:36,655 --> 00:02:38,211 line:15% 
+and place it into the model.
+
+72
+00:02:38,211 --> 00:02:40,496 line:15% 
+So the model is just a container for your data
+
+73
+00:02:40,496 --> 00:02:42,538 line:15% 
+and then you pass it back to the appropriate
+
+74
+00:02:42,538 --> 00:02:43,804 line:15% 
+view template.
+
+75
+00:02:43,804 --> 00:02:45,631 line:15% 
+So again, your controller,
+
+76
+00:02:45,631 --> 00:02:46,932 line:15% 
+code that you create,
+
+77
+00:02:46,932 --> 00:02:48,804 line:15% 
+contains your business logic,
+
+78
+00:02:48,804 --> 00:02:51,387 line:15% 
+and it handles the web request.
+
+79
+00:02:52,338 --> 00:02:54,009 line:15% 
+So let's talk about the model.
+
+80
+00:02:54,009 --> 00:02:55,353 line:15% 
+As I mentioned earlier,
+
+81
+00:02:55,353 --> 00:02:57,416 line:15% 
+the model contains your data.
+
+82
+00:02:57,416 --> 00:02:58,960 line:15% 
+So when your controller goes off
+
+83
+00:02:58,960 --> 00:03:01,538 line:15% 
+and performs an operation to retrieve data
+
+84
+00:03:01,538 --> 00:03:04,304 line:15% 
+from a backend system, like a database or web service,
+
+85
+00:03:04,304 --> 00:03:05,373 line:15% 
+or a Spring Bean,
+
+86
+00:03:05,373 --> 00:03:09,179 line:15% 
+you can take that data and place it into the model.
+
+87
+00:03:09,179 --> 00:03:11,029 line:15% 
+So the model again is your container,
+
+88
+00:03:11,029 --> 00:03:12,648 line:15% 
+like your suitcase or your luggage,
+
+89
+00:03:12,648 --> 00:03:15,756 line:15% 
+for shipping data between various parts
+
+90
+00:03:15,756 --> 00:03:18,320 line:15% 
+of your Spring MVC application.
+
+91
+00:03:18,320 --> 00:03:20,707 line:15% 
+So that model data will actually get passed
+
+92
+00:03:20,707 --> 00:03:22,459 line:15% 
+over to the view template
+
+93
+00:03:22,459 --> 00:03:23,636 line:15% 
+and they can actually handle that
+
+94
+00:03:23,636 --> 00:03:25,364 line:15% 
+for displaying the data.
+
+95
+00:03:25,364 --> 00:03:26,992 line:15% 
+That's kinda where we're at right now.
+
+96
+00:03:26,992 --> 00:03:29,276 line:15% 
+So the view template.
+
+97
+00:03:29,276 --> 00:03:31,559 line:15% 
+The most common view template that you'll use
+
+98
+00:03:31,559 --> 00:03:32,892 line:15% 
+is JSP and JSTL.
+
+99
+00:03:34,192 --> 00:03:35,988 line:15% 
+Spring MVC is very flexible.
+
+100
+00:03:35,988 --> 00:03:38,175 line:15% 
+There's many different view template types.
+
+101
+00:03:38,175 --> 00:03:39,656 line:15% 
+I'll talk about that in a second.
+
+102
+00:03:39,656 --> 00:03:43,174 line:15% 
+But for now let's just think about JSP, JSTL.
+
+103
+00:03:43,174 --> 00:03:46,787 line:15% 
+This model data comes over to your view template
+
+104
+00:03:46,787 --> 00:03:50,931 line:15% 
+and then your JSP page can read that model data
+
+105
+00:03:50,931 --> 00:03:52,211 line:15% 
+and display it.
+
+106
+00:03:52,211 --> 00:03:54,394 line:15% 
+So, say for example,
+
+107
+00:03:54,394 --> 00:03:56,134 line:15% 
+you have a list of students,
+
+108
+00:03:56,134 --> 00:03:57,887 line:15% 
+or list of products,
+
+109
+00:03:57,887 --> 00:04:01,050 line:15% 
+then your JSP page can create a table
+
+110
+00:04:01,050 --> 00:04:02,861 line:15% 
+to display that product list
+
+111
+00:04:02,861 --> 00:04:04,724 line:15% 
+or that student list.
+
+112
+00:04:04,724 --> 00:04:07,303 line:15% 
+Or, say for example, somebody is signing
+
+113
+00:04:07,303 --> 00:04:08,835 line:15% 
+up for an airline flight,
+
+114
+00:04:08,835 --> 00:04:10,789 line:15% 
+or is signing up for a class,
+
+115
+00:04:10,789 --> 00:04:13,175 line:15% 
+then your view template,
+
+116
+00:04:13,175 --> 00:04:15,333 line:15% 
+or your page can give them a confirmation,
+
+117
+00:04:15,333 --> 00:04:17,315 line:15% 
+hey, you're registered for the class,
+
+118
+00:04:17,315 --> 00:04:19,213 line:15% 
+here's your confirmation number.
+
+119
+00:04:19,213 --> 00:04:20,862 line:15% 
+So that's the idea of the view template.
+
+120
+00:04:20,862 --> 00:04:22,886 line:15% 
+It's basically a JSP page
+
+121
+00:04:22,886 --> 00:04:25,803 line:15% 
+that will provide data to the user.
+
+122
+00:04:28,804 --> 00:04:30,271
+Now as I mentioned,
+
+123
+00:04:30,271 --> 00:04:33,439
+Spring MVC is very flexible on the view templates.
+
+124
+00:04:33,439 --> 00:04:35,428
+There's actually other view templates
+
+125
+00:04:35,428 --> 00:04:36,384
+that are supported,
+
+126
+00:04:36,384 --> 00:04:38,581
+so if you don't wanna use JSP,
+
+127
+00:04:38,581 --> 00:04:40,229
+you can make use of some other templates
+
+128
+00:04:40,229 --> 00:04:43,979
+like Thymeleaf, Groovy, Velocity, Freemarker,
+
+129
+00:04:44,899 --> 00:04:46,442
+the list goes on.
+
+130
+00:04:46,442 --> 00:04:49,347
+You can plug in all different types of view templates.
+
+131
+00:04:49,347 --> 00:04:51,534
+If you'd like to get details on this,
+
+132
+00:04:51,534 --> 00:04:53,501
+go to this link I have on the screen,
+
+133
+00:04:53,501 --> 00:04:56,974
+luv2code.com/spring-mvc-views.
+
+134
+00:04:56,974 --> 00:05:00,487
+This'll redirect you to the official Spring documentation
+
+135
+00:05:00,487 --> 00:05:01,946
+and you can get more information
+
+136
+00:05:01,946 --> 00:05:03,508
+on the various other templates
+
+137
+00:05:03,508 --> 00:05:06,258
+that are out there and available.
+
+138
+00:05:08,178 --> 00:05:09,011
+Alright, good.
+
+139
+00:05:09,011 --> 00:05:10,977
+This is a quick behind the scenes view
+
+140
+00:05:10,977 --> 00:05:12,300
+of Spring MVC.
+
+141
+00:05:12,300 --> 00:05:14,975
+You learned about the model, the view, the controller
+
+142
+00:05:14,975 --> 00:05:17,059
+and a conceptual theoretical level.
+
+143
+00:05:17,059 --> 00:05:18,959
+In the following videos we're gonna
+
+144
+00:05:18,959 --> 00:05:20,240
+start getting our hands dirty
+
+145
+00:05:20,240 --> 00:05:22,292
+and setting up our environment
+
+146
+00:05:22,292 --> 00:05:24,942
+and then starting to write some code.
+
+147
+00:05:24,942 --> 00:05:26,775
+So I'll see you there.
+

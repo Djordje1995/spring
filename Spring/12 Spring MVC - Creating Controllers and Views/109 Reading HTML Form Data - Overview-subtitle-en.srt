@@ -1,0 +1,272 @@
+1
+00:00:01,377 --> 00:00:02,210
+<v Instructor>In this video,</v>
+
+2
+00:00:02,210 --> 00:00:06,377
+we're going to learn how to read form data with Spring MVC.
+
+3
+00:00:08,274 --> 00:00:10,406
+So at a high level, we're going to have a form,
+
+4
+00:00:10,406 --> 00:00:12,302
+we're going to prompt the user for their name,
+
+5
+00:00:12,302 --> 00:00:13,658
+they'll hit Submit Query,
+
+6
+00:00:13,658 --> 00:00:16,062
+it'll go through our Spring MVC application,
+
+7
+00:00:16,062 --> 00:00:18,251
+and then will show a confirmation page.
+
+8
+00:00:18,251 --> 00:00:19,286
+Hello World of Spring!
+
+9
+00:00:19,286 --> 00:00:22,028
+Student name, and we simply plug in the student name
+
+10
+00:00:22,028 --> 00:00:23,528
+that they entered.
+
+11
+00:00:24,853 --> 00:00:26,752
+So here's the application flow.
+
+12
+00:00:26,752 --> 00:00:29,099
+So in the browser, they'll go to our website
+
+13
+00:00:29,099 --> 00:00:31,878
+and they'll enter /showForm.
+
+14
+00:00:31,878 --> 00:00:33,920
+This will go to our HelloWorld Controller,
+
+15
+00:00:33,920 --> 00:00:35,279
+and the main purpose of this is
+
+16
+00:00:35,279 --> 00:00:37,612
+to simply show the JSP form.
+
+17
+00:00:40,228 --> 00:00:42,130
+Then, once we have a form displayed,
+
+18
+00:00:42,130 --> 00:00:44,617
+once they enter their information and hit Submit,
+
+19
+00:00:44,617 --> 00:00:46,384
+then they're going to pass it over to this
+
+20
+00:00:46,384 --> 00:00:49,554
+/processForm request mapping.
+
+21
+00:00:49,554 --> 00:00:52,234
+So again, it's going to go into our HelloWorld Controller,
+
+22
+00:00:52,234 --> 00:00:54,556
+and for that mapping, we'll simply pass back
+
+23
+00:00:54,556 --> 00:00:58,204
+a confirmation page, so we'll say Hello World of Spring!
+
+24
+00:00:58,204 --> 00:01:01,092
+Student name, and we simply plug in the student name.
+
+25
+00:01:01,092 --> 00:01:03,421
+So the key here is that we're going to use one
+
+26
+00:01:03,421 --> 00:01:05,496
+HelloWorld Controller that's going to have
+
+27
+00:01:05,496 --> 00:01:07,246
+two request mappings.
+
+28
+00:01:10,913 --> 00:01:11,766
+Now let's go ahead and look at
+
+29
+00:01:11,766 --> 00:01:13,814
+some of the source code here for the controller.
+
+30
+00:01:13,814 --> 00:01:15,887
+So again, with the Spring controller,
+
+31
+00:01:15,887 --> 00:01:19,152
+we always annotate with @Controller, up top.
+
+32
+00:01:19,152 --> 00:01:22,689
+Then I'll set up a method, to show the initial form.
+
+33
+00:01:22,689 --> 00:01:25,730
+So I'll define a request mapping /showForm,
+
+34
+00:01:25,730 --> 00:01:28,284
+I give a method name, pubic String showForm,
+
+35
+00:01:28,284 --> 00:01:31,552
+and then return "helloworld-form".
+
+36
+00:01:31,552 --> 00:01:32,675
+And then remember in the background,
+
+37
+00:01:32,675 --> 00:01:34,083
+Spring will add on that
+
+38
+00:01:34,083 --> 00:01:37,516
+WEB-INF/view/helloworld-form.jsp,
+
+39
+00:01:37,516 --> 00:01:41,599
+based on information from our configuration file.
+
+40
+00:01:43,435 --> 00:01:45,821
+Now we'll also need to add a second method here
+
+41
+00:01:45,821 --> 00:01:47,647
+to process the form.
+
+42
+00:01:47,647 --> 00:01:50,624
+So we'll have request mapping for /processForm,
+
+43
+00:01:50,624 --> 00:01:53,107
+and we have a method public String proccessForm,
+
+44
+00:01:53,107 --> 00:01:55,120
+and we simply return "helloworld".
+
+45
+00:01:55,120 --> 00:01:56,795
+That'll be the actual confirmation page
+
+46
+00:01:56,795 --> 00:01:58,805
+that will say Hello World of Spring,
+
+47
+00:01:58,805 --> 00:02:01,484
+and we simply display the student name.
+
+48
+00:02:01,484 --> 00:02:04,236
+Now again, remember the method names can be anything.
+
+49
+00:02:04,236 --> 00:02:08,061
+We simply map the paths to the actual method.
+
+50
+00:02:08,061 --> 00:02:10,202
+But again, you can use any method name you want,
+
+51
+00:02:10,202 --> 00:02:14,369
+show form, process form, do the work, FUBAR, whatever.
+
+52
+00:02:17,666 --> 00:02:18,884
+Alright so let's kind of step back
+
+53
+00:02:18,884 --> 00:02:21,026
+and look at the development process.
+
+54
+00:02:21,026 --> 00:02:23,069
+And again, everything's step-by-step.
+
+55
+00:02:23,069 --> 00:02:26,133
+So, first thing is creating a controller class,
+
+56
+00:02:26,133 --> 00:02:27,922
+and for showing the HTML form,
+
+57
+00:02:27,922 --> 00:02:29,688
+we'll have a controller method
+
+58
+00:02:29,688 --> 00:02:30,987
+to show the form, we saw that
+
+59
+00:02:30,987 --> 00:02:33,743
+in the previous slide, and we'll also need to
+
+60
+00:02:33,743 --> 00:02:37,020
+create the View Page for the HTML form.
+
+61
+00:02:37,020 --> 00:02:38,611
+And then for processing the form,
+
+62
+00:02:38,611 --> 00:02:41,454
+again we need to create the controller method
+
+63
+00:02:41,454 --> 00:02:44,792
+for processing the form, and also developing the View Page
+
+64
+00:02:44,792 --> 00:02:47,800
+to show the actual results.
+
+65
+00:02:47,800 --> 00:02:49,389
+Okay, so that's our development process.
+
+66
+00:02:49,389 --> 00:02:51,441
+In the next video, we're going to move into Eclipse,
+
+67
+00:02:51,441 --> 00:02:53,904
+and we're going to start writing some code.
+
+68
+00:02:53,904 --> 00:02:55,821
+So I'll see you there.
+

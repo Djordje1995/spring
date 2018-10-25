@@ -1,0 +1,216 @@
+1
+00:00:01,864 --> 00:00:03,425
+<v Darby>All right, so let's go ahead and move</v>
+
+2
+00:00:03,425 --> 00:00:05,277
+into our development environment here
+
+3
+00:00:05,277 --> 00:00:07,407
+and let's kind of get things set up.
+
+4
+00:00:07,407 --> 00:00:09,579
+So what I'll do is I'll actually open up a web browser
+
+5
+00:00:09,579 --> 00:00:12,139
+and I'll go ahead and download the hibernate validation
+
+6
+00:00:12,139 --> 00:00:13,462
+jar files.
+
+7
+00:00:13,462 --> 00:00:17,629
+So I go to hibernate.org and this is the main website.
+
+8
+00:00:18,679 --> 00:00:20,225
+Now I'll make use of the validation framework
+
+9
+00:00:20,225 --> 00:00:22,402
+that's over on the far right side.
+
+10
+00:00:22,402 --> 00:00:24,126
+So just move over there and click on the blue button
+
+11
+00:00:24,126 --> 00:00:25,376
+there for more.
+
+12
+00:00:28,835 --> 00:00:31,870
+So now we're at the Hibernate validation website here.
+
+13
+00:00:31,870 --> 00:00:34,105
+I'll go ahead and click on the green button
+
+14
+00:00:34,105 --> 00:00:37,329
+to start the download process.
+
+15
+00:00:37,329 --> 00:00:39,526
+Depending on your internet speed this can happen
+
+16
+00:00:39,526 --> 00:00:41,839
+very fast or it can happen very slow.
+
+17
+00:00:41,839 --> 00:00:44,060
+But eventually you'll get the actual zipfile
+
+18
+00:00:44,060 --> 00:00:46,393
+downloaded to your computer.
+
+19
+00:00:50,074 --> 00:00:51,903
+Now let me swing over to my file system here.
+
+20
+00:00:51,903 --> 00:00:56,070
+I'll go look at my downloads directory and I have a file
+
+21
+00:00:57,772 --> 00:01:00,772
+here called hibernate-validator.zip.
+
+22
+00:01:03,564 --> 00:01:08,539
+I'll go ahead and double click this file to unzip it.
+
+23
+00:01:08,539 --> 00:01:10,979
+Okay great so now it's unzipped and has a lot
+
+24
+00:01:10,979 --> 00:01:12,284
+of good things in here.
+
+25
+00:01:12,284 --> 00:01:14,740
+I'll go ahead and expand my folder here.
+
+26
+00:01:14,740 --> 00:01:18,867
+So I have a dist directory and it has jar files
+
+27
+00:01:18,867 --> 00:01:21,119
+and also a supporting lib directory.
+
+28
+00:01:21,119 --> 00:01:23,619
+This looks really good so far.
+
+29
+00:01:26,320 --> 00:01:29,084
+What I want to do is kind of swing back over to eclipse,
+
+30
+00:01:29,084 --> 00:01:31,693
+get that window back up because I want to add
+
+31
+00:01:31,693 --> 00:01:35,526
+some of these jar files to my eclipse project.
+
+32
+00:01:36,714 --> 00:01:38,641
+I'll kind of resize the windows here so I can see them
+
+33
+00:01:38,641 --> 00:01:40,140
+both at the same time.
+
+34
+00:01:40,140 --> 00:01:42,542
+I'll go ahead and highlight the first three
+
+35
+00:01:42,542 --> 00:01:45,125
+hibernate-validator files here.
+
+36
+00:01:46,850 --> 00:01:48,600
+Then I'll copy those.
+
+37
+00:01:52,277 --> 00:01:54,348
+Then I'll move over to eclipse and I'll paste those
+
+38
+00:01:54,348 --> 00:01:57,191
+into my Web-INF lib directory, right?
+
+39
+00:01:57,191 --> 00:02:01,358
+That's where we place all of our third-party jar files.
+
+40
+00:02:02,817 --> 00:02:04,143
+All right great, so I've added those.
+
+41
+00:02:04,143 --> 00:02:06,337
+Now there are some additional files that are required.
+
+42
+00:02:06,337 --> 00:02:09,520
+So under lib, slash, required go ahead and select
+
+43
+00:02:09,520 --> 00:02:12,612
+all of the files in lib, slash, required.
+
+44
+00:02:12,612 --> 00:02:14,195
+Select those items.
+
+45
+00:02:21,186 --> 00:02:23,281
+Then I'll move back over to eclipse and my WEB-INF
+
+46
+00:02:23,281 --> 00:02:26,364
+directory and I'll paste those files.
+
+47
+00:02:30,370 --> 00:02:32,953
+So there we go, we've added those hibernate-validation files
+
+48
+00:02:32,953 --> 00:02:34,286
+to our projects.
+
+49
+00:02:35,183 --> 00:02:36,668
+All of those jar files that are in there now,
+
+50
+00:02:36,668 --> 00:02:37,870
+so we're good to go.
+
+51
+00:02:37,870 --> 00:02:39,914
+In the following videos we'll actually start coding
+
+52
+00:02:39,914 --> 00:02:43,248
+with these and applying the validation rules accordingly.
+
+53
+00:02:43,248 --> 00:02:44,778
+But at least at this point we're all set up
+
+54
+00:02:44,778 --> 00:02:47,278
+and we are ready to go, yo yo.
+

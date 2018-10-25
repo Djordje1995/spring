@@ -1,0 +1,508 @@
+1
+00:00:01,333 --> 00:00:03,218
+<v Narrator>In this video we're gonna learn</v>
+
+2
+00:00:03,218 --> 00:00:06,013
+about Spring Dependency Injection with Annotations
+
+3
+00:00:06,013 --> 00:00:07,263
+and Autowiring.
+
+4
+00:00:10,502 --> 00:00:12,898
+So we'll continue with the Coach example
+
+5
+00:00:12,898 --> 00:00:15,924
+where our Coach already provides daily workouts.
+
+6
+00:00:15,924 --> 00:00:18,684
+Now we'll also provide daily fortunes
+
+7
+00:00:18,684 --> 00:00:20,855
+and will make use of the FortuneService
+
+8
+00:00:20,855 --> 00:00:22,534
+and this is a dependency.
+
+9
+00:00:22,534 --> 00:00:24,635
+We've seen this in previous videos,
+
+10
+00:00:24,635 --> 00:00:27,373
+but now we're gonna inject this dependency
+
+11
+00:00:27,373 --> 00:00:30,123
+using annotations and autowiring.
+
+12
+00:00:33,368 --> 00:00:36,751
+Now what exactly is Spring AutoWiring?
+
+13
+00:00:36,751 --> 00:00:38,687
+Well, for dependency injection,
+
+14
+00:00:38,687 --> 00:00:42,734
+Spring can automatically wire up your objects together,
+
+15
+00:00:42,734 --> 00:00:45,768
+so basically what'll happen is that Spring
+
+16
+00:00:45,768 --> 00:00:49,174
+will look for a class that matches a given property.
+
+17
+00:00:49,174 --> 00:00:51,681
+And it'll actually match by type,
+
+18
+00:00:51,681 --> 00:00:55,750
+so the type could be either the class or the interface.
+
+19
+00:00:55,750 --> 00:00:57,884
+Once Spring finds a match,
+
+20
+00:00:57,884 --> 00:01:00,756
+then it'll automatically inject it.
+
+21
+00:01:00,756 --> 00:01:03,089
+Hence it's called autowired.
+
+22
+00:01:04,217 --> 00:01:07,089
+So let's take a look at this using an example
+
+23
+00:01:07,089 --> 00:01:08,492
+and we'll actually make use
+
+24
+00:01:08,492 --> 00:01:10,230
+of that Coach and FortuneService.
+
+25
+00:01:10,230 --> 00:01:13,148
+So we need to inject a FortuneService
+
+26
+00:01:13,148 --> 00:01:15,766
+into a Coach implementation.
+
+27
+00:01:15,766 --> 00:01:18,216
+So how does it work behind the scenes?
+
+28
+00:01:18,216 --> 00:01:22,094
+Well, Spring will actually scan all of the components
+
+29
+00:01:22,094 --> 00:01:25,872
+and it'll say hey, I need to satisfy a dependency.
+
+30
+00:01:25,872 --> 00:01:28,974
+I need to inject a FortuneService,
+
+31
+00:01:28,974 --> 00:01:31,193
+so Spring will basically ask,
+
+32
+00:01:31,193 --> 00:01:33,957
+say hey, is there anyone out there
+
+33
+00:01:33,957 --> 00:01:37,790
+that implements the FortuneService interface?
+
+34
+00:01:37,790 --> 00:01:41,699
+If so, Spring will grab that component or bean
+
+35
+00:01:41,699 --> 00:01:44,199
+and actually inject it.
+
+36
+00:01:44,199 --> 00:01:46,631
+In our examples that we're gonna work through,
+
+37
+00:01:46,631 --> 00:01:49,590
+we're gonna actually have a happy FortuneService
+
+38
+00:01:49,590 --> 00:01:54,482
+which is an implementation of the FortuneService interface
+
+39
+00:01:54,482 --> 00:01:57,486
+and Spring will find that implementation
+
+40
+00:01:57,486 --> 00:02:01,217
+and automatically inject it into our class
+
+41
+00:02:01,217 --> 00:02:03,405
+and that's called Autowiring.
+
+42
+00:02:03,405 --> 00:02:04,900
+And we'll actually walk through this
+
+43
+00:02:04,900 --> 00:02:07,415
+with a full code example so if the theory
+
+44
+00:02:07,415 --> 00:02:09,875
+and the concepts are a little funny to you right now,
+
+45
+00:02:09,875 --> 00:02:13,375
+don't worry we'll see all the code for it.
+
+46
+00:02:15,496 --> 00:02:17,587
+Now with this Autowiring,
+
+47
+00:02:17,587 --> 00:02:20,542
+they actually have three different types of injections.
+
+48
+00:02:20,542 --> 00:02:22,593
+They have Constructor Injection.
+
+49
+00:02:22,593 --> 00:02:25,464
+Setter Injection and Field Injection
+
+50
+00:02:25,464 --> 00:02:27,933
+and we'll cover all of these in this video series,
+
+51
+00:02:27,933 --> 00:02:32,100
+but we'll simply start off with Constructor Injection.
+
+52
+00:02:33,367 --> 00:02:35,180
+Now here's the development process
+
+53
+00:02:35,180 --> 00:02:36,579
+for constructor injection.
+
+54
+00:02:36,579 --> 00:02:39,892
+And again, I love doing things step-by-step,
+
+55
+00:02:39,892 --> 00:02:41,583
+so the first thing is that we'll define
+
+56
+00:02:41,583 --> 00:02:44,889
+the dependency interface and class,
+
+57
+00:02:44,889 --> 00:02:48,427
+we'll also create a constructor on our class for injections
+
+58
+00:02:48,427 --> 00:02:50,445
+and then the main point here is that
+
+59
+00:02:50,445 --> 00:02:54,022
+we'll configure the dependency injection using
+
+60
+00:02:54,022 --> 00:02:56,196
+that Autowired Annotation
+
+61
+00:02:56,196 --> 00:03:00,150
+and we'll see all of this step-by-step.
+
+62
+00:03:00,150 --> 00:03:01,754
+All right, so let's start with step one.
+
+63
+00:03:01,754 --> 00:03:03,805
+Define the dependency interface and class.
+
+64
+00:03:03,805 --> 00:03:07,712
+So here we'll have this dependency called FortuneService,
+
+65
+00:03:07,712 --> 00:03:09,193
+it's simply an interface.
+
+66
+00:03:09,193 --> 00:03:12,714
+Has a simple method called getFortune, returns a string.
+
+67
+00:03:12,714 --> 00:03:14,149
+And then we'll actually have
+
+68
+00:03:14,149 --> 00:03:15,923
+an implementation of this interface
+
+69
+00:03:15,923 --> 00:03:18,262
+called HappyFortuneService
+
+70
+00:03:18,262 --> 00:03:21,138
+and they simply provide a very basic implementation.
+
+71
+00:03:21,138 --> 00:03:22,821
+And we've seen a lot of this before.
+
+72
+00:03:22,821 --> 00:03:25,875
+The only thing that's new here with the HappyFortuneService
+
+73
+00:03:25,875 --> 00:03:29,253
+is that we have the @Component annotation there,
+
+74
+00:03:29,253 --> 00:03:32,305
+so Spring can auto-scan and find this implementation
+
+75
+00:03:32,305 --> 00:03:34,388
+for the Spring container.
+
+76
+00:03:35,237 --> 00:03:36,638
+All right, so that's step one.
+
+77
+00:03:36,638 --> 00:03:38,120
+Now step two is that we need to create
+
+78
+00:03:38,120 --> 00:03:40,304
+a constructor in our class for injections.
+
+79
+00:03:40,304 --> 00:03:44,248
+So for our TennisCoach we'll simply add a constructor
+
+80
+00:03:44,248 --> 00:03:46,882
+and again, the constructor has the same name as the class,
+
+81
+00:03:46,882 --> 00:03:49,339
+TennisCoach, and then we pass in our dependency,
+
+82
+00:03:49,339 --> 00:03:50,774
+FortuneService
+
+83
+00:03:50,774 --> 00:03:53,249
+and we'll make a basic assignment.
+
+84
+00:03:53,249 --> 00:03:55,349
+But now the real work happens here in step three
+
+85
+00:03:55,349 --> 00:03:57,528
+where we configure the dependency injection
+
+86
+00:03:57,528 --> 00:04:00,488
+using that Autowired Annotation.
+
+87
+00:04:00,488 --> 00:04:02,598
+So this is where you have the real magic here.
+
+88
+00:04:02,598 --> 00:04:05,154
+So note on our constructor for TennisCoach,
+
+89
+00:04:05,154 --> 00:04:06,803
+we have Autowired.
+
+90
+00:04:06,803 --> 00:04:08,403
+So we're basically saying,
+
+91
+00:04:08,403 --> 00:04:11,282
+the parameter being passed in FortuneService,
+
+92
+00:04:11,282 --> 00:04:15,000
+we want Spring to automatically wire up this component,
+
+93
+00:04:15,000 --> 00:04:18,584
+so instead of doing it long-hand, using XML configs,
+
+94
+00:04:18,584 --> 00:04:21,906
+we're making use of this Autowired annotation.
+
+95
+00:04:21,906 --> 00:04:24,250
+So again, what happens in the background
+
+96
+00:04:24,250 --> 00:04:25,897 line:15% 
+is that Spring will say hey,
+
+97
+00:04:25,897 --> 00:04:28,626 line:15% 
+I need to satisfy this dependency.
+
+98
+00:04:28,626 --> 00:04:33,524 line:15% 
+So Spring will again, it'll scan all the components there,
+
+99
+00:04:33,524 --> 00:04:36,363 line:15% 
+it'll find the component that implements
+
+100
+00:04:36,363 --> 00:04:38,449 line:15% 
+this FortuneService interface,
+
+101
+00:04:38,449 --> 00:04:40,800 line:15% 
+which in our case is HappyFortuneService.
+
+102
+00:04:40,800 --> 00:04:43,714 line:15% 
+And it'll take that bean, actually inject it,
+
+103
+00:04:43,714 --> 00:04:46,715 line:15% 
+or Autowire it here into this TennisCoach.
+
+104
+00:04:46,715 --> 00:04:50,152 line:15% 
+So that's how they handle the dependency injection
+
+105
+00:04:50,152 --> 00:04:52,819
+using that Autowired annotation.
+
+106
+00:04:55,983 --> 00:04:57,553
+So that's the whole idea there.
+
+107
+00:04:57,553 --> 00:04:58,991
+Now again, stepping back here,
+
+108
+00:04:58,991 --> 00:05:01,059
+let's kinda look at the big picture again.
+
+109
+00:05:01,059 --> 00:05:03,405
+Again, we're simply gonna retrieve a Coach object
+
+110
+00:05:03,405 --> 00:05:04,888
+from our Object Factory.
+
+111
+00:05:04,888 --> 00:05:06,904
+So now this Object Factory
+
+112
+00:05:06,904 --> 00:05:09,181
+all the dependencies of the helper objects
+
+113
+00:05:09,181 --> 00:05:12,552
+are being handled or injected by making use
+
+114
+00:05:12,552 --> 00:05:15,052
+of annotations and Autowiring.
+
+115
+00:05:16,310 --> 00:05:18,440
+So all that work is happening
+
+116
+00:05:18,440 --> 00:05:21,399
+behind the scenes by Spring.
+
+117
+00:05:21,399 --> 00:05:23,498
+So when we simply retrieve the Coach
+
+118
+00:05:23,498 --> 00:05:25,174
+we get it fully assembled.
+
+119
+00:05:25,174 --> 00:05:27,229
+So here there's no assembly required,
+
+120
+00:05:27,229 --> 00:05:30,224
+we get the Coach object and it's FortuneService
+
+121
+00:05:30,224 --> 00:05:32,163
+already wired together,
+
+122
+00:05:32,163 --> 00:05:34,145
+thanks to Spring.
+
+123
+00:05:34,145 --> 00:05:35,459
+And in the next video,
+
+124
+00:05:35,459 --> 00:05:37,075
+we'll actually move into clips
+
+125
+00:05:37,075 --> 00:05:39,043
+and we'll enhance our demo
+
+126
+00:05:39,043 --> 00:05:43,104
+to make use of annotations and Autowiring.
+
+127
+00:05:43,104 --> 00:05:45,021
+So I'll see you there.
+

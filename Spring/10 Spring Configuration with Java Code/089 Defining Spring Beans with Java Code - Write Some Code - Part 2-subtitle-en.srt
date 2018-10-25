@@ -1,0 +1,492 @@
+1
+00:00:01,259 --> 00:00:02,211
+<v Instructor>Okay, so let's go ahead</v>
+
+2
+00:00:02,211 --> 00:00:04,357
+jump into our development process.
+
+3
+00:00:04,357 --> 00:00:05,633
+The first thing we're gonna do here
+
+4
+00:00:05,633 --> 00:00:07,728
+is define a method to expose the bean.
+
+5
+00:00:07,728 --> 00:00:11,895
+Then we'll add this to our Java configuration class.
+
+6
+00:00:14,883 --> 00:00:17,056
+So moving into our actual Java config,
+
+7
+00:00:17,056 --> 00:00:21,223
+our SportConfig.Java, defining a method to expose a bean.
+
+8
+00:00:24,418 --> 00:00:25,894
+So I'll just simply put in some comments
+
+9
+00:00:25,894 --> 00:00:27,705
+here just to kind of keep myself on track.
+
+10
+00:00:27,705 --> 00:00:28,979
+So here I'll say define bean
+
+11
+00:00:28,979 --> 00:00:31,359
+for our sad fortune service.
+
+12
+00:00:31,359 --> 00:00:33,287
+And then I'll also define our bean
+
+13
+00:00:33,287 --> 00:00:34,870
+for our swim coach.
+
+14
+00:00:36,779 --> 00:00:40,464
+And inject dependencies for the swim coach.
+
+15
+00:00:40,464 --> 00:00:42,964
+Ooh, a lot of good stuff here.
+
+16
+00:00:46,261 --> 00:00:47,559
+Alright, so let me get some white space here
+
+17
+00:00:47,559 --> 00:00:50,690
+at the bottom to kind of stretch out.
+
+18
+00:00:50,690 --> 00:00:54,857
+And up top I'll define a bean for our sad fortune service.
+
+19
+00:00:55,703 --> 00:00:59,286
+So I'll start with that at bean annotation.
+
+20
+00:01:00,746 --> 00:01:02,473
+And then I'll define a method here,
+
+21
+00:01:02,473 --> 00:01:05,890
+public FortuneService, sadFortuneService.
+
+22
+00:01:07,488 --> 00:01:08,969
+We can give any method name we want,
+
+23
+00:01:08,969 --> 00:01:10,654
+the method name is the actual bean ID
+
+24
+00:01:10,654 --> 00:01:11,978
+that's registered.
+
+25
+00:01:11,978 --> 00:01:13,330
+And then here I'll say return new
+
+26
+00:01:13,330 --> 00:01:15,175
+and then I'd create an instance
+
+27
+00:01:15,175 --> 00:01:17,508
+of that sad fortune service.
+
+28
+00:01:21,455 --> 00:01:22,567
+Let's just go through and fix the imports
+
+29
+00:01:22,567 --> 00:01:23,837
+here on the far left.
+
+30
+00:01:23,837 --> 00:01:27,004
+Import bean from the Spring framework.
+
+31
+00:01:29,333 --> 00:01:31,024
+And there we go, we've manually defined
+
+32
+00:01:31,024 --> 00:01:32,957
+our bean for our sadFortuneService.
+
+33
+00:01:32,957 --> 00:01:34,738
+And again, remember, the method name's
+
+34
+00:01:34,738 --> 00:01:37,320
+the actual bean ID that Spring will use
+
+35
+00:01:37,320 --> 00:01:40,403
+when they assign it to the container.
+
+36
+00:01:41,963 --> 00:01:43,888
+We have our first bean taken care of.
+
+37
+00:01:43,888 --> 00:01:47,247
+Now let's go ahead and take care of our swim coach.
+
+38
+00:01:47,247 --> 00:01:50,548
+So again, we say at-bean, and then we define a method,
+
+39
+00:01:50,548 --> 00:01:53,965
+public Coach and then I'll say swimCoach,
+
+40
+00:01:57,850 --> 00:02:00,475
+and then I simply say return new swim coach.
+
+41
+00:02:00,475 --> 00:02:02,603
+And I also inject the dependency here.
+
+42
+00:02:02,603 --> 00:02:05,753
+So here I'll say, I'll actually call that
+
+43
+00:02:05,753 --> 00:02:08,420
+sad fortune service bean method.
+
+44
+00:02:09,511 --> 00:02:12,277
+So, I'll put in a space here.
+
+45
+00:02:12,277 --> 00:02:14,527
+I'll say sadFortuneService.
+
+46
+00:02:16,756 --> 00:02:18,871
+Open paren, close paren.
+
+47
+00:02:18,871 --> 00:02:20,182
+Now it's really important here
+
+48
+00:02:20,182 --> 00:02:23,131
+to not that we're actually calling that bean method
+
+49
+00:02:23,131 --> 00:02:25,391
+up top on line 13.
+
+50
+00:02:25,391 --> 00:02:27,401
+So we're actually calling that method
+
+51
+00:02:27,401 --> 00:02:29,698
+and then it'll give us a reference to the actual bean.
+
+52
+00:02:29,698 --> 00:02:31,710
+And Spring will actually intercept that
+
+53
+00:02:31,710 --> 00:02:34,635
+and give us a reference to the object accordingly
+
+54
+00:02:34,635 --> 00:02:36,481
+based on the bean scope.
+
+55
+00:02:36,481 --> 00:02:37,527
+But anyway, there we go, so that's how
+
+56
+00:02:37,527 --> 00:02:39,789
+we inject the sadFortuneService
+
+57
+00:02:39,789 --> 00:02:41,675
+into our coach bean,
+
+58
+00:02:41,675 --> 00:02:43,592
+or our swim coach bean.
+
+59
+00:02:47,751 --> 00:02:49,244
+So that's our sad fortune service bean
+
+60
+00:02:49,244 --> 00:02:50,714
+that we've defined manually
+
+61
+00:02:50,714 --> 00:02:52,438
+and then also our swim coach
+
+62
+00:02:52,438 --> 00:02:53,747
+that we've defined manually.
+
+63
+00:02:53,747 --> 00:02:54,729
+So this looks pretty good.
+
+64
+00:02:54,729 --> 00:02:57,872
+So we've written a code in our configuration class
+
+65
+00:02:57,872 --> 00:03:00,428
+to actually define our beans manually.
+
+66
+00:03:00,428 --> 00:03:01,261
+Good job.
+
+67
+00:03:03,016 --> 00:03:04,284
+Now let's move back over.
+
+68
+00:03:04,284 --> 00:03:05,376
+We need a main program.
+
+69
+00:03:05,376 --> 00:03:09,288
+So I'm gonna do some more of my copy paste programming.
+
+70
+00:03:09,288 --> 00:03:10,229
+Please forgive me.
+
+71
+00:03:10,229 --> 00:03:11,441
+Don't judge me.
+
+72
+00:03:11,441 --> 00:03:13,542
+I'll go to this Java config demo app,
+
+73
+00:03:13,542 --> 00:03:16,709
+I'll right click and I'll choose copy.
+
+74
+00:03:17,585 --> 00:03:21,752
+And then I'll do a right click and I'll choose paste.
+
+75
+00:03:24,097 --> 00:03:25,328
+And the new name that I'll give,
+
+76
+00:03:25,328 --> 00:03:28,402
+I'll call it SwimJavaConfigDemo,
+
+77
+00:03:28,402 --> 00:03:29,923
+remove the two at the end.
+
+78
+00:03:29,923 --> 00:03:32,222
+So SwimJavaConfigDemoApp.
+
+79
+00:03:32,222 --> 00:03:34,038
+Ah, long name but we'll keep it,
+
+80
+00:03:34,038 --> 00:03:36,788
+we'll take it and we'll hit okay.
+
+81
+00:03:37,842 --> 00:03:42,188
+So let's go ahead and open up this SwimJavaConfigDemoApp.
+
+82
+00:03:42,188 --> 00:03:46,038
+So lines 10 through 13, or 10 through 12 actually,
+
+83
+00:03:46,038 --> 00:03:47,661
+takes care of our step three of reading
+
+84
+00:03:47,661 --> 00:03:49,220
+the Java config file.
+
+85
+00:03:49,220 --> 00:03:50,568
+We've seen that already.
+
+86
+00:03:50,568 --> 00:03:53,604
+And then line 15 is actually reading
+
+87
+00:03:53,604 --> 00:03:56,225
+or retrieving a bean from the container.
+
+88
+00:03:56,225 --> 00:03:58,766
+So we say get bean, swim coach.
+
+89
+00:03:58,766 --> 00:04:01,852
+So again, remember the actual bean method name
+
+90
+00:04:01,852 --> 00:04:03,288
+defined in our config file.
+
+91
+00:04:03,288 --> 00:04:05,788
+That's the actual bean id that we'll use here
+
+92
+00:04:05,788 --> 00:04:08,940
+for retrieving that bean reference.
+
+93
+00:04:08,940 --> 00:04:09,773
+So there we go.
+
+94
+00:04:09,773 --> 00:04:10,606
+So we have the bean.
+
+95
+00:04:10,606 --> 00:04:11,439
+We can call some methods on it,
+
+96
+00:04:11,439 --> 00:04:14,619
+getDailyWorkout, getDailyFortune, and so on.
+
+97
+00:04:14,619 --> 00:04:16,417
+So that's it.
+
+98
+00:04:16,417 --> 00:04:18,873
+One thing I want to do is go back to our configuration,
+
+99
+00:04:18,873 --> 00:04:20,550
+our SportConfig.Java.
+
+100
+00:04:20,550 --> 00:04:22,315
+I actually want to make one small enhancement
+
+101
+00:04:22,315 --> 00:04:23,667
+or one small change here.
+
+102
+00:04:23,667 --> 00:04:28,048
+So on line eight, I want to comment out the ComponentScan.
+
+103
+00:04:28,048 --> 00:04:30,261
+Here I don't want to do any component scanning
+
+104
+00:04:30,261 --> 00:04:32,021
+'cause I simply only want to make use
+
+105
+00:04:32,021 --> 00:04:34,400
+of the two beans that I've manually defined.
+
+106
+00:04:34,400 --> 00:04:36,983
+So just comment out line eight.
+
+107
+00:04:37,894 --> 00:04:39,203
+Alright, so now we're at a point
+
+108
+00:04:39,203 --> 00:04:41,993
+where we can actually go ahead and run the application.
+
+109
+00:04:41,993 --> 00:04:43,685
+So I'll simply do a right click,
+
+110
+00:04:43,685 --> 00:04:47,018
+and I'll choose Run As Java application.
+
+111
+00:04:48,492 --> 00:04:49,645
+Oh yeah!
+
+112
+00:04:49,645 --> 00:04:51,083
+So here we go, our swim coach says,
+
+113
+00:04:51,083 --> 00:04:53,456
+"Hey, swim 1000 meters as a warm up."
+
+114
+00:04:53,456 --> 00:04:54,289
+Really?
+
+115
+00:04:54,289 --> 00:04:56,451
+And then also Today is a sad day.
+
+116
+00:04:56,451 --> 00:04:58,459
+So the sad day portion, that's what we're getting
+
+117
+00:04:58,459 --> 00:05:00,682
+from our SadFortuneService.
+
+118
+00:05:00,682 --> 00:05:03,022
+So this works out as desired.
+
+119
+00:05:03,022 --> 00:05:05,074
+So instead of a sad day, it's actually a happy day
+
+120
+00:05:05,074 --> 00:05:07,951
+because we were successful here
+
+121
+00:05:07,951 --> 00:05:12,118
+in doing Java configuration of our Spring beans manually.
+
+122
+00:05:13,974 --> 00:05:15,211
+Woo hoo!
+
+123
+00:05:15,211 --> 00:05:16,044
+Good job.
+

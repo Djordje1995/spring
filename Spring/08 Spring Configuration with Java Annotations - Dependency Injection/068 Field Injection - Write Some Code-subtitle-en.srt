@@ -1,0 +1,252 @@
+1
+00:00:01,225 --> 00:00:02,058
+<v Instructor>All right, let's go ahead</v>
+
+2
+00:00:02,058 --> 00:00:04,551
+and dive into Eclipse and write some code.
+
+3
+00:00:04,551 --> 00:00:06,036
+So with our development process,
+
+4
+00:00:06,036 --> 00:00:07,788
+what we're gonna do is we're gonna configure
+
+5
+00:00:07,788 --> 00:00:10,967
+dependency injection with the Autowired annotation
+
+6
+00:00:10,967 --> 00:00:13,568
+and we're gonna apply it directly to the field,
+
+7
+00:00:13,568 --> 00:00:16,069
+no need for setter methods.
+
+8
+00:00:16,069 --> 00:00:20,236
+So, let's go ahead and modify our TennisCoach.java.
+
+9
+00:00:22,299 --> 00:00:24,953
+In the previous videos we made use of method injection,
+
+10
+00:00:24,953 --> 00:00:26,853
+so our doCrazyStuff, we're simply
+
+11
+00:00:26,853 --> 00:00:29,169
+gonna comment out that for now.
+
+12
+00:00:29,169 --> 00:00:30,537
+We're not gonna use it, we're gonna actually
+
+13
+00:00:30,537 --> 00:00:32,549
+make use of field injection instead.
+
+14
+00:00:32,549 --> 00:00:35,721
+So, I just put a comment on this section here.
+
+15
+00:00:35,721 --> 00:00:37,022
+Go ahead save the file.
+
+16
+00:00:37,022 --> 00:00:38,918
+Great, so now step one is configure
+
+17
+00:00:38,918 --> 00:00:41,526
+the dependency injection with the Autowired annotation,
+
+18
+00:00:41,526 --> 00:00:44,726
+and I want to apply it directly to the field.
+
+19
+00:00:44,726 --> 00:00:47,422
+So I have this field here called fortuneService
+
+20
+00:00:47,422 --> 00:00:49,089
+and I say Autowired.
+
+21
+00:00:50,670 --> 00:00:52,342
+Now, what Spring will do with that,
+
+22
+00:00:52,342 --> 00:00:54,806
+it will say hey, I need to resolve a dependency.
+
+23
+00:00:54,806 --> 00:00:57,589
+Even though this field is listed as private,
+
+24
+00:00:57,589 --> 00:01:01,174
+Spring will still set this value behind the scenes.
+
+25
+00:01:01,174 --> 00:01:02,350
+So, the first thing Spring will do
+
+26
+00:01:02,350 --> 00:01:03,910
+is it will actually construct the class
+
+27
+00:01:03,910 --> 00:01:05,902
+by calling the default constructor
+
+28
+00:01:05,902 --> 00:01:07,944
+and then it will actually inject
+
+29
+00:01:07,944 --> 00:01:12,102
+a fortuneService implementation directly into this class
+
+30
+00:01:12,102 --> 00:01:14,998
+making use of some Java technology called Reflection.
+
+31
+00:01:14,998 --> 00:01:17,478
+And it happens all behind the scenes for you.
+
+32
+00:01:17,478 --> 00:01:19,518
+There's no additional work you have to do.
+
+33
+00:01:19,518 --> 00:01:22,083
+There's no special constructor injection,
+
+34
+00:01:22,083 --> 00:01:23,621
+no setter injection,
+
+35
+00:01:23,621 --> 00:01:26,119
+simply make use of this field injection,
+
+36
+00:01:26,119 --> 00:01:28,398
+which is really, really cool.
+
+37
+00:01:28,398 --> 00:01:30,070
+And everything else in the file is the same,
+
+38
+00:01:30,070 --> 00:01:32,389
+so we make use of all of our normal methods.
+
+39
+00:01:32,389 --> 00:01:33,479
+So, that's it for TennisCoach.
+
+40
+00:01:33,479 --> 00:01:36,874
+So, we're good to go right now.
+
+41
+00:01:36,874 --> 00:01:38,753
+All right, so let's go ahead and move back over
+
+42
+00:01:38,753 --> 00:01:41,920
+to our main program AnnotationDemoApp.
+
+43
+00:01:42,779 --> 00:01:46,118
+That's the one that we've been using so far.
+
+44
+00:01:46,118 --> 00:01:48,489
+Actually there's no changes here to this file.
+
+45
+00:01:48,489 --> 00:01:50,731
+We keep everything the same.
+
+46
+00:01:50,731 --> 00:01:53,241
+Spring's gonna do some injection work in the background
+
+47
+00:01:53,241 --> 00:01:56,574
+but everything else here stays the same.
+
+48
+00:01:58,385 --> 00:02:02,633
+And then we'll go ahead and run the application
+
+49
+00:02:02,633 --> 00:02:06,721
+and we'll look at our beautiful output, oh yeah.
+
+50
+00:02:06,721 --> 00:02:08,394
+So here we're inside the default constructor
+
+51
+00:02:08,394 --> 00:02:09,617
+which is great.
+
+52
+00:02:09,617 --> 00:02:12,122
+So behind the scenes Spring will actually inject
+
+53
+00:02:12,122 --> 00:02:14,154
+that FortuneService, so we can print out
+
+54
+00:02:14,154 --> 00:02:17,217
+our daily workout and then we'll get the actual fortune,
+
+55
+00:02:17,217 --> 00:02:18,721
+today is your lucky day, we're getting that
+
+56
+00:02:18,721 --> 00:02:22,833
+from the FortuneService that was wired up by Spring.
+
+57
+00:02:22,833 --> 00:02:25,217
+And it was wired up by Spring automatically
+
+58
+00:02:25,217 --> 00:02:28,378
+using that field level injection.
+
+59
+00:02:28,378 --> 00:02:29,705
+So, this is awesome.
+
+60
+00:02:29,705 --> 00:02:31,257
+I'm really, really excited about this.
+
+61
+00:02:31,257 --> 00:02:33,633
+We've covered all the bases here
+
+62
+00:02:33,633 --> 00:02:36,969
+on doing the different types of injection with Spring.
+
+63
+00:02:36,969 --> 00:02:40,969
+So, I'd like to say congrats, and you rock dude.
+

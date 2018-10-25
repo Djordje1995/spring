@@ -1,0 +1,204 @@
+1
+00:00:02,309 --> 00:00:03,496
+<v Instructor>All right, so let's go ahead</v>
+
+2
+00:00:03,496 --> 00:00:04,562
+and run the application.
+
+3
+00:00:04,562 --> 00:00:06,270
+So what I'll do is I'll move to my project folder
+
+4
+00:00:06,270 --> 00:00:08,791
+at the root and I'll simply go right click
+
+5
+00:00:08,791 --> 00:00:12,874
+and choose run as, and I'll choose run on server.
+
+6
+00:00:14,309 --> 00:00:16,162
+So here I'll just choose the default server here
+
+7
+00:00:16,162 --> 00:00:17,829
+and click on finish.
+
+8
+00:00:21,294 --> 00:00:24,127
+So it's gonna start at the server.
+
+9
+00:00:25,642 --> 00:00:27,696
+And wow, there's our output.
+
+10
+00:00:27,696 --> 00:00:29,421
+This looks really, really good.
+
+11
+00:00:29,421 --> 00:00:33,588
+So this is our main menu JSP, Spring MVC Demo- Home Page.
+
+12
+00:00:34,677 --> 00:00:36,830
+Ooh, that's awesome, this works.
+
+13
+00:00:36,830 --> 00:00:38,672
+So basically our controller in the background
+
+14
+00:00:38,672 --> 00:00:42,027
+forwarded the request over to this view page.
+
+15
+00:00:42,027 --> 00:00:43,355
+Awesome, awesome.
+
+16
+00:00:43,355 --> 00:00:46,160
+So let's go dig into the logs here in the console window
+
+17
+00:00:46,160 --> 00:00:48,635
+and just take a look at some of the output.
+
+18
+00:00:48,635 --> 00:00:51,928
+Looking at the logs here it says that it's making use
+
+19
+00:00:51,928 --> 00:00:54,866
+of the spring dispatcher servlet and the initialization
+
+20
+00:00:54,866 --> 00:00:55,911
+has started.
+
+21
+00:00:55,911 --> 00:00:59,077
+So it's starting the process of initializing itself
+
+22
+00:00:59,077 --> 00:01:00,494
+and reading data.
+
+23
+00:01:02,556 --> 00:01:04,795
+A couple lines down you can see where it's loading
+
+24
+00:01:04,795 --> 00:01:09,056
+the XML beam definitions from that servlet context file.
+
+25
+00:01:09,056 --> 00:01:11,906
+That spring MVC demo servlet, dot xml from one
+
+26
+00:01:11,906 --> 00:01:15,647
+of the previous videos, so that's good.
+
+27
+00:01:15,647 --> 00:01:19,232
+That basically just has component scanning in there.
+
+28
+00:01:19,232 --> 00:01:21,546
+Thanks to component scanning then we'll see
+
+29
+00:01:21,546 --> 00:01:24,164
+that it's gonna actually make, it's gonna actually find
+
+30
+00:01:24,164 --> 00:01:27,384
+our controller, our home controller and map the slash
+
+31
+00:01:27,384 --> 00:01:30,967
+onto a method in our home controller class.
+
+32
+00:01:31,893 --> 00:01:32,985
+So this is great.
+
+33
+00:01:32,985 --> 00:01:35,140
+It says that it's mapping that onto this method,
+
+34
+00:01:35,140 --> 00:01:36,466
+show page.
+
+35
+00:01:36,466 --> 00:01:38,934
+Awesome so just like our code laid out.
+
+36
+00:01:38,934 --> 00:01:41,096
+This is great, good stuff.
+
+37
+00:01:41,096 --> 00:01:44,505
+Finally down near the bottom this is where we have
+
+38
+00:01:44,505 --> 00:01:48,672
+that framework servlet dispatcher initialization complete.
+
+39
+00:01:49,868 --> 00:01:53,349
+So this is basically your success message that hey
+
+40
+00:01:53,349 --> 00:01:55,282
+spring started up successfully.
+
+41
+00:01:55,282 --> 00:01:57,820
+It read all of its controllers, did all the mappings.
+
+42
+00:01:57,820 --> 00:02:01,021
+There were no issues and the server's up and running
+
+43
+00:02:01,021 --> 00:02:01,854
+and ready to go.
+
+44
+00:02:01,854 --> 00:02:02,687
+So this is good.
+
+45
+00:02:02,687 --> 00:02:06,182
+Successful so far in getting our first example running.
+
+46
+00:02:06,182 --> 00:02:07,993
+Give yourselves a pat on the back.
+
+47
+00:02:07,993 --> 00:02:09,850
+In some of the following videos we're gonna dive
+
+48
+00:02:09,850 --> 00:02:13,100
+into more details here with Spring MVC.
+
+49
+00:02:14,544 --> 00:02:16,394
+But hey, this is a good first start.
+
+50
+00:02:16,394 --> 00:02:19,723
+So take a break and get yourself a coffee.
+
+51
+00:02:19,723 --> 00:02:21,556
+I'll see you in a bit.
+

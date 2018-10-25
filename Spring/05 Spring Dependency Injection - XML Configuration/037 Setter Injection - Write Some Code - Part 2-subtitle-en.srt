@@ -1,0 +1,708 @@
+1
+00:00:01,240 --> 00:00:02,905
+<v Instructor>Alright, so we're moving right along here.</v>
+
+2
+00:00:02,905 --> 00:00:04,697
+So, the next step in our dev process
+
+3
+00:00:04,697 --> 00:00:06,805
+is to configure the dependency
+
+4
+00:00:06,805 --> 00:00:09,870
+in our Spring configuration file.
+
+5
+00:00:09,870 --> 00:00:14,551
+So, let's go ahead and open up our applicationContext.xml
+
+6
+00:00:14,551 --> 00:00:18,864
+and we'll set up our dependency injection.
+
+7
+00:00:18,864 --> 00:00:22,176
+So, I'll kinda expand the window here for this file
+
+8
+00:00:22,176 --> 00:00:25,163
+and I'll move down to the bottom
+
+9
+00:00:25,163 --> 00:00:29,687
+and we'll add a new bean entry here for our CricketCoach,
+
+10
+00:00:29,687 --> 00:00:33,854
+So, bean ID, myCricketCoach and for the class, equals,
+
+11
+00:00:38,254 --> 00:00:41,807
+I'll just kinda leave it empty for right now
+
+12
+00:00:41,807 --> 00:00:43,858
+and then I'll come back and use that same technique
+
+13
+00:00:43,858 --> 00:00:44,691
+that I used before,
+
+14
+00:00:44,691 --> 00:00:46,482
+because I need the fully qualified class name
+
+15
+00:00:46,482 --> 00:00:48,242
+of my cricket coach.
+
+16
+00:00:48,242 --> 00:00:50,109
+So again, what I'll do is I'll just kinda
+
+17
+00:00:50,109 --> 00:00:52,274
+move back to that class CricketCoach
+
+18
+00:00:52,274 --> 00:00:55,565
+and I will select it and right click
+
+19
+00:00:55,565 --> 00:00:57,958
+and choose, copy qualified name.
+
+20
+00:00:57,958 --> 00:00:59,557
+So, that will give me the fully qualified name,
+
+21
+00:00:59,557 --> 00:01:03,607
+which the package name dot the class name
+
+22
+00:01:03,607 --> 00:01:06,144
+and then I'll move back over to my configuration file,
+
+23
+00:01:06,144 --> 00:01:08,569
+and I'll just do a right click and choose paste.
+
+24
+00:01:08,569 --> 00:01:09,402
+So there we go.
+
+25
+00:01:09,402 --> 00:01:13,569
+So, that's our fully qualified class name for this example.
+
+26
+00:01:17,408 --> 00:01:19,103
+Alright, so we're doing pretty good here.
+
+27
+00:01:19,103 --> 00:01:21,996
+Now let's go through and actually set up
+
+28
+00:01:21,996 --> 00:01:23,746
+our setter injection.
+
+29
+00:01:25,773 --> 00:01:28,663
+Set up our setter injection
+
+30
+00:01:28,663 --> 00:01:31,542
+and what I'll do here is I'll set up property,
+
+31
+00:01:31,542 --> 00:01:35,709
+I'll say name equals and then I'll set ref equals
+
+32
+00:01:38,293 --> 00:01:40,340
+and I'll go ahead and fill in some other values here.
+
+33
+00:01:40,340 --> 00:01:42,530
+So the name, this is the actual property name here,
+
+34
+00:01:42,530 --> 00:01:45,064
+so the property name is fortuneService
+
+35
+00:01:45,064 --> 00:01:46,660
+and the ref is gonna be
+
+36
+00:01:46,660 --> 00:01:49,078
+the name of myFortuneService
+
+37
+00:01:49,078 --> 00:01:51,882
+and again, the ref of myFortuneService,
+
+38
+00:01:51,882 --> 00:01:54,474
+that's the bean that was defined a little bit earlier
+
+39
+00:01:54,474 --> 00:01:55,572
+in this configuration file,
+
+40
+00:01:55,572 --> 00:01:56,643
+I'll kind of scroll up a bit
+
+41
+00:01:56,643 --> 00:01:57,801
+so you can see it.
+
+42
+00:01:57,801 --> 00:02:02,193
+So, up on line 13 that bean ID of myFortuneService,
+
+43
+00:02:02,193 --> 00:02:03,704
+that's the actual same reference
+
+44
+00:02:03,704 --> 00:02:07,871
+that we'll use when we inject it into our CricketCoach.
+
+45
+00:02:12,761 --> 00:02:14,710
+Okay, great, and then also as a reminder here
+
+46
+00:02:14,710 --> 00:02:17,481
+with that property, name equals fortuneService,
+
+47
+00:02:17,481 --> 00:02:18,431
+the Spring framework
+
+48
+00:02:18,431 --> 00:02:21,179
+will actually call setFortuneService,
+
+49
+00:02:21,179 --> 00:02:23,052
+so again, they'll take that property name,
+
+50
+00:02:23,052 --> 00:02:25,061
+the first character, they'll make it a cap
+
+51
+00:02:25,061 --> 00:02:28,152
+and then they'll call setFortuneService.
+
+52
+00:02:28,152 --> 00:02:29,943
+Alright, so we're pretty good here.
+
+53
+00:02:29,943 --> 00:02:30,776
+Another thing I wanna do
+
+54
+00:02:30,776 --> 00:02:32,753
+is create a new app class for this demo.
+
+55
+00:02:32,753 --> 00:02:34,893
+So, just to kinda start from scratch
+
+56
+00:02:34,893 --> 00:02:37,440
+just so we have a separate area to work in
+
+57
+00:02:37,440 --> 00:02:39,051
+and you know, makes it a little bit simpler
+
+58
+00:02:39,051 --> 00:02:40,136
+for us to work through it.
+
+59
+00:02:40,136 --> 00:02:43,178
+So, I'll create a new class,
+
+60
+00:02:43,178 --> 00:02:45,087
+and I'll call it SetterDemoApp
+
+61
+00:02:45,087 --> 00:02:47,806
+and again, just a class that's gonna have a main method
+
+62
+00:02:47,806 --> 00:02:49,993
+to read the Spring config
+
+63
+00:02:49,993 --> 00:02:52,001
+and perform some operations.
+
+64
+00:02:52,001 --> 00:02:53,024
+So, I'll check the box there
+
+65
+00:02:53,024 --> 00:02:55,006
+for the main method
+
+66
+00:02:55,006 --> 00:02:57,148
+and then I'll keep all the other defaults
+
+67
+00:02:57,148 --> 00:02:58,815
+and I'll hit finish.
+
+68
+00:03:00,774 --> 00:03:03,193
+Alright, so here's our SetterDemoApp.
+
+69
+00:03:03,193 --> 00:03:06,711
+I'll go ahead and clear out this auto-generated stuff
+
+70
+00:03:06,711 --> 00:03:10,041
+and I'll just quickly just write some comments here
+
+71
+00:03:10,041 --> 00:03:12,432
+as far as what we need to do in this app.
+
+72
+00:03:12,432 --> 00:03:15,559
+So again, we're kinda starting from scratch here.
+
+73
+00:03:15,559 --> 00:03:16,635
+So, the first thing we'll do is load
+
+74
+00:03:16,635 --> 00:03:18,770
+the Spring configuration file.
+
+75
+00:03:18,770 --> 00:03:22,937
+We will retrieve the bean from the Spring container.
+
+76
+00:03:26,579 --> 00:03:30,044
+Then we'll call methods on the bean of course,
+
+77
+00:03:30,044 --> 00:03:31,278
+and then finally we'll be nice
+
+78
+00:03:31,278 --> 00:03:33,611
+and we'll close the context.
+
+79
+00:03:35,517 --> 00:03:37,189
+So, that's the basic game plan here
+
+80
+00:03:37,189 --> 00:03:38,671
+for this demo app,
+
+81
+00:03:38,671 --> 00:03:41,112
+and we've seen this before in some previous videos
+
+82
+00:03:41,112 --> 00:03:43,462
+but we're just gonna kind of do it again from scratch
+
+83
+00:03:43,462 --> 00:03:45,879
+just for this setter example.
+
+84
+00:03:51,054 --> 00:03:51,887
+Alrighty here.
+
+85
+00:03:51,887 --> 00:03:54,350
+So, loading the Spring configuration file,
+
+86
+00:03:54,350 --> 00:03:57,785
+so ClassPathXmlApplicationContext,
+
+87
+00:03:57,785 --> 00:04:01,139
+context equals new
+
+88
+00:04:01,139 --> 00:04:03,151
+and I use that big long class name,
+
+89
+00:04:03,151 --> 00:04:06,484
+I'm just gonna do a copy, paste on that.
+
+90
+00:04:10,636 --> 00:04:13,074
+And then I just pass in the actual name of the file
+
+91
+00:04:13,074 --> 00:04:15,687
+that I'm reading in, applicationContext.xml,
+
+92
+00:04:15,687 --> 00:04:17,414
+so there's my context
+
+93
+00:04:17,414 --> 00:04:19,070
+and you can fix the imports here
+
+94
+00:04:19,070 --> 00:04:22,903
+by hovering over the red arrow or the red line
+
+95
+00:04:23,883 --> 00:04:26,840
+and say import and that'll take care of the imports for you.
+
+96
+00:04:26,840 --> 00:04:28,100
+Alright, we're good there.
+
+97
+00:04:28,100 --> 00:04:31,354
+Now let's retrieve the bean again
+
+98
+00:04:31,354 --> 00:04:33,403
+on the white space at the bottom.
+
+99
+00:04:33,403 --> 00:04:37,570
+I'll retrieve the bean by saying CricketCoach, theCoach,
+
+100
+00:04:40,514 --> 00:04:44,204
+equals context.getBean
+
+101
+00:04:44,204 --> 00:04:48,666
+and I give the name of the bean, myCricketCoach
+
+102
+00:04:48,666 --> 00:04:51,499
+comma and then CricketCoach.class.
+
+103
+00:04:58,519 --> 00:05:00,954
+Alright, so now when we retrieve this bean,
+
+104
+00:05:00,954 --> 00:05:03,301
+they'll actually do all the setter injection work
+
+105
+00:05:03,301 --> 00:05:06,124
+behind the scenes for us.
+
+106
+00:05:06,124 --> 00:05:08,163
+And then actually this is kinda cool,
+
+107
+00:05:08,163 --> 00:05:09,302
+let's do this real quick.
+
+108
+00:05:09,302 --> 00:05:11,689
+So, let's do this context.close
+
+109
+00:05:11,689 --> 00:05:15,542
+and that line here for calling methods on the bean,
+
+110
+00:05:15,542 --> 00:05:19,709
+let's just say that we'll come back and do this later
+
+111
+00:05:21,619 --> 00:05:23,085
+because what I wanna do is just check
+
+112
+00:05:23,085 --> 00:05:25,540
+the basic operations here,
+
+113
+00:05:25,540 --> 00:05:28,166
+what Spring is doing behind the scenes
+
+114
+00:05:28,166 --> 00:05:30,554
+because we put some print line methods in there
+
+115
+00:05:30,554 --> 00:05:32,792
+as far as the constructor and the setter
+
+116
+00:05:32,792 --> 00:05:35,581
+and Spring should call those methods automatically
+
+117
+00:05:35,581 --> 00:05:36,935
+and so we should see something
+
+118
+00:05:36,935 --> 00:05:39,288
+when we actually run this program.
+
+119
+00:05:39,288 --> 00:05:40,513
+So, let's go ahead and save this
+
+120
+00:05:40,513 --> 00:05:41,564
+and let's do a right click
+
+121
+00:05:41,564 --> 00:05:44,397
+and choose run as Java application
+
+122
+00:05:46,551 --> 00:05:48,488
+and we beam up the console
+
+123
+00:05:48,488 --> 00:05:50,492
+and oh yeah, looks really good.
+
+124
+00:05:50,492 --> 00:05:51,325
+Look at that.
+
+125
+00:05:51,325 --> 00:05:52,660
+So, we're loading that config file,
+
+126
+00:05:52,660 --> 00:05:53,973
+so it reads the configs,
+
+127
+00:05:53,973 --> 00:05:57,325
+and then here it says we're inside the no-arg constructor
+
+128
+00:05:57,325 --> 00:05:58,805
+and we're inside the setter method
+
+129
+00:05:58,805 --> 00:06:00,522
+and those are those little print line methods
+
+130
+00:06:00,522 --> 00:06:02,657
+that we personally added,
+
+131
+00:06:02,657 --> 00:06:05,149
+so we know that Spring is actually calling
+
+132
+00:06:05,149 --> 00:06:08,306
+these methods for us behind the scenes
+
+133
+00:06:08,306 --> 00:06:10,314
+when they're processing that config file,
+
+134
+00:06:10,314 --> 00:06:11,619
+so this all kinda works out
+
+135
+00:06:11,619 --> 00:06:14,285
+with everything that we've been learning here
+
+136
+00:06:14,285 --> 00:06:15,118
+in the video,
+
+137
+00:06:15,118 --> 00:06:15,951
+so this looks really good.
+
+138
+00:06:15,951 --> 00:06:18,383
+I'm confident now going forward
+
+139
+00:06:18,383 --> 00:06:20,601
+with how this part works out.
+
+140
+00:06:20,601 --> 00:06:23,541
+Alright, so now we can move back into our SetterDemoApp
+
+141
+00:06:23,541 --> 00:06:25,330
+and then we can go ahead and actually write some code
+
+142
+00:06:25,330 --> 00:06:26,283
+for doing this stuff.
+
+143
+00:06:26,283 --> 00:06:29,355
+So, let's go ahead and call the methods now.
+
+144
+00:06:29,355 --> 00:06:31,638
+So, I'm just gonna do a print line on the workout
+
+145
+00:06:31,638 --> 00:06:32,809
+and the fortune.
+
+146
+00:06:32,809 --> 00:06:34,642
+So, sysout print line.
+
+147
+00:06:35,875 --> 00:06:39,125
+Here I'll say theCoach.getDailyFortune,
+
+148
+00:06:41,411 --> 00:06:43,306
+I'm sorry, actually getDailyWorkout
+
+149
+00:06:43,306 --> 00:06:47,473
+and then a similar thing here for theCoach.getDailyFortune.
+
+150
+00:06:48,597 --> 00:06:52,683
+There we go, that's my fortune, alright.
+
+151
+00:06:52,683 --> 00:06:54,139
+Alright, good stuff.
+
+152
+00:06:54,139 --> 00:06:55,253
+So, these are the methods here
+
+153
+00:06:55,253 --> 00:06:57,337
+that we're calling on our coach
+
+154
+00:06:57,337 --> 00:07:00,358
+and we should see again, some information being displayed
+
+155
+00:07:00,358 --> 00:07:02,775
+to the screen when we run it.
+
+156
+00:07:05,696 --> 00:07:06,797
+Alright, so again, we save it,
+
+157
+00:07:06,797 --> 00:07:09,823
+right click, run as Java application
+
+158
+00:07:09,823 --> 00:07:11,896
+and we look at the console window here
+
+159
+00:07:11,896 --> 00:07:14,602
+and oh yeah, looking good.
+
+160
+00:07:14,602 --> 00:07:16,980
+So, those are our diagnostic messages up top
+
+161
+00:07:16,980 --> 00:07:18,617
+and then that's our daily workout,
+
+162
+00:07:18,617 --> 00:07:20,351
+practice fast bowling,
+
+163
+00:07:20,351 --> 00:07:24,024
+and then the item here is our fortune,
+
+164
+00:07:24,024 --> 00:07:25,326
+today is your lucky day.
+
+165
+00:07:25,326 --> 00:07:26,159
+So, this is great,
+
+166
+00:07:26,159 --> 00:07:29,000
+so everything kind of works out as desired.
+
+167
+00:07:29,000 --> 00:07:31,464
+Spring is making use of setter injection,
+
+168
+00:07:31,464 --> 00:07:33,768
+they're injecting that fortune service
+
+169
+00:07:33,768 --> 00:07:35,074
+and then we can use our coach
+
+170
+00:07:35,074 --> 00:07:37,629
+and call methods just like we could do before
+
+171
+00:07:37,629 --> 00:07:39,527
+with all the other coaches like baseball coach
+
+172
+00:07:39,527 --> 00:07:41,543
+and track coach, so again,
+
+173
+00:07:41,543 --> 00:07:42,749
+really good example here.
+
+174
+00:07:42,749 --> 00:07:44,927
+We're just making use of another technique in Spring
+
+175
+00:07:44,927 --> 00:07:47,523
+as far doing setter injection.
+
+176
+00:07:47,523 --> 00:07:50,291
+So again, great job, pat yourself on the back
+
+177
+00:07:50,291 --> 00:07:51,791
+and we're moving.
+

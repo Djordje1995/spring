@@ -1,0 +1,148 @@
+1
+00:00:01,259 --> 00:00:02,826
+<v Instructor>In this video, we're gonna learn</v>
+
+2
+00:00:02,826 --> 00:00:06,993
+about field injection with annotations and autowiring.
+
+3
+00:00:09,098 --> 00:00:11,234
+So, we've covered two injection types so far.
+
+4
+00:00:11,234 --> 00:00:13,029
+We've covered constructor injection
+
+5
+00:00:13,029 --> 00:00:15,235
+and we've already covered setter injection.
+
+6
+00:00:15,235 --> 00:00:19,402
+Now, this video will focus on doing field injection.
+
+7
+00:00:21,599 --> 00:00:23,517
+Now, with field injection, you can actually
+
+8
+00:00:23,517 --> 00:00:26,179
+inject the dependencies by setting the field values
+
+9
+00:00:26,179 --> 00:00:30,029
+on your class directly, even for private fields,
+
+10
+00:00:30,029 --> 00:00:31,102
+and the nice thing about it is
+
+11
+00:00:31,102 --> 00:00:33,403
+that this happens behind the scenes
+
+12
+00:00:33,403 --> 00:00:37,153
+using some Java technology called Reflection.
+
+13
+00:00:39,059 --> 00:00:41,643
+So, the development process for field injection
+
+14
+00:00:41,643 --> 00:00:44,418
+is that you simply configure the dependency injection
+
+15
+00:00:44,418 --> 00:00:46,599
+using the Autowired annotation.
+
+16
+00:00:46,599 --> 00:00:50,233
+You place this annotation directly on the field
+
+17
+00:00:50,233 --> 00:00:51,666
+and with this annotation,
+
+18
+00:00:51,666 --> 00:00:54,602
+there's no need for setter methods.
+
+19
+00:00:54,602 --> 00:00:56,507
+Hmm, interesting.
+
+20
+00:00:56,507 --> 00:00:57,619
+So, let's take a look at it.
+
+21
+00:00:57,619 --> 00:00:58,722
+So, step one.
+
+22
+00:00:58,722 --> 00:01:01,290
+We have our TennisCoach for our FortuneService
+
+23
+00:01:01,290 --> 00:01:04,506
+we know that we need a fortuneService as a dependency,
+
+24
+00:01:04,506 --> 00:01:07,418
+so what we do is we simply place Autowired
+
+25
+00:01:07,418 --> 00:01:09,251
+directly on the field,
+
+26
+00:01:10,980 --> 00:01:12,706
+directly on the field.
+
+27
+00:01:12,706 --> 00:01:15,674
+So, instead of making you supply constructor injection
+
+28
+00:01:15,674 --> 00:01:19,676
+or setter injection, we place it directly on the field.
+
+29
+00:01:19,676 --> 00:01:22,834
+So, what happens is behind the scenes,
+
+30
+00:01:22,834 --> 00:01:25,171
+when Spring creates your object,
+
+31
+00:01:25,171 --> 00:01:30,048
+then they'll automatically set this field behind the scenes,
+
+32
+00:01:30,048 --> 00:01:31,406
+so they won't have to go through
+
+33
+00:01:31,406 --> 00:01:33,067
+any setter methods or anything.
+
+34
+00:01:33,067 --> 00:01:34,677
+They'll just actually set it directly
+
+35
+00:01:34,677 --> 00:01:37,586
+by making use of Java technology called Reflection,
+
+36
+00:01:37,586 --> 00:01:39,018
+and they'll set it directly
+
+37
+00:01:39,018 --> 00:01:42,768
+without you having to do any additional work.
+

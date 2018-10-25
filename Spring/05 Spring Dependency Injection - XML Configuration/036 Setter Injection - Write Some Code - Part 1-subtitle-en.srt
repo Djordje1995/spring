@@ -1,0 +1,388 @@
+1
+00:00:01,087 --> 00:00:02,085
+<v Instructor>Alright, so let's go ahead</v>
+
+2
+00:00:02,085 --> 00:00:06,034
+and move into Eclipse and let's write some code.
+
+3
+00:00:06,034 --> 00:00:07,784
+With our development process, the first thing
+
+4
+00:00:07,784 --> 00:00:09,410
+we need to do is create a setter
+
+5
+00:00:09,410 --> 00:00:11,391
+method in our class for injections.
+
+6
+00:00:11,391 --> 00:00:13,424
+But, actually, what we need to do
+
+7
+00:00:13,424 --> 00:00:15,611
+really is create a new class first.
+
+8
+00:00:15,611 --> 00:00:19,611
+Let's go ahead and create our CricketCoach class
+
+9
+00:00:22,359 --> 00:00:26,163
+and the name of this class, we'll call it, CricketCoach,
+
+10
+00:00:26,163 --> 00:00:29,663
+pretty simple and for the interfaces here,
+
+11
+00:00:30,864 --> 00:00:34,318
+I actually need to make use of the coach interface,
+
+12
+00:00:34,318 --> 00:00:36,238
+I need to add the coach interface,
+
+13
+00:00:36,238 --> 00:00:40,238
+I'll click on add, I'll type in coach at the top
+
+14
+00:00:41,171 --> 00:00:43,751
+and this will give me my coach interface.
+
+15
+00:00:43,751 --> 00:00:44,584
+Hit okay.
+
+16
+00:00:47,670 --> 00:00:50,993
+Alright, so now we have this coach interface listed
+
+17
+00:00:50,993 --> 00:00:52,289
+and we'll keep all the other
+
+18
+00:00:52,289 --> 00:00:54,991
+defaults and then we'll hit finish.
+
+19
+00:00:54,991 --> 00:00:59,900
+Okay great, so we have our very basic cricket coach class
+
+20
+00:00:59,900 --> 00:01:01,290
+and what I wanna do is, go ahead
+
+21
+00:01:01,290 --> 00:01:02,853
+and just do some of the basic work for these
+
+22
+00:01:02,853 --> 00:01:05,542
+methods that we need, get daily work out
+
+23
+00:01:05,542 --> 00:01:07,338
+and get daily fortune, so let me just kinda
+
+24
+00:01:07,338 --> 00:01:09,207
+clean this up a bit, let me add the
+
+25
+00:01:09,207 --> 00:01:11,790
+daily work out here for cricket
+
+26
+00:01:14,508 --> 00:01:18,253
+and so, here we're gonna practice fast bowling
+
+27
+00:01:18,253 --> 00:01:22,336
+for 15 minutes a day and cricket's a great sport.
+
+28
+00:01:24,185 --> 00:01:26,772
+Also, we're gonna get the daily fortune
+
+29
+00:01:26,772 --> 00:01:28,828
+and remember with this one, we need a helper
+
+30
+00:01:28,828 --> 00:01:31,292
+so we need to make use of our dependency here,
+
+31
+00:01:31,292 --> 00:01:34,838
+so private fortune service, and I'll just say,
+
+32
+00:01:34,838 --> 00:01:38,993
+fortune service, it hasn't been assigned yet
+
+33
+00:01:38,993 --> 00:01:40,790
+but we'll take care of that in a second.
+
+34
+00:01:40,790 --> 00:01:42,232
+But let's just go ahead and use it down here
+
+35
+00:01:42,232 --> 00:01:44,418
+in this get daily fortune method,
+
+36
+00:01:44,418 --> 00:01:48,585
+so here we'll say, return fortuneService.getFortune
+
+37
+00:01:53,217 --> 00:01:54,550
+and there we go.
+
+38
+00:01:57,857 --> 00:02:00,105
+Alright, so this kinda covers just the basic
+
+39
+00:02:00,105 --> 00:02:02,353
+infrastructure work that we needed
+
+40
+00:02:02,353 --> 00:02:04,819
+for a new coach that we're bringing online,
+
+41
+00:02:04,819 --> 00:02:06,677
+returning the daily work and
+
+42
+00:02:06,677 --> 00:02:08,540
+also returning the daily fortune.
+
+43
+00:02:08,540 --> 00:02:13,087
+Alright, so that takes care of that part of it.
+
+44
+00:02:13,087 --> 00:02:14,899
+Now, the next thing I need to do here,
+
+45
+00:02:14,899 --> 00:02:17,366
+is actually create a no argument constructor
+
+46
+00:02:17,366 --> 00:02:18,930
+because spring's gonna actually call this constructor
+
+47
+00:02:18,930 --> 00:02:22,180
+when they make a reference to our bean.
+
+48
+00:02:23,561 --> 00:02:27,031
+So again, constructor simply has the same name as the class,
+
+49
+00:02:27,031 --> 00:02:29,180
+public cricket coach and what I'll do
+
+50
+00:02:29,180 --> 00:02:31,355
+inside of this method here, or this constructor,
+
+51
+00:02:31,355 --> 00:02:33,826
+is I'll actually make use of a sys out print line,
+
+52
+00:02:33,826 --> 00:02:36,306
+I just wanna put a little diagnostic messaging here,
+
+53
+00:02:36,306 --> 00:02:39,205
+just so I know that, hey, we're actually inside
+
+54
+00:02:39,205 --> 00:02:41,966
+of our constructor because, when I run the program,
+
+55
+00:02:41,966 --> 00:02:43,431
+I like to see, kinda what's going on
+
+56
+00:02:43,431 --> 00:02:47,022
+behind the scenes by spring, so spring is gonna call this
+
+57
+00:02:47,022 --> 00:02:48,910
+method, or call this constructor
+
+58
+00:02:48,910 --> 00:02:50,656
+and I just wanna get some diagnostics
+
+59
+00:02:50,656 --> 00:02:54,332
+just so I know that, hey, things are happening for us.
+
+60
+00:02:54,332 --> 00:02:56,862
+Okay now, we can get to our real step one,
+
+61
+00:02:56,862 --> 00:02:58,948
+we have to do some preliminary work,
+
+62
+00:02:58,948 --> 00:03:00,752
+but we're ready to go now, so here,
+
+63
+00:03:00,752 --> 00:03:02,159
+this is why we actually create the
+
+64
+00:03:02,159 --> 00:03:04,491
+setter method in our class for the injections
+
+65
+00:03:04,491 --> 00:03:06,181
+and I'll make use of this Eclipse trick,
+
+66
+00:03:06,181 --> 00:03:08,089
+I'll just do a right click, I'll choose, source
+
+67
+00:03:08,089 --> 00:03:12,172
+and I'll go down to generate getters and setters.
+
+68
+00:03:14,507 --> 00:03:17,281
+In this scenario, I really only need a setter,
+
+69
+00:03:17,281 --> 00:03:19,667
+so I'll simply expand this list here
+
+70
+00:03:19,667 --> 00:03:23,431
+and I'll just check the box for, setFortuneService,
+
+71
+00:03:23,431 --> 00:03:25,216
+that's the only method that I need,
+
+72
+00:03:25,216 --> 00:03:27,084
+I don't really need the getter method,
+
+73
+00:03:27,084 --> 00:03:28,795
+only the setter method.
+
+74
+00:03:28,795 --> 00:03:31,784
+You can add the getter if you'd like, but it's not required.
+
+75
+00:03:31,784 --> 00:03:33,275
+Alright, so I'll go ahead and hit okay
+
+76
+00:03:33,275 --> 00:03:35,348
+and that should create a new method for me
+
+77
+00:03:35,348 --> 00:03:37,735
+and it's down there, let me just clear up some white space,
+
+78
+00:03:37,735 --> 00:03:39,699
+more white space and here it is,
+
+79
+00:03:39,699 --> 00:03:43,637
+in lines 12 through 14, that's that new setter method
+
+80
+00:03:43,637 --> 00:03:46,887
+that was just created for us by Eclipse
+
+81
+00:03:50,313 --> 00:03:51,867 line:15% 
+and this is the actual setter method
+
+82
+00:03:51,867 --> 00:03:54,088 line:15% 
+that'll be called by spring when they
+
+83
+00:03:54,088 --> 00:03:56,671 line:15% 
+actually inject the dependency.
+
+84
+00:04:00,426 --> 00:04:02,150
+Alright, so this looks pretty good so far,
+
+85
+00:04:02,150 --> 00:04:05,281
+I'll just copy paste this print line
+
+86
+00:04:05,281 --> 00:04:08,079
+onto a similar thing here in the setter method,
+
+87
+00:04:08,079 --> 00:04:10,288
+so another, just a diagnostic method
+
+88
+00:04:10,288 --> 00:04:12,235
+to say, "hey, I'm inside of this setter method."
+
+89
+00:04:12,235 --> 00:04:14,375
+when I give the actual method name.
+
+90
+00:04:14,375 --> 00:04:17,796
+Again, mainly just for us when we test the program out,
+
+91
+00:04:17,796 --> 00:04:20,129
+just to see what's going on.
+
+92
+00:04:23,525 --> 00:04:25,342
+Alright, so we can kinda step back a bit
+
+93
+00:04:25,342 --> 00:04:27,523
+and this is basically all the real stuff here,
+
+94
+00:04:27,523 --> 00:04:29,175
+we created that no argument constructor
+
+95
+00:04:29,175 --> 00:04:31,230
+and we also created our setter method.
+
+96
+00:04:31,230 --> 00:04:33,011
+So, we're in pretty good shape so far.
+
+97
+00:04:33,011 --> 00:04:35,594
+I'll see you in the next video.
+

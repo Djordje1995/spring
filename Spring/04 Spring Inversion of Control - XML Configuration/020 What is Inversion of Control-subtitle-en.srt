@@ -1,0 +1,264 @@
+1
+00:00:01,407 --> 00:00:02,327
+<v Instructor>In this video</v>
+
+2
+00:00:02,327 --> 00:00:05,577
+we're gonna cover inversion of control.
+
+3
+00:00:07,958 --> 00:00:10,752
+So, inversion of control's the buzzword that you always hear
+
+4
+00:00:10,752 --> 00:00:12,717
+when you hear of the Spring framework.
+
+5
+00:00:12,717 --> 00:00:15,521
+So, what exactly is inversion of control?
+
+6
+00:00:15,521 --> 00:00:17,758
+Well, it's simply the design process
+
+7
+00:00:17,758 --> 00:00:21,197
+of externalizing, the construction and management
+
+8
+00:00:21,197 --> 00:00:22,428
+of your objects.
+
+9
+00:00:22,428 --> 00:00:24,743
+So, in a nutshell it basically says
+
+10
+00:00:24,743 --> 00:00:28,106
+that your application's gonna outsource the creation
+
+11
+00:00:28,106 --> 00:00:30,164
+and management of the objects,
+
+12
+00:00:30,164 --> 00:00:33,798
+and that outsourcing will be handled by a object factory,
+
+13
+00:00:33,798 --> 00:00:36,459
+and that's the big idea of inversion of control.
+
+14
+00:00:36,459 --> 00:00:39,083
+Now, to kind of help you out with getting a idea
+
+15
+00:00:39,083 --> 00:00:40,432
+of inversion of control,
+
+16
+00:00:40,432 --> 00:00:43,062
+I'll actually walk through some coding examples
+
+17
+00:00:43,062 --> 00:00:44,491
+and I will kind of start from scratch
+
+18
+00:00:44,491 --> 00:00:46,515
+with a very rough prototype
+
+19
+00:00:46,515 --> 00:00:48,675
+and we'll try and refine it
+
+20
+00:00:48,675 --> 00:00:51,303
+and refactor it over time
+
+21
+00:00:51,303 --> 00:00:53,204
+just so you can kinda see the real motivation
+
+22
+00:00:53,204 --> 00:00:55,016
+for inversion of control
+
+23
+00:00:55,016 --> 00:00:58,933
+and you know, why we need the Spring framework.
+
+24
+00:00:59,866 --> 00:01:01,001
+Alright, so let's go ahead and start
+
+25
+00:01:01,001 --> 00:01:02,371
+with this little coding scenario.
+
+26
+00:01:02,371 --> 00:01:04,052
+So, real simple example.
+
+27
+00:01:04,052 --> 00:01:05,583
+We're gonna have our app
+
+28
+00:01:05,583 --> 00:01:08,744
+that will make use of a coach like a baseball coach
+
+29
+00:01:08,744 --> 00:01:11,412
+and so our app will say hey, baseball coach,
+
+30
+00:01:11,412 --> 00:01:13,256
+give me a daily workout,
+
+31
+00:01:13,256 --> 00:01:15,212
+just so you find out what type of workout
+
+32
+00:01:15,212 --> 00:01:17,401
+you need to perform at practice.
+
+33
+00:01:17,401 --> 00:01:20,433
+So, that's the big idea of this application.
+
+34
+00:01:20,433 --> 00:01:24,109
+Now, one thing though is that the management teams says
+
+35
+00:01:24,109 --> 00:01:25,776
+oh yeah, by the way,
+
+36
+00:01:26,929 --> 00:01:28,957
+the app should be configurable,
+
+37
+00:01:28,957 --> 00:01:32,418
+so this app should easily work for a coach
+
+38
+00:01:32,418 --> 00:01:33,924
+in another sport,
+
+39
+00:01:33,924 --> 00:01:36,040
+so you should easily be able to plug in
+
+40
+00:01:36,040 --> 00:01:40,071
+a hockey coach, cricket coach, tennis, gymnastics, so on.
+
+41
+00:01:40,071 --> 00:01:41,730
+So, they want it to be configurable
+
+42
+00:01:41,730 --> 00:01:44,934
+and also work with any type of coach.
+
+43
+00:01:44,934 --> 00:01:46,606
+So, now you're like oh,
+
+44
+00:01:46,606 --> 00:01:47,622
+I thought the project was easy,
+
+45
+00:01:47,622 --> 00:01:50,161
+now it got a little bit difficult but don't worry,
+
+46
+00:01:50,161 --> 00:01:51,392
+we'll kind of walk through this
+
+47
+00:01:51,392 --> 00:01:53,678
+and we'll look at some possible solutions for this
+
+48
+00:01:53,678 --> 00:01:57,807
+and we'll kinda build out a little rough prototype.
+
+49
+00:01:57,807 --> 00:02:01,057
+So, this rough prototype will have four key players.
+
+50
+00:02:01,057 --> 00:02:03,648
+I'll first set off with MyApp.java.
+
+51
+00:02:03,648 --> 00:02:06,176
+It's simply the main program and it has a main method.
+
+52
+00:02:06,176 --> 00:02:07,770
+We'll use BaseballCoach.java.
+
+53
+00:02:07,770 --> 00:02:09,975
+It will be a simple implementation.
+
+54
+00:02:09,975 --> 00:02:11,790
+Then kind of in the version two,
+
+55
+00:02:11,790 --> 00:02:13,201
+once we kind of refactor it,
+
+56
+00:02:13,201 --> 00:02:16,417
+we'll introduce an interface called coach.java,
+
+57
+00:02:16,417 --> 00:02:19,371
+and then we'll also show another implementation
+
+58
+00:02:19,371 --> 00:02:21,239
+called TrackCoach.java.
+
+59
+00:02:21,239 --> 00:02:22,473
+Just the whole idea of switching in
+
+60
+00:02:22,473 --> 00:02:24,805
+a different coach and seeing if our application
+
+61
+00:02:24,805 --> 00:02:26,260
+continues to work.
+
+62
+00:02:26,260 --> 00:02:27,380
+So, those are the main players,
+
+63
+00:02:27,380 --> 00:02:28,501
+that's the big idea.
+
+64
+00:02:28,501 --> 00:02:30,512
+Let's go ahead and move into the next video
+
+65
+00:02:30,512 --> 00:02:32,381
+and let's get our hands dirty
+
+66
+00:02:32,381 --> 00:02:35,298
+and let's start writing some code.
+

@@ -1,0 +1,324 @@
+1
+00:00:01,578 --> 00:00:02,808
+<v Darby>In this video we're going to learn</v>
+
+2
+00:00:02,808 --> 00:00:04,854
+about Spring MVC Validation along
+
+3
+00:00:04,854 --> 00:00:07,521
+with the @InitBinder annotation.
+
+4
+00:00:09,157 --> 00:00:11,747
+So you remember we had a problem with white space
+
+5
+00:00:11,747 --> 00:00:13,639
+in our previous example.
+
+6
+00:00:13,639 --> 00:00:17,322
+If our last name field was added with all white space
+
+7
+00:00:17,322 --> 00:00:18,739
+it passed, yikes.
+
+8
+00:00:19,976 --> 00:00:22,846
+And it shouldn't, it should have failed.
+
+9
+00:00:22,846 --> 00:00:25,780
+So what we need to do is actually trim the white space
+
+10
+00:00:25,780 --> 00:00:29,015
+from the input fields to make sure that the white space
+
+11
+00:00:29,015 --> 00:00:30,098
+doesn't pass.
+
+12
+00:00:34,274 --> 00:00:36,205
+So what we'll do is we'll make use of this annotation
+
+13
+00:00:36,205 --> 00:00:38,327
+called @InitBinder.
+
+14
+00:00:38,327 --> 00:00:41,629
+This annotation works as a pre-processor.
+
+15
+00:00:41,629 --> 00:00:44,408
+So what it will do for every web request that comes
+
+16
+00:00:44,408 --> 00:00:48,065
+through our controller this code will execute first.
+
+17
+00:00:48,065 --> 00:00:50,706
+So what we'll do is we'll actually create a method
+
+18
+00:00:50,706 --> 00:00:54,894
+and we'll annotate it with the @Binder annotation.
+
+19
+00:00:54,894 --> 00:00:57,716
+So all requests coming in are pre-processed.
+
+20
+00:00:57,716 --> 00:01:00,814
+Now this is actually an advanced annotation.
+
+21
+00:01:00,814 --> 00:01:03,164
+Not many Spring developers know about it
+
+22
+00:01:03,164 --> 00:01:05,629
+so you're kind of getting the inside scoop.
+
+23
+00:01:05,629 --> 00:01:07,659
+You're getting some good advanced coverage here
+
+24
+00:01:07,659 --> 00:01:10,286
+of the Spring MVC framework.
+
+25
+00:01:10,286 --> 00:01:12,217
+Ooh, good stuff.
+
+26
+00:01:12,217 --> 00:01:14,703
+All right so what are we going to do in our InitBinder?
+
+27
+00:01:14,703 --> 00:01:16,177
+All right, remember it's going to pre-process
+
+28
+00:01:16,177 --> 00:01:19,430
+so we're going to use it to trim our strings.
+
+29
+00:01:19,430 --> 00:01:22,701
+We're going to remove the leading and trailing white space
+
+30
+00:01:22,701 --> 00:01:24,266
+from our strings.
+
+31
+00:01:24,266 --> 00:01:28,345
+Also if the string only has white space then we're going
+
+32
+00:01:28,345 --> 00:01:31,843
+to trim it all the way down to a no object.
+
+33
+00:01:31,843 --> 00:01:36,225
+This will actually resolve our validation problem.
+
+34
+00:01:36,225 --> 00:01:40,319
+Ah, sigh of relief because I was really upset
+
+35
+00:01:40,319 --> 00:01:42,044
+about white spaces passing.
+
+36
+00:01:42,044 --> 00:01:46,211
+So this will actually give us a solution to that issue.
+
+37
+00:01:47,998 --> 00:01:49,764
+All righty, so let's look at some code here.
+
+38
+00:01:49,764 --> 00:01:51,215
+So what we're going to do is actually register
+
+39
+00:01:51,215 --> 00:01:54,370
+a custom editor in our controller.
+
+40
+00:01:54,370 --> 00:01:57,558
+We do that by making use of this @InitBinder.
+
+41
+00:01:57,558 --> 00:02:00,971
+Remember @InitBinder will basically pre-process
+
+42
+00:02:00,971 --> 00:02:04,913
+all web requests coming into our controller.
+
+43
+00:02:04,913 --> 00:02:08,181
+So here's the method signature, public void initBinder.
+
+44
+00:02:08,181 --> 00:02:10,569
+Has a parameter coming in called WebDataBinder.
+
+45
+00:02:10,569 --> 00:02:12,404
+I'll talk about that in a second.
+
+46
+00:02:12,404 --> 00:02:14,038
+What I'll do on the next line here is I'll actually
+
+47
+00:02:14,038 --> 00:02:16,530
+create this StringTrimmerEditor.
+
+48
+00:02:16,530 --> 00:02:18,591
+This is actually a class that's defined
+
+49
+00:02:18,591 --> 00:02:20,489
+in the Spring API.
+
+50
+00:02:20,489 --> 00:02:22,804
+Its purpose is to trim strings.
+
+51
+00:02:22,804 --> 00:02:26,323
+So it will basically trim or remove the leading white space
+
+52
+00:02:26,323 --> 00:02:29,023
+and also the trailing white space.
+
+53
+00:02:29,023 --> 00:02:32,587
+Also in the constructor I have the value of true.
+
+54
+00:02:32,587 --> 00:02:34,640
+That means that it will actually trim the string
+
+55
+00:02:34,640 --> 00:02:38,832
+down to null if it's entirely all white space.
+
+56
+00:02:38,832 --> 00:02:40,525
+All right, so it will trim it down to null.
+
+57
+00:02:40,525 --> 00:02:42,384
+So that's the StringTrimmerEditor.
+
+58
+00:02:42,384 --> 00:02:44,839
+Once I have this object created then I'll use
+
+59
+00:02:44,839 --> 00:02:49,006
+that dataBinder and I'll register this as a custom editor.
+
+60
+00:02:50,003 --> 00:02:53,840
+So what I'm doing here is I'm saying for every string class,
+
+61
+00:02:53,840 --> 00:02:56,708
+apply the StringTrimmerEditor.
+
+62
+00:02:56,708 --> 00:02:59,542
+So in a nutshell what this does is it will pre-process
+
+63
+00:02:59,542 --> 00:03:02,455
+every string as far as its form data.
+
+64
+00:03:02,455 --> 00:03:06,000
+It will remove the leading and trailing white space.
+
+65
+00:03:06,000 --> 00:03:08,990
+And again if the string only had white space
+
+66
+00:03:08,990 --> 00:03:11,459
+it will trim it down to null.
+
+67
+00:03:11,459 --> 00:03:14,889
+This is basically what this method will do.
+
+68
+00:03:14,889 --> 00:03:17,266
+I'll take a quick pause and just a recap.
+
+69
+00:03:17,266 --> 00:03:20,781
+So @InitBinder will pre-process every web request
+
+70
+00:03:20,781 --> 00:03:24,072
+coming in and the coding here will handle the special work
+
+71
+00:03:24,072 --> 00:03:27,611
+that we added for trimming strings.
+
+72
+00:03:27,611 --> 00:03:29,836
+All righty, so a lot of good stuff here.
+
+73
+00:03:29,836 --> 00:03:31,281
+Don't let it overwhelm you.
+
+74
+00:03:31,281 --> 00:03:33,948
+This is all advanced Spring information.
+
+75
+00:03:33,948 --> 00:03:36,175
+But what we'll do is we'll actually use this
+
+76
+00:03:36,175 --> 00:03:37,411
+in the next video.
+
+77
+00:03:37,411 --> 00:03:40,166
+So we'll move into clips, we'll actually write this code.
+
+78
+00:03:40,166 --> 00:03:42,897
+We'll add it to our controller and we'll make sure
+
+79
+00:03:42,897 --> 00:03:46,615
+that this solves our problem of having white space
+
+80
+00:03:46,615 --> 00:03:48,179
+for validations.
+
+81
+00:03:48,179 --> 00:03:52,346
+All right, so hold tight, I'll see ya in the next video.
+

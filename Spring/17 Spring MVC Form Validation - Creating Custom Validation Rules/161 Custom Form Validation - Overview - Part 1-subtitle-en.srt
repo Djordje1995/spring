@@ -1,0 +1,360 @@
+1
+00:00:01,181 --> 00:00:02,261
+<v Darby>In this video,</v>
+
+2
+00:00:02,261 --> 00:00:04,754
+we're gonna learn how to perform custom validation
+
+3
+00:00:04,754 --> 00:00:06,087
+with Spring MVC.
+
+4
+00:00:10,213 --> 00:00:12,032
+So let me give you a quick demo here
+
+5
+00:00:12,032 --> 00:00:14,657
+of the custom validation.
+
+6
+00:00:14,657 --> 00:00:16,723
+So we're gonna have a form that has three fields
+
+7
+00:00:16,723 --> 00:00:19,039
+for first name, last name, and course code.
+
+8
+00:00:19,039 --> 00:00:21,210
+So I can go in and enter the first name, last name,
+
+9
+00:00:21,210 --> 00:00:22,525
+and a course code.
+
+10
+00:00:22,525 --> 00:00:25,534
+The course code is simply an identifier for a course.
+
+11
+00:00:25,534 --> 00:00:28,434
+Now we're gonna attach a custom business rule here
+
+12
+00:00:28,434 --> 00:00:29,457
+to this course code.
+
+13
+00:00:29,457 --> 00:00:32,467
+So if I hit Submit, notice it gives a validation error.
+
+14
+00:00:32,467 --> 00:00:35,522
+It says, "The course code must start with LUV,"
+
+15
+00:00:35,522 --> 00:00:37,472
+because we love to code.
+
+16
+00:00:37,472 --> 00:00:39,787
+So that's the custom business rule
+
+17
+00:00:39,787 --> 00:00:42,366
+that we're adding here for this course identifier.
+
+18
+00:00:42,366 --> 00:00:43,379
+So you'd have to go back
+
+19
+00:00:43,379 --> 00:00:46,199
+and add a course code that starts with LUV,
+
+20
+00:00:46,199 --> 00:00:48,294
+and then everything will work out just fine
+
+21
+00:00:48,294 --> 00:00:49,756
+when we hit the Submit button.
+
+22
+00:00:49,756 --> 00:00:50,714
+So this is great.
+
+23
+00:00:50,714 --> 00:00:53,681
+So notice our course code, and it starts with LUV.
+
+24
+00:00:53,681 --> 00:00:56,472
+That's our custom business rule that we just made up.
+
+25
+00:00:56,472 --> 00:00:58,182
+So I'll actually show you
+
+26
+00:00:58,182 --> 00:01:00,959
+how to write the code behind the scenes
+
+27
+00:01:00,959 --> 00:01:04,190
+that will allow Spring to perform the validation
+
+28
+00:01:04,190 --> 00:01:07,169
+using your own custom validation rule
+
+29
+00:01:07,169 --> 00:01:10,002
+or your own custom business logic.
+
+30
+00:01:14,043 --> 00:01:16,210
+So, with the custom validation,
+
+31
+00:01:16,210 --> 00:01:17,674
+as I mentioned, we're gonna create
+
+32
+00:01:17,674 --> 00:01:19,946
+our own custom business rule here.
+
+33
+00:01:19,946 --> 00:01:21,240
+So in our example,
+
+34
+00:01:21,240 --> 00:01:25,772
+the course code must start with LUV for Luv2Code.
+
+35
+00:01:25,772 --> 00:01:26,991
+And what we're gonna do,
+
+36
+00:01:26,991 --> 00:01:30,255
+Spring will actually call our custom validation rule,
+
+37
+00:01:30,255 --> 00:01:31,208
+and if there's an error,
+
+38
+00:01:31,208 --> 00:01:33,281
+then it will actually display it on the page.
+
+39
+00:01:33,281 --> 00:01:35,504
+So this custom validation is gonna return
+
+40
+00:01:35,504 --> 00:01:38,704
+a Boolean value of true or false
+
+41
+00:01:38,704 --> 00:01:42,871
+based on the code that the user entered on the form.
+
+42
+00:01:45,213 --> 00:01:46,046
+Alrighty.
+
+43
+00:01:46,046 --> 00:01:48,652
+So we'll actually do something really fun here.
+
+44
+00:01:48,652 --> 00:01:51,686
+We're gonna create a custom Java annotation from scratch.
+
+45
+00:01:51,686 --> 00:01:54,817
+So far, you've used some of the predefined validation rules
+
+46
+00:01:54,817 --> 00:01:58,592
+like @Min, @Max, but what we're gonna do here is
+
+47
+00:01:58,592 --> 00:02:03,485
+we're actually gonna create our own custom Java annotation,
+
+48
+00:02:03,485 --> 00:02:06,484
+and our custom annotation is gonna be called CourseCode.
+
+49
+00:02:06,484 --> 00:02:09,438
+So this is really some advanced Spring MVC work,
+
+50
+00:02:09,438 --> 00:02:11,975
+so you're in for a real treat in this video.
+
+51
+00:02:11,975 --> 00:02:13,771
+And as you can tell, I'm really excited
+
+52
+00:02:13,771 --> 00:02:15,333
+'cause this is some great stuff here.
+
+53
+00:02:15,333 --> 00:02:18,452
+So @CourseCode, this is a validation rule
+
+54
+00:02:18,452 --> 00:02:21,952
+that will actually apply to a given field.
+
+55
+00:02:23,274 --> 00:02:26,007
+So we'll have this field in our entity.
+
+56
+00:02:26,007 --> 00:02:28,769
+We'll call this field courseCode lowercase,
+
+57
+00:02:28,769 --> 00:02:31,685
+and then we'll add this annotation, @CourseCode
+
+58
+00:02:31,685 --> 00:02:34,490
+That's the custom annotation that we're gonna create.
+
+59
+00:02:34,490 --> 00:02:36,762
+This annotation, we can give it any name.
+
+60
+00:02:36,762 --> 00:02:40,679
+We can call it @FooBar, @Luv2Code, @CrazyStuff.
+
+61
+00:02:42,165 --> 00:02:44,794
+Any name you can give to this annotation.
+
+62
+00:02:44,794 --> 00:02:47,216
+This annotation is gonna take in two parameters here.
+
+63
+00:02:47,216 --> 00:02:48,049
+It's gonna take in
+
+64
+00:02:48,049 --> 00:02:49,718
+the actual value that I'm gonna start with
+
+65
+00:02:49,718 --> 00:02:51,054
+and then the actual error message
+
+66
+00:02:51,054 --> 00:02:53,039
+that's displayed on the HTML form.
+
+67
+00:02:53,039 --> 00:02:54,957
+And it's kind of parameterized right now,
+
+68
+00:02:54,957 --> 00:02:56,497
+but I'll show you how to write
+
+69
+00:02:56,497 --> 00:02:59,542
+all of the code for this annotation from scratch.
+
+70
+00:02:59,542 --> 00:03:01,661
+So again, a custom annotation
+
+71
+00:03:01,661 --> 00:03:03,396
+that we're gonna create ourselves,
+
+72
+00:03:03,396 --> 00:03:05,995
+some good, advanced material.
+
+73
+00:03:05,995 --> 00:03:08,712
+Now, we always have our step by step process for it.
+
+74
+00:03:08,712 --> 00:03:11,701
+So the first thing is creating the custom validation rule.
+
+75
+00:03:11,701 --> 00:03:14,753
+The second step is adding that rule to the customer class.
+
+76
+00:03:14,753 --> 00:03:17,722
+Then we display the messages to the HTML form.
+
+77
+00:03:17,722 --> 00:03:19,797
+And then we update our confirmation page.
+
+78
+00:03:19,797 --> 00:03:21,216
+So steps two through four,
+
+79
+00:03:21,216 --> 00:03:23,313
+you've done that many times before.
+
+80
+00:03:23,313 --> 00:03:26,171
+We're simply gonna focus on step number one,
+
+81
+00:03:26,171 --> 00:03:29,251
+creating that custom validation rule.
+
+82
+00:03:29,251 --> 00:03:31,175
+So I'll go ahead and drill down here
+
+83
+00:03:31,175 --> 00:03:33,925
+step by step on number one, creating the rule.
+
+84
+00:03:33,925 --> 00:03:38,487
+So step 1A is we have to create that CourseCode annotation,
+
+85
+00:03:38,487 --> 00:03:40,266
+creating it from scratch.
+
+86
+00:03:40,266 --> 00:03:45,014
+And then we need to create the CourseCodeConstraintValidator
+
+87
+00:03:45,014 --> 00:03:48,205
+This is where we'll actually place our own validation logic
+
+88
+00:03:48,205 --> 00:03:52,409
+or our own business rules to determine true or false
+
+89
+00:03:52,409 --> 00:03:55,716
+if the value passed in passes our validation.
+
+90
+00:03:55,716 --> 00:03:59,633
+So that's where we'll put our own custom logic.
+

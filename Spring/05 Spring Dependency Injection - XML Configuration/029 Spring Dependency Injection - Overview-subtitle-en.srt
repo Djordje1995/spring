@@ -1,0 +1,692 @@
+1
+00:00:01,176 --> 00:00:02,036
+<v Instructor>In this video,</v>
+
+2
+00:00:02,036 --> 00:00:05,869
+we're gonna cover spring dependency injection.
+
+3
+00:00:06,937 --> 00:00:09,947
+So, what exactly is dependency injection?
+
+4
+00:00:09,947 --> 00:00:11,625
+Here's a textbook definition,
+
+5
+00:00:11,625 --> 00:00:12,884
+allows a program design
+
+6
+00:00:12,884 --> 00:00:15,499
+to follow the dependency inversion principle.
+
+7
+00:00:15,499 --> 00:00:19,277
+The client will delegate the XOR code, the injector,
+
+8
+00:00:19,277 --> 00:00:22,512
+the responsibility of providing it's dependencies.
+
+9
+00:00:22,512 --> 00:00:27,122
+Whoa (laughs) if that didn't confuse you,
+
+10
+00:00:27,122 --> 00:00:28,716
+I don't know what will.
+
+11
+00:00:28,716 --> 00:00:32,126
+So let's kind of break it down into normal layman's terms
+
+12
+00:00:32,126 --> 00:00:34,959
+that a mere mortal can understand.
+
+13
+00:00:37,141 --> 00:00:38,985
+In things that I can understand.
+
+14
+00:00:38,985 --> 00:00:41,441
+So, say for example, I'm going to buy a car
+
+15
+00:00:41,441 --> 00:00:45,038
+and this car is built at the factory on demand.
+
+16
+00:00:45,038 --> 00:00:46,951
+So, there's nothing in the car lot.
+
+17
+00:00:46,951 --> 00:00:49,093
+You have to actually talk to the factory
+
+18
+00:00:49,093 --> 00:00:52,037
+and put in a request and they'll build a car for you;
+
+19
+00:00:52,037 --> 00:00:53,333
+So, at the factory, you have
+
+20
+00:00:53,333 --> 00:00:55,819
+all the different parts for the car.
+
+21
+00:00:55,819 --> 00:00:58,802
+You have the car chassis, you have the engine,
+
+22
+00:00:58,802 --> 00:01:00,276
+the tires, the seats,
+
+23
+00:01:00,276 --> 00:01:02,643
+the electronics, the exhaust, and so on.
+
+24
+00:01:02,643 --> 00:01:04,743
+And the mechanics or the assemblers there
+
+25
+00:01:04,743 --> 00:01:07,379
+or the technicians, they'll actually aseemble the car
+
+26
+00:01:07,379 --> 00:01:10,798
+for you and then deliver to you the final car.
+
+27
+00:01:10,798 --> 00:01:13,160
+So, you don't have to actually build the car.
+
+28
+00:01:13,160 --> 00:01:15,993
+The car's already built for you at the factory.
+
+29
+00:01:15,993 --> 00:01:18,520
+So, they actually inject all
+
+30
+00:01:18,520 --> 00:01:20,432
+of the dependencies for the car.
+
+31
+00:01:20,432 --> 00:01:24,094
+So they inject the engine, they inject the tires,
+
+32
+00:01:24,094 --> 00:01:25,406
+the seats and so on.
+
+33
+00:01:25,406 --> 00:01:27,592
+So that's basically what you have here
+
+34
+00:01:27,592 --> 00:01:29,603
+with dependency injection.
+
+35
+00:01:29,603 --> 00:01:32,588
+So you simply outsource the construction
+
+36
+00:01:32,588 --> 00:01:35,922
+and injection of your object to an external entity.
+
+37
+00:01:35,922 --> 00:01:39,005
+In this case, that's the car factory.
+
+38
+00:01:42,071 --> 00:01:44,389
+Alright, so that was a basic car example.
+
+39
+00:01:44,389 --> 00:01:46,304
+How do this work in the Spring world?
+
+40
+00:01:46,304 --> 00:01:49,707
+Well remember that Spring has am object factory, right?
+
+41
+00:01:49,707 --> 00:01:53,439
+So then, when you retrieve an object like a coach object,
+
+42
+00:01:53,439 --> 00:01:57,085
+this coach object may have some addition dependencies.
+
+43
+00:01:57,085 --> 00:01:59,790
+So these dependencies are really just helper objects,
+
+44
+00:01:59,790 --> 00:02:03,055
+other objects that it needs to perform it's operation.
+
+45
+00:02:03,055 --> 00:02:06,120
+So instead of you have to manually build the coach object
+
+46
+00:02:06,120 --> 00:02:07,951
+and all of it's dependencies,
+
+47
+00:02:07,951 --> 00:02:09,156
+the Spring framework
+
+48
+00:02:09,156 --> 00:02:12,860
+of the Spring factory will actually do this work for you.
+
+49
+00:02:12,860 --> 00:02:15,164
+So just like you get a car that's ready to drive,
+
+50
+00:02:15,164 --> 00:02:18,997
+here you'll get an object that's ready to use.
+
+51
+00:02:20,387 --> 00:02:21,770
+Alright, so that's Spring container.
+
+52
+00:02:21,770 --> 00:02:22,613
+So we've kind of covered
+
+53
+00:02:22,613 --> 00:02:25,030
+the two major functions of the container.
+
+54
+00:02:25,030 --> 00:02:27,975
+IN previous videos, we learned the idea
+
+55
+00:02:27,975 --> 00:02:31,065
+of creating and managing objects with inversion of control
+
+56
+00:02:31,065 --> 00:02:33,243
+and now here we'll focus on injecting
+
+57
+00:02:33,243 --> 00:02:36,631
+object's dependencies with that dependency injection.
+
+58
+00:02:36,631 --> 00:02:37,607
+And these are the two core features
+
+59
+00:02:37,607 --> 00:02:39,867
+and we'll kind of have this all covered once we finish
+
+60
+00:02:39,867 --> 00:02:41,784
+this section of videos.
+
+61
+00:02:44,241 --> 00:02:46,723
+Alright so, we'll walk through this with an example again.
+
+62
+00:02:46,723 --> 00:02:49,851
+So our coach already provides daily workouts.
+
+63
+00:02:49,851 --> 00:02:53,920
+Now our coach will also provide daily fortunes,
+
+64
+00:02:53,920 --> 00:02:55,622
+like your good luck fortune.
+
+65
+00:02:55,622 --> 00:02:57,052
+This coach will actually make use
+
+66
+00:02:57,052 --> 00:02:59,541
+of a helper called FortuneService
+
+67
+00:02:59,541 --> 00:03:01,779
+and this is what they call a dependency
+
+68
+00:03:01,779 --> 00:03:04,125
+because a coach depends on a fortune service
+
+69
+00:03:04,125 --> 00:03:07,458
+in order to serve up the daily fortunes.
+
+70
+00:03:10,249 --> 00:03:11,405
+Now, there's different types
+
+71
+00:03:11,405 --> 00:03:13,611
+of injections you can use in Spring.
+
+72
+00:03:13,611 --> 00:03:14,654
+Actually, there's a lot
+
+73
+00:03:14,654 --> 00:03:17,611
+but we'll the two most common injection types
+
+74
+00:03:17,611 --> 00:03:18,724
+that you'll use.
+
+75
+00:03:18,724 --> 00:03:20,914
+It's called constructor injection
+
+76
+00:03:20,914 --> 00:03:23,449
+and there's also setter injection.
+
+77
+00:03:23,449 --> 00:03:24,282
+And we'll cover these in a set
+
+78
+00:03:24,282 --> 00:03:26,829
+of videos here in this section.
+
+79
+00:03:26,829 --> 00:03:30,440
+We'll also talk about auto-wiring beings
+
+80
+00:03:30,440 --> 00:03:34,607
+in the annotations section that we'll cover a little later.
+
+81
+00:03:37,675 --> 00:03:40,461
+Alright so, we'll start off with the constructor injection
+
+82
+00:03:40,461 --> 00:03:41,869
+and here's the development process
+
+83
+00:03:41,869 --> 00:03:45,138
+and you know me, I like to do things step by step.
+
+84
+00:03:45,138 --> 00:03:46,305
+So the first thing we're gonna do
+
+85
+00:03:46,305 --> 00:03:49,939
+is define the dependency interface in it's class.
+
+86
+00:03:49,939 --> 00:03:52,506
+Then we'll go through and create a constructor
+
+87
+00:03:52,506 --> 00:03:54,017
+in our class for injections
+
+88
+00:03:54,017 --> 00:03:56,280
+and then the final step is configuring
+
+89
+00:03:56,280 --> 00:04:00,244
+the dependency injection in the Spring configuration file.
+
+90
+00:04:00,244 --> 00:04:01,461
+And again, we'll do all
+
+91
+00:04:01,461 --> 00:04:04,628
+of this step by step and from scratch.
+
+92
+00:04:06,589 --> 00:04:07,920
+Okay, so let's start with step one.
+
+93
+00:04:07,920 --> 00:04:10,623
+Defining the dependency interface and class.
+
+94
+00:04:10,623 --> 00:04:13,528
+So, in the top left, we're gonna have this fortune service.
+
+95
+00:04:13,528 --> 00:04:15,033
+It's simply an interface
+
+96
+00:04:15,033 --> 00:04:17,521
+that's gonna have a method called get fortune.
+
+97
+00:04:17,521 --> 00:04:19,385
+And that returns a string and that's it.
+
+98
+00:04:19,385 --> 00:04:22,496
+So it's simply the specification or the interface.
+
+99
+00:04:22,496 --> 00:04:23,941
+In the bottom of the slide,
+
+100
+00:04:23,941 --> 00:04:25,886 line:15% 
+we hace this happy fortune service.
+
+101
+00:04:25,886 --> 00:04:29,602 line:15% 
+This person actually implements the fortune service
+
+102
+00:04:29,602 --> 00:04:31,522 line:15% 
+and when I say implement, meaning,
+
+103
+00:04:31,522 --> 00:04:35,728 line:15% 
+they provide an implementation of that method get fortune.
+
+104
+00:04:35,728 --> 00:04:39,271 line:15% 
+So here, for the fortune, they'll simple hard code something
+
+105
+00:04:39,271 --> 00:04:41,592 line:15% 
+to say, today is your lucky day
+
+106
+00:04:41,592 --> 00:04:43,366 line:15% 
+and they return it as a string.
+
+107
+00:04:43,366 --> 00:04:44,822
+So that's a very simple example
+
+108
+00:04:44,822 --> 00:04:47,177
+of an implementation of the fortune service.
+
+109
+00:04:47,177 --> 00:04:50,784
+You can think of more advanced implementations.
+
+110
+00:04:50,784 --> 00:04:52,343
+Maybe an implementation
+
+111
+00:04:52,343 --> 00:04:54,661
+that could read something from the file system
+
+112
+00:04:54,661 --> 00:04:59,201
+or maybe from a data base or possibly a web service
+
+113
+00:04:59,201 --> 00:05:00,659
+but we'll keep it simple for now
+
+114
+00:05:00,659 --> 00:05:01,943
+and we'll talk about some
+
+115
+00:05:01,943 --> 00:05:05,860
+of those other advance features a little later.
+
+116
+00:05:08,484 --> 00:05:09,574
+Alrighty, so that's step one.
+
+117
+00:05:09,574 --> 00:05:12,008
+So now, step two, create a constructor
+
+118
+00:05:12,008 --> 00:05:13,864
+in your class for injections.
+
+119
+00:05:13,864 --> 00:05:15,651
+So again, we're gonna make use
+
+120
+00:05:15,651 --> 00:05:17,504
+of this constructor injection.
+
+121
+00:05:17,504 --> 00:05:20,731
+So they're going to inject dependencies here
+
+122
+00:05:20,731 --> 00:05:23,048
+by calling a constructor,
+
+123
+00:05:23,048 --> 00:05:25,508
+so I have my class baseball coach.
+
+124
+00:05:25,508 --> 00:05:28,587
+I need to create a constructor baseball coach
+
+125
+00:05:28,587 --> 00:05:30,817
+that will accpet this dependency.
+
+126
+00:05:30,817 --> 00:05:33,500
+So it has to accept a fortune service.
+
+127
+00:05:33,500 --> 00:05:36,709
+So I have private field called fortune service
+
+128
+00:05:36,709 --> 00:05:37,950
+and then I simply assign
+
+129
+00:05:37,950 --> 00:05:40,675
+that field inside of a constructor here.
+
+130
+00:05:40,675 --> 00:05:44,258
+Fortune service equals the fortune service.
+
+131
+00:05:46,415 --> 00:05:48,932
+Okay great, now we configure the dependency injection
+
+132
+00:05:48,932 --> 00:05:51,032
+in the Spring config file.
+
+133
+00:05:51,032 --> 00:05:52,601
+So what I'll do at the top here
+
+134
+00:05:52,601 --> 00:05:56,227
+in my Spring config application conteot.XML.
+
+135
+00:05:56,227 --> 00:05:57,283
+What I'll do is I'll define
+
+136
+00:05:57,283 --> 00:06:00,792
+this bean called my fortune service that's the ID,
+
+137
+00:06:00,792 --> 00:06:04,158
+and tehn the class, the actual implementation class
+
+138
+00:06:04,158 --> 00:06:07,188
+of that service and that's our happy fortune service
+
+139
+00:06:07,188 --> 00:06:09,870
+that we just saw on the previous slide.
+
+140
+00:06:09,870 --> 00:06:11,632
+So that's our dependency.
+
+141
+00:06:11,632 --> 00:06:15,053
+Now, what we need to do Is actually inject
+
+142
+00:06:15,053 --> 00:06:19,553
+that dependency into our class and how do we do it?
+
+143
+00:06:19,553 --> 00:06:23,681
+So now I have my coach here, bean ID equals my coach,
+
+144
+00:06:23,681 --> 00:06:26,102
+class, baseball coach.
+
+145
+00:06:26,102 --> 00:06:28,670
+Now what I do is I tell Spring, hey,
+
+146
+00:06:28,670 --> 00:06:33,107
+inject a dependency into this baseball coach.
+
+147
+00:06:33,107 --> 00:06:35,198
+So I have constructor arg
+
+148
+00:06:35,198 --> 00:06:37,983
+and I have ref equals my fortune service.
+
+149
+00:06:37,983 --> 00:06:42,150
+That's the same ID name of the bean up top.
+
+150
+00:06:43,294 --> 00:06:45,567
+So, ref equals my fortune service,
+
+151
+00:06:45,567 --> 00:06:47,781
+that's the ID of the fortune service
+
+152
+00:06:47,781 --> 00:06:50,620
+that we have up top, so they're gonna inject this.
+
+153
+00:06:50,620 --> 00:06:52,403
+Now, what'll happen behind the scenes is
+
+154
+00:06:52,403 --> 00:06:54,587
+that when Spring makes it to this line
+
+155
+00:06:54,587 --> 00:06:57,555
+of code in your config file,
+
+156
+00:06:57,555 --> 00:07:00,662
+they'll actually look at your baseball coach,
+
+157
+00:07:00,662 --> 00:07:03,441
+they'll ball your baseball coach's constructor
+
+158
+00:07:03,441 --> 00:07:07,779
+and they'll pass in a reference to the my fortune service.
+
+159
+00:07:07,779 --> 00:07:10,263
+So Spring willa ctually construct your object
+
+160
+00:07:10,263 --> 00:07:13,461
+and pass in the appropriate data into the constructor
+
+161
+00:07:13,461 --> 00:07:15,412
+and that happens behind the scenes.
+
+162
+00:07:15,412 --> 00:07:18,423
+Because remember, Spring has an object factory.
+
+163
+00:07:18,423 --> 00:07:21,711
+Spring is responsible for creating objects
+
+164
+00:07:21,711 --> 00:07:23,062
+and, also, it's responsible
+
+165
+00:07:23,062 --> 00:07:25,843
+for injecting their dependencies.
+
+166
+00:07:25,843 --> 00:07:28,032
+So we're kind of covering everything,
+
+167
+00:07:28,032 --> 00:07:31,412
+right here in this configuration.
+
+168
+00:07:31,412 --> 00:07:33,265
+Alright, so I know that was a lot of heavy stuff.
+
+169
+00:07:33,265 --> 00:07:36,513
+What we're gonna is actually move into eclipse
+
+170
+00:07:36,513 --> 00:07:39,087
+and then we'll actually write this code from scratch
+
+171
+00:07:39,087 --> 00:07:42,319
+and we'll also run it so you can kind of see it real time
+
+172
+00:07:42,319 --> 00:07:44,278
+as far as how all this works out.
+
+173
+00:07:44,278 --> 00:07:48,361
+So hold tight and I'll see you in the next video.
+

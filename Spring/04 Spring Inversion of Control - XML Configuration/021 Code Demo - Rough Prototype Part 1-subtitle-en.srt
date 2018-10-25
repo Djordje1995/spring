@@ -1,0 +1,648 @@
+1
+00:00:01,368 --> 00:00:02,832
+<v Instructor>Alright, let's dive into Eclipse</v>
+
+2
+00:00:02,832 --> 00:00:04,694
+and let's write some code.
+
+3
+00:00:04,694 --> 00:00:06,327 line:15% 
+So what I wanna do is continue to use that
+
+4
+00:00:06,327 --> 00:00:07,717 line:15% 
+existing project that we created
+
+5
+00:00:07,717 --> 00:00:09,615 line:15% 
+in some of the previous videos.
+
+6
+00:00:09,615 --> 00:00:13,635 line:15% 
+And I'll start off by first creating a package.
+
+7
+00:00:13,635 --> 00:00:15,569 line:15% 
+So I'll just right click on the source directory.
+
+8
+00:00:15,569 --> 00:00:17,319 line:15% 
+I'll say new package.
+
+9
+00:00:20,544 --> 00:00:22,426
+And the name I'll give for the package here,
+
+10
+00:00:22,426 --> 00:00:25,509
+I'll call it com.luv2code.springdemo.
+
+11
+00:00:26,343 --> 00:00:28,954
+'Cause we love to code.
+
+12
+00:00:28,954 --> 00:00:30,013
+And once you're happy with that,
+
+13
+00:00:30,013 --> 00:00:32,937
+we'll go ahead and hit the finish button.
+
+14
+00:00:32,937 --> 00:00:34,573
+Alright so we have this basic package.
+
+15
+00:00:34,573 --> 00:00:37,130 line:15% 
+Now the first thing I wanna do is create the
+
+16
+00:00:37,130 --> 00:00:38,473 line:15% 
+baseball coach.
+
+17
+00:00:38,473 --> 00:00:41,412 line:15% 
+So it's a simple pojo, or plain old java object,
+
+18
+00:00:41,412 --> 00:00:45,245 line:15% 
+so I'll do a right click, I'll say new, class.
+
+19
+00:00:47,689 --> 00:00:51,106
+For the name, I'll call it BaseballCoach.
+
+20
+00:00:52,056 --> 00:00:54,193
+And I'll keep all the other defaults here.
+
+21
+00:00:54,193 --> 00:00:56,776
+And I'll hit the finish button.
+
+22
+00:01:01,360 --> 00:01:02,193
+Alright so here we go.
+
+23
+00:01:02,193 --> 00:01:04,721
+Our very basic class called BaseballCoach.
+
+24
+00:01:04,721 --> 00:01:06,561
+Let me go ahead and
+
+25
+00:01:06,561 --> 00:01:08,235
+zoom for a bit.
+
+26
+00:01:08,235 --> 00:01:11,400 line:15% 
+And I really wanna create just one method here.
+
+27
+00:01:11,400 --> 00:01:15,317 line:15% 
+This one method will be called getDailyWorkout.
+
+28
+00:01:16,248 --> 00:01:18,831 line:15% 
+And it's gonna return a string.
+
+29
+00:01:19,800 --> 00:01:21,358
+So here I'll say,
+
+30
+00:01:21,358 --> 00:01:23,200
+I dunno, makin' somethin' up here.
+
+31
+00:01:23,200 --> 00:01:26,760
+I'll spend 30 minutes in the batting cage.
+
+32
+00:01:26,760 --> 00:01:29,393
+Or spend 30 minutes on batting practice.
+
+33
+00:01:29,393 --> 00:01:31,060
+That's close enough.
+
+34
+00:01:34,313 --> 00:01:36,762
+So again, just a very simple implementation here
+
+35
+00:01:36,762 --> 00:01:39,096
+of this BaseballCoach for that method,
+
+36
+00:01:39,096 --> 00:01:40,429
+getDailyWorkout.
+
+37
+00:01:42,384 --> 00:01:43,746
+And then kinda just stepping back,
+
+38
+00:01:43,746 --> 00:01:46,722 line:15% 
+remember, we're building this little app
+
+39
+00:01:46,722 --> 00:01:48,416 line:15% 
+that's gonna talk to the baseball coach
+
+40
+00:01:48,416 --> 00:01:49,436 line:15% 
+and get daily workout
+
+41
+00:01:49,436 --> 00:01:51,434 line:15% 
+so we can kinda check the box there.
+
+42
+00:01:51,434 --> 00:01:54,601 line:15% 
+This baseball coach class is complete.
+
+43
+00:01:55,811 --> 00:01:57,733 line:15% 
+Alright, so let's move back over here
+
+44
+00:01:57,733 --> 00:02:00,277 line:15% 
+and let's go ahead and create another class here.
+
+45
+00:02:00,277 --> 00:02:03,392 line:15% 
+Let's go ahead and create the MyApp class.
+
+46
+00:02:03,392 --> 00:02:07,475 line:15% 
+So I just do a right click, and I say new, class.
+
+47
+00:02:09,617 --> 00:02:12,777
+The actual name I'll give for it is MyApp.
+
+48
+00:02:12,777 --> 00:02:14,295
+And then one thing I'll do here at the bottom
+
+49
+00:02:14,295 --> 00:02:18,248
+is that I'll check the box here to give us a main method.
+
+50
+00:02:18,248 --> 00:02:23,116
+This will be the main program for our application.
+
+51
+00:02:23,116 --> 00:02:25,199
+And then I'll hit finish.
+
+52
+00:02:33,109 --> 00:02:34,698
+Alright so here's our MyApp class,
+
+53
+00:02:34,698 --> 00:02:36,198
+has a main method.
+
+54
+00:02:37,151 --> 00:02:38,660
+Now I'll just go ahead and write some comments
+
+55
+00:02:38,660 --> 00:02:39,937
+as far as the type of work I wanna do.
+
+56
+00:02:39,937 --> 00:02:41,819
+So I say create the object
+
+57
+00:02:41,819 --> 00:02:43,483
+and then use the object.
+
+58
+00:02:43,483 --> 00:02:46,150
+Very simple, nothing fancy here.
+
+59
+00:02:48,249 --> 00:02:49,983 line:15% 
+So again, just putting in the little diagram,
+
+60
+00:02:49,983 --> 00:02:52,387 line:15% 
+so our app's gonna talk to the BaseballCoach.
+
+61
+00:02:52,387 --> 00:02:54,466 line:15% 
+So that means I need to create the Coach object.
+
+62
+00:02:54,466 --> 00:02:58,633 line:15% 
+So I need to say theCoach equals new BaseballCoach.
+
+63
+00:02:59,716 --> 00:03:01,883 line:15% 
+So at this point I have the object created
+
+64
+00:03:01,883 --> 00:03:06,403 line:15% 
+and that's theCoach that we created in a previous file.
+
+65
+00:03:06,403 --> 00:03:07,922 line:15% 
+Now I'll actually use it.
+
+66
+00:03:07,922 --> 00:03:09,977 line:15% 
+And I'll just do a print line here.
+
+67
+00:03:09,977 --> 00:03:11,982 line:15% 
+I'll make use of one of my sys out tricks.
+
+68
+00:03:11,982 --> 00:03:13,763 line:15% 
+I'll says sys out,
+
+69
+00:03:13,763 --> 00:03:14,998 line:15% 
+control space,
+
+70
+00:03:14,998 --> 00:03:17,694 line:15% 
+and that'll actually give me this system out print line.
+
+71
+00:03:17,694 --> 00:03:19,835 line:15% 
+Just a little Eclipse trick for you there.
+
+72
+00:03:19,835 --> 00:03:22,402
+And I'll say System out print line theCoach dot
+
+73
+00:03:22,402 --> 00:03:24,044
+getDailyWorkout,
+
+74
+00:03:24,044 --> 00:03:25,729 line:15% 
+'cause I wanna get the actual daily workout
+
+75
+00:03:25,729 --> 00:03:27,812 line:15% 
+that I need for practice.
+
+76
+00:03:28,932 --> 00:03:30,997 line:15% 
+And this kinda maps up with what we have here
+
+77
+00:03:30,997 --> 00:03:32,367 line:15% 
+with that little diagram.
+
+78
+00:03:32,367 --> 00:03:33,249 line:15% 
+So this looks good.
+
+79
+00:03:33,249 --> 00:03:35,494 line:15% 
+So we have theBaseballCoach taken care of.
+
+80
+00:03:35,494 --> 00:03:39,134 line:15% 
+And then we also have MyApp taken care of.
+
+81
+00:03:39,134 --> 00:03:43,134
+So then let's go ahead and run this application.
+
+82
+00:03:47,370 --> 00:03:48,978
+And we get the output,
+
+83
+00:03:48,978 --> 00:03:50,951
+Spend 30 minutes on batting practice.
+
+84
+00:03:50,951 --> 00:03:52,918
+And again, there's no rocket science here.
+
+85
+00:03:52,918 --> 00:03:54,148
+This is kinda Java 101.
+
+86
+00:03:54,148 --> 00:03:56,024
+We're creating objects and we're simply
+
+87
+00:03:56,024 --> 00:03:57,494
+calling methods on it.
+
+88
+00:03:57,494 --> 00:04:00,911
+So, hopefully you're okay with it so far.
+
+89
+00:04:01,966 --> 00:04:03,887
+Alrighty, so let's go ahead and get that idea
+
+90
+00:04:03,887 --> 00:04:06,515
+of the one requirement here that the app should work
+
+91
+00:04:06,515 --> 00:04:08,353
+with any type of coach.
+
+92
+00:04:08,353 --> 00:04:10,604
+So what we wanna do is make use of a software
+
+93
+00:04:10,604 --> 00:04:11,997
+engineering best practice
+
+94
+00:04:11,997 --> 00:04:14,312
+and that's to code to an interface.
+
+95
+00:04:14,312 --> 00:04:16,590
+So instead of coding directly to theBaseballCoach
+
+96
+00:04:16,590 --> 00:04:18,961
+implementation, we wanna make use of a well
+
+97
+00:04:18,961 --> 00:04:22,961
+defined interface that all coaches will support.
+
+98
+00:04:27,337 --> 00:04:29,684 line:15% 
+So, every coach is gonna have a method called
+
+99
+00:04:29,684 --> 00:04:31,224 line:15% 
+getDailyWorkout.
+
+100
+00:04:31,224 --> 00:04:32,819 line:15% 
+So let's go ahead and create this interface.
+
+101
+00:04:32,819 --> 00:04:35,261 line:15% 
+So we're kind of doing some code refactoring here.
+
+102
+00:04:35,261 --> 00:04:37,754 line:15% 
+I'll say right click, I'll say new,
+
+103
+00:04:37,754 --> 00:04:40,337 line:15% 
+and then I'll choose interface.
+
+104
+00:04:46,993 --> 00:04:48,850
+And the actual name of the interface I'll create,
+
+105
+00:04:48,850 --> 00:04:50,433
+I'll call it Coach.
+
+106
+00:04:52,590 --> 00:04:54,195
+And just a very simple interface
+
+107
+00:04:54,195 --> 00:04:55,866
+and I'll keep all the other defaults here
+
+108
+00:04:55,866 --> 00:04:57,533
+and I'll hit finish.
+
+109
+00:04:58,676 --> 00:05:00,570 line:15% 
+Alright, so, now we have this interface,
+
+110
+00:05:00,570 --> 00:05:03,029 line:15% 
+let's go ahead and add this one method,
+
+111
+00:05:03,029 --> 00:05:05,675 line:15% 
+getDailyWorkout and just a semicolon.
+
+112
+00:05:05,675 --> 00:05:06,986 line:15% 
+Now note here,
+
+113
+00:05:06,986 --> 00:05:07,858 line:15% 
+or recall,
+
+114
+00:05:07,858 --> 00:05:10,249 line:15% 
+an interface doesn't have any implementation code,
+
+115
+00:05:10,249 --> 00:05:12,160 line:15% 
+it's only a specification.
+
+116
+00:05:12,160 --> 00:05:14,478 line:15% 
+So they simply say, what is available
+
+117
+00:05:14,478 --> 00:05:16,204 line:15% 
+but not how it's implemented.
+
+118
+00:05:16,204 --> 00:05:18,161 line:15% 
+So the what portion of it is
+
+119
+00:05:18,161 --> 00:05:20,581 line:15% 
+a method called getDailyWorkout.
+
+120
+00:05:20,581 --> 00:05:22,751 line:15% 
+And then you'll have different coaches that'll implement
+
+121
+00:05:22,751 --> 00:05:26,918 line:15% 
+this method depending on the type of coach that they are.
+
+122
+00:05:29,093 --> 00:05:30,984
+Alright, so now let's go back to our BaseballCoach,
+
+123
+00:05:30,984 --> 00:05:32,704 line:15% 
+we need to do some refactoring here.
+
+124
+00:05:32,704 --> 00:05:34,746 line:15% 
+So, in our BaseballCoach we need to say
+
+125
+00:05:34,746 --> 00:05:38,452 line:15% 
+that our BaseballCoach implements Coach.
+
+126
+00:05:38,452 --> 00:05:40,028 line:15% 
+So that's that interface we just created.
+
+127
+00:05:40,028 --> 00:05:41,541 line:15% 
+And also add overrides,
+
+128
+00:05:41,541 --> 00:05:43,836 line:15% 
+meaning that this is the method that we override
+
+129
+00:05:43,836 --> 00:05:46,601 line:15% 
+from that coach interface.
+
+130
+00:05:46,601 --> 00:05:48,119 line:15% 
+So we're basically here just saying that our
+
+131
+00:05:48,119 --> 00:05:51,131 line:15% 
+BaseballCoach is compliant by implementing
+
+132
+00:05:51,131 --> 00:05:53,246 line:15% 
+a given Coach interface.
+
+133
+00:05:53,246 --> 00:05:56,010 line:15% 
+So I can access the BaseballCoach specifically,
+
+134
+00:05:56,010 --> 00:05:58,722 line:15% 
+or we can access it in a generic fashion
+
+135
+00:05:58,722 --> 00:06:00,988
+using the coach interface.
+
+136
+00:06:00,988 --> 00:06:02,558 line:15% 
+Alright, so let's make this small modification
+
+137
+00:06:02,558 --> 00:06:04,004 line:15% 
+here to MyApps.
+
+138
+00:06:04,004 --> 00:06:06,444 line:15% 
+So, I'm gonna change the variable on the left hand side,
+
+139
+00:06:06,444 --> 00:06:09,132 line:15% 
+so instead of BaseballCoach, the impletmentation,
+
+140
+00:06:09,132 --> 00:06:12,687 line:15% 
+I'm gonna say Coach, which is the interface.
+
+141
+00:06:12,687 --> 00:06:14,008 line:15% 
+Alright, so at this point,
+
+142
+00:06:14,008 --> 00:06:16,833 line:15% 
+we have theCoach which is just a generic interface
+
+143
+00:06:16,833 --> 00:06:19,989 line:15% 
+that has a method called getDailyWorkout.
+
+144
+00:06:19,989 --> 00:06:21,070 line:15% 
+So at this point
+
+145
+00:06:21,070 --> 00:06:24,659 line:15% 
+line eleven can work with any Coach implementation
+
+146
+00:06:24,659 --> 00:06:27,535 line:15% 
+that has the getDailyWorkout method.
+
+147
+00:06:27,535 --> 00:06:32,508 line:15% 
+Alright, so let's go ahead and run this application.
+
+148
+00:06:32,508 --> 00:06:33,341
+And wow!
+
+149
+00:06:34,520 --> 00:06:36,025
+Nothing really different here, right?
+
+150
+00:06:36,025 --> 00:06:37,610
+This is the same thing we saw before.
+
+151
+00:06:37,610 --> 00:06:39,568
+But again, the code's gonna run exactly the same,
+
+152
+00:06:39,568 --> 00:06:41,799
+however we've refactored the code
+
+153
+00:06:41,799 --> 00:06:44,034
+and we've refined it to make it a little bit better
+
+154
+00:06:44,034 --> 00:06:47,098
+to follow good software engineering practices.
+
+155
+00:06:47,098 --> 00:06:48,914
+And what we're gonna do in the next video,
+
+156
+00:06:48,914 --> 00:06:51,170
+is we're actually gonna add some more
+
+157
+00:06:51,170 --> 00:06:52,778
+implementations to follow that one requirement
+
+158
+00:06:52,778 --> 00:06:56,040
+that we had to make our app handle different
+
+159
+00:06:56,040 --> 00:06:58,159
+types of coaches or different type of coach
+
+160
+00:06:58,159 --> 00:06:59,414
+implementations.
+
+161
+00:06:59,414 --> 00:07:01,261
+And we'll cover that in the next video.
+
+162
+00:07:01,261 --> 00:07:05,428
+So, hang tight and I'll see you in the next video.
+

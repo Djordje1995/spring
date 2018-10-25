@@ -1,0 +1,96 @@
+1
+00:00:01,359 --> 00:00:02,284
+<v Instructor>In this video, we're gonna</v>
+
+2
+00:00:02,284 --> 00:00:06,345
+talk about our development environment setup.
+
+3
+00:00:06,345 --> 00:00:09,615
+So, as a checkpoint, these are three items
+
+4
+00:00:09,615 --> 00:00:12,929
+that you're gonna need for your development environment.
+
+5
+00:00:12,929 --> 00:00:15,703
+So, so far you should have already installed
+
+6
+00:00:15,703 --> 00:00:19,870
+Tomcat, Eclipse, and also Connected Eclipse to Tomcat.
+
+7
+00:00:21,431 --> 00:00:22,750
+You need to have this setup
+
+8
+00:00:22,750 --> 00:00:25,215
+and configured before you can proceed.
+
+9
+00:00:25,215 --> 00:00:27,359
+This is all covered in previous videos,
+
+10
+00:00:27,359 --> 00:00:28,998
+so if you haven't done this yet,
+
+11
+00:00:28,998 --> 00:00:31,039
+please go back to those videos
+
+12
+00:00:31,039 --> 00:00:34,598
+and get it configured accordingly.
+
+13
+00:00:34,598 --> 00:00:35,918
+Now, there's some additional things
+
+14
+00:00:35,918 --> 00:00:37,502
+that we're gonna need to do.
+
+15
+00:00:37,502 --> 00:00:40,750
+The first item is downloading Spring MVC source code
+
+16
+00:00:40,750 --> 00:00:42,990
+that's specific for this training class.
+
+17
+00:00:42,990 --> 00:00:44,998
+I have some sample files that you'll use
+
+18
+00:00:44,998 --> 00:00:47,950
+to kind of get started with some of the configuration.
+
+19
+00:00:47,950 --> 00:00:49,375
+And then also, what we're gonna do is,
+
+20
+00:00:49,375 --> 00:00:53,190
+we're gonna download the latest Spring JAR files
+
+21
+00:00:53,190 --> 00:00:54,999
+from the Spring websites.
+
+22
+00:00:54,999 --> 00:00:57,286
+There were some recent updates to Spring,
+
+23
+00:00:57,286 --> 00:00:59,854
+and I want to take advantage of those new features
+
+24
+00:00:59,854 --> 00:01:02,521
+and cover it here in the course.
+

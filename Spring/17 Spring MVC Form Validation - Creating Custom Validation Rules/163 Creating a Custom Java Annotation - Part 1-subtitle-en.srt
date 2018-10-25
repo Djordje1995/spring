@@ -1,0 +1,304 @@
+1
+00:00:01,201 --> 00:00:02,214
+<v Darby>All right, so let's go ahead</v>
+
+2
+00:00:02,214 --> 00:00:04,377
+and dive into Eclipse here.
+
+3
+00:00:04,377 --> 00:00:06,662
+The first thing we're gonna do is our step 1A,
+
+4
+00:00:06,662 --> 00:00:09,662
+creating the @CourseCode annotation.
+
+5
+00:00:12,884 --> 00:00:14,756
+So I move over here to my project,
+
+6
+00:00:14,756 --> 00:00:17,842
+and I move down to the Java Resources directory,
+
+7
+00:00:17,842 --> 00:00:20,509
+on the source, and I'm actually gonna create
+
+8
+00:00:20,509 --> 00:00:21,869
+a package first.
+
+9
+00:00:21,869 --> 00:00:23,521
+So I'll simply right-click over here
+
+10
+00:00:23,521 --> 00:00:25,009
+and I'll say new package.
+
+11
+00:00:25,009 --> 00:00:25,882
+Because I want to kind of group
+
+12
+00:00:25,882 --> 00:00:29,882
+all my validation code in the same package here.
+
+13
+00:00:32,185 --> 00:00:34,333
+And I'll pretty much keep the same package structure.
+
+14
+00:00:34,333 --> 00:00:36,328
+I'll just say .validation.
+
+15
+00:00:36,328 --> 00:00:39,245
+So the full name here, .validation.
+
+16
+00:00:40,090 --> 00:00:41,099
+And once you're happy with that,
+
+17
+00:00:41,099 --> 00:00:44,115
+go ahead and click on the finish button.
+
+18
+00:00:44,115 --> 00:00:46,552
+Okay, great, now I have my validation package set up.
+
+19
+00:00:46,552 --> 00:00:48,865
+Now I need to add something to it, right?
+
+20
+00:00:48,865 --> 00:00:51,870
+So the first thing we're gonna do is add a new annotation.
+
+21
+00:00:51,870 --> 00:00:54,452
+Ooh, this is new, haven't done this before.
+
+22
+00:00:54,452 --> 00:00:55,702
+New Annotation.
+
+23
+00:01:02,302 --> 00:01:04,383
+So this will bring up the annotation dialog here
+
+24
+00:01:04,383 --> 00:01:06,778
+and you basically give the name of the annotation.
+
+25
+00:01:06,778 --> 00:01:09,802
+So our annotation is called CourseCode.
+
+26
+00:01:09,802 --> 00:01:11,799
+And that's the value that we'll enter there.
+
+27
+00:01:11,799 --> 00:01:13,479
+We'll keep all the other defaults here
+
+28
+00:01:13,479 --> 00:01:16,479
+and we will click the finish button.
+
+29
+00:01:18,077 --> 00:01:20,474
+Great, so notice here, Eclipse helped us out
+
+30
+00:01:20,474 --> 00:01:22,657
+by setting up our annotation note on line three
+
+31
+00:01:22,657 --> 00:01:25,825
+to have public @interface, right, that special notation,
+
+32
+00:01:25,825 --> 00:01:27,658
+@interface CourseCode.
+
+33
+00:01:28,534 --> 00:01:30,083
+All right, so this is the basics here.
+
+34
+00:01:30,083 --> 00:01:32,718
+So we need to set up some annotations
+
+35
+00:01:32,718 --> 00:01:35,050
+at the top of this annotation.
+
+36
+00:01:35,050 --> 00:01:36,548
+Somewhat recursive, huh?
+
+37
+00:01:36,548 --> 00:01:39,725
+All right, so we'll say @Constraint(validatedBy
+
+38
+00:01:39,725 --> 00:01:41,626
+and then we give the actually class
+
+39
+00:01:41,626 --> 00:01:43,520
+that's gonna be our constraint validator.
+
+40
+00:01:43,520 --> 00:01:47,203
+So we'll have a CourseCodeConstraintValidator
+
+41
+00:01:47,203 --> 00:01:49,506
+that we'll create in some later videos,
+
+42
+00:01:49,506 --> 00:01:51,427
+part of our step 1B.
+
+43
+00:01:51,427 --> 00:01:53,927
+And we give the .class for it.
+
+44
+00:01:56,946 --> 00:01:58,831
+And then we'll kind of scroll over here to the left
+
+45
+00:01:58,831 --> 00:02:03,091
+and we'll fix the import here for @Constraint.
+
+46
+00:02:03,091 --> 00:02:06,114
+That's out of the JavaX.validation package.
+
+47
+00:02:06,114 --> 00:02:07,794
+And we'll continue to have that little issue
+
+48
+00:02:07,794 --> 00:02:09,924
+on line five, just kind of leave it there for now.
+
+49
+00:02:09,924 --> 00:02:12,431
+We'll cover that in the following video, so don't worry,
+
+50
+00:02:12,431 --> 00:02:13,823
+don't fret right now.
+
+51
+00:02:13,823 --> 00:02:15,752
+Then we'll also say @Target.
+
+52
+00:02:15,752 --> 00:02:18,740
+Basically we're saying, hey, where can you apply
+
+53
+00:02:18,740 --> 00:02:21,161
+this new annotation that we're creating?
+
+54
+00:02:21,161 --> 00:02:23,615
+So here we'll say you can apply this annotation
+
+55
+00:02:23,615 --> 00:02:26,144
+on methods or you could also
+
+56
+00:02:26,144 --> 00:02:28,811
+apply this annotation on fields.
+
+57
+00:02:31,016 --> 00:02:33,288
+And so in our case, we basically want to apply it
+
+58
+00:02:33,288 --> 00:02:35,519
+to the field on our instance class
+
+59
+00:02:35,519 --> 00:02:39,093
+for doing our validation or a method.
+
+60
+00:02:39,093 --> 00:02:40,426
+So there it goes, that's the basics there,
+
+61
+00:02:40,426 --> 00:02:42,370
+and you can always go into the Java doc
+
+62
+00:02:42,370 --> 00:02:44,761
+and find all the other options available here.
+
+63
+00:02:44,761 --> 00:02:46,297
+But we'll just keep it simple for now.
+
+64
+00:02:46,297 --> 00:02:49,310
+So that's target, we'll do an import on target.
+
+65
+00:02:49,310 --> 00:02:51,753
+And then we'll do a similar thing for @Retention.
+
+66
+00:02:51,753 --> 00:02:55,763
+So this basically says, how long will the marked annotation
+
+67
+00:02:55,763 --> 00:02:57,865
+be stored or used?
+
+68
+00:02:57,865 --> 00:03:02,310
+So here we'll say the RetentionPolicy.RUNTIME.
+
+69
+00:03:02,310 --> 00:03:06,219
+So basically we say retain this annotation
+
+70
+00:03:06,219 --> 00:03:10,386
+in the byte code and also use it at RUNTIME by the JVL.
+
+71
+00:03:12,243 --> 00:03:15,326
+So we say at RetentionPolicy.RUNTIME.
+
+72
+00:03:17,557 --> 00:03:19,538
+All right, so that's kinda the basics here
+
+73
+00:03:19,538 --> 00:03:23,269
+for our annotation, so we have our imports up top,
+
+74
+00:03:23,269 --> 00:03:24,770
+we have everything taken care of.
+
+75
+00:03:24,770 --> 00:03:27,144
+Except for our validator class,
+
+76
+00:03:27,144 --> 00:03:31,311
+and we'll actually take care of that in the next video.
+

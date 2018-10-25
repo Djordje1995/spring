@@ -1,0 +1,468 @@
+1
+00:00:01,170 --> 00:00:02,920
+In this video, we're gonna learn about
+
+2
+00:00:02,920 --> 00:00:06,837
+Spring MVC form validation for required fields.
+
+3
+00:00:09,479 --> 00:00:11,482
+So what we'll do is we'll have this example.
+
+4
+00:00:11,482 --> 00:00:14,130
+We'll have this form for a customer where we can ask
+
+5
+00:00:14,130 --> 00:00:17,100
+for the customer's first name and last name.
+
+6
+00:00:17,100 --> 00:00:20,299
+And what we'll do is we'll make last name required.
+
+7
+00:00:20,299 --> 00:00:23,122
+So if they hit the submit with simply an empty form,
+
+8
+00:00:23,122 --> 00:00:24,989
+then we'll give them an error message saying,
+
+9
+00:00:24,989 --> 00:00:27,234
+hey, last name is required.
+
+10
+00:00:27,234 --> 00:00:32,133
+I'll show you how to code all this together in this video.
+
+11
+00:00:32,133 --> 00:00:33,755
+We'll pull it all together looking
+
+12
+00:00:33,755 --> 00:00:35,542
+at the really big picture here.
+
+13
+00:00:35,542 --> 00:00:38,132
+So we'll have our customer form, the user enters their data.
+
+14
+00:00:38,132 --> 00:00:40,006
+They hit submit, pass over a customer
+
+15
+00:00:40,006 --> 00:00:43,030
+object to our customer controller.
+
+16
+00:00:43,030 --> 00:00:44,053
+In the customer controller,
+
+17
+00:00:44,053 --> 00:00:46,662
+we'll actually perform the validation.
+
+18
+00:00:46,662 --> 00:00:48,356
+If the validation is successful,
+
+19
+00:00:48,356 --> 00:00:50,911
+we'll send them to the confirmation page.
+
+20
+00:00:50,911 --> 00:00:54,397
+If the validation fails, we'll actually send them back
+
+21
+00:00:54,397 --> 00:00:56,978
+to the customer form for them to fix
+
+22
+00:00:56,978 --> 00:00:59,561
+up the form and resubmit again.
+
+23
+00:01:02,068 --> 00:01:03,027
+All right, so let's look at
+
+24
+00:01:03,027 --> 00:01:05,485
+the development process step by step.
+
+25
+00:01:05,485 --> 00:01:07,394
+So the first thing we're going to do is add
+
+26
+00:01:07,394 --> 00:01:10,100
+the validation rule to the customer class,
+
+27
+00:01:10,100 --> 00:01:15,097
+then we'll display the error message on the HTML form.
+
+28
+00:01:15,097 --> 00:01:18,871
+Next, we'll perform validation in the controller class.
+
+29
+00:01:18,871 --> 00:01:22,786
+And then finally, we'll update our confirmation page.
+
+30
+00:01:22,786 --> 00:01:23,884
+All right, a lot of good stuff.
+
+31
+00:01:23,884 --> 00:01:26,134
+Let's go ahead and dive in.
+
+32
+00:01:28,111 --> 00:01:30,633
+So the first step is adding the validation
+
+33
+00:01:30,633 --> 00:01:32,347
+rule to the customer class.
+
+34
+00:01:32,347 --> 00:01:35,313
+So remember in our example, we want to add a validation
+
+35
+00:01:35,313 --> 00:01:38,985
+rule to the last name field to make it required.
+
+36
+00:01:38,985 --> 00:01:40,252
+So what I'll do is I'll make use of these
+
+37
+00:01:40,252 --> 00:01:43,419
+two annotations here: @Null and @Size.
+
+38
+00:01:46,003 --> 00:01:49,064
+So for @Null, I give the error message is required
+
+39
+00:01:49,064 --> 00:01:51,540
+that'll be displayed if the value is null.
+
+40
+00:01:51,540 --> 00:01:54,529
+Also, I have @Size min equals one,
+
+41
+00:01:54,529 --> 00:01:57,407
+meaning that I need to have a minimum of one character here
+
+42
+00:01:57,407 --> 00:02:01,069
+to make sure that this value is not empty.
+
+43
+00:02:01,069 --> 00:02:02,598
+That's basically the process there.
+
+44
+00:02:02,598 --> 00:02:06,133
+So I'm checking @Null, @Size on the given last name.
+
+45
+00:02:06,133 --> 00:02:07,608
+So those are the validation rules that
+
+46
+00:02:07,608 --> 00:02:10,694
+I've just added to this customer class.
+
+47
+00:02:10,694 --> 00:02:12,562
+And note for first name, nothing's there because
+
+48
+00:02:12,562 --> 00:02:16,729
+we're not adding any rules to the first name field.
+
+49
+00:02:19,592 --> 00:02:21,602
+OK, so moving ahead to step three,
+
+50
+00:02:21,602 --> 00:02:24,143
+displaying the error messages on the HTML form.
+
+51
+00:02:24,143 --> 00:02:26,290
+All right, so here's our customer-form.jsp.
+
+52
+00:02:26,290 --> 00:02:28,899
+Down in the section where we list the last name,
+
+53
+00:02:28,899 --> 00:02:30,336
+we have the normal work here,
+
+54
+00:02:30,336 --> 00:02:33,206
+form:input path of last name.
+
+55
+00:02:33,206 --> 00:02:35,282
+But then I add this new entry here
+
+56
+00:02:35,282 --> 00:02:36,854
+just to display the error message.
+
+57
+00:02:36,854 --> 00:02:39,352
+So I say form:errors.
+
+58
+00:02:39,352 --> 00:02:40,596
+All right, a new entry.
+
+59
+00:02:40,596 --> 00:02:43,001
+Form:errors path of last name.
+
+60
+00:02:43,001 --> 00:02:45,337
+That maps to the last name field,
+
+61
+00:02:45,337 --> 00:02:47,866
+or error messages for the last name field.
+
+62
+00:02:47,866 --> 00:02:50,694
+Then I also apply a CSS class.
+
+63
+00:02:50,694 --> 00:02:52,724
+The actual name of that class is error.
+
+64
+00:02:52,724 --> 00:02:55,217
+I'll show you the coding for the CSS in the next video,
+
+65
+00:02:55,217 --> 00:02:56,479
+but for now just assume that there's
+
+66
+00:02:56,479 --> 00:03:00,108
+a CSS class definer there called error.
+
+67
+00:03:00,108 --> 00:03:01,260
+That's basically what we do here.
+
+68
+00:03:01,260 --> 00:03:04,065
+So we just give form:errors and that'll display the error
+
+69
+00:03:04,065 --> 00:03:08,232
+message for that last name field if that's the case.
+
+70
+00:03:10,164 --> 00:03:11,731
+All right, so now getting down to
+
+71
+00:03:11,731 --> 00:03:13,428
+the nitty gritty here, step three.
+
+72
+00:03:13,428 --> 00:03:14,794
+This is where we actually perform
+
+73
+00:03:14,794 --> 00:03:17,613
+the validation in the controller class.
+
+74
+00:03:17,613 --> 00:03:19,475
+All right, so here's our method here
+
+75
+00:03:19,475 --> 00:03:21,992
+for this request mapping of process form.
+
+76
+00:03:21,992 --> 00:03:24,796
+Now, two new items that'll appear here
+
+77
+00:03:24,796 --> 00:03:28,108
+in this process form as far as parameters.
+
+78
+00:03:28,108 --> 00:03:31,071
+So we have this one new attribute called @Valid.
+
+79
+00:03:31,071 --> 00:03:32,878
+So basically, you're saying perform
+
+80
+00:03:32,878 --> 00:03:36,295
+validation rules on this customer object.
+
+81
+00:03:37,191 --> 00:03:39,758
+Also, the results of that validation test
+
+82
+00:03:39,758 --> 00:03:42,985
+will be placed in BindingResult.
+
+83
+00:03:42,985 --> 00:03:44,558
+So BindingResult will be the result
+
+84
+00:03:44,558 --> 00:03:46,086
+of the actual validation rule.
+
+85
+00:03:46,086 --> 00:03:49,632
+So behind the scenes when Spring calls its method,
+
+86
+00:03:49,632 --> 00:03:51,919
+Spring will perform the validation rules
+
+87
+00:03:51,919 --> 00:03:54,388
+using that hibernate validator API,
+
+88
+00:03:54,388 --> 00:03:56,007
+and then the results will be placed
+
+89
+00:03:56,007 --> 00:03:58,424
+in this object BindingResult.
+
+90
+00:03:59,460 --> 00:04:02,491
+In your code, you can check the value of the BindingResult.
+
+91
+00:04:02,491 --> 00:04:05,805
+So I can say if theBindingResult.hasErrors,
+
+92
+00:04:05,805 --> 00:04:09,774
+then we're gonna return them back to the customer form.
+
+93
+00:04:09,774 --> 00:04:11,510
+Else, that means there were no errors
+
+94
+00:04:11,510 --> 00:04:14,687
+and we'll simply send them to the confirmation page.
+
+95
+00:04:14,687 --> 00:04:15,951
+All right, so the basic approach here,
+
+96
+00:04:15,951 --> 00:04:17,350
+you simply check the BindingResult.
+
+97
+00:04:17,350 --> 00:04:19,389
+If there are errors, you send them back to the form,
+
+98
+00:04:19,389 --> 00:04:21,660
+else, you send them over to the confirmation page
+
+99
+00:04:21,660 --> 00:04:25,827
+or whatever your success page is for your application.
+
+100
+00:04:27,270 --> 00:04:30,947
+So the key item here, two new entries, @Valid
+
+101
+00:04:30,947 --> 00:04:33,236
+is an annotation and BindingResult
+
+102
+00:04:33,236 --> 00:04:37,480
+that'll hold the actual results of the validation test.
+
+103
+00:04:37,480 --> 00:04:39,480
+And that's basically it.
+
+104
+00:04:40,817 --> 00:04:42,389
+And then finally, step four.
+
+105
+00:04:42,389 --> 00:04:44,972
+Very simple, we just update our confirmation page.
+
+106
+00:04:44,972 --> 00:04:46,652
+We say, hey, the customer's confirmed,
+
+107
+00:04:46,652 --> 00:04:48,773
+and we yield the customer's first name
+
+108
+00:04:48,773 --> 00:04:50,608
+and the customer's last name.
+
+109
+00:04:50,608 --> 00:04:52,137
+So nothing really big here.
+
+110
+00:04:52,137 --> 00:04:54,637
+Just simple Spring MVC coding.
+
+111
+00:04:56,146 --> 00:04:57,348
+All right, that's it.
+
+112
+00:04:57,348 --> 00:04:59,199
+So in the next video, we'll actually dive in.
+
+113
+00:04:59,199 --> 00:05:00,388
+We'll get into Eclipse.
+
+114
+00:05:00,388 --> 00:05:02,231
+We'll actually start writing some code
+
+115
+00:05:02,231 --> 00:05:04,849
+and we'll see how all this works out real time
+
+116
+00:05:04,849 --> 00:05:07,228
+while we're going through the development effort.
+
+117
+00:05:07,228 --> 00:05:10,978
+Alrighty, so I'll see you in the next video.
+

@@ -1,0 +1,228 @@
+1
+00:00:01,238 --> 00:00:02,314
+<v Instructor>In this video,</v>
+
+2
+00:00:02,314 --> 00:00:06,481
+we're gonna learn about bean scopes with annotations.
+
+3
+00:00:07,473 --> 00:00:09,025
+And we've already used bean scopes before
+
+4
+00:00:09,025 --> 00:00:10,736
+with XML declarations,
+
+5
+00:00:10,736 --> 00:00:13,408
+but here we'll actually make use of with annotations.
+
+6
+00:00:13,408 --> 00:00:15,703
+And again, remember the bean scope basically says
+
+7
+00:00:15,703 --> 00:00:17,087
+how long the bean lives,
+
+8
+00:00:17,087 --> 00:00:18,727
+how many instances are created,
+
+9
+00:00:18,727 --> 00:00:21,477
+and also how was the bean shared?
+
+10
+00:00:23,978 --> 00:00:25,542
+And as a quick refresher here,
+
+11
+00:00:25,542 --> 00:00:30,450
+the default scope for all beans in Spring is singleton.
+
+12
+00:00:30,450 --> 00:00:31,829
+And just to jog your memory,
+
+13
+00:00:31,829 --> 00:00:35,651
+singleton, it's basically a single instance of the bean.
+
+14
+00:00:35,651 --> 00:00:37,211
+It's cached in memory
+
+15
+00:00:37,211 --> 00:00:38,556
+and all requests for the bean
+
+16
+00:00:38,556 --> 00:00:42,556
+will return a shared reference to the same bean.
+
+17
+00:00:44,275 --> 00:00:45,810
+So here's a nice diagram
+
+18
+00:00:45,810 --> 00:00:47,388
+that's just gonna show you how it works.
+
+19
+00:00:47,388 --> 00:00:49,799
+So in this case, tennis coach is singleton,
+
+20
+00:00:49,799 --> 00:00:51,983
+so when you get a reference of the tennis coach,
+
+21
+00:00:51,983 --> 00:00:54,050
+saying coach that coach equals
+
+22
+00:00:54,050 --> 00:00:55,552
+context get bean tennis coach
+
+23
+00:00:55,552 --> 00:00:56,688
+you get one link,
+
+24
+00:00:56,688 --> 00:00:58,904
+and then you say coach alpha coach
+
+25
+00:00:58,904 --> 00:01:00,719
+equals context get bean tennis coach,
+
+26
+00:01:00,719 --> 00:01:02,913
+it gives you the same reference.
+
+27
+00:01:02,913 --> 00:01:05,110
+So basically these two variables here,
+
+28
+00:01:05,110 --> 00:01:06,766
+the coach and alpha coach,
+
+29
+00:01:06,766 --> 00:01:10,274
+they both point to the same area of memory.
+
+30
+00:01:10,274 --> 00:01:12,357
+So it's a singleton bean.
+
+31
+00:01:14,124 --> 00:01:17,595
+Now you can also explicitly specify the bean scope
+
+32
+00:01:17,595 --> 00:01:20,048
+and you can do that using annotations,
+
+33
+00:01:20,048 --> 00:01:22,556
+and it's really, really straightforward here,
+
+34
+00:01:22,556 --> 00:01:25,020
+basically have at scope,
+
+35
+00:01:25,020 --> 00:01:29,275
+and then you simply specify the scope and commence.
+
+36
+00:01:29,275 --> 00:01:31,239
+So in this case, we say the tennis coach
+
+37
+00:01:31,239 --> 00:01:32,989
+is a singleton scope.
+
+38
+00:01:34,565 --> 00:01:36,262
+Prototype scope basically says
+
+39
+00:01:36,262 --> 00:01:39,621
+it's gonna create a new object for each request.
+
+40
+00:01:39,621 --> 00:01:41,530
+And again, to specify the scope,
+
+41
+00:01:41,530 --> 00:01:43,374
+I simply give at scope,
+
+42
+00:01:43,374 --> 00:01:47,378
+and I give the actual scope in parens or quotes here.
+
+43
+00:01:47,378 --> 00:01:51,849
+So in this example, I'll set the scope to prototype.
+
+44
+00:01:51,849 --> 00:01:54,149
+Now again, if I make that modification,
+
+45
+00:01:54,149 --> 00:01:57,201
+then every time I reference that tennis coach bean,
+
+46
+00:01:57,201 --> 00:02:00,138
+it's gonna create a new object for each request.
+
+47
+00:02:00,138 --> 00:02:01,808
+So in this example,
+
+48
+00:02:01,808 --> 00:02:04,671
+coach a coach points to one area of memory,
+
+49
+00:02:04,671 --> 00:02:07,731
+and then when I say coach alpha coach get bean,
+
+50
+00:02:07,731 --> 00:02:09,163
+it'll create a new object,
+
+51
+00:02:09,163 --> 00:02:11,178
+so you have two different objects out there
+
+52
+00:02:11,178 --> 00:02:13,926
+pointing at two different areas of memory.
+
+53
+00:02:13,926 --> 00:02:15,950
+That's prototype scope.
+
+54
+00:02:15,950 --> 00:02:17,919
+All right, so this looks really good.
+
+55
+00:02:17,919 --> 00:02:19,032
+We'll move into Eclipse
+
+56
+00:02:19,032 --> 00:02:21,607
+and we'll actually write some code using scopes
+
+57
+00:02:21,607 --> 00:02:23,107
+with annotations.
+

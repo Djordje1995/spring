@@ -1,0 +1,176 @@
+1
+00:00:01,294 --> 00:00:02,849
+<v Instructor>Hey, real quick in this video</v>
+
+2
+00:00:02,849 --> 00:00:04,927
+we're gonna discuss constructor injection
+
+3
+00:00:04,927 --> 00:00:07,563
+and what happens behind the scenes.
+
+4
+00:00:07,563 --> 00:00:10,380
+So, we have our screen configuration file
+
+5
+00:00:10,380 --> 00:00:12,392
+that's been created but you may wonder well,
+
+6
+00:00:12,392 --> 00:00:14,510
+what really happens behind the scenes
+
+7
+00:00:14,510 --> 00:00:18,510
+when Spring runs through or processes this file?
+
+8
+00:00:19,807 --> 00:00:22,632
+So, behind the scenes the Spring framework
+
+9
+00:00:22,632 --> 00:00:26,430
+will actually perform some operations for you
+
+10
+00:00:26,430 --> 00:00:28,987
+based on information you have in the config file
+
+11
+00:00:28,987 --> 00:00:31,567
+and I just want to kind of show you this code wise
+
+12
+00:00:31,567 --> 00:00:34,004
+so you get a better feel for what happens.
+
+13
+00:00:34,004 --> 00:00:35,977
+So, over on the left is our config file,
+
+14
+00:00:35,977 --> 00:00:37,353
+over on the right is kind of the work
+
+15
+00:00:37,353 --> 00:00:41,121
+that Spring will do for you behind the scenes.
+
+16
+00:00:41,121 --> 00:00:44,244
+Alright, so when you create that first bean,
+
+17
+00:00:44,244 --> 00:00:47,251
+myFortuneService of HappyFortuneService,
+
+18
+00:00:47,251 --> 00:00:50,591
+behind the scenes Spring will actually construct
+
+19
+00:00:50,591 --> 00:00:51,882
+that object for you,
+
+20
+00:00:51,882 --> 00:00:54,171
+so they'll actually call the default constructor
+
+21
+00:00:54,171 --> 00:00:56,346
+or the nor or constructor and they'll create
+
+22
+00:00:56,346 --> 00:00:58,187
+a HappyFortuneService,
+
+23
+00:00:58,187 --> 00:01:01,690
+and they'll give it the variable name of myFortuneService.
+
+24
+00:01:01,690 --> 00:01:03,993
+Alright, so that covers that first piece of it,
+
+25
+00:01:03,993 --> 00:01:05,002
+the first bean.
+
+26
+00:01:05,002 --> 00:01:09,833
+Now moving forward there's also a second bean, myCoach,
+
+27
+00:01:09,833 --> 00:01:13,403
+so here they'll actually create a new BaseballCoach
+
+28
+00:01:13,403 --> 00:01:15,744
+and based on the information from your config file,
+
+29
+00:01:15,744 --> 00:01:17,904
+they'll pass in a constructor argument
+
+30
+00:01:17,904 --> 00:01:19,314
+and that's the same myFortuneService
+
+31
+00:01:19,314 --> 00:01:20,896
+that we just created,
+
+32
+00:01:20,896 --> 00:01:23,027
+so they'll create that BaseballCoach
+
+33
+00:01:23,027 --> 00:01:25,614
+with that myFortuneService,
+
+34
+00:01:25,614 --> 00:01:28,030
+and again, make this bean available.
+
+35
+00:01:28,030 --> 00:01:31,406
+So, the key here is that Spring will do this work for you
+
+36
+00:01:31,406 --> 00:01:34,353
+in the background and Spring's object factory
+
+37
+00:01:34,353 --> 00:01:36,952
+when they kind of create your objects
+
+38
+00:01:36,952 --> 00:01:39,268
+and they inject the dependencies,
+
+39
+00:01:39,268 --> 00:01:42,290
+this is really what's going on behind the scenes
+
+40
+00:01:42,290 --> 00:01:44,584
+when Spring processes your file.
+
+41
+00:01:44,584 --> 00:01:46,973
+So, I hope this helps out a little bit.
+
+42
+00:01:46,973 --> 00:01:49,499
+I wanted to kind of just cover that real quickly
+
+43
+00:01:49,499 --> 00:01:52,482
+before we jumped into the actual coding.
+
+44
+00:01:52,482 --> 00:01:56,149
+Alright, so I'll see you in the next video.
+

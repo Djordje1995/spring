@@ -1,0 +1,576 @@
+1
+00:00:00,906 --> 00:00:02,733 line:15% 
+<v Instructor>Alrighty, so our next step</v>
+
+2
+00:00:02,733 --> 00:00:06,041 line:15% 
+is that we actually need to create the HTML form.
+
+3
+00:00:06,041 --> 00:00:09,074 line:15% 
+That's gonna have our input fields and our submit button,
+
+4
+00:00:09,074 --> 00:00:11,074 line:15% 
+and all that good stuff.
+
+5
+00:00:15,738 --> 00:00:17,205
+So, let's go ahead and swing back over
+
+6
+00:00:17,205 --> 00:00:19,947
+to our project structure here.
+
+7
+00:00:19,947 --> 00:00:22,047
+And let's go move into
+
+8
+00:00:22,047 --> 00:00:23,199
+yeah so we're gonna click this file,
+
+9
+00:00:23,199 --> 00:00:24,476
+called student form.
+
+10
+00:00:24,476 --> 00:00:26,602
+So, let's go into WebContent,
+
+11
+00:00:26,602 --> 00:00:28,449
+WEB-INF view.
+
+12
+00:00:28,449 --> 00:00:32,199
+Let's do a right click here and say New File.
+
+13
+00:00:36,654 --> 00:00:38,213
+Alrighty, so the name of the file
+
+14
+00:00:38,213 --> 00:00:39,880
+is student-form.jsp.
+
+15
+00:00:44,884 --> 00:00:49,051
+And then, we'll go ahead and click on the Finish button.
+
+16
+00:00:49,993 --> 00:00:52,963
+Okay, great so our very empty file right now.
+
+17
+00:00:52,963 --> 00:00:55,402
+Let's go ahead and take care of some of the,
+
+18
+00:00:55,402 --> 00:00:57,035
+actually, the important thing here is
+
+19
+00:00:57,035 --> 00:00:58,801
+taking care of taglib reference up top,
+
+20
+00:00:58,801 --> 00:01:00,534
+so make sure you end the taglib reference
+
+21
+00:01:00,534 --> 00:01:02,080
+like I have here on the screen.
+
+22
+00:01:02,080 --> 00:01:04,529
+Make sure you get the uri exactly
+
+23
+00:01:04,529 --> 00:01:06,811
+like I have here on the screen
+
+24
+00:01:06,811 --> 00:01:10,286
+'cause that'll help resolve any problems that you may have.
+
+25
+00:01:10,286 --> 00:01:11,911
+So, once that's in place,
+
+26
+00:01:11,911 --> 00:01:13,662
+I always like to do a copy-paste on it,
+
+27
+00:01:13,662 --> 00:01:14,875
+but you can go ahead and type it in,
+
+28
+00:01:14,875 --> 00:01:17,272
+but make sure it matches here on the screen.
+
+29
+00:01:17,272 --> 00:01:19,200
+Now, let's go ahead and take care of some of our
+
+30
+00:01:19,200 --> 00:01:20,640
+HTML
+
+31
+00:01:20,640 --> 00:01:24,559
+infrastructure or basic stuff we have to do.
+
+32
+00:01:24,559 --> 00:01:26,508
+I'll set up the head and the title,
+
+33
+00:01:26,508 --> 00:01:28,376
+Student Registration Form.
+
+34
+00:01:28,376 --> 00:01:29,798
+I'll set up the body,
+
+35
+00:01:29,798 --> 00:01:31,718
+and that's kind of just the basic structure here
+
+36
+00:01:31,718 --> 00:01:33,508
+for our HTML page.
+
+37
+00:01:33,508 --> 00:01:35,129
+I'll stretch out here at the bottom.
+
+38
+00:01:35,129 --> 00:01:38,118
+Give me some white space just so I can kind of stretch out
+
+39
+00:01:38,118 --> 00:01:39,951
+and move around a bit.
+
+40
+00:01:40,958 --> 00:01:42,839
+Then, basically, what I'm gonna do here is actually
+
+41
+00:01:42,839 --> 00:01:44,654
+go through and start creating the form.
+
+42
+00:01:44,654 --> 00:01:46,699
+Alright, so use form:form.
+
+43
+00:01:46,699 --> 00:01:50,038
+Again, we're using the Spring MVC form tags,
+
+44
+00:01:50,038 --> 00:01:52,220
+the actual action of processForm.
+
+45
+00:01:52,220 --> 00:01:55,925
+And then, I'll get the modelAttribute=student.
+
+46
+00:01:55,925 --> 00:01:58,517
+Now, remember this modelAttribute is very important
+
+47
+00:01:58,517 --> 00:02:01,841
+because it must match what the actual code we used
+
+48
+00:02:01,841 --> 00:02:03,367
+in our controller.
+
+49
+00:02:03,367 --> 00:02:05,918
+So, in our controller, we gave the attribute name of student
+
+50
+00:02:05,918 --> 00:02:07,050
+in all lower case.
+
+51
+00:02:07,050 --> 00:02:09,167
+Same thing here for the form.
+
+52
+00:02:09,167 --> 00:02:11,911
+Those have to match up.
+
+53
+00:02:11,911 --> 00:02:12,744
+Okay, great.
+
+54
+00:02:12,744 --> 00:02:14,502
+So, now, let's go ahead and start cutting out the form,
+
+55
+00:02:14,502 --> 00:02:15,485
+basically just setting up
+
+56
+00:02:15,485 --> 00:02:17,834
+an input field here for first name.
+
+57
+00:02:17,834 --> 00:02:19,667
+I will say form:input,
+
+58
+00:02:20,985 --> 00:02:24,735
+and then, we'll give the path=firstName.
+
+59
+00:02:31,604 --> 00:02:34,782
+And again, first name's a property of the student class
+
+60
+00:02:34,782 --> 00:02:39,062
+because we have Getter Setter methods for first name.
+
+61
+00:02:39,062 --> 00:02:40,610
+I'll just do a little copy paste here.
+
+62
+00:02:40,610 --> 00:02:43,017
+I'll just kinda copy line 15
+
+63
+00:02:43,017 --> 00:02:46,100
+and I'll move down and I'll paste it.
+
+64
+00:02:46,991 --> 00:02:49,169
+Actually, I'll copy 15 through 17.
+
+65
+00:02:49,169 --> 00:02:51,216
+I'll paste it right here,
+
+66
+00:02:51,216 --> 00:02:54,350
+and I'll change this to Last name,
+
+67
+00:02:54,350 --> 00:02:55,183
+as the label,
+
+68
+00:02:55,183 --> 00:02:58,999
+and also, I'll change the input path to LastName.
+
+69
+00:02:58,999 --> 00:03:02,435 line:15% 
+And again, that's the actual property of the student class
+
+70
+00:03:02,435 --> 00:03:04,602 line:15% 
+for Getter Setter methods.
+
+71
+00:03:08,717 --> 00:03:10,235
+Alrighty, so this looks good so far.
+
+72
+00:03:10,235 --> 00:03:14,905
+Let's go ahead and add our input type for our submit button.
+
+73
+00:03:14,905 --> 00:03:16,707
+So, that's the actual button the user will click
+
+74
+00:03:16,707 --> 00:03:18,598
+to send the data over.
+
+75
+00:03:18,598 --> 00:03:20,681
+And now, that's in place.
+
+76
+00:03:22,523 --> 00:03:24,409
+So, this looks pretty good so far,
+
+77
+00:03:24,409 --> 00:03:26,192 line:15% 
+and it's some simple editing there,
+
+78
+00:03:26,192 --> 00:03:27,673 line:15% 
+as far as alignment,
+
+79
+00:03:27,673 --> 00:03:30,640 line:15% 
+but the important thing here is that when we load the form,
+
+80
+00:03:30,640 --> 00:03:32,722 line:15% 
+Spring MVC will call the Getter method,
+
+81
+00:03:32,722 --> 00:03:35,877 line:15% 
+so they'll call getFirstName, getLastName.
+
+82
+00:03:35,877 --> 00:03:38,485 line:15% 
+And a similar thing, when we submit the data,
+
+83
+00:03:38,485 --> 00:03:42,805 line:15% 
+Spring will call student.setFirstName, setLastName.
+
+84
+00:03:42,805 --> 00:03:44,774 line:15% 
+So, when they load, they call Gets.
+
+85
+00:03:44,774 --> 00:03:47,133 line:15% 
+When you submit, they call Sets.
+
+86
+00:03:47,133 --> 00:03:49,284 line:15% 
+Just remember that, remember that.
+
+87
+00:03:49,284 --> 00:03:51,729 line:15% 
+Alrighty, now let's go ahead and take care of step four,
+
+88
+00:03:51,729 --> 00:03:54,130 line:15% 
+creating the form processing code.
+
+89
+00:03:54,130 --> 00:03:56,089 line:15% 
+So, that's code that's back in our controller,
+
+90
+00:03:56,089 --> 00:04:00,856
+so I'll move back over to our StudentController.java.
+
+91
+00:04:00,856 --> 00:04:01,918
+And I need to go through
+
+92
+00:04:01,918 --> 00:04:05,085
+and actually define a new method here.
+
+93
+00:04:08,460 --> 00:04:10,869
+So, I'll first start off with the RequestMapping,
+
+94
+00:04:10,869 --> 00:04:12,768
+here the actual path, and that's the same thing
+
+95
+00:04:12,768 --> 00:04:13,882
+that we had on the form.
+
+96
+00:04:13,882 --> 00:04:16,177
+So, /processForm,
+
+97
+00:04:16,177 --> 00:04:17,260
+and then actually go through
+
+98
+00:04:17,260 --> 00:04:20,485
+and actually define my method here.
+
+99
+00:04:20,485 --> 00:04:22,497
+So, I'll call it processForm.
+
+100
+00:04:22,497 --> 00:04:24,423
+Again, our method name can be anything.
+
+101
+00:04:24,423 --> 00:04:27,103
+The important thing is the annotation.
+
+102
+00:04:27,103 --> 00:04:28,817
+Now, I set up the process form.
+
+103
+00:04:28,817 --> 00:04:33,107
+I set up ModelAttribute, Student, theStudent,
+
+104
+00:04:33,107 --> 00:04:36,154
+and remember they're actually gonna bind that ModelAttribute
+
+105
+00:04:36,154 --> 00:04:38,624
+to the parameter being passed in.
+
+106
+00:04:38,624 --> 00:04:42,791
+Now, I still have to do a return on student-confirmation,
+
+107
+00:04:44,505 --> 00:04:46,493
+so remember this will actually send it over
+
+108
+00:04:46,493 --> 00:04:48,858
+to studentconfirmation.jsp.
+
+109
+00:04:48,858 --> 00:04:50,221
+And we saw all of this on the slides.
+
+110
+00:04:50,221 --> 00:04:51,467
+We're just kinda cutting it,
+
+111
+00:04:51,467 --> 00:04:52,622
+cutting the code ourselves,
+
+112
+00:04:52,622 --> 00:04:55,092
+just to make sure that we can get everything working.
+
+113
+00:04:55,092 --> 00:04:59,259
+I'll go ahead and fix the import here on ModelAttribute.
+
+114
+00:05:01,875 --> 00:05:03,471 line:15% 
+And also, just as a reminder here on that
+
+115
+00:05:03,471 --> 00:05:06,843 line:15% 
+@ModelAttribute, so when they send it over,
+
+116
+00:05:06,843 --> 00:05:09,552 line:15% 
+that form data is gonna populate this student object
+
+117
+00:05:09,552 --> 00:05:10,773 line:15% 
+and then we can access it.
+
+118
+00:05:10,773 --> 00:05:13,305 line:15% 
+So, on the form, they have the modelAttribute of student.
+
+119
+00:05:13,305 --> 00:05:16,697 line:15% 
+Here, on our code, we use the same name with the same case.
+
+120
+00:05:16,697 --> 00:05:19,183 line:15% 
+And Spring does all the work behind the scenes
+
+121
+00:05:19,183 --> 00:05:21,743
+of populating that student object with all the data.
+
+122
+00:05:21,743 --> 00:05:24,270
+So, there's no need for us to manually do a request
+
+123
+00:05:24,270 --> 00:05:25,516
+on Get parameters.
+
+124
+00:05:25,516 --> 00:05:27,971
+Spring will just push everything in there.
+
+125
+00:05:27,971 --> 00:05:28,804
+I love it.
+
+126
+00:05:28,804 --> 00:05:33,121
+That's the nice feature of using Spring MVC.
+
+127
+00:05:33,121 --> 00:05:34,964
+Alright, so we can go ahead and do my System.out.println.
+
+128
+00:05:34,964 --> 00:05:36,267
+I'm just gonna print out some of the data
+
+129
+00:05:36,267 --> 00:05:37,922
+that came in, just to make sure
+
+130
+00:05:37,922 --> 00:05:39,924
+that Spring actually did populate it.
+
+131
+00:05:39,924 --> 00:05:40,891
+(chuckles)
+
+132
+00:05:40,891 --> 00:05:44,203
+Make sure that it's doing its work, as it's advertised.
+
+133
+00:05:44,203 --> 00:05:47,786
+So, here, I'll say theStudent.getFirstName,
+
+134
+00:05:49,762 --> 00:05:53,607
+and then, I'll just drop down a line here.
+
+135
+00:05:53,607 --> 00:05:54,936
+Give myself a white space,
+
+136
+00:05:54,936 --> 00:05:58,611
+and then, I say, theStudent.getLastName.
+
+137
+00:05:58,611 --> 00:06:00,728
+So, again, I just want to prop the information
+
+138
+00:06:00,728 --> 00:06:02,389
+to the console,
+
+139
+00:06:02,389 --> 00:06:04,452
+just to make sure that the controller gets the data,
+
+140
+00:06:04,452 --> 00:06:07,785
+and they can make use of it accordingly.
+
+141
+00:06:10,817 --> 00:06:12,384
+Alright, so that's basically the code there
+
+142
+00:06:12,384 --> 00:06:14,567
+for processing the form data.
+
+143
+00:06:14,567 --> 00:06:16,019
+Looks really good so far.
+
+144
+00:06:16,019 --> 00:06:16,852
+Good job.
+

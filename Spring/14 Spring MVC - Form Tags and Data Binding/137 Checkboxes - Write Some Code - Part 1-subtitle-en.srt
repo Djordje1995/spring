@@ -1,0 +1,388 @@
+1
+00:00:01,279 --> 00:00:03,707
+<v Chad>Alrighty, so let's go ahead dive into Eclipse</v>
+
+2
+00:00:03,707 --> 00:00:05,611
+and we'll follow that same process.
+
+3
+00:00:05,611 --> 00:00:08,414
+We'll update the form, we'll update our class, and then
+
+4
+00:00:08,414 --> 00:00:11,367
+finally update the confirmation page so again
+
+5
+00:00:11,367 --> 00:00:13,367
+you guys kind of see the development process
+
+6
+00:00:13,367 --> 00:00:14,305
+that we're using here.
+
+7
+00:00:14,305 --> 00:00:15,985
+And you're getting used to it by now.
+
+8
+00:00:15,985 --> 00:00:17,889
+So let's go ahead and open up our form.
+
+9
+00:00:17,889 --> 00:00:19,638
+On our form what we're going to do is actually
+
+10
+00:00:19,638 --> 00:00:22,448
+add checkboxes here for the
+
+11
+00:00:22,448 --> 00:00:24,781
+different operating systems.
+
+12
+00:00:27,879 --> 00:00:31,309
+And then we'll make use of that form:checkbox.
+
+13
+00:00:31,309 --> 00:00:32,569
+So let me just move it down to line 40.
+
+14
+00:00:32,569 --> 00:00:34,685
+I'll just copy that BR there
+
+15
+00:00:34,685 --> 00:00:37,036
+and I'll paste it here.
+
+16
+00:00:37,036 --> 00:00:38,740
+Now what I want to do is basically just give a
+
+17
+00:00:38,740 --> 00:00:41,740
+label here saying operating systems.
+
+18
+00:00:45,874 --> 00:00:47,828
+And then I'll just add some entries here
+
+19
+00:00:47,828 --> 00:00:50,341
+for the different OSs.
+
+20
+00:00:50,341 --> 00:00:52,968
+Like Linux, I'll say form:checkbox.
+
+21
+00:00:52,968 --> 00:00:54,656
+I'll give path equal.
+
+22
+00:00:54,656 --> 00:00:58,389
+This is going to bind to operating systems.
+
+23
+00:00:58,389 --> 00:01:00,639
+And the value equals Linux.
+
+24
+00:01:03,910 --> 00:01:06,401
+What I'll do is I'll actually copy this line
+
+25
+00:01:06,401 --> 00:01:07,942
+X number of times.
+
+26
+00:01:07,942 --> 00:01:09,578
+And again remember, they're going to call
+
+27
+00:01:09,578 --> 00:01:12,744
+student.setOperatingSystems.
+
+28
+00:01:12,744 --> 00:01:15,081
+So I'll just copy that line and I'll paste it.
+
+29
+00:01:15,081 --> 00:01:19,915
+Then I'll just make some quick updates here for Mac
+
+30
+00:01:19,915 --> 00:01:24,082
+and also a quick update here for Microsoft Windows.
+
+31
+00:01:29,419 --> 00:01:31,367
+There we go, so that's all lined up.
+
+32
+00:01:31,367 --> 00:01:32,565
+This looks pretty good so far.
+
+33
+00:01:32,565 --> 00:01:36,438
+So I need to create a field here for operating systems
+
+34
+00:01:36,438 --> 00:01:39,938
+and the appropriate getter setter methods.
+
+35
+00:01:41,485 --> 00:01:43,985
+And I'll go into Student.java.
+
+36
+00:01:45,030 --> 00:01:48,316
+I'll scroll down here and just add a new field
+
+37
+00:01:48,316 --> 00:01:52,119
+for operating systems, so private String,
+
+38
+00:01:52,119 --> 00:01:53,207
+operating systems.
+
+39
+00:01:53,207 --> 00:01:55,181
+Now, the important thing here is that,
+
+40
+00:01:55,181 --> 00:01:56,575
+again like I mentioned earlier,
+
+41
+00:01:56,575 --> 00:01:58,700
+they can select multiple operating systems,
+
+42
+00:01:58,700 --> 00:01:59,661
+so we need a collection.
+
+43
+00:01:59,661 --> 00:02:03,457
+In this case, we need to have an array of strings.
+
+44
+00:02:03,457 --> 00:02:04,591
+And then at the bottom here,
+
+45
+00:02:04,591 --> 00:02:07,711
+I'll generate my getter setter methods here
+
+46
+00:02:07,711 --> 00:02:10,378
+for that property or that field.
+
+47
+00:02:12,345 --> 00:02:15,420
+So, generate getters and setters.
+
+48
+00:02:15,420 --> 00:02:19,587
+Then I'll choose operating systems and I'll click OK.
+
+49
+00:02:25,372 --> 00:02:29,706
+Alright, so there we go, lines 67 through 73,
+
+50
+00:02:29,706 --> 00:02:32,508
+we have those getter and setter methods.
+
+51
+00:02:32,508 --> 00:02:35,217
+The setter methods is what Spring MVC will call
+
+52
+00:02:35,217 --> 00:02:38,550
+when they actually do a form submission.
+
+53
+00:02:42,748 --> 00:02:45,914
+Alrighty, so let's go ahead save that file.
+
+54
+00:02:45,914 --> 00:02:47,263
+Now, the one last thing we have to do is
+
+55
+00:02:47,263 --> 00:02:49,627
+just move over to our confirmation page and simply
+
+56
+00:02:49,627 --> 00:02:53,071
+display the operating systems that the user selected.
+
+57
+00:02:53,071 --> 00:02:55,089
+But it's going to be a little bit different now, right?
+
+58
+00:02:55,089 --> 00:02:58,622
+Because with the operating systems, they can have multiple.
+
+59
+00:02:58,622 --> 00:03:01,863
+So actually what we need to do is loop over
+
+60
+00:03:01,863 --> 00:03:05,137
+that array and print out the information.
+
+61
+00:03:05,137 --> 00:03:06,454
+So the first thing I need to do is
+
+62
+00:03:06,454 --> 00:03:10,536
+make use of the JSTL tags, the core tags,
+
+63
+00:03:10,536 --> 00:03:12,696
+that will give me that for each tag
+
+64
+00:03:12,696 --> 00:03:15,210
+for looping over a collection.
+
+65
+00:03:15,210 --> 00:03:17,710
+So I'll click that at the top.
+
+66
+00:03:19,728 --> 00:03:23,604
+And now down here, I'll just copy line 19 of the Rs,
+
+67
+00:03:23,604 --> 00:03:26,065
+paste them here, and I'm basically going to
+
+68
+00:03:26,065 --> 00:03:29,604
+loop over that array and then print out each item.
+
+69
+00:03:29,604 --> 00:03:32,302
+So I'll just make use of a bullet list
+
+70
+00:03:32,302 --> 00:03:36,052
+to display those different operating systems.
+
+71
+00:03:37,158 --> 00:03:41,143
+So the bullet list, I'll make use of UL, unordered list.
+
+72
+00:03:41,143 --> 00:03:44,271
+And then I'll give a collection of list items here
+
+73
+00:03:44,271 --> 00:03:48,432
+that you'll actually have for the given name.
+
+74
+00:03:48,432 --> 00:03:52,599
+So that's the basic layout there for doing a bullet list,
+
+75
+00:03:52,599 --> 00:03:55,671
+but I need to kind of add some code here
+
+76
+00:03:55,671 --> 00:03:57,520
+such that it will actually loop over it.
+
+77
+00:03:57,520 --> 00:04:00,501
+So I can add code by making use of JSTL,
+
+78
+00:04:00,501 --> 00:04:02,501
+so I use the c:forEach,
+
+79
+00:04:02,501 --> 00:04:04,677
+I give the variable equals temp,
+
+80
+00:04:04,677 --> 00:04:07,017
+so that's the variable name, and then the items.
+
+81
+00:04:07,017 --> 00:04:10,100
+So I'll say student.operatingSystems.
+
+82
+00:04:11,015 --> 00:04:14,826
+So that will basically call the getter method.
+
+83
+00:04:14,826 --> 00:04:17,909
+It'll say student.getOperatingSystems
+
+84
+00:04:19,036 --> 00:04:21,151
+and it will loop over that, get those values,
+
+85
+00:04:21,151 --> 00:04:22,885
+and we can kind of display them here.
+
+86
+00:04:22,885 --> 00:04:26,134
+So let me clean this up a bit.
+
+87
+00:04:26,134 --> 00:04:29,014
+Let's see, line 30, I actually want to use that
+
+88
+00:04:29,014 --> 00:04:33,181
+temporary variable that was passed in right there.
+
+89
+00:04:34,796 --> 00:04:37,733
+So, inside of here I want to say dollar sign temp,
+
+90
+00:04:37,733 --> 00:04:39,851
+so that will give me the temp variable.
+
+91
+00:04:39,851 --> 00:04:42,173
+It'll give me that element in the array
+
+92
+00:04:42,173 --> 00:04:44,414
+that I'm looping over right now.
+
+93
+00:04:44,414 --> 00:04:46,210
+So that's the basic coding there for kind of
+
+94
+00:04:46,210 --> 00:04:49,207
+looping over that array and displaying
+
+95
+00:04:49,207 --> 00:04:52,174
+the information on our confirmation page.
+
+96
+00:04:52,174 --> 00:04:54,869
+And here we're making use of the JSTL
+
+97
+00:04:54,869 --> 00:04:57,536
+to help us out with the looping.
+

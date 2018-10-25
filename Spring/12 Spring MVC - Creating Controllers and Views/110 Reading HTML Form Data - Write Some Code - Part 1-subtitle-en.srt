@@ -1,0 +1,376 @@
+1
+00:00:01,222 --> 00:00:02,055
+<v Instructor>All right, so let's go ahead</v>
+
+2
+00:00:02,055 --> 00:00:04,156
+and move into clips and let's start writing some code
+
+3
+00:00:04,156 --> 00:00:05,906
+to process form data.
+
+4
+00:00:08,419 --> 00:00:10,141 line:15% 
+So, the first thing we're going to need to do here
+
+5
+00:00:10,141 --> 00:00:14,058 line:15% 
+is to actually create our HelloWorldController.
+
+6
+00:00:15,531 --> 00:00:19,995 line:15% 
+So, we'll move into the package here, springdemo.mvc
+
+7
+00:00:19,995 --> 00:00:24,215
+and I'll do a right click, and I'll say New, Class.
+
+8
+00:00:24,215 --> 00:00:28,382
+And the name of this class will be HelloWorldController.
+
+9
+00:00:30,031 --> 00:00:31,164
+And once you're happy with the name,
+
+10
+00:00:31,164 --> 00:00:35,331
+we'll keep all the other defaults and then we'll hit Finish.
+
+11
+00:00:37,590 --> 00:00:39,073
+All right, great, so here's our basic class.
+
+12
+00:00:39,073 --> 00:00:41,931 line:15% 
+I'll expand the window here.
+
+13
+00:00:41,931 --> 00:00:43,284 line:15% 
+And the first thing I'll always do here
+
+14
+00:00:43,284 --> 00:00:45,607 line:15% 
+is add the @Controller annotation,
+
+15
+00:00:45,607 --> 00:00:48,265 line:15% 
+because this is a springmvc controller.
+
+16
+00:00:48,265 --> 00:00:51,598 line:15% 
+I slide down here and I fix the imports.
+
+17
+00:00:53,390 --> 00:00:55,838
+All right, that looks good.
+
+18
+00:00:55,838 --> 00:00:57,151
+And now what I'll do is I'll actually write
+
+19
+00:00:57,151 --> 00:00:58,232
+some comments to myself,
+
+20
+00:00:58,232 --> 00:00:59,644
+just to kind of keep myself on track
+
+21
+00:00:59,644 --> 00:01:01,679
+as far as what I need to do.
+
+22
+00:01:01,679 --> 00:01:03,929
+(chuckles)
+
+23
+00:01:07,183 --> 00:01:08,865
+So, I know I'm going to need a controller method
+
+24
+00:01:08,865 --> 00:01:10,948
+to show the initial form.
+
+25
+00:01:14,433 --> 00:01:16,229
+And then once I have the form displayed,
+
+26
+00:01:16,229 --> 00:01:17,604
+I'm going to need a controller method
+
+27
+00:01:17,604 --> 00:01:20,021
+to actually process the form.
+
+28
+00:01:21,388 --> 00:01:23,007
+All right, so those are the basic two things
+
+29
+00:01:23,007 --> 00:01:24,974
+that I'll need to do here in this HelloWorldController,
+
+30
+00:01:24,974 --> 00:01:27,162
+so I know I'll need to have at least two methods
+
+31
+00:01:27,162 --> 00:01:28,995
+for building this out.
+
+32
+00:01:32,265 --> 00:01:33,098
+All right, so let's go ahead
+
+33
+00:01:33,098 --> 00:01:35,790
+and take this one step at a time.
+
+34
+00:01:35,790 --> 00:01:38,716
+So, the first thing I need to do is set up my method here.
+
+35
+00:01:38,716 --> 00:01:40,549
+I'll call it showForm.
+
+36
+00:01:43,991 --> 00:01:47,597
+And it's going to basically return helloworld-form.
+
+37
+00:01:47,597 --> 00:01:49,380
+And we know in the background,
+
+38
+00:01:49,380 --> 00:01:52,745
+springmvc will add all the magic onto it.
+
+39
+00:01:52,745 --> 00:01:55,412
+I'll set up this @RequestMapping
+
+40
+00:01:56,374 --> 00:02:00,457
+and I'll have it set up for /showForm.
+
+41
+00:02:01,573 --> 00:02:04,557
+And I'll also fix the imports here for RequestMapping
+
+42
+00:02:04,557 --> 00:02:06,557
+choose the first option.
+
+43
+00:02:08,497 --> 00:02:10,747
+All right, that looks good.
+
+44
+00:02:11,753 --> 00:02:13,815
+Okay, so stepping back, this looks really good so far.
+
+45
+00:02:13,815 --> 00:02:15,511
+So this is basically our controller method
+
+46
+00:02:15,511 --> 00:02:17,473
+to show the initial form.
+
+47
+00:02:17,473 --> 00:02:19,424
+So they're going to go to /showForm,
+
+48
+00:02:19,424 --> 00:02:23,153 line:15% 
+in the background we'll simply say, helloworld-form,
+
+49
+00:02:23,153 --> 00:02:25,442 line:15% 
+springmvc will add the WEB-INF/view,
+
+50
+00:02:25,442 --> 00:02:28,025 line:15% 
+and I'll append the .jsp.
+
+51
+00:02:28,025 --> 00:02:29,280 line:15% 
+So we're in good shape with
+
+52
+00:02:29,280 --> 00:02:32,197 line:15% 
+this layout so far for this method.
+
+53
+00:02:34,324 --> 00:02:35,157
+All right.
+
+54
+00:02:35,157 --> 00:02:36,175
+So now, we need to actually go through
+
+55
+00:02:36,175 --> 00:02:37,760
+and create that view page
+
+56
+00:02:37,760 --> 00:02:39,983
+or create the actual form.
+
+57
+00:02:39,983 --> 00:02:41,422
+So, in my WEB-INF "view" folder,
+
+58
+00:02:41,422 --> 00:02:43,005
+I'll say New, File.
+
+59
+00:02:45,847 --> 00:02:50,014
+And the actual name of the file is helloworld-form.jsp.
+
+60
+00:02:54,862 --> 00:02:59,029
+And I'll go ahead and hit the Finish button, here.
+
+61
+00:03:01,085 --> 00:03:03,024
+All right, so let me go ahead and expand the window here,
+
+62
+00:03:03,024 --> 00:03:04,487 line:15% 
+and let me go ahead and add
+
+63
+00:03:04,487 --> 00:03:08,229 line:15% 
+just my very basic HTML header information.
+
+64
+00:03:08,229 --> 00:03:11,672 line:15% 
+So &lt;html&gt;, and then I'll set up a &lt;head&gt; section,
+
+65
+00:03:11,672 --> 00:03:14,422 line:15% 
+and I'll also set up the &lt;title&gt;.
+
+66
+00:03:21,344 --> 00:03:25,687
+All right, so let's go ahead and define our form element.
+
+67
+00:03:25,687 --> 00:03:29,770
+And then we'll set the action="processForm".
+
+68
+00:03:32,098 --> 00:03:35,098
+And we'll set the method="GET".
+
+69
+00:03:37,166 --> 00:03:38,344
+So basically we're going to send something
+
+70
+00:03:38,344 --> 00:03:40,520
+over to the path /processForm,
+
+71
+00:03:40,520 --> 00:03:42,650
+and then the actual method type will be GET.
+
+72
+00:03:42,650 --> 00:03:44,150
+So it's going to pass it as a GET request,
+
+73
+00:03:44,150 --> 00:03:46,065
+as opposed to a POST request.
+
+74
+00:03:46,065 --> 00:03:49,502
+And we'll talk about GET and POST a little bit later.
+
+75
+00:03:49,502 --> 00:03:51,197
+So the input type="text",
+
+76
+00:03:51,197 --> 00:03:53,030
+and then name, we give
+
+77
+00:03:54,722 --> 00:03:56,200
+="studentName".
+
+78
+00:03:56,200 --> 00:03:58,441
+So that's the actual form field name.
+
+79
+00:03:58,441 --> 00:04:00,328
+And now I'll just set a placeholder here.
+
+80
+00:04:00,328 --> 00:04:02,464
+That will be the actual prompt text that you'll see
+
+81
+00:04:02,464 --> 00:04:05,464
+when the form is actually displayed.
+
+82
+00:04:06,522 --> 00:04:07,456
+So this is the prompt,
+
+83
+00:04:07,456 --> 00:04:10,835
+hey, "What's your name?" type stuff.
+
+84
+00:04:10,835 --> 00:04:13,064
+All right, so that looks good.
+
+85
+00:04:13,064 --> 00:04:14,202
+And now we'll just simply set up
+
+86
+00:04:14,202 --> 00:04:17,690
+an input type for the Submit button.
+
+87
+00:04:17,690 --> 00:04:19,378
+So type="submit".
+
+88
+00:04:19,378 --> 00:04:21,411
+And then I'll just take the default label
+
+89
+00:04:21,411 --> 00:04:23,263
+that they'll give me there.
+
+90
+00:04:23,263 --> 00:04:26,944
+And that's pretty much it for our form.
+
+91
+00:04:26,944 --> 00:04:28,673
+Just taking a look, stepping back.
+
+92
+00:04:28,673 --> 00:04:31,975
+Making sure I didn't miss anything.
+
+93
+00:04:31,975 --> 00:04:35,022
+So yeah, basic form field with a Submit button.
+
+94
+00:04:35,022 --> 00:04:38,689
+All right, so this looks really good so far.
+

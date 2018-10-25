@@ -1,0 +1,316 @@
+1
+00:00:01,460 --> 00:00:03,077 line:15% 
+<v Instructor>Well one way to resolve is simply tell</v>
+
+2
+00:00:03,077 --> 00:00:05,781 line:15% 
+the silly controller, hey go change your mapping.
+
+3
+00:00:05,781 --> 00:00:07,806 line:15% 
+(chuckle) Go change your stuff.
+
+4
+00:00:07,806 --> 00:00:09,485 line:15% 
+But for some reason,
+
+5
+00:00:09,485 --> 00:00:11,031 line:15% 
+for political reason or I don't know,
+
+6
+00:00:11,031 --> 00:00:13,351 line:15% 
+they don't wanna change it or they don't see fit,
+
+7
+00:00:13,351 --> 00:00:16,266 line:15% 
+and then you say fine, go ahead and keep your mapping
+
+8
+00:00:16,266 --> 00:00:19,322 line:15% 
+the way you want it and on the Hello World controller,
+
+9
+00:00:19,322 --> 00:00:21,239 line:15% 
+we'll give our own path
+
+10
+00:00:23,523 --> 00:00:26,480 line:15% 
+and then we'll have relative sub-paths
+
+11
+00:00:26,480 --> 00:00:28,723 line:15% 
+or relative sub-directives
+
+12
+00:00:28,723 --> 00:00:31,339 line:15% 
+and that's how we'll resolve it here on our side.
+
+13
+00:00:31,339 --> 00:00:33,272 line:15% 
+So we'll make some changes here
+
+14
+00:00:33,272 --> 00:00:37,550 line:15% 
+to the Hello World controller to resolve this ambiguity.
+
+15
+00:00:37,550 --> 00:00:41,086
+So just kinda moving back to the actual...
+
+16
+00:00:41,086 --> 00:00:44,253
+We're gonna close this window here and
+
+17
+00:00:46,795 --> 00:00:48,755
+moving back to my Hello World controller,
+
+18
+00:00:48,755 --> 00:00:52,770 line:15% 
+what I'll do is I'll actually put a parent mapping
+
+19
+00:00:52,770 --> 00:00:53,937 line:15% 
+up at the top.
+
+20
+00:00:56,780 --> 00:00:58,405 line:15% 
+So let me expand my window here,
+
+21
+00:00:58,405 --> 00:01:01,244 line:15% 
+and so I'll set a parent mapping at the top, so I'll say
+
+22
+00:01:01,244 --> 00:01:02,827
+at request mapping,
+
+23
+00:01:04,159 --> 00:01:07,343
+and then I give the parent mapping of /hello.
+
+24
+00:01:07,343 --> 00:01:10,608
+So this is the high-level mapping
+
+25
+00:01:10,608 --> 00:01:12,310
+or the main directory,
+
+26
+00:01:12,310 --> 00:01:14,593
+and then you're gonna have sub-mappings off of it,
+
+27
+00:01:14,593 --> 00:01:18,109
+and so now, all these others show form and process form,
+
+28
+00:01:18,109 --> 00:01:21,038
+these are all relative to Hello.
+
+29
+00:01:21,038 --> 00:01:25,401
+So the full path for show form will be hello/showform.
+
+30
+00:01:25,401 --> 00:01:28,900
+The full path of process form will be hello/processform.
+
+31
+00:01:28,900 --> 00:01:31,599
+And that will remove that ambiguity.
+
+32
+00:01:31,599 --> 00:01:33,458
+Now, the one thing I need to do is here is kinda
+
+33
+00:01:33,458 --> 00:01:35,450
+set up one of the links here that I have
+
+34
+00:01:35,450 --> 00:01:38,553
+for my initial show form, so in my main menu,
+
+35
+00:01:38,553 --> 00:01:42,720 line:15% 
+I need to modify that to make use of this /Hello.
+
+36
+00:01:43,820 --> 00:01:46,502 line:15% 
+So let's go ahead and do that now.
+
+37
+00:01:46,502 --> 00:01:50,401
+So in my main menu, instead of saying showform directly,
+
+38
+00:01:50,401 --> 00:01:53,425
+I'm gonna say hello/showform,
+
+39
+00:01:53,425 --> 00:01:55,696
+so it's gonna call the show form mapping
+
+40
+00:01:55,696 --> 00:01:58,876
+that's in my Hello World controller,
+
+41
+00:01:58,876 --> 00:02:01,035
+because I set the parent mapping
+
+42
+00:02:01,035 --> 00:02:04,133
+for that Hello World controller to be hello.
+
+43
+00:02:04,133 --> 00:02:06,382
+So that's how we can kinda resolve that issue there,
+
+44
+00:02:06,382 --> 00:02:09,732
+so now there's no longer a conflict between the two
+
+45
+00:02:09,732 --> 00:02:13,089
+because now show form is relative to Hello.
+
+46
+00:02:13,089 --> 00:02:17,047
+So I save everything, go right-click, choose Run As,
+
+47
+00:02:17,047 --> 00:02:17,964
+run server,
+
+48
+00:02:19,793 --> 00:02:22,014
+and we see our main menu, which is great,
+
+49
+00:02:22,014 --> 00:02:23,326
+so that's nice.
+
+50
+00:02:23,326 --> 00:02:26,043
+And we can also go check out our console,
+
+51
+00:02:26,043 --> 00:02:27,567
+kinda scroll through.
+
+52
+00:02:27,567 --> 00:02:29,623
+There's no errors,
+
+53
+00:02:29,623 --> 00:02:33,334
+and we can see now that we have hello/showform,
+
+54
+00:02:33,334 --> 00:02:36,566
+hello/processformVersionThree,
+
+55
+00:02:36,566 --> 00:02:38,245
+processform, process form version two,
+
+56
+00:02:38,245 --> 00:02:39,749
+so on and so forth.
+
+57
+00:02:39,749 --> 00:02:42,149
+So it's relative to Hello,
+
+58
+00:02:42,149 --> 00:02:46,180
+the Hello parent path so far, which is great,
+
+59
+00:02:46,180 --> 00:02:49,452
+and it maps all of the Hello World controller so far,
+
+60
+00:02:49,452 --> 00:02:52,036
+so we kinda resolved all the ambiguity,
+
+61
+00:02:52,036 --> 00:02:53,965
+everything is happy in the Spring World now,
+
+62
+00:02:53,965 --> 00:02:58,273
+and now we're ready to go, so this is good so far.
+
+63
+00:02:58,273 --> 00:02:59,910
+So now we simply run back to our application
+
+64
+00:02:59,910 --> 00:03:01,624
+and now everything is gonna work
+
+65
+00:03:01,624 --> 00:03:05,290
+just as we had before, so we can enter a student name,
+
+66
+00:03:05,290 --> 00:03:06,640
+and hit submit,
+
+67
+00:03:06,640 --> 00:03:09,497
+and everything processes A-okay.
+
+68
+00:03:09,497 --> 00:03:11,920
+Then note the URL is a little different up top here,
+
+69
+00:03:11,920 --> 00:03:14,697
+so it has /hello
+
+70
+00:03:14,697 --> 00:03:17,703
+and then process form version three, blah blah blah.
+
+71
+00:03:17,703 --> 00:03:20,719
+So we've kinda clarified or
+
+72
+00:03:20,719 --> 00:03:23,617
+removed that ambiguity that we had a little bit earlier,
+
+73
+00:03:23,617 --> 00:03:26,431
+and that's by making use of parent request mapping.
+
+74
+00:03:26,431 --> 00:03:28,746
+So anyway, good stuff here.
+
+75
+00:03:28,746 --> 00:03:30,921
+You'll probably run into this in the real world, so
+
+76
+00:03:30,921 --> 00:03:33,228
+I wanted to show you a good example of how to resolve it,
+
+77
+00:03:33,228 --> 00:03:34,482
+and how to fix it.
+
+78
+00:03:34,482 --> 00:03:35,872
+Alright, congrats.
+
+79
+00:03:35,872 --> 00:03:36,705
+Good job.
+

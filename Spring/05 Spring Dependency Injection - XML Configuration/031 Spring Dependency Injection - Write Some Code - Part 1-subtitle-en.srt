@@ -1,0 +1,356 @@
+1
+00:00:01,225 --> 00:00:02,091
+<v Instructor>All right, so let's go ahead</v>
+
+2
+00:00:02,091 --> 00:00:02,924
+and move into Eclipse.
+
+3
+00:00:02,924 --> 00:00:05,442
+Let's get our hands dirty and write some code.
+
+4
+00:00:05,442 --> 00:00:09,131
+So we'll use the previous project from before.
+
+5
+00:00:09,131 --> 00:00:11,642
+Our development process, the first thing we need to do
+
+6
+00:00:11,642 --> 00:00:15,399
+is define the dependency interface and class.
+
+7
+00:00:15,399 --> 00:00:18,674
+So we'll go ahead and start off with the first step here.
+
+8
+00:00:18,674 --> 00:00:21,424 line:15% 
+The first thing we need to do is define an interface,
+
+9
+00:00:21,424 --> 00:00:23,417 line:15% 
+so I'll say New, Interface.
+
+10
+00:00:23,417 --> 00:00:26,908
+I'll give the name of this interface as FortuneService.
+
+11
+00:00:26,908 --> 00:00:30,491
+Once you're happy, click the Finish button.
+
+12
+00:00:32,225 --> 00:00:34,499
+So we have this very empty interface right here.
+
+13
+00:00:34,499 --> 00:00:38,542
+I'll simply define one method called getFortune,
+
+14
+00:00:38,542 --> 00:00:40,466
+and this method returns a string.
+
+15
+00:00:40,466 --> 00:00:42,149
+And since this is an interface,
+
+16
+00:00:42,149 --> 00:00:44,174
+there's no actual implementation code.
+
+17
+00:00:44,174 --> 00:00:47,687
+We simply have just a semicolon, no curly brace or anything,
+
+18
+00:00:47,687 --> 00:00:49,854
+just the method signature.
+
+19
+00:00:51,067 --> 00:00:52,667
+Okay, great, so that's our interface.
+
+20
+00:00:52,667 --> 00:00:54,750 line:15% 
+Now we actually need to create a class
+
+21
+00:00:54,750 --> 00:00:57,250 line:15% 
+to implement this interface.
+
+22
+00:00:57,250 --> 00:01:01,749 line:15% 
+So I'll do a right-click, I'll say New, Class.
+
+23
+00:01:01,749 --> 00:01:04,495
+What we'll do is we'll make use of that HappyFortuneService
+
+24
+00:01:04,495 --> 00:01:06,662
+that we saw on the slides.
+
+25
+00:01:07,967 --> 00:01:09,013
+And what we wanna do here
+
+26
+00:01:09,013 --> 00:01:11,813
+is move down to this Interfaces section that's empty,
+
+27
+00:01:11,813 --> 00:01:14,333
+but I wanna click this Add button
+
+28
+00:01:14,333 --> 00:01:17,658
+and actually add an interface to implement.
+
+29
+00:01:17,658 --> 00:01:20,458
+So up top, I'll type in fortune
+
+30
+00:01:20,458 --> 00:01:22,392
+and it will find FortuneService.
+
+31
+00:01:22,392 --> 00:01:23,899
+We'll go ahead and select that one.
+
+32
+00:01:23,899 --> 00:01:28,299
+That's the one that we just created in the previous section.
+
+33
+00:01:28,299 --> 00:01:30,542
+And I will hit OK.
+
+34
+00:01:30,542 --> 00:01:32,057
+And so we should have our interface listed here
+
+35
+00:01:32,057 --> 00:01:34,349
+in the Interfaces section.
+
+36
+00:01:34,349 --> 00:01:36,283
+Once you're happy with that,
+
+37
+00:01:36,283 --> 00:01:39,200
+move down to hit the Finish button.
+
+38
+00:01:40,568 --> 00:01:42,874
+Cool, so we have this HappyFortuneService.
+
+39
+00:01:42,874 --> 00:01:45,625
+Woo-hoo, I like it, getting excited here.
+
+40
+00:01:45,625 --> 00:01:46,832
+Let me expand the window.
+
+41
+00:01:46,832 --> 00:01:49,467
+So our HappyFortuneService
+
+42
+00:01:49,467 --> 00:01:53,392
+implements that interface FortuneService.
+
+43
+00:01:53,392 --> 00:01:55,100
+With that implementation,
+
+44
+00:01:55,100 --> 00:01:58,016
+they gave us an auto-generated stub here
+
+45
+00:01:58,016 --> 00:02:00,367
+for that method getFortune.
+
+46
+00:02:00,367 --> 00:02:01,250
+But here, I'll just go ahead
+
+47
+00:02:01,250 --> 00:02:03,507
+and I'll put in my own little fortune here.
+
+48
+00:02:03,507 --> 00:02:05,500
+I'll just hardcode something for now.
+
+49
+00:02:05,500 --> 00:02:08,899
+I'll say, "Today is your lucky day!"
+
+50
+00:02:08,899 --> 00:02:10,967
+Yay, yeah (giggles).
+
+51
+00:02:10,967 --> 00:02:13,766
+And again, just a very simple implementation
+
+52
+00:02:13,766 --> 00:02:15,058
+that somebody can call this method
+
+53
+00:02:15,058 --> 00:02:18,225
+and they can get their actual fortune.
+
+54
+00:02:21,070 --> 00:02:24,737
+All right, so this looks pretty good so far.
+
+55
+00:02:27,175 --> 00:02:29,196
+Now, what I'd like to do is actually
+
+56
+00:02:29,196 --> 00:02:32,316
+move back over to my Coach interface
+
+57
+00:02:32,316 --> 00:02:33,916
+because in my Coach interface,
+
+58
+00:02:33,916 --> 00:02:37,376 line:15% 
+I actually wanna add a new method to this Coach interface.
+
+59
+00:02:37,376 --> 00:02:40,433 line:15% 
+Because our coach already gives daily workouts,
+
+60
+00:02:40,433 --> 00:02:44,417 line:15% 
+but now, we want our coach to also give daily fortunes.
+
+61
+00:02:44,417 --> 00:02:47,334 line:15% 
+So here, I'll say, getDailyFortune.
+
+62
+00:02:50,241 --> 00:02:53,058 line:15% 
+And again, just the method signature, no implementation.
+
+63
+00:02:53,058 --> 00:02:55,107 line:15% 
+So that's our Coach interface.
+
+64
+00:02:55,107 --> 00:02:57,258 line:15% 
+And then our class that implement this,
+
+65
+00:02:57,258 --> 00:02:58,649 line:15% 
+well then, they'll have to provide
+
+66
+00:02:58,649 --> 00:03:00,982 line:15% 
+some implementation support.
+
+67
+00:03:02,350 --> 00:03:05,341 line:15% 
+All right, so I'm going to save this Coach interface and,
+
+68
+00:03:05,341 --> 00:03:07,741
+ooh, I see some red exes here.
+
+69
+00:03:07,741 --> 00:03:11,959 line:15% 
+Oh, I broke some of the classes that implement Coach.
+
+70
+00:03:11,959 --> 00:03:15,309 line:15% 
+And the reason they broke, because those classes,
+
+71
+00:03:15,309 --> 00:03:17,865 line:15% 
+they don't implement all the methods (giggles).
+
+72
+00:03:17,865 --> 00:03:21,441 line:15% 
+So here we can just hover over that red squiggly
+
+73
+00:03:21,441 --> 00:03:23,742 line:15% 
+and then we can choose that little fix here
+
+74
+00:03:23,742 --> 00:03:25,632 line:15% 
+that Eclipse is suggesting.
+
+75
+00:03:25,632 --> 00:03:27,357 line:15% 
+We can add unimplemented methods.
+
+76
+00:03:27,357 --> 00:03:28,617
+Ooh, cool, I like it.
+
+77
+00:03:28,617 --> 00:03:30,325
+So Eclipse is helping us out here.
+
+78
+00:03:30,325 --> 00:03:32,416
+Eclipse said, "Hey, you need this new method
+
+79
+00:03:32,416 --> 00:03:35,133
+that the Coach interface has, and you don't have."
+
+80
+00:03:35,133 --> 00:03:38,708
+So they went ahead and gave it to us, so thank you, Eclipse.
+
+81
+00:03:38,708 --> 00:03:40,724
+And similar thing here for TrackCoach,
+
+82
+00:03:40,724 --> 00:03:41,557
+they don't have it either,
+
+83
+00:03:41,557 --> 00:03:44,541
+so we'll choose Add unimplemented methods.
+
+84
+00:03:44,541 --> 00:03:48,708
+So we're basically just fixing the code that we just broke.
+
+85
+00:03:49,924 --> 00:03:51,549
+And we'll leave it right now for return though.
+
+86
+00:03:51,549 --> 00:03:52,925
+We'll come back to that stuff later.
+
+87
+00:03:52,925 --> 00:03:55,232
+But at least we just have the method in there.
+
+88
+00:03:55,232 --> 00:03:58,240
+We have the placeholder in place
+
+89
+00:03:58,240 --> 00:04:01,073
+just to make it pass the compiler.
+

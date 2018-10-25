@@ -1,0 +1,460 @@
+1
+00:00:01,275 --> 00:00:02,517
+<v Instructor>All righty, so let's go ahead</v>
+
+2
+00:00:02,517 --> 00:00:04,642
+and move into Eclipse and what we're gonna do here
+
+3
+00:00:04,642 --> 00:00:09,200
+is make use of that @RequestParam annotation binding
+
+4
+00:00:09,200 --> 00:00:11,450
+for our controller methods.
+
+5
+00:00:13,299 --> 00:00:14,309
+So, what I'll do is I'll actually move
+
+6
+00:00:14,309 --> 00:00:17,285
+into my Hello World controller and I'm gonna make use
+
+7
+00:00:17,285 --> 00:00:19,880
+of a little copy/paste example here.
+
+8
+00:00:19,880 --> 00:00:21,904
+I'm basically gonna copy everything I had
+
+9
+00:00:21,904 --> 00:00:25,947
+from processFormVersionTwo and then I'll just make
+
+10
+00:00:25,947 --> 00:00:27,304
+some small changes to it.
+
+11
+00:00:27,304 --> 00:00:29,215
+So, let me go ahead and highlight everything here
+
+12
+00:00:29,215 --> 00:00:31,798
+for this processFormVersionTwo.
+
+13
+00:00:33,513 --> 00:00:34,671
+All right, so I have everything in highlight
+
+14
+00:00:34,671 --> 00:00:36,582
+and let's just go ahead and just do a copy on this.
+
+15
+00:00:36,582 --> 00:00:40,665
+So, I'll simply do a right click and choose copy.
+
+16
+00:00:45,003 --> 00:00:47,207
+And, then I'll move a little further down here
+
+17
+00:00:47,207 --> 00:00:49,116
+in this Hello World controller
+
+18
+00:00:49,116 --> 00:00:51,700
+and I'm gonna paste this information
+
+19
+00:00:51,700 --> 00:00:53,846
+and again make some small changes here.
+
+20
+00:00:53,846 --> 00:00:57,429
+So, I'll right do a click and choose paste.
+
+21
+00:01:01,760 --> 00:01:02,638
+So, a couple things here.
+
+22
+00:01:02,638 --> 00:01:05,490
+First off, I'll actually change the actual RequestMapping
+
+23
+00:01:05,490 --> 00:01:08,209
+so instead of processFormVersionTwo,
+
+24
+00:01:08,209 --> 00:01:11,145
+we'll call it processFormVersionThree.
+
+25
+00:01:11,145 --> 00:01:13,742
+And, then I'll also change the actual method name here
+
+26
+00:01:13,742 --> 00:01:15,188
+to make the method name different.
+
+27
+00:01:15,188 --> 00:01:18,177
+So, I'll call it processFormVersionThree.
+
+28
+00:01:18,177 --> 00:01:20,647
+I don't know, I'm just making it up there, okay?
+
+29
+00:01:20,647 --> 00:01:24,192
+All right, so those are the basic mods I wanted to make here
+
+30
+00:01:24,192 --> 00:01:25,025
+for this one.
+
+31
+00:01:25,025 --> 00:01:28,586
+So, again, a new RequestMapping processFormVersionThree
+
+32
+00:01:28,586 --> 00:01:31,945
+with a new method name of processFormVersionThree.
+
+33
+00:01:31,945 --> 00:01:34,677
+So, what I'm gonna do here is change the actual parameters
+
+34
+00:01:34,677 --> 00:01:36,774
+coming into this actual method.
+
+35
+00:01:36,774 --> 00:01:39,918
+So, instead of passing in the HttpServletRequest,
+
+36
+00:01:39,918 --> 00:01:40,751
+I'm actually gonna make use
+
+37
+00:01:40,751 --> 00:01:44,501
+of that Request binding annotation parameter.
+
+38
+00:01:50,230 --> 00:01:53,095
+So, I'll use @RequestParam and then give studentName.
+
+39
+00:01:53,095 --> 00:01:57,262
+So, I'm basically saying I wanna read in the HTML form field
+
+40
+00:01:58,351 --> 00:02:00,400
+coming into request studentName
+
+41
+00:02:00,400 --> 00:02:03,352
+and I'm gonna assign it a binder to theName.
+
+42
+00:02:03,352 --> 00:02:07,558
+So, let me go ahead and fix some of the imports here
+
+43
+00:02:07,558 --> 00:02:08,744
+for RequestParam.
+
+44
+00:02:08,744 --> 00:02:11,473
+I'm just highlight over it for one second.
+
+45
+00:02:11,473 --> 00:02:13,036
+Do an import on RequestParam
+
+46
+00:02:13,036 --> 00:02:16,203
+from the Spring framework for binding.
+
+47
+00:02:17,175 --> 00:02:18,008
+I'll take it.
+
+48
+00:02:18,008 --> 00:02:20,693
+All right, so again, we're basically gonna make use
+
+49
+00:02:20,693 --> 00:02:21,999
+of this Spring annotation.
+
+50
+00:02:21,999 --> 00:02:25,047
+So, it's gonna read the http server request
+
+51
+00:02:25,047 --> 00:02:28,380
+and read that form parameter studentName
+
+52
+00:02:29,576 --> 00:02:33,798
+and bind it to this Param we have coming into this method
+
+53
+00:02:33,798 --> 00:02:35,304
+called String theName.
+
+54
+00:02:35,304 --> 00:02:39,804
+So, now lines 53 through 54, we no longer need this code.
+
+55
+00:02:39,804 --> 00:02:43,500
+Spring will automatically do this code for us.
+
+56
+00:02:43,500 --> 00:02:46,309
+So, by effectively adding that @RequestParam
+
+57
+00:02:46,309 --> 00:02:50,668
+behind the scenes, Spring is doing everything on line 54.
+
+58
+00:02:50,668 --> 00:02:52,396
+So, I can go ahead, right click this code
+
+59
+00:02:52,396 --> 00:02:55,523
+and just cut it or delete it.
+
+60
+00:02:55,523 --> 00:02:56,495
+All right, so we don't need that.
+
+61
+00:02:56,495 --> 00:02:57,645
+So, that's good to go.
+
+62
+00:02:57,645 --> 00:03:00,854
+So, we already have this theName coming in already
+
+63
+00:03:00,854 --> 00:03:02,104
+as a parameter.
+
+64
+00:03:03,469 --> 00:03:06,667
+So, we're good to go, so there we go String theName.
+
+65
+00:03:06,667 --> 00:03:09,265
+Now, here we make use of it a little bit later on
+
+66
+00:03:09,265 --> 00:03:11,369
+and we simply take it and convert it to all caps.
+
+67
+00:03:11,369 --> 00:03:12,603
+That's all good.
+
+68
+00:03:12,603 --> 00:03:14,975
+And, I'm simply gonna change the method,
+
+69
+00:03:14,975 --> 00:03:17,879
+I'm sorry, I'm gonna actually change the message here.
+
+70
+00:03:17,879 --> 00:03:21,106
+So, instead of saying Yo, then I don't know,
+
+71
+00:03:21,106 --> 00:03:24,357
+make something else up, Hey My Friend.
+
+72
+00:03:24,357 --> 00:03:27,524
+And I don't know from v3 or something.
+
+73
+00:03:29,785 --> 00:03:32,257
+All right, so I simply wanted to create a new message here
+
+74
+00:03:32,257 --> 00:03:35,446
+just to make it unique and distinct from the previous one
+
+75
+00:03:35,446 --> 00:03:37,638
+that we worked on for version two.
+
+76
+00:03:37,638 --> 00:03:39,977
+All right so here's our v3 message.
+
+77
+00:03:39,977 --> 00:03:41,371
+And then everything else stays the same here.
+
+78
+00:03:41,371 --> 00:03:45,117
+We simply added to the model and we return helloworld.
+
+79
+00:03:45,117 --> 00:03:46,035
+So, that's basically it.
+
+80
+00:03:46,035 --> 00:03:48,065
+So, I have a new handler method here
+
+81
+00:03:48,065 --> 00:03:52,498
+in my Hello World controller called processFormVersionThree.
+
+82
+00:03:52,498 --> 00:03:54,178
+We make use of the @RequestParam
+
+83
+00:03:54,178 --> 00:03:56,973
+for annotation parameter binding.
+
+84
+00:03:56,973 --> 00:03:58,784
+And, I don't know, this looks pretty good.
+
+85
+00:03:58,784 --> 00:04:01,453
+So, I need to take this actual path here
+
+86
+00:04:01,453 --> 00:04:03,896
+and I need to update my HTML form.
+
+87
+00:04:03,896 --> 00:04:06,937
+So, processFormVersionThree, I'll simply right click,
+
+88
+00:04:06,937 --> 00:04:10,339
+I'll choose copy, and then I'll go back to the form,
+
+89
+00:04:10,339 --> 00:04:13,282
+helloworldform.jsp and I update this.
+
+90
+00:04:13,282 --> 00:04:16,647
+So, instead of versionTwo, then I'll simply right click
+
+91
+00:04:16,647 --> 00:04:20,230
+and choose and do a paste for versionThree.
+
+92
+00:04:22,161 --> 00:04:23,441
+All right, so I just wanna make sure that my form
+
+93
+00:04:23,441 --> 00:04:26,626
+is pointing to the right code that I wanna execute here
+
+94
+00:04:26,626 --> 00:04:27,876
+for this video.
+
+95
+00:04:29,761 --> 00:04:30,642
+All right, so this looks good.
+
+96
+00:04:30,642 --> 00:04:34,043
+So, let's go ahead and save our form.
+
+97
+00:04:34,043 --> 00:04:35,876
+And let's go ahead and run our application.
+
+98
+00:04:35,876 --> 00:04:39,231
+So, just right click, Spring-MVC-demo.
+
+99
+00:04:39,231 --> 00:04:42,898
+Choose Run As and then choose Run On Server.
+
+100
+00:04:47,036 --> 00:04:48,917
+And I'll go ahead and just choose the link here
+
+101
+00:04:48,917 --> 00:04:51,167
+to take a look at the form.
+
+102
+00:04:52,331 --> 00:04:54,908
+And, now this form's been updated to point to VersionThree
+
+103
+00:04:54,908 --> 00:04:58,367
+so I'll just enter some student name here.
+
+104
+00:04:58,367 --> 00:05:00,887
+Just enter the name of Mary, hit submit.
+
+105
+00:05:00,887 --> 00:05:04,403
+And, now the message Hey My Friend from v3
+
+106
+00:05:04,403 --> 00:05:05,553
+and then Mary in all caps.
+
+107
+00:05:05,553 --> 00:05:06,386
+So, this is great.
+
+108
+00:05:06,386 --> 00:05:09,510
+So, we know that it really is reading our new code
+
+109
+00:05:09,510 --> 00:05:12,707
+for VersionThree and it's making use
+
+110
+00:05:12,707 --> 00:05:14,619
+of that @RequestParam binding.
+
+111
+00:05:14,619 --> 00:05:16,366
+So, anyways, just wanted to show you an example
+
+112
+00:05:16,366 --> 00:05:19,989
+of using that @RequestParam and how it works out
+
+113
+00:05:19,989 --> 00:05:21,313
+for reading form data.
+
+114
+00:05:21,313 --> 00:05:22,838
+Nice little shortcut for you.
+
+115
+00:05:22,838 --> 00:05:26,921
+So, good job and I'll see you in the next video.
+

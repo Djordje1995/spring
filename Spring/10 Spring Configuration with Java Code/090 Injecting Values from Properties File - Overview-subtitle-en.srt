@@ -1,0 +1,268 @@
+1
+00:00:01,328 --> 00:00:02,161
+<v Instructor>In this video,</v>
+
+2
+00:00:02,161 --> 00:00:04,034
+we're going to learn how to inject values
+
+3
+00:00:04,034 --> 00:00:05,951
+from a properties file.
+
+4
+00:00:07,722 --> 00:00:09,254
+So we'll make use of our Swim Coach
+
+5
+00:00:09,254 --> 00:00:11,971
+and we'll also use as properties file.
+
+6
+00:00:11,971 --> 00:00:13,197
+This properties file is going to have
+
+7
+00:00:13,197 --> 00:00:15,664
+the email address, and a team.
+
+8
+00:00:15,664 --> 00:00:17,888
+And we want to read information from this properties file
+
+9
+00:00:17,888 --> 00:00:22,735
+and inject it into our Swim Coach to make use of.
+
+10
+00:00:22,735 --> 00:00:25,051
+Again, I love doing everything step-by-step,
+
+11
+00:00:25,051 --> 00:00:26,767
+so here's our development process.
+
+12
+00:00:26,767 --> 00:00:29,497
+The first thing is creating the properties file,
+
+13
+00:00:29,497 --> 00:00:31,758
+then we'll actually load the properties file
+
+14
+00:00:31,758 --> 00:00:34,188
+into our Spring configuration.
+
+15
+00:00:34,188 --> 00:00:36,716
+And then next, we'll actually reference the values
+
+16
+00:00:36,716 --> 00:00:39,102
+from the properties file.
+
+17
+00:00:39,102 --> 00:00:41,688
+So starting with step one, creating the properties file.
+
+18
+00:00:41,688 --> 00:00:42,651
+Very simple.
+
+19
+00:00:42,651 --> 00:00:44,307
+You simply open up a text editor,
+
+20
+00:00:44,307 --> 00:00:46,903
+create a file that has name-value pairs,
+
+21
+00:00:46,903 --> 00:00:49,386
+so the name of the property is foo.email,
+
+22
+00:00:49,386 --> 00:00:52,360
+the value is myeasycoach, and we repeat the
+
+23
+00:00:52,360 --> 00:00:54,641
+same process for foo.team.
+
+24
+00:00:54,641 --> 00:00:55,474
+And that's it.
+
+25
+00:00:55,474 --> 00:00:58,904
+Save the properties file as sport.properties.
+
+26
+00:00:58,904 --> 00:01:00,544
+Then in step two, we actually need
+
+27
+00:01:00,544 --> 00:01:03,711
+to load the properties file into our Spring config.
+
+28
+00:01:03,711 --> 00:01:07,205
+So again, you make use of that Java-based configuration,
+
+29
+00:01:07,205 --> 00:01:10,009
+our public class SportConfig, we make use of this
+
+30
+00:01:10,009 --> 00:01:13,757
+new annotation up top called @PropertySource,
+
+31
+00:01:13,757 --> 00:01:15,555
+and then you simply give a reference to where
+
+32
+00:01:15,555 --> 00:01:17,587
+your properties file is located.
+
+33
+00:01:17,587 --> 00:01:19,523
+So in this example, were going to say that
+
+34
+00:01:19,523 --> 00:01:22,272
+our file is located on our class path,
+
+35
+00:01:22,272 --> 00:01:26,418
+and the actual name of the file is sport.properties.
+
+36
+00:01:26,418 --> 00:01:28,881
+So here's step three, referencing the values from
+
+37
+00:01:28,881 --> 00:01:29,961
+the properties file.
+
+38
+00:01:29,961 --> 00:01:31,175
+So here's our Swim Coach,
+
+39
+00:01:31,175 --> 00:01:32,873
+and basically what we need to do now
+
+40
+00:01:32,873 --> 00:01:35,659
+is actually inject, or reference those values
+
+41
+00:01:35,659 --> 00:01:37,526
+from the properties.
+
+42
+00:01:37,526 --> 00:01:40,101
+So here, the Swim Coach is going to have two fields here,
+
+43
+00:01:40,101 --> 00:01:42,716
+for email address and team.
+
+44
+00:01:42,716 --> 00:01:44,210
+And what we'll do is we'll actually make use
+
+45
+00:01:44,210 --> 00:01:46,777
+of field level injection.
+
+46
+00:01:46,777 --> 00:01:48,045
+So to inject those values,
+
+47
+00:01:48,045 --> 00:01:51,487
+I simply make use of this annotation called @Value,
+
+48
+00:01:51,487 --> 00:01:54,509
+and then I give the actual name of the property.
+
+49
+00:01:54,509 --> 00:01:56,156
+Now I placed the name of the property
+
+50
+00:01:56,156 --> 00:01:58,469
+inside of a dollar sign curly brace,
+
+51
+00:01:58,469 --> 00:02:00,541
+and then here, foo.email.
+
+52
+00:02:00,541 --> 00:02:02,798
+It'll inject that value into our field
+
+53
+00:02:02,798 --> 00:02:05,245
+and our class called email.
+
+54
+00:02:05,245 --> 00:02:06,774
+We simply repeat the process again
+
+55
+00:02:06,774 --> 00:02:09,114
+here for the next property, foo.team,
+
+56
+00:02:09,114 --> 00:02:12,536
+so @Value("${foo.team}").
+
+57
+00:02:12,536 --> 00:02:14,916
+It injects it into the team field.
+
+58
+00:02:14,916 --> 00:02:16,168
+And then later on, the Swim Coach
+
+59
+00:02:16,168 --> 00:02:18,393
+can use those values to maybe display some information
+
+60
+00:02:18,393 --> 00:02:20,274
+so on and so forth.
+
+61
+00:02:20,274 --> 00:02:21,819
+So that's basically how you reference values
+
+62
+00:02:21,819 --> 00:02:23,351
+from properties files.
+
+63
+00:02:23,351 --> 00:02:25,792
+You simply make use of the @Value annotation.
+
+64
+00:02:25,792 --> 00:02:27,148
+What we'll do in the next video,
+
+65
+00:02:27,148 --> 00:02:29,094
+is that we'll move into Eclipse, and we'll actually
+
+66
+00:02:29,094 --> 00:02:31,104
+write all the code to make this happen.
+
+67
+00:02:31,104 --> 00:02:34,021
+So I'll see you in the next video.
+

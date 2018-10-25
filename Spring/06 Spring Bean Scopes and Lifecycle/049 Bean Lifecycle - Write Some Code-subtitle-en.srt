@@ -1,0 +1,676 @@
+1
+00:00:01,120 --> 00:00:02,140
+<v Narrator>Alrighty, so let's go ahead</v>
+
+2
+00:00:02,140 --> 00:00:03,880
+and move into Eclipse.
+
+3
+00:00:03,880 --> 00:00:06,040
+Looking at our development process,
+
+4
+00:00:06,040 --> 00:00:08,010
+the first thing we want to do is define methods
+
+5
+00:00:08,010 --> 00:00:10,560
+for init and destroy.
+
+6
+00:00:10,560 --> 00:00:12,370
+So I'll go ahead and do this here.
+
+7
+00:00:12,370 --> 00:00:16,160
+I'll make use of my TrackCoach.java class.
+
+8
+00:00:16,160 --> 00:00:18,310
+So let's go ahead and move into this class.
+
+9
+00:00:19,520 --> 00:00:21,710
+And we are going to just open it up.
+
+10
+00:00:22,720 --> 00:00:26,410
+And we'll simply scroll down a bit
+
+11
+00:00:26,410 --> 00:00:29,360
+to the bottom, and we'll define those new methods.
+
+12
+00:00:33,060 --> 00:00:34,630
+So again, I always like to drop in
+
+13
+00:00:34,630 --> 00:00:38,670
+some quick comments here just so I keep myself on track.
+
+14
+00:00:41,140 --> 00:00:42,800
+So I want to add an init method,
+
+15
+00:00:42,800 --> 00:00:44,500
+and I want to add a destroy method.
+
+16
+00:00:44,500 --> 00:00:47,770
+So again, this is custom code that will execute
+
+17
+00:00:47,770 --> 00:00:49,090
+during the bean's lifecycle,
+
+18
+00:00:49,090 --> 00:00:50,100
+when the bean's being created
+
+19
+00:00:50,100 --> 00:00:53,020
+or the bean's being destroyed, our little custom hook.
+
+20
+00:00:56,692 --> 00:00:59,420
+And now what I want to do, just inside of this method here,
+
+21
+00:00:59,420 --> 00:01:01,150
+just print out a little message here
+
+22
+00:01:01,150 --> 00:01:03,410
+just so I know I'm actually inside the method.
+
+23
+00:01:03,410 --> 00:01:07,440
+So I'll say TrackCoach: inside method
+
+24
+00:01:07,440 --> 00:01:09,280
+do my startup stuff.
+
+25
+00:01:09,280 --> 00:01:11,290
+So just to make sure that spring's actually calling
+
+26
+00:01:11,290 --> 00:01:12,810
+my initialization method.
+
+27
+00:01:12,810 --> 00:01:14,310
+But that's basically it right there.
+
+28
+00:01:14,310 --> 00:01:15,960
+So this looks pretty good so far.
+
+29
+00:01:20,200 --> 00:01:21,300
+Alright, so let's move on down
+
+30
+00:01:21,300 --> 00:01:23,540
+and let's do a similar thing in here for our destroy method.
+
+31
+00:01:23,540 --> 00:01:26,730
+So again, this is a hook or a method that'll be called
+
+32
+00:01:26,730 --> 00:01:29,270
+when your bean's actually being destroyed
+
+33
+00:01:29,270 --> 00:01:30,780
+by the spring container.
+
+34
+00:01:30,780 --> 00:01:33,910
+So I'll call this doMyStartupStuff,
+
+35
+00:01:36,720 --> 00:01:40,320
+and I'll copy/paste the method down there.
+
+36
+00:01:40,320 --> 00:01:43,490
+And I'll just copy/paste that method name, and ew.
+
+37
+00:01:43,490 --> 00:01:46,510
+I notice this is the wrong method name.
+
+38
+00:01:46,510 --> 00:01:48,480
+I have a typo here, so let me change this.
+
+39
+00:01:48,480 --> 00:01:53,480
+So instead of doMyStartupStuff, doMyCleanupStuffYoYo.
+
+40
+00:01:53,890 --> 00:01:57,000
+Alright, doMyCleanupStuff.
+
+41
+00:01:57,000 --> 00:01:57,833
+So I'll copy/paste.
+
+42
+00:01:57,833 --> 00:01:58,666
+I'll fix that issue.
+
+43
+00:01:58,666 --> 00:02:00,850
+So again, that's different method names.
+
+44
+00:02:00,850 --> 00:02:02,010
+So this is our destroy method,
+
+45
+00:02:02,010 --> 00:02:04,560
+so I'll call it doMyCleanupStuffYoYo.
+
+46
+00:02:04,560 --> 00:02:06,540
+And I'm being funny here just to verify
+
+47
+00:02:06,540 --> 00:02:09,460
+that, hey, there's no special method naming convention.
+
+48
+00:02:09,460 --> 00:02:11,760
+You can give it any method name that you want.
+
+49
+00:02:13,840 --> 00:02:14,680
+Alright, so that looks good.
+
+50
+00:02:14,680 --> 00:02:18,000
+So that's our init method, and that's our destroy method.
+
+51
+00:02:18,000 --> 00:02:19,000
+Good job so far.
+
+52
+00:02:22,790 --> 00:02:25,870
+Now let's go ahead and make use of a configuration file.
+
+53
+00:02:25,870 --> 00:02:27,300
+And what I'm gonna do here is I'm gonna
+
+54
+00:02:27,300 --> 00:02:30,380
+just kind of copy/paste a previous config file
+
+55
+00:02:30,380 --> 00:02:32,160
+and simply make some changes to it.
+
+56
+00:02:32,160 --> 00:02:36,430
+So I'm gonna copy/paste the beanScope-applicationContext.xml
+
+57
+00:02:36,430 --> 00:02:38,100
+from the previous video.
+
+58
+00:02:38,100 --> 00:02:40,560
+Simply do just a right-click and choose Copy
+
+59
+00:02:40,560 --> 00:02:43,060
+and then a right-click and choose Paste.
+
+60
+00:02:43,060 --> 00:02:45,890
+And then for the new name that I'll give here,
+
+61
+00:02:45,890 --> 00:02:49,930
+I'll call it beanLifeCycle-applicationContext
+
+62
+00:02:49,930 --> 00:02:51,630
+and remove the two at the end, .xml.
+
+63
+00:02:51,630 --> 00:02:53,940
+So again, we can have multiple config files, right?
+
+64
+00:02:53,940 --> 00:02:56,210
+So I'm just giving a unique name here
+
+65
+00:02:56,210 --> 00:02:57,610
+for this demo project.
+
+66
+00:02:59,120 --> 00:03:01,050
+And if you didn't complete the previous video,
+
+67
+00:03:01,050 --> 00:03:06,050
+simply grab any one of your XML files and just rename it.
+
+68
+00:03:06,100 --> 00:03:07,290
+So anyway, let's take a look
+
+69
+00:03:07,290 --> 00:03:10,319
+at this beanLifeCycle-applicationContext.xml,
+
+70
+00:03:10,319 --> 00:03:12,500
+and let's kind of expand the window here.
+
+71
+00:03:12,500 --> 00:03:14,150
+And let's move down.
+
+72
+00:03:14,150 --> 00:03:15,580
+Now there's one thing that's a leftover
+
+73
+00:03:15,580 --> 00:03:17,670
+from the previous video as far as playing around
+
+74
+00:03:17,670 --> 00:03:18,870
+with bean scopes.
+
+75
+00:03:18,870 --> 00:03:21,370
+So on line 19, I'm gonna delete this entry,
+
+76
+00:03:21,370 --> 00:03:22,680
+scope="prototype".
+
+77
+00:03:22,680 --> 00:03:25,270
+I'm gonna remove that because I want to make use
+
+78
+00:03:25,270 --> 00:03:27,430
+of simply just the default scope, right?
+
+79
+00:03:27,430 --> 00:03:31,630
+And as a quiz question, the default scope is singleton.
+
+80
+00:03:31,630 --> 00:03:32,649
+Alright.
+
+81
+00:03:32,649 --> 00:03:35,530
+Now here, let's go ahead and add our init method.
+
+82
+00:03:36,540 --> 00:03:38,920
+So we need to give the actual method name
+
+83
+00:03:38,920 --> 00:03:40,500
+from our bean class.
+
+84
+00:03:40,500 --> 00:03:41,890
+So I need to kind of move back over
+
+85
+00:03:41,890 --> 00:03:44,230
+to my TrackCoach and find out which init method
+
+86
+00:03:44,230 --> 00:03:45,063
+I'll use here.
+
+87
+00:03:45,063 --> 00:03:47,040
+So I'll call it doMyStartupStuff.
+
+88
+00:03:47,040 --> 00:03:49,870
+I'll simply copy that name, and then
+
+89
+00:03:49,870 --> 00:03:51,010
+I'll simply paste it here.
+
+90
+00:03:51,010 --> 00:03:54,100
+I use the keyboard for that, copy/paste.
+
+91
+00:03:54,100 --> 00:03:54,933
+And there we go.
+
+92
+00:03:54,933 --> 00:03:55,766
+So that's my init method.
+
+93
+00:03:55,766 --> 00:03:56,599
+That's in place.
+
+94
+00:03:56,599 --> 00:03:58,510
+Now let's do a similar thing here
+
+95
+00:03:58,510 --> 00:04:01,610
+for the destroy method, so destroy-method equals.
+
+96
+00:04:01,610 --> 00:04:03,380
+And again, I need to get that actual method name.
+
+97
+00:04:03,380 --> 00:04:06,690
+So I'll kind of move back over to TrackCoach,
+
+98
+00:04:06,690 --> 00:04:08,070
+and I'll copy that name.
+
+99
+00:04:10,230 --> 00:04:13,210
+So it's doMyCleanupStuffYoYo.
+
+100
+00:04:16,042 --> 00:04:17,500
+And then move back to the config,
+
+101
+00:04:17,500 --> 00:04:18,950
+and then paste that in there.
+
+102
+00:04:20,570 --> 00:04:23,070
+So that's our destroy method that spring will call
+
+103
+00:04:23,070 --> 00:04:25,780
+when the bean is being destroyed.
+
+104
+00:04:33,910 --> 00:04:35,560
+Alright, this looks pretty good.
+
+105
+00:04:35,560 --> 00:04:38,310
+Now I need to have a main program to kind of run everything.
+
+106
+00:04:38,310 --> 00:04:39,620
+So again, I'm gonna kind of copy
+
+107
+00:04:39,620 --> 00:04:41,820
+one of my previous examples.
+
+108
+00:04:41,820 --> 00:04:43,410
+We've been doing a lot of stuff from scratch.
+
+109
+00:04:43,410 --> 00:04:44,790
+And here I'm just gonna copy this
+
+110
+00:04:44,790 --> 00:04:46,690
+and just make some quick updates to it.
+
+111
+00:04:46,690 --> 00:04:50,525
+So here, I'm gonna copy this BeanScopeDemoApp,
+
+112
+00:04:50,525 --> 00:04:54,160
+BeanScopeDemoApp.java, tongue twister.
+
+113
+00:04:54,160 --> 00:04:57,870
+I'll just copy that, and I will just paste it.
+
+114
+00:05:00,300 --> 00:05:03,142
+And I'll give it a new name, so I'll call this
+
+115
+00:05:03,142 --> 00:05:08,142
+BeanLifeCycleDemoApp, take off the two at the end.
+
+116
+00:05:09,260 --> 00:05:12,640
+And if everything's okay, then we can click the OK button.
+
+117
+00:05:15,450 --> 00:05:17,970
+Alright, so we should have this new file here,
+
+118
+00:05:17,970 --> 00:05:20,950
+BeanLifeCycleDemoApp.java.
+
+119
+00:05:20,950 --> 00:05:22,360
+So let's go ahead and double-click that one,
+
+120
+00:05:22,360 --> 00:05:24,640
+open it up, expand the window.
+
+121
+00:05:24,640 --> 00:05:28,690
+Cool, now the first thing I want to do here is on line 11
+
+122
+00:05:28,690 --> 00:05:31,260
+where we have the actual file name.
+
+123
+00:05:31,260 --> 00:05:33,450
+I want to change this file name
+
+124
+00:05:33,450 --> 00:05:37,150
+to use my LifeCycle example.
+
+125
+00:05:37,150 --> 00:05:38,820
+Right, so it has to say
+
+126
+00:05:38,820 --> 00:05:42,350
+beanLifeCycle-applicationContext.xml.
+
+127
+00:05:42,350 --> 00:05:43,570
+You want to make sure that it's calling
+
+128
+00:05:43,570 --> 00:05:46,460
+the right config file for your application.
+
+129
+00:05:48,040 --> 00:05:50,630
+Alright, and then we'll kind of scroll down a bit.
+
+130
+00:05:50,630 --> 00:05:53,400
+I'll delete a lot of that other stuff that was there.
+
+131
+00:05:53,400 --> 00:05:56,670
+So we should have just a very simple program right now.
+
+132
+00:05:56,670 --> 00:05:58,150
+So again, we did a little copy/paste
+
+133
+00:05:58,150 --> 00:06:00,900
+to kind of help us out, but just a real small program:
+
+134
+00:06:00,900 --> 00:06:02,430
+load the config, retrieve the bean,
+
+135
+00:06:02,430 --> 00:06:03,580
+and close the context.
+
+136
+00:06:05,070 --> 00:06:06,470
+So just a little checkpoint to make sure
+
+137
+00:06:06,470 --> 00:06:08,620
+we're on the same page here.
+
+138
+00:06:09,600 --> 00:06:11,050
+And now I'm just gonna use the bean
+
+139
+00:06:11,050 --> 00:06:12,410
+once I've retrieved it from the container.
+
+140
+00:06:12,410 --> 00:06:13,860
+I'll just print out getDailyWorkout
+
+141
+00:06:13,860 --> 00:06:18,080
+just to print something to the screen, nothing big there.
+
+142
+00:06:19,981 --> 00:06:23,600
+And that's pretty much it for this little demo here
+
+143
+00:06:23,600 --> 00:06:24,640
+for the LifeCycle.
+
+144
+00:06:26,820 --> 00:06:28,960
+So we simply load the config file.
+
+145
+00:06:30,490 --> 00:06:33,460
+We retrieve the bean from the container,
+
+146
+00:06:33,460 --> 00:06:38,460
+call methods on it, and finally we close the spring context.
+
+147
+00:06:41,240 --> 00:06:42,073
+Alright, so that's it.
+
+148
+00:06:42,073 --> 00:06:43,470
+It looks good.
+
+149
+00:06:43,470 --> 00:06:44,440
+BeanLifeCycleDemoApp, it's ready.
+
+150
+00:06:44,440 --> 00:06:47,510
+Let's save it, and let's run it.
+
+151
+00:06:47,510 --> 00:06:49,930
+Right-click, Run as Java Application.
+
+152
+00:06:52,090 --> 00:06:53,640
+And cool, here's our output.
+
+153
+00:06:54,990 --> 00:06:57,090
+So, a couple of things here.
+
+154
+00:06:57,090 --> 00:06:59,080
+Make sure that it's reading from the right config file,
+
+155
+00:06:59,080 --> 00:07:02,210
+beanLifeCycle-applicationContext.xml.
+
+156
+00:07:02,210 --> 00:07:05,420
+So that's the correct file that we just created.
+
+157
+00:07:05,420 --> 00:07:07,170
+We see that it's calling our method,
+
+158
+00:07:07,170 --> 00:07:10,800
+inside method doMyStartupStuff, which is good.
+
+159
+00:07:10,800 --> 00:07:11,700
+That's our init method.
+
+160
+00:07:11,700 --> 00:07:14,010
+We call our daily workout which is great.
+
+161
+00:07:14,010 --> 00:07:16,390
+And then we see when this container's closing,
+
+162
+00:07:16,390 --> 00:07:19,030
+at the end it'll actually call our destroy method.
+
+163
+00:07:19,030 --> 00:07:21,460
+So, inside method doMyCleanupStuffYoYo.
+
+164
+00:07:23,040 --> 00:07:23,873
+So this is great.
+
+165
+00:07:23,873 --> 00:07:27,620
+So spring's actually calling our init method as desired
+
+166
+00:07:27,620 --> 00:07:30,220
+and it's also calling our destroy method.
+
+167
+00:07:30,220 --> 00:07:31,053
+So this is great.
+
+168
+00:07:31,053 --> 00:07:33,260
+So we can add our own custom hooks here
+
+169
+00:07:33,260 --> 00:07:37,590
+into the spring bean lifecycle.
+

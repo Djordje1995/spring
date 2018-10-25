@@ -1,0 +1,304 @@
+1
+00:00:01,165 --> 00:00:03,123 line:15% 
+<v Instructor>Alrighty so let's go ahead and move forward,</v>
+
+2
+00:00:03,123 --> 00:00:05,512 line:15% 
+so we're gonna go ahead and copy over some
+
+3
+00:00:05,512 --> 00:00:09,679 line:15% 
+of the starter config files for our Spring project.
+
+4
+00:00:13,639 --> 00:00:16,008
+So let's swing back over to our files system
+
+5
+00:00:16,008 --> 00:00:20,185 line:15% 
+where we have our classroom files or our starter files
+
+6
+00:00:20,185 --> 00:00:21,403 line:15% 
+and what I want to do now is look
+
+7
+00:00:21,403 --> 00:00:25,570 line:15% 
+into starter-files/Spring-mvc-demo/config
+
+8
+00:00:27,065 --> 00:00:29,234 line:15% 
+and inside of this directory there's
+
+9
+00:00:29,234 --> 00:00:31,563 line:15% 
+two starter files that we're gonna use.
+
+10
+00:00:31,563 --> 00:00:34,813 line:15% 
+Spring-mvc-demo-servlet.xml and web.xml
+
+11
+00:00:41,573 --> 00:00:44,694 line:15% 
+And then we'll move over to our Web-INF directory
+
+12
+00:00:44,694 --> 00:00:47,048 line:15% 
+and then we'll paste them directly here.
+
+13
+00:00:47,048 --> 00:00:50,798 line:15% 
+So you paste them into the WEB-INF directory.
+
+14
+00:00:52,559 --> 00:00:53,957
+Alright great so at this point we should
+
+15
+00:00:53,957 --> 00:00:57,290
+have Spring-mvc-servlet.xml and web.xml,
+
+16
+00:00:58,520 --> 00:01:00,301
+and the reason I like to use these as starter files,
+
+17
+00:01:00,301 --> 00:01:03,718
+is because this is normally a common source
+
+18
+00:01:03,718 --> 00:01:07,370
+of problems that folks will have, incorrect XML files
+
+19
+00:01:07,370 --> 00:01:09,585
+and they can never get Spring MVC working.
+
+20
+00:01:09,585 --> 00:01:12,482
+So even myself, whenever I start a new project,
+
+21
+00:01:12,482 --> 00:01:14,540
+I have starter files that I copy and paste
+
+22
+00:01:14,540 --> 00:01:16,341
+from just to get myself started
+
+23
+00:01:16,341 --> 00:01:18,082
+because you can waste a lot of
+
+24
+00:01:18,082 --> 00:01:20,529
+time trying to get this working.
+
+25
+00:01:20,529 --> 00:01:21,803
+Alright so here's step one,
+
+26
+00:01:21,803 --> 00:01:24,389
+configuring a dispatcher servlet upfront.
+
+27
+00:01:24,389 --> 00:01:28,556
+This is the same information that we had from our slides,
+
+28
+00:01:31,297 --> 00:01:33,468
+and then step two is setting up the URL mapping.
+
+29
+00:01:33,468 --> 00:01:36,412
+So we're basically gonna map the URL pattern of just
+
+30
+00:01:36,412 --> 00:01:39,519
+slash basically all the web requests coming in.
+
+31
+00:01:39,519 --> 00:01:41,609
+We're gonna map it to our dispatcher servlet,
+
+32
+00:01:41,609 --> 00:01:43,123
+or our front controller,
+
+33
+00:01:43,123 --> 00:01:46,534
+that's part of the Spring MVC frameworks.
+
+34
+00:01:46,534 --> 00:01:49,951
+Alright so that's the web XML part of it.
+
+35
+00:01:51,417 --> 00:01:52,370
+Now let's go ahead and look at
+
+36
+00:01:52,370 --> 00:01:55,243
+this spring-mvc-demo-servlet.xml.
+
+37
+00:01:55,243 --> 00:01:59,410
+So this is really just a Spring configuration file,
+
+38
+00:02:01,303 --> 00:02:03,207
+and a lot of this will look familiar to you,
+
+39
+00:02:03,207 --> 00:02:05,734
+especially this lines 14 and 15,
+
+40
+00:02:05,734 --> 00:02:08,335
+we're simply setting up components scanning,
+
+41
+00:02:08,335 --> 00:02:12,502
+so again, base package of com.luv2code.springdemo.
+
+42
+00:02:14,647 --> 00:02:15,688
+Step 4 we're adding support
+
+43
+00:02:15,688 --> 00:02:18,410
+for conversion formatting and validation.
+
+44
+00:02:18,410 --> 00:02:21,243
+We give the MVC:annotation-driven,
+
+45
+00:02:24,224 --> 00:02:27,865
+and then finally we set up this Spring MVC view resolver.
+
+46
+00:02:27,865 --> 00:02:31,235
+So again remember we can specify a prefix
+
+47
+00:02:31,235 --> 00:02:34,235
+and a suffix and this is where the view pages
+
+48
+00:02:34,235 --> 00:02:38,334
+will be located and Spring will automatically
+
+49
+00:02:38,334 --> 00:02:42,251
+add these values whenever you give a view name.
+
+50
+00:02:43,684 --> 00:02:45,900
+So this directory here or this folder,
+
+51
+00:02:45,900 --> 00:02:47,785
+we actually have to create this,
+
+52
+00:02:47,785 --> 00:02:50,679
+we have WEB-INF, but we don't have a /view/.
+
+53
+00:02:50,679 --> 00:02:51,869
+So this is something that we'll
+
+54
+00:02:51,869 --> 00:02:54,182
+actually have to create here in Eclipse.
+
+55
+00:02:54,182 --> 00:02:56,849
+Let's go ahead and do that now.
+
+56
+00:02:57,727 --> 00:02:59,843
+Alright so lets kind of swing back over.
+
+57
+00:02:59,843 --> 00:03:02,389
+So under WEB-INF we need to create a new folder here.
+
+58
+00:03:02,389 --> 00:03:05,023
+So I'll simply right click on WEB-INF
+
+59
+00:03:05,023 --> 00:03:07,023
+and I'll say New Folder,
+
+60
+00:03:10,349 --> 00:03:12,307
+and then the actual folder name it's very simple,
+
+61
+00:03:12,307 --> 00:03:14,057
+we just call it View,
+
+62
+00:03:15,611 --> 00:03:17,260
+and we'll keep all the other defaults
+
+63
+00:03:17,260 --> 00:03:19,427
+and then we'll hit Finish.
+
+64
+00:03:23,861 --> 00:03:25,486
+Alright cool so we have this view folder now.
+
+65
+00:03:25,486 --> 00:03:28,327
+So we have all the basic stuff in place
+
+66
+00:03:28,327 --> 00:03:31,142
+and set up for our Spring application.
+
+67
+00:03:31,142 --> 00:03:34,034
+Now we need to actually write some code (laughs)
+
+68
+00:03:34,034 --> 00:03:36,173
+and we'll do that the following videos.
+
+69
+00:03:36,173 --> 00:03:38,058
+So I'll give you a quick video
+
+70
+00:03:38,058 --> 00:03:39,651
+on how to create a controller class
+
+71
+00:03:39,651 --> 00:03:41,749
+and a view and then we'll actually write
+
+72
+00:03:41,749 --> 00:03:43,761
+our own controller class and views,
+
+73
+00:03:43,761 --> 00:03:45,516
+but anyways making sure we have
+
+74
+00:03:45,516 --> 00:03:47,699
+our Spring MVC project set up
+
+75
+00:03:47,699 --> 00:03:50,037
+and I dunno, we're good for now,
+
+76
+00:03:50,037 --> 00:03:52,870
+so I'll see you in the next video.
+

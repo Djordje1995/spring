@@ -1,0 +1,152 @@
+1
+00:00:01,322 --> 00:00:02,445
+<v Instructor>In this video,</v>
+
+2
+00:00:02,445 --> 00:00:06,910
+we'll cover the Spring MVC form tag for drop Down list.
+
+3
+00:00:06,910 --> 00:00:08,859
+So here's just a quick review
+
+4
+00:00:08,859 --> 00:00:12,134
+of the original HTML &lt;select&gt; tag.
+
+5
+00:00:12,134 --> 00:00:15,216
+You can have a form that has a dropdown list.
+
+6
+00:00:15,216 --> 00:00:18,950
+A user can go through and select their favorite country
+
+7
+00:00:18,950 --> 00:00:20,117
+and then hit submit.
+
+8
+00:00:20,117 --> 00:00:22,158
+So I have India selected here.
+
+9
+00:00:22,158 --> 00:00:25,328
+In the bottom right, that's the original HTML text
+
+10
+00:00:25,328 --> 00:00:28,529
+that you would use for displaying this dropdown list,
+
+11
+00:00:28,529 --> 00:00:32,196
+simply a &lt;select&gt; tag with multiple options.
+
+12
+00:00:34,586 --> 00:00:36,560
+Now in the Spring MVC world,
+
+13
+00:00:36,560 --> 00:00:40,727
+the dropdown list is represented by the tag &lt;form:select&gt;.
+
+14
+00:00:43,184 --> 00:00:46,287
+So let's take a look at how to use the &lt;form:select&gt;.
+
+15
+00:00:46,287 --> 00:00:48,921
+Basically, you specify the path that this binds to.
+
+16
+00:00:48,921 --> 00:00:52,159
+In this case, &lt;form:select path="country"&gt;,
+
+17
+00:00:52,159 --> 00:00:53,709
+and then you give your options,
+
+18
+00:00:53,709 --> 00:00:55,333
+and you give the value labels.
+
+19
+00:00:55,333 --> 00:00:58,469
+The label is what the user will actually see on the screen.
+
+20
+00:00:58,469 --> 00:01:00,634
+The value is the actual code that you'll pass over
+
+21
+00:01:00,634 --> 00:01:01,826
+when they submit it.
+
+22
+00:01:01,826 --> 00:01:04,263
+In this case, my values and labels are the same,
+
+23
+00:01:04,263 --> 00:01:06,055
+but your value can easily be a code,
+
+24
+00:01:06,055 --> 00:01:09,749
+like the three letter country code for a given country.
+
+25
+00:01:09,749 --> 00:01:12,393
+But that's basically how you use the dropdown list
+
+26
+00:01:12,393 --> 00:01:13,560
+in Spring MVC.
+
+27
+00:01:15,909 --> 00:01:18,344
+Alright, so let's go ahead and pull it all together.
+
+28
+00:01:18,344 --> 00:01:20,099
+We'll have a student form.
+
+29
+00:01:20,099 --> 00:01:23,120
+We'll basically add a dropdown list to that form.
+
+30
+00:01:23,120 --> 00:01:25,509
+We're gonna send it over to our student controller,
+
+31
+00:01:25,509 --> 00:01:28,584
+which will in turn pass it across to the confirmation page,
+
+32
+00:01:28,584 --> 00:01:30,544
+and once we're on the confirmation page,
+
+33
+00:01:30,544 --> 00:01:32,915
+we'll simply display the value
+
+34
+00:01:32,915 --> 00:01:36,311
+that the user selected from that dropdown list.
+
+35
+00:01:36,311 --> 00:01:37,993
+Okay, so we'll move into the clips,
+
+36
+00:01:37,993 --> 00:01:39,549
+and we'll do all this from scratch,
+
+37
+00:01:39,549 --> 00:01:41,176
+and we'll get our hands dirty.
+
+38
+00:01:41,176 --> 00:01:44,176
+So I will see you in the next video.
+

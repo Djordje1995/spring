@@ -1,0 +1,360 @@
+1
+00:00:01,344 --> 00:00:03,085
+<v Narrator>Alright let's move into Eclipse.</v>
+
+2
+00:00:03,085 --> 00:00:05,677
+With our development process we're gonna update the form.
+
+3
+00:00:05,677 --> 00:00:09,130
+Update the Student class and our confirmation page.
+
+4
+00:00:09,130 --> 00:00:11,722
+So the first thing here is updating the form.
+
+5
+00:00:11,722 --> 00:00:13,709
+We've kind of gone through this drill before so it's
+
+6
+00:00:13,709 --> 00:00:15,897
+going to be very familiar to you so far.
+
+7
+00:00:15,897 --> 00:00:19,064
+So I'll just open up student-form.jsp.
+
+8
+00:00:22,250 --> 00:00:23,825
+So basically what I'm going to do here
+
+9
+00:00:23,825 --> 00:00:27,763
+is add a new entry here for our radio buttons
+
+10
+00:00:27,763 --> 00:00:30,080
+So I'll add another &lt;br&gt; here.
+
+11
+00:00:30,080 --> 00:00:34,247
+I'll just copy-paste line 31 and paste it on line 34.
+
+12
+00:00:38,686 --> 00:00:40,673
+Alright so what we'll do here is we'll set up
+
+13
+00:00:40,673 --> 00:00:42,052
+for our favorite language.
+
+14
+00:00:42,052 --> 00:00:45,802
+And then we'll set up our &lt;form:radiobutton&gt;.
+
+15
+00:00:47,904 --> 00:00:51,603
+And I'll set the path="favoritLanguage".
+
+16
+00:00:51,603 --> 00:00:53,670
+That's a property that we're gonna bind to our Java class
+
+17
+00:00:53,670 --> 00:00:55,753
+with getters and setters.
+
+18
+00:00:59,199 --> 00:01:02,748
+And then I'll set the value="Java".
+
+19
+00:01:02,748 --> 00:01:03,970
+Alright that's the basics there.
+
+20
+00:01:03,970 --> 00:01:06,694
+So again, remember when we submit on this form
+
+21
+00:01:06,694 --> 00:01:10,516
+they'll call student.setFavoriteLanguage and then I'll
+
+22
+00:01:10,516 --> 00:01:12,683
+pass in the selected item.
+
+23
+00:01:13,517 --> 00:01:16,635
+Alright cool, so let me just copy-paste line 35
+
+24
+00:01:16,635 --> 00:01:18,175
+x number of times.
+
+25
+00:01:18,175 --> 00:01:21,058
+I'm just copying that Java line and I'll just paste it
+
+26
+00:01:21,058 --> 00:01:23,143
+x number of times for the other languages here.
+
+27
+00:01:23,143 --> 00:01:24,893
+For C#, PHP and Ruby.
+
+28
+00:01:27,023 --> 00:01:30,098
+Just give me one quick second here I'll speed the video up
+
+29
+00:01:30,098 --> 00:01:34,265
+while I update the values here for C#, PHP and Ruby.
+
+30
+00:01:39,857 --> 00:01:41,640
+So we're kinda in good shape here.
+
+31
+00:01:41,640 --> 00:01:44,036
+So that's our radio button for favorite language.
+
+32
+00:01:44,036 --> 00:01:46,507
+Again remember, when they submit the data they're gonna call
+
+33
+00:01:46,507 --> 00:01:48,840
+student.setFavoriteLanguage.
+
+34
+00:01:51,435 --> 00:01:52,694
+I'm kind of happy here.
+
+35
+00:01:52,694 --> 00:01:56,570
+This looks good so far for our HTML form.
+
+36
+00:01:56,570 --> 00:01:58,602
+Alright so I'll save everything.
+
+37
+00:01:58,602 --> 00:02:01,169
+And now we need to move over to step two.
+
+38
+00:02:01,169 --> 00:02:06,159
+That's actually creating a property in our Student Class.
+
+39
+00:02:06,159 --> 00:02:07,817
+So we're gonna create a property here
+
+40
+00:02:07,817 --> 00:02:09,760
+for this favorite language.
+
+41
+00:02:09,760 --> 00:02:11,836
+We'll actually provide getter and setter methods
+
+42
+00:02:11,836 --> 00:02:13,336
+for that property.
+
+43
+00:02:19,009 --> 00:02:23,283
+So here I'll say private String favoriteLanguage.
+
+44
+00:02:23,283 --> 00:02:25,533
+So that's our actual field.
+
+45
+00:02:26,689 --> 00:02:29,022
+Then I'll scroll down a bit.
+
+46
+00:02:32,179 --> 00:02:35,024
+And right click here generate getters and setters.
+
+47
+00:02:35,024 --> 00:02:39,191
+So right click -&gt; Source -&gt; Generate Getters and Setters.
+
+48
+00:02:40,614 --> 00:02:42,317
+You know how to do all this stuff by now.
+
+49
+00:02:42,317 --> 00:02:43,780
+I don't even have to say anything.
+
+50
+00:02:43,780 --> 00:02:45,491
+You know what to do already.
+
+51
+00:02:45,491 --> 00:02:47,846
+You're an expert at this.
+
+52
+00:02:47,846 --> 00:02:50,606
+Alright so I'll just select both the options here.
+
+53
+00:02:50,606 --> 00:02:54,276
+Actually select the one option for favoriteLanguage.
+
+54
+00:02:54,276 --> 00:02:56,176
+And that'll generate the getter and setters
+
+55
+00:02:56,176 --> 00:02:57,974
+for favoriteLanguage.
+
+56
+00:02:57,974 --> 00:03:00,090
+Then I'll just hit ok.
+
+57
+00:03:00,090 --> 00:03:01,149
+Alright, so there we go.
+
+58
+00:03:01,149 --> 00:03:03,910
+Lines 57 through 63 getter/setter methods
+
+59
+00:03:03,910 --> 00:03:05,660
+for favoriteLanguage.
+
+60
+00:03:07,493 --> 00:03:09,440
+Alright so this looks good so far.
+
+61
+00:03:09,440 --> 00:03:11,997
+So let's go ahead and move up to our next step.
+
+62
+00:03:11,997 --> 00:03:14,439
+That's simply updating the confirmation page.
+
+63
+00:03:14,439 --> 00:03:17,076
+And again we're simply just gonna echo whatever the user
+
+64
+00:03:17,076 --> 00:03:19,558
+selected from the form.
+
+65
+00:03:19,558 --> 00:03:21,871
+So on my confirmation page I just need to add one more
+
+66
+00:03:21,871 --> 00:03:24,426
+little line break so I'll copy line 13.
+
+67
+00:03:24,426 --> 00:03:28,359
+Paste it here on line 17 and then I'll say Favorite Language
+
+68
+00:03:28,359 --> 00:03:32,192
+and again use the ${student.favoriteLanguage}.
+
+69
+00:03:33,271 --> 00:03:35,133
+And again you probably beat me typing that.
+
+70
+00:03:35,133 --> 00:03:36,549
+You already knew the answer.
+
+71
+00:03:36,549 --> 00:03:39,631
+So again, when here Spring will actually call
+
+72
+00:03:39,631 --> 00:03:43,052
+student.getFavoriteLanguage() cause we're simply displaying
+
+73
+00:03:43,052 --> 00:03:44,219
+the data here.
+
+74
+00:03:45,441 --> 00:03:48,524
+So this looks good, I'm happy so far.
+
+75
+00:03:51,550 --> 00:03:53,503
+So let's go ahead and run this application.
+
+76
+00:03:53,503 --> 00:03:58,346
+So I'll simply right click -&gt; Run As -&gt; Run on Server.
+
+77
+00:03:58,346 --> 00:03:59,961
+Zoom in a bit.
+
+78
+00:03:59,961 --> 00:04:02,878
+Click on the link for Student Form.
+
+79
+00:04:06,456 --> 00:04:09,294
+And we have our languages listed here at the bottom.
+
+80
+00:04:09,294 --> 00:04:12,007
+Radio buttons can only choose one.
+
+81
+00:04:12,007 --> 00:04:14,257
+Which language will I pick?
+
+82
+00:04:17,145 --> 00:04:21,312
+I'll fill in my other information here for the student.
+
+83
+00:04:23,696 --> 00:04:25,241
+And I'll hit submit.
+
+84
+00:04:25,241 --> 00:04:26,261
+And so there we go.
+
+85
+00:04:26,261 --> 00:04:27,678
+So student is confirmed, John Doe.
+
+86
+00:04:27,678 --> 00:04:29,672
+Favorite language of C#.
+
+87
+00:04:29,672 --> 00:04:30,844
+So this looks great.
+
+88
+00:04:30,844 --> 00:04:32,551
+Everything works kinda as desired.
+
+89
+00:04:32,551 --> 00:04:36,375
+So we can read radio buttons with Spring MVC.
+
+90
+00:04:36,375 --> 00:04:39,958
+Using those form tags and the data binding.
+

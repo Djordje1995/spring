@@ -1,0 +1,436 @@
+1
+00:00:02,849 --> 00:00:05,477 line:15% 
+<v Darby>Okay so I'm getting really anxious here.</v>
+
+2
+00:00:05,477 --> 00:00:08,953 line:15% 
+I'm eager to run this application,
+
+3
+00:00:08,953 --> 00:00:12,703 line:15% 
+so let's go ahead and run it and test it out.
+
+4
+00:00:18,359 --> 00:00:22,526
+Go ahead and click my link here for customer form.
+
+5
+00:00:23,642 --> 00:00:25,934
+And I'll just go ahead and enter some data here,
+
+6
+00:00:25,934 --> 00:00:27,936
+for a last name.
+
+7
+00:00:27,936 --> 00:00:30,353
+Also, go and submit and whoa!
+
+8
+00:00:32,535 --> 00:00:34,273
+What the what?
+
+9
+00:00:34,273 --> 00:00:36,356
+I was not expecting this.
+
+10
+00:00:37,597 --> 00:00:40,301
+500 error, let's dig in here.
+
+11
+00:00:40,301 --> 00:00:43,734
+So this was unplanned, unscripted,
+
+12
+00:00:43,734 --> 00:00:46,639
+but here, root cause, Null Pointer Exception.
+
+13
+00:00:46,639 --> 00:00:47,806
+Oh, I like it.
+
+14
+00:00:48,947 --> 00:00:52,127
+So this is some good debugging tips for you.
+
+15
+00:00:52,127 --> 00:00:55,877
+And Course Code Constraint Validator line 20.
+
+16
+00:00:57,814 --> 00:00:59,147
+Okay, all right.
+
+17
+00:01:00,639 --> 00:01:03,389
+We're getting some evidence here.
+
+18
+00:01:04,798 --> 00:01:06,965
+Let's get on the trail.
+
+19
+00:01:06,965 --> 00:01:10,715
+So, course code constraint validator line 20.
+
+20
+00:01:15,088 --> 00:01:18,660
+Well I didn't follow my own code.
+
+21
+00:01:18,660 --> 00:01:21,743
+So I actually need to check for null.
+
+22
+00:01:23,295 --> 00:01:24,880
+So what happens is that if the user
+
+23
+00:01:24,880 --> 00:01:27,043
+doesn't enter anything, it comes in
+
+24
+00:01:27,043 --> 00:01:29,256
+as a null value for the code.
+
+25
+00:01:29,256 --> 00:01:32,569
+And, boom, blows up right here.
+
+26
+00:01:32,569 --> 00:01:34,104
+Oh boy, okay.
+
+27
+00:01:34,104 --> 00:01:36,030
+So we can fix it, right?
+
+28
+00:01:36,030 --> 00:01:37,329
+We know how to fix it.
+
+29
+00:01:37,329 --> 00:01:39,005
+We just need to check for null
+
+30
+00:01:39,005 --> 00:01:41,422
+before we do any real checks.
+
+31
+00:01:42,982 --> 00:01:44,131
+This is all fun.
+
+32
+00:01:44,131 --> 00:01:48,192
+So, here I can say, if the code is not equal to null,
+
+33
+00:01:48,192 --> 00:01:51,251
+then I can do my regular work,
+
+34
+00:01:51,251 --> 00:01:53,834
+like I planned on doing, silly.
+
+35
+00:01:55,841 --> 00:01:58,993
+So I'll say, result equals this thing
+
+36
+00:01:58,993 --> 00:02:01,982
+and I put the curly brace.
+
+37
+00:02:01,982 --> 00:02:06,149
+And then else, I'll actually return the value of true.
+
+38
+00:02:08,107 --> 00:02:09,779
+Because, hey, you didn't pass anything
+
+39
+00:02:09,779 --> 00:02:11,841
+there's nothing for me to validate.
+
+40
+00:02:11,841 --> 00:02:13,280
+And we'll let you go on.
+
+41
+00:02:13,280 --> 00:02:14,782
+Because this field is not required.
+
+42
+00:02:14,782 --> 00:02:19,194
+So, all righty, I think I feel a little bit better.
+
+43
+00:02:19,194 --> 00:02:21,230
+And again, it's all my fault.
+
+44
+00:02:21,230 --> 00:02:24,738
+I should have followed my own code from my own slides.
+
+45
+00:02:24,738 --> 00:02:27,738
+But hey, we're human, things happen.
+
+46
+00:02:29,228 --> 00:02:31,142
+All righty, so we're having too much fun here.
+
+47
+00:02:31,142 --> 00:02:32,542
+So anyway, we fix our code.
+
+48
+00:02:32,542 --> 00:02:33,982
+We've saved it.
+
+49
+00:02:33,982 --> 00:02:37,204
+Now let's go back and actually run this
+
+50
+00:02:37,204 --> 00:02:38,782
+and try it again.
+
+51
+00:02:38,782 --> 00:02:41,281
+So get it up and running.
+
+52
+00:02:41,281 --> 00:02:43,031
+We click on our form.
+
+53
+00:02:44,119 --> 00:02:47,432
+And now we enter some data here for last name.
+
+54
+00:02:47,432 --> 00:02:49,481
+And then hit the submit.
+
+55
+00:02:49,481 --> 00:02:50,719
+Okay, it goes through, good!
+
+56
+00:02:50,719 --> 00:02:53,381
+Okay, so no Null Pointer Exception, that's a good thing.
+
+57
+00:02:53,381 --> 00:02:54,768
+Now let's actually enter a code.
+
+58
+00:02:54,768 --> 00:02:58,505
+Let's enter a bad code, like, A-B-C one two three
+
+59
+00:02:58,505 --> 00:03:00,856
+and this should fail.
+
+60
+00:03:00,856 --> 00:03:02,828
+And yeah, all right!
+
+61
+00:03:02,828 --> 00:03:06,719
+So it says that it must start with L-U-V.
+
+62
+00:03:06,719 --> 00:03:07,989
+Good job.
+
+63
+00:03:07,989 --> 00:03:09,393
+So now here I'll say, "Okay, great.
+
+64
+00:03:09,393 --> 00:03:10,869
+"I'll start it with L-U-V."
+
+65
+00:03:10,869 --> 00:03:13,017
+and hit enter, and booya!
+
+66
+00:03:13,017 --> 00:03:14,432
+There we go.
+
+67
+00:03:14,432 --> 00:03:16,430
+Course Code LUV one two three.
+
+68
+00:03:16,430 --> 00:03:17,756
+So that's great.
+
+69
+00:03:17,756 --> 00:03:20,205
+So we're in really, really good shape here.
+
+70
+00:03:20,205 --> 00:03:23,241
+Now, what I wanna do is actually customize this.
+
+71
+00:03:23,241 --> 00:03:25,944
+Such that it's not using L-U-V
+
+72
+00:03:25,944 --> 00:03:28,107
+but instead, using something different.
+
+73
+00:03:28,107 --> 00:03:29,344
+A different code.
+
+74
+00:03:29,344 --> 00:03:31,466
+So here I'll customize it by saying,
+
+75
+00:03:31,466 --> 00:03:33,383
+"must start with TOPS."
+
+76
+00:03:34,869 --> 00:03:36,179
+Again, just making this up.
+
+77
+00:03:36,179 --> 00:03:38,693
+We could say, "must start with Foobar."
+
+78
+00:03:38,693 --> 00:03:41,255
+Or, "must start with funny."
+
+79
+00:03:41,255 --> 00:03:43,181
+Whatever, but I'm just getting a customized
+
+80
+00:03:43,181 --> 00:03:47,056
+version of this annotation and making use of it.
+
+81
+00:03:47,056 --> 00:03:49,756
+So I'll let my container go through,
+
+82
+00:03:49,756 --> 00:03:51,591
+in the background, and reload.
+
+83
+00:03:51,591 --> 00:03:52,730
+And notice here at the bottom, it will say,
+
+84
+00:03:52,730 --> 00:03:54,592
+"Hey, the reload is completed."
+
+85
+00:03:54,592 --> 00:03:55,767
+Okay, good.
+
+86
+00:03:55,767 --> 00:03:59,120
+So now I should be able to go back to my form.
+
+87
+00:03:59,120 --> 00:04:01,416
+All righty, so for my course code here
+
+88
+00:04:01,416 --> 00:04:03,942
+I'll just enter some bad data, like A-B-C one two three,
+
+89
+00:04:03,942 --> 00:04:05,480
+hit submit, right?
+
+90
+00:04:05,480 --> 00:04:06,880
+Okay, and up at the top it's asking
+
+91
+00:04:06,880 --> 00:04:07,893
+about names, Smith.
+
+92
+00:04:07,893 --> 00:04:09,378
+All right, or whatever.
+
+93
+00:04:09,378 --> 00:04:11,082
+And here, let me just give a bad code again,
+
+94
+00:04:11,082 --> 00:04:13,427
+L-U-V one two three.
+
+95
+00:04:13,427 --> 00:04:14,481
+I'm gonna try and hit submit.
+
+96
+00:04:14,481 --> 00:04:16,905
+Notice here it's saying it must start with TOPS.
+
+97
+00:04:16,905 --> 00:04:19,279
+Because we've changed our source code now
+
+98
+00:04:19,279 --> 00:04:22,530
+to actually validate against this new prefix.
+
+99
+00:04:22,530 --> 00:04:24,194
+Okay, good, so I'll go ahead and hit
+
+100
+00:04:24,194 --> 00:04:26,055
+TOPS one two three, hit submit.
+
+101
+00:04:26,055 --> 00:04:27,905
+And, boom, it passed.
+
+102
+00:04:27,905 --> 00:04:29,157
+So that's cool.
+
+103
+00:04:29,157 --> 00:04:31,105
+So we have our annotation up and running.
+
+104
+00:04:31,105 --> 00:04:32,742
+We can even customize our annotation
+
+105
+00:04:32,742 --> 00:04:35,805
+as far as what code or prefix to use.
+
+106
+00:04:35,805 --> 00:04:37,303
+And it all works out fine with the
+
+107
+00:04:37,303 --> 00:04:39,932
+Spring MVC Validation.
+
+108
+00:04:39,932 --> 00:04:41,895
+Good job, congrats!
+
+109
+00:04:41,895 --> 00:04:42,728
+Whooo!
+

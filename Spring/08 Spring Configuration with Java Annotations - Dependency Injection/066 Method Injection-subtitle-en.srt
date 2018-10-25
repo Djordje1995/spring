@@ -1,0 +1,256 @@
+1
+00:00:01,336 --> 00:00:02,396
+<v Instructor>All right, so one other thing</v>
+
+2
+00:00:02,396 --> 00:00:04,639
+I wanna talk to you about is that we can actually
+
+3
+00:00:04,639 --> 00:00:08,806
+inject our dependencies by calling any method on our class.
+
+4
+00:00:10,032 --> 00:00:12,615
+So, instead of using setter methods,
+
+5
+00:00:12,615 --> 00:00:14,877
+we can actually use any method.
+
+6
+00:00:14,877 --> 00:00:17,596
+All we have to do is simply give the @Autowired
+
+7
+00:00:17,596 --> 00:00:19,568
+annotation on net method.
+
+8
+00:00:19,568 --> 00:00:21,907
+This is really cool and let's check it out.
+
+9
+00:00:21,907 --> 00:00:25,476
+In the code example I have here, for my TennisCoach,
+
+10
+00:00:25,476 --> 00:00:26,811
+note here at the bottom I have
+
+11
+00:00:26,811 --> 00:00:29,187
+this method called doSomeCrazyStuff.
+
+12
+00:00:29,187 --> 00:00:31,313
+Okay, so just any method name that I'm making up,
+
+13
+00:00:31,313 --> 00:00:34,680
+the only thing here is that I have @Autowired on it.
+
+14
+00:00:34,680 --> 00:00:37,431
+So, Spring will actually use this for dependency
+
+15
+00:00:37,431 --> 00:00:41,539
+injection and Autowiring the actual FortuneService.
+
+16
+00:00:41,539 --> 00:00:46,168
+So again, any method name simply listed as being Autowired.
+
+17
+00:00:46,168 --> 00:00:48,501
+Really, really cool feature.
+
+18
+00:00:49,976 --> 00:00:51,740
+Okay, let's dive into Eclipse and let's test
+
+19
+00:00:51,740 --> 00:00:53,973
+this out real quick.
+
+20
+00:00:53,973 --> 00:00:57,723
+I'll go ahead and modify my TennisCoach.java.
+
+21
+00:00:59,888 --> 00:01:02,334
+And instead of using a regular setter method,
+
+22
+00:01:02,334 --> 00:01:05,167
+I'm gonna use any old method name.
+
+23
+00:01:07,362 --> 00:01:09,068
+Let me go ahead and scroll down to the area
+
+24
+00:01:09,068 --> 00:01:12,151
+where I had the setter method before,
+
+25
+00:01:14,078 --> 00:01:15,678
+and I'm gonna make a small change here.
+
+26
+00:01:15,678 --> 00:01:17,542
+So, instead of using setFortuneService,
+
+27
+00:01:17,542 --> 00:01:20,959
+I'm gonna give my own custom method name.
+
+28
+00:01:25,079 --> 00:01:27,128
+I'll change the method name, so instead of calling it
+
+29
+00:01:27,128 --> 00:01:31,211
+setFortuneService, I'll call it doSomeCrazyStuff.
+
+30
+00:01:32,625 --> 00:01:34,239
+Being really silly here.
+
+31
+00:01:34,239 --> 00:01:36,648
+I'll also update the method name inside
+
+32
+00:01:36,648 --> 00:01:38,401
+of my little print line statement,
+
+33
+00:01:38,401 --> 00:01:41,354
+so it'll say inside, doSomeCrazyStuff.
+
+34
+00:01:41,354 --> 00:01:42,417
+And that's it.
+
+35
+00:01:42,417 --> 00:01:44,890
+So, as long as its method is listed as being Autowired,
+
+36
+00:01:44,890 --> 00:01:47,689
+then Spring will use this for dependency of injection
+
+37
+00:01:47,689 --> 00:01:50,856
+when it needs to resolve a dependency.
+
+38
+00:01:53,645 --> 00:01:55,333
+All right, so this looks good, so I'll save this file
+
+39
+00:01:55,333 --> 00:01:56,494
+and I'll move back over to
+
+40
+00:01:56,494 --> 00:01:59,411
+my main program, AnnotationDemoApp.
+
+41
+00:02:03,084 --> 00:02:05,750
+This is the same main program that we've had before,
+
+42
+00:02:05,750 --> 00:02:07,782
+no changes to it.
+
+43
+00:02:07,782 --> 00:02:09,568
+I'll simply Run this application.
+
+44
+00:02:09,568 --> 00:02:12,985
+Do a right-click, choose Run As&gt;Java App.
+
+45
+00:02:16,013 --> 00:02:16,907
+Here's our output.
+
+46
+00:02:16,907 --> 00:02:18,463
+Oh, this looks kinda good.
+
+47
+00:02:18,463 --> 00:02:21,499
+So, I'm inside of my default constructor, check.
+
+48
+00:02:21,499 --> 00:02:24,847
+And inside doSomeCrazyStuff, yeah, I like it!
+
+49
+00:02:24,847 --> 00:02:26,007
+All right, that's it!
+
+50
+00:02:26,007 --> 00:02:26,840
+That's it.
+
+51
+00:02:26,840 --> 00:02:27,989
+(laughs)
+
+52
+00:02:27,989 --> 00:02:30,950
+So, we had the Autowired method, doSomeCrazyStuff,
+
+53
+00:02:30,950 --> 00:02:34,333
+and so they're actually using it for dependency injection.
+
+54
+00:02:34,333 --> 00:02:35,732
+This is great and all of our other messages
+
+55
+00:02:35,732 --> 00:02:37,132
+print out just fine.
+
+56
+00:02:37,132 --> 00:02:38,699
+Backhand volley and lucky day.
+
+57
+00:02:38,699 --> 00:02:40,283
+This is great, so we're successful.
+
+58
+00:02:40,283 --> 00:02:42,611
+The key takeaway here is that you can use
+
+59
+00:02:42,611 --> 00:02:46,199
+any method for injection, you simply list
+
+60
+00:02:46,199 --> 00:02:48,817
+it as being @Autowired.
+
+61
+00:02:48,817 --> 00:02:50,314
+All right, so we can check the box there.
+
+62
+00:02:50,314 --> 00:02:52,335
+We've made use of some very fancy techniques here
+
+63
+00:02:52,335 --> 00:02:56,418
+with annotation dependency injection with Spring.
+
+64
+00:02:58,268 --> 00:03:00,935
+Buzzwords, buzzwords, buzzwords.
+

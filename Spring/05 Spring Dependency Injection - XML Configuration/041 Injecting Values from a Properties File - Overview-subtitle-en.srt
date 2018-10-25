@@ -1,0 +1,324 @@
+1
+00:00:01,271 --> 00:00:02,208
+<v Instructor>In this video</v>
+
+2
+00:00:02,208 --> 00:00:04,359
+we're gonna learn how to inject values
+
+3
+00:00:04,359 --> 00:00:06,276
+from a properties file.
+
+4
+00:00:09,912 --> 00:00:11,580
+Alright, so in the previous videos
+
+5
+00:00:11,580 --> 00:00:13,636
+we learnt how to inject literal values,
+
+6
+00:00:13,636 --> 00:00:16,326
+so we could inject an email address in the team.
+
+7
+00:00:16,326 --> 00:00:18,162
+The only problem is that those values
+
+8
+00:00:18,162 --> 00:00:20,908
+were hard coded in the config file
+
+9
+00:00:20,908 --> 00:00:22,714
+and what we'd like to do is be able to read
+
+10
+00:00:22,714 --> 00:00:26,005
+this information from our properties file.
+
+11
+00:00:26,005 --> 00:00:28,318
+So, we'll have an external properties file,
+
+12
+00:00:28,318 --> 00:00:29,839
+we'll have our values there
+
+13
+00:00:29,839 --> 00:00:32,691
+and then we'll be able to read the email address
+
+14
+00:00:32,691 --> 00:00:36,024
+and team name from this properties file.
+
+15
+00:00:37,190 --> 00:00:38,539
+Alright, again, you know how I love
+
+16
+00:00:38,539 --> 00:00:40,810
+my step-by-step process,
+
+17
+00:00:40,810 --> 00:00:42,947
+so the first thing we're gonna have to do here
+
+18
+00:00:42,947 --> 00:00:45,216
+is create the properties file,
+
+19
+00:00:45,216 --> 00:00:47,541
+then we'll load the properties file
+
+20
+00:00:47,541 --> 00:00:49,842
+into the Spring config file
+
+21
+00:00:49,842 --> 00:00:51,651
+and then finally in step three
+
+22
+00:00:51,651 --> 00:00:55,818
+we'll reference those values from the properties file.
+
+23
+00:00:59,901 --> 00:01:01,711
+Alright, so let's go ahead and look at step one,
+
+24
+00:01:01,711 --> 00:01:03,250
+creating a properties file, right.
+
+25
+00:01:03,250 --> 00:01:04,094
+Very simple.
+
+26
+00:01:04,094 --> 00:01:05,795
+Simply open a text editor,
+
+27
+00:01:05,795 --> 00:01:08,279
+create a file, in this case, sport.properties
+
+28
+00:01:08,279 --> 00:01:10,541
+and you simply give the name value pairs.
+
+29
+00:01:10,541 --> 00:01:12,788
+So, the name of the property is foo.email
+
+30
+00:01:12,788 --> 00:01:15,478
+and the value is myeasycoach.
+
+31
+00:01:15,478 --> 00:01:16,792
+The actual property names,
+
+32
+00:01:16,792 --> 00:01:18,531
+you can give any name that you want.
+
+33
+00:01:18,531 --> 00:01:19,807
+There's no direct relation
+
+34
+00:01:19,807 --> 00:01:21,319
+to your actual bean.
+
+35
+00:01:21,319 --> 00:01:25,942
+You can call them foo bar, test, funny, bozo, anything.
+
+36
+00:01:25,942 --> 00:01:28,382
+The only thing is that you simply have to be consistent
+
+37
+00:01:28,382 --> 00:01:30,958
+between referring to the property name
+
+38
+00:01:30,958 --> 00:01:33,630
+in this config file and also referring to the property name
+
+39
+00:01:33,630 --> 00:01:35,380
+in your Spring setup.
+
+40
+00:01:39,083 --> 00:01:40,522
+Alright, so those are our properties.
+
+41
+00:01:40,522 --> 00:01:43,078
+Now step two is loading the properties file
+
+42
+00:01:43,078 --> 00:01:44,518
+in the Spring config,
+
+43
+00:01:44,518 --> 00:01:47,091
+so in your application context.xml
+
+44
+00:01:47,091 --> 00:01:50,590
+you simply make use of this context:property-placeholder,
+
+45
+00:01:50,590 --> 00:01:52,023
+you give the location for it,
+
+46
+00:01:52,023 --> 00:01:54,655
+so in this case the file will be on our classpath,
+
+47
+00:01:54,655 --> 00:01:56,536
+and then you give the actual file name,
+
+48
+00:01:56,536 --> 00:01:57,825
+so in this example
+
+49
+00:01:57,825 --> 00:02:01,094
+our properties file's called sport.properties
+
+50
+00:02:01,094 --> 00:02:03,634
+and so I'll actually load that properties file
+
+51
+00:02:03,634 --> 00:02:05,296
+into memory and then you can use it
+
+52
+00:02:05,296 --> 00:02:07,879
+within this Spring config file.
+
+53
+00:02:10,579 --> 00:02:12,606
+So, now this brings us to step three,
+
+54
+00:02:12,606 --> 00:02:15,241
+referencing the values from the properties file.
+
+55
+00:02:15,241 --> 00:02:17,210
+So, the general syntax is you simply use
+
+56
+00:02:17,210 --> 00:02:19,055
+the dollar sign, curly brace
+
+57
+00:02:19,055 --> 00:02:21,459
+and you give whatever the property name is
+
+58
+00:02:21,459 --> 00:02:23,491
+and then Spring will actually substitute
+
+59
+00:02:23,491 --> 00:02:26,065
+that property value directly there.
+
+60
+00:02:26,065 --> 00:02:28,143
+So, in this case for email address,
+
+61
+00:02:28,143 --> 00:02:29,729
+I simply give value
+
+62
+00:02:29,729 --> 00:02:33,193
+equals dollar sign, curly brace, foo.email,
+
+63
+00:02:33,193 --> 00:02:35,974
+so foo.email's the actual property name
+
+64
+00:02:35,974 --> 00:02:37,371
+from that prop's file
+
+65
+00:02:37,371 --> 00:02:41,454
+and that will include the value of myeasycoach@luv2code.
+
+66
+00:02:41,454 --> 00:02:44,682
+And then here I do a similar thing here for the team.
+
+67
+00:02:44,682 --> 00:02:48,317
+So, I reference that property name foo.team,
+
+68
+00:02:48,317 --> 00:02:49,765
+and again, based on information
+
+69
+00:02:49,765 --> 00:02:51,370
+from the properties file
+
+70
+00:02:51,370 --> 00:02:52,538
+it will actually put in the value
+
+71
+00:02:52,538 --> 00:02:55,537
+of Royal Challengers Bangalore.
+
+72
+00:02:55,537 --> 00:02:56,462
+So, that's basically it
+
+73
+00:02:56,462 --> 00:02:58,847
+and you can add additional props in there as you like
+
+74
+00:02:58,847 --> 00:03:00,026
+and simply reference them.
+
+75
+00:03:00,026 --> 00:03:02,323
+So, the key item here is that you reference
+
+76
+00:03:02,323 --> 00:03:06,057
+those values using the dollar sign, curly brace,
+
+77
+00:03:06,057 --> 00:03:08,881
+and then whatever that property name is.
+
+78
+00:03:08,881 --> 00:03:10,411
+Alright, so good stuff here.
+
+79
+00:03:10,411 --> 00:03:13,200
+In the next video we're gonna dive into Eclipse
+
+80
+00:03:13,200 --> 00:03:15,135
+and we'll actually write this code.
+
+81
+00:03:15,135 --> 00:03:17,635
+Alright, so I'll see you then.
+

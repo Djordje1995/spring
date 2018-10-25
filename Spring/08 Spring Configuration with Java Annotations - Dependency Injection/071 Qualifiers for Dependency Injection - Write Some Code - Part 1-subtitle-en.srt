@@ -1,0 +1,812 @@
+1
+00:00:01,386 --> 00:00:02,978
+<v Instructor>Let's go ahead and move into Eclipse</v>
+
+2
+00:00:02,978 --> 00:00:05,873
+and let's actually build out those Multiple Fortune
+
+3
+00:00:05,873 --> 00:00:07,472
+Service Implementations.
+
+4
+00:00:07,472 --> 00:00:09,560
+So we'll create all these other services
+
+5
+00:00:09,560 --> 00:00:12,211
+like Random, Database, and RESTFortune
+
+6
+00:00:12,211 --> 00:00:13,065
+and we'll stub them out
+
+7
+00:00:13,065 --> 00:00:15,562
+and then we'll test it out and see our error message.
+
+8
+00:00:15,562 --> 00:00:17,597
+So here's our interface FortuneService
+
+9
+00:00:17,597 --> 00:00:20,038
+and we already have HappyFortuneService.
+
+10
+00:00:20,038 --> 00:00:22,120
+We've been using that so far in the video series.
+
+11
+00:00:22,120 --> 00:00:25,090
+Let's go ahead and create another Fortune Service.
+
+12
+00:00:25,090 --> 00:00:28,423
+So let me right click and say New Class.
+
+13
+00:00:32,791 --> 00:00:34,358
+And this will actually be the class
+
+14
+00:00:34,358 --> 00:00:36,108
+for my RandomService.
+
+15
+00:00:37,631 --> 00:00:40,157
+So I'll just give the name of RandomService.
+
+16
+00:00:40,157 --> 00:00:41,719
+And then down that interface, I'll click
+
+17
+00:00:41,719 --> 00:00:45,205
+on the Add button and I'll choose FortuneService.
+
+18
+00:00:45,205 --> 00:00:46,383
+I'll just type it in the top.
+
+19
+00:00:46,383 --> 00:00:49,061
+Fortune, and select FortuneService.
+
+20
+00:00:49,061 --> 00:00:50,541
+That's the interface that we're gonna implement.
+
+21
+00:00:50,541 --> 00:00:52,116
+Again, we're creating multiple
+
+22
+00:00:52,116 --> 00:00:53,898
+FortuneService implementations.
+
+23
+00:00:53,898 --> 00:00:56,910
+Hit Okay, I'll keep all the other defaults here.
+
+24
+00:00:56,910 --> 00:00:58,628
+And I'll hit Finish.
+
+25
+00:00:58,628 --> 00:01:00,200
+Okay, so here's our RandomService
+
+26
+00:01:00,200 --> 00:01:02,509
+and let's go ahead and add the Add Component there,
+
+27
+00:01:02,509 --> 00:01:06,428
+so spring will handle the component scanning for us.
+
+28
+00:01:06,428 --> 00:01:10,428
+And just hover over it and fix the import there.
+
+29
+00:01:17,227 --> 00:01:18,060
+And there we go.
+
+30
+00:01:18,060 --> 00:01:19,060
+So line three, we should have the import
+
+31
+00:01:19,060 --> 00:01:20,700
+for Spring component.
+
+32
+00:01:20,700 --> 00:01:21,533
+Okay, great.
+
+33
+00:01:21,533 --> 00:01:22,942
+So now this RandomService is set up
+
+34
+00:01:22,942 --> 00:01:26,693
+for auto scanning with our spring application.
+
+35
+00:01:26,693 --> 00:01:28,104
+Good job.
+
+36
+00:01:28,104 --> 00:01:29,297
+Now we're kind of gonna, we're gonna go through
+
+37
+00:01:29,297 --> 00:01:31,841
+and actually repeat the process for the other
+
+38
+00:01:31,841 --> 00:01:32,954
+service implementations.
+
+39
+00:01:32,954 --> 00:01:34,339
+So do right click,
+
+40
+00:01:34,339 --> 00:01:35,672
+I say New Class.
+
+41
+00:01:37,010 --> 00:01:38,986
+And for this one, this will be our database
+
+42
+00:01:38,986 --> 00:01:40,246
+FortuneService and again,
+
+43
+00:01:40,246 --> 00:01:41,174
+we'll just stub it out.
+
+44
+00:01:41,174 --> 00:01:43,060
+We're not gonna do any real database stuff now.
+
+45
+00:01:43,060 --> 00:01:44,676
+We'll just stub it out for now.
+
+46
+00:01:44,676 --> 00:01:48,509
+Move down to interfaces and I'll click on Add.
+
+47
+00:01:49,363 --> 00:01:51,388
+And again, I'll choose my FortuneService
+
+48
+00:01:51,388 --> 00:01:52,221
+there from the list
+
+49
+00:01:52,221 --> 00:01:54,138
+as far as my interface.
+
+50
+00:01:57,171 --> 00:01:59,088
+And then I'll hit Okay.
+
+51
+00:02:00,412 --> 00:02:02,001
+Keep all the other defaults
+
+52
+00:02:02,001 --> 00:02:03,251
+and hit Finish.
+
+53
+00:02:05,292 --> 00:02:06,983
+Alright, so there's my DatabaseFortuneService.
+
+54
+00:02:06,983 --> 00:02:08,171
+I'll go ahead and keep that stub.
+
+55
+00:02:08,171 --> 00:02:11,004
+Now let's create one more service.
+
+56
+00:02:13,440 --> 00:02:14,342
+So I'll just do a right click.
+
+57
+00:02:14,342 --> 00:02:15,825
+I'll say New.
+
+58
+00:02:15,825 --> 00:02:17,408
+And I'll say Class.
+
+59
+00:02:20,085 --> 00:02:22,384
+And this will be my RESTFortune Service.
+
+60
+00:02:22,384 --> 00:02:26,202
+Again, we're just stubbing this out.
+
+61
+00:02:26,202 --> 00:02:28,619
+Move down to interfaces.
+
+62
+00:02:28,619 --> 00:02:29,869
+And choose Add.
+
+63
+00:02:30,803 --> 00:02:34,690
+And again, choose a FortuneService interface.
+
+64
+00:02:34,690 --> 00:02:35,523
+Hit Okay.
+
+65
+00:02:36,358 --> 00:02:39,275
+All the other defaults, hit Finish.
+
+66
+00:02:41,504 --> 00:02:42,337
+Okay, great.
+
+67
+00:02:42,337 --> 00:02:45,924
+So now I have four FortuneService implementations
+
+68
+00:02:45,924 --> 00:02:48,002
+right now in my application.
+
+69
+00:02:48,002 --> 00:02:50,024
+So this kind of matches with the diagram
+
+70
+00:02:50,024 --> 00:02:51,898
+that we had a little bit earlier.
+
+71
+00:02:51,898 --> 00:02:52,898
+So good job.
+
+72
+00:02:56,636 --> 00:02:59,124
+So now let's move back over to our TennisCoach.
+
+73
+00:02:59,124 --> 00:03:00,516
+Our TennisCoach is set up
+
+74
+00:03:00,516 --> 00:03:03,840
+for auto wire and they'll auto wire a FortuneService.
+
+75
+00:03:03,840 --> 00:03:05,683
+For right now, I'm gonna leave it plain vanilla.
+
+76
+00:03:05,683 --> 00:03:07,096
+I'm not gonna make any changes.
+
+77
+00:03:07,096 --> 00:03:08,987
+I actually wanna run it and see the error message
+
+78
+00:03:08,987 --> 00:03:12,896
+first and then we'll actually come back and fix it later.
+
+79
+00:03:12,896 --> 00:03:14,751
+So let's go ahead and move back over to our main
+
+80
+00:03:14,751 --> 00:03:17,668
+application, our AnnotationDemoApp.
+
+81
+00:03:19,028 --> 00:03:21,031
+And we'll keep this app exactly the same.
+
+82
+00:03:21,031 --> 00:03:22,560
+We won't make any changes here.
+
+83
+00:03:22,560 --> 00:03:26,589
+It'll simply read the configs, get the container,
+
+84
+00:03:26,589 --> 00:03:28,381
+and now I'll just simply run this application.
+
+85
+00:03:28,381 --> 00:03:31,798
+Just a right click and run as a Java app.
+
+86
+00:03:34,063 --> 00:03:35,790
+And let's expand the console window
+
+87
+00:03:35,790 --> 00:03:38,123
+and oh, yucky, yucky, yucky.
+
+88
+00:03:39,431 --> 00:03:41,283
+We see the exception.
+
+89
+00:03:41,283 --> 00:03:43,151
+The same one we saw from the slides.
+
+90
+00:03:43,151 --> 00:03:43,984
+Ugh.
+
+91
+00:03:43,984 --> 00:03:46,429
+Just all this ugly statuary stuff.
+
+92
+00:03:46,429 --> 00:03:47,262
+So the auto,
+
+93
+00:03:47,262 --> 00:03:50,595
+the injection of the auto wire failed.
+
+94
+00:03:50,595 --> 00:03:51,681
+Okay, all this stuff.
+
+95
+00:03:51,681 --> 00:03:52,607
+All this stuff.
+
+96
+00:03:52,607 --> 00:03:53,440
+Ugh.
+
+97
+00:03:54,712 --> 00:03:58,381
+So, cannot auto wire field blah, blah, blah.
+
+98
+00:03:58,381 --> 00:03:59,520
+Blah, blah, blah.
+
+99
+00:03:59,520 --> 00:04:00,697
+It's all bad news, right?
+
+100
+00:04:00,697 --> 00:04:02,379
+(laughs)
+
+101
+00:04:02,379 --> 00:04:03,272
+So here it said,
+
+102
+00:04:03,272 --> 00:04:06,626
+Expecting a single matching bean
+
+103
+00:04:06,626 --> 00:04:08,170
+but found two.
+
+104
+00:04:08,170 --> 00:04:09,572
+Wait, wait, two?
+
+105
+00:04:09,572 --> 00:04:10,405
+Happy for rent,
+
+106
+00:04:10,405 --> 00:04:12,224
+wait, what's up with that?
+
+107
+00:04:12,224 --> 00:04:13,521
+Two?
+
+108
+00:04:13,521 --> 00:04:15,259
+We had four.
+
+109
+00:04:15,259 --> 00:04:16,092
+Ugh.
+
+110
+00:04:17,448 --> 00:04:19,635
+Now I'm really sad.
+
+111
+00:04:19,635 --> 00:04:20,838
+Actually, I'm mad.
+
+112
+00:04:20,838 --> 00:04:22,171
+What's going on?
+
+113
+00:04:23,647 --> 00:04:24,814
+Let's see, oh!
+
+114
+00:04:25,758 --> 00:04:26,591
+Duh.
+
+115
+00:04:26,591 --> 00:04:27,424
+Okay, great.
+
+116
+00:04:27,424 --> 00:04:29,435
+You see the problem, the mistake I made?
+
+117
+00:04:29,435 --> 00:04:31,211
+You probably caught this earlier, right?
+
+118
+00:04:31,211 --> 00:04:34,966
+I forgot to add the @Component annotation.
+
+119
+00:04:34,966 --> 00:04:37,848
+So Spring wouldn't auto-scan these guys.
+
+120
+00:04:37,848 --> 00:04:39,116
+So it never saw these guys.
+
+121
+00:04:39,116 --> 00:04:41,472
+That's why DatabaseFortuneService
+
+122
+00:04:41,472 --> 00:04:42,681
+was never there.
+
+123
+00:04:42,681 --> 00:04:43,514
+Ooh, okay.
+
+124
+00:04:43,514 --> 00:04:44,801
+My mistake.
+
+125
+00:04:44,801 --> 00:04:47,399
+So that's fixed and I think I made the same mistake
+
+126
+00:04:47,399 --> 00:04:48,232
+over here.
+
+127
+00:04:48,232 --> 00:04:49,065
+Yeah.
+
+128
+00:04:49,065 --> 00:04:49,898
+RESTFortune.
+
+129
+00:04:49,898 --> 00:04:50,731
+Ugh.
+
+130
+00:04:50,731 --> 00:04:52,627
+Okay, so need to add @Component.
+
+131
+00:04:52,627 --> 00:04:53,715
+Ayay-yah.
+
+132
+00:04:53,715 --> 00:04:54,763
+But I'm glad you caught that.
+
+133
+00:04:54,763 --> 00:04:56,175
+You probably caught that during the video
+
+134
+00:04:56,175 --> 00:04:58,503
+and you sat there and you waited for me
+
+135
+00:04:58,503 --> 00:05:00,253
+to make this mistake.
+
+136
+00:05:01,144 --> 00:05:02,465
+So good eagle eye on your part
+
+137
+00:05:02,465 --> 00:05:03,935
+for catching that.
+
+138
+00:05:03,935 --> 00:05:04,768
+But we went through,
+
+139
+00:05:04,768 --> 00:05:06,002
+we solved it.
+
+140
+00:05:06,002 --> 00:05:09,719
+Let's save all those files and now let's go back to our
+
+141
+00:05:09,719 --> 00:05:12,552
+main app and run it one more time.
+
+142
+00:05:13,998 --> 00:05:16,659
+So back in our main application.
+
+143
+00:05:16,659 --> 00:05:19,159
+And right click and run it as.
+
+144
+00:05:22,027 --> 00:05:23,620
+Alright, so it's running.
+
+145
+00:05:23,620 --> 00:05:25,766
+We got our console output.
+
+146
+00:05:25,766 --> 00:05:26,599
+Okay, good.
+
+147
+00:05:26,599 --> 00:05:27,711
+So all the ugly stuff before,
+
+148
+00:05:27,711 --> 00:05:29,573
+all the blah, blah, blah,
+
+149
+00:05:29,573 --> 00:05:30,860
+blah, blah, blah.
+
+150
+00:05:30,860 --> 00:05:32,257
+But at least we get the error message
+
+151
+00:05:32,257 --> 00:05:33,107
+we were looking for.
+
+152
+00:05:33,107 --> 00:05:33,940
+(laughs)
+
+153
+00:05:33,940 --> 00:05:35,624
+We're actually happy to get this error message down.
+
+154
+00:05:35,624 --> 00:05:39,251
+It said that single matching bean but found
+
+155
+00:05:39,251 --> 00:05:40,084
+four.
+
+156
+00:05:40,084 --> 00:05:40,917
+Okay, good.
+
+157
+00:05:40,917 --> 00:05:42,889
+Alright, so now we broke it the way I
+
+158
+00:05:42,889 --> 00:05:43,755
+planned on breaking it.
+
+159
+00:05:43,755 --> 00:05:45,463
+(laughs)
+
+160
+00:05:45,463 --> 00:05:46,296
+Okay, good.
+
+161
+00:05:46,296 --> 00:05:47,985
+Database, happy, random, Rest.
+
+162
+00:05:47,985 --> 00:05:49,370
+Alright, so basically Spring says,
+
+163
+00:05:49,370 --> 00:05:51,098
+"Hey, I don't know which one of these beans
+
+164
+00:05:51,098 --> 00:05:51,931
+"to use.
+
+165
+00:05:51,931 --> 00:05:53,108
+"Which one of these implementations to use
+
+166
+00:05:53,108 --> 00:05:55,644
+"because they're all perfect candidates here
+
+167
+00:05:55,644 --> 00:05:57,001
+"for this auto wiring."
+
+168
+00:05:57,001 --> 00:05:59,828
+So again, write the solution and be specific.
+
+169
+00:05:59,828 --> 00:06:00,661
+Alright?
+
+170
+00:06:00,661 --> 00:06:02,578
+So we need to go back into our Tenniscoach
+
+171
+00:06:02,578 --> 00:06:06,115
+and we need to use that @Qualifier
+
+172
+00:06:06,115 --> 00:06:08,695
+and I need to give the actual bean ID
+
+173
+00:06:08,695 --> 00:06:10,806
+of the bean that I want spring to use.
+
+174
+00:06:10,806 --> 00:06:12,161
+I'll say, "Hey, I want you to use
+
+175
+00:06:12,161 --> 00:06:14,225
+"the HappyFortuneService."
+
+176
+00:06:14,225 --> 00:06:15,853
+And so I use the bean ID
+
+177
+00:06:15,853 --> 00:06:17,654
+which is the same name as the class,
+
+178
+00:06:17,654 --> 00:06:19,226
+first letter, lower case
+
+179
+00:06:19,226 --> 00:06:21,838
+because we're using the default naming image.
+
+180
+00:06:21,838 --> 00:06:23,468
+Alright, this looks good.
+
+181
+00:06:23,468 --> 00:06:26,051
+This looks really, really good.
+
+182
+00:06:29,894 --> 00:06:31,489
+Alright, so let's go ahead and run this now.
+
+183
+00:06:31,489 --> 00:06:32,839
+Back into our main application,
+
+184
+00:06:32,839 --> 00:06:34,862
+Annotation Demo App.
+
+185
+00:06:34,862 --> 00:06:37,862
+And now just right click and run it.
+
+186
+00:06:39,932 --> 00:06:40,947
+And we're up and running
+
+187
+00:06:40,947 --> 00:06:41,864
+and booyah!
+
+188
+00:06:43,410 --> 00:06:44,690
+Back to normal.
+
+189
+00:06:44,690 --> 00:06:46,335
+Okay?
+
+190
+00:06:46,335 --> 00:06:48,135
+Practice your back hand volley
+
+191
+00:06:48,135 --> 00:06:49,736
+and today is your lucky day.
+
+192
+00:06:49,736 --> 00:06:51,161
+That's the fortune that we get from our
+
+193
+00:06:51,161 --> 00:06:52,931
+HappyFortuneService.
+
+194
+00:06:52,931 --> 00:06:54,828
+All those other implementations are stub out
+
+195
+00:06:54,828 --> 00:06:55,661
+right now.
+
+196
+00:06:55,661 --> 00:06:56,494
+They simply return null,
+
+197
+00:06:56,494 --> 00:06:59,253
+but this guy gives us our desired output.
+
+198
+00:06:59,253 --> 00:07:01,114
+So it's using our HappyFortuneService.
+
+199
+00:07:01,114 --> 00:07:02,559
+So yay!
+
+200
+00:07:02,559 --> 00:07:03,950
+Good job.
+
+201
+00:07:03,950 --> 00:07:05,850
+We resolved it and how do we resolve it?
+
+202
+00:07:05,850 --> 00:07:09,933
+By being specific with our @Qualifier Annotation.
+
+203
+00:07:11,504 --> 00:07:12,337
+Yoo-hoo!
+

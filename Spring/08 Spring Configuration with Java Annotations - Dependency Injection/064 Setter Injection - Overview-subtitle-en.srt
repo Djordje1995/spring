@@ -1,0 +1,200 @@
+1
+00:00:01,382 --> 00:00:03,120
+<v Instructor>In this video, we're going to discuss</v>
+
+2
+00:00:03,120 --> 00:00:07,203
+setter injection with annotations and autowiring.
+
+3
+00:00:08,648 --> 00:00:10,917
+So we've covered different injection types so far.
+
+4
+00:00:10,917 --> 00:00:12,980
+We've covered constructor injection.
+
+5
+00:00:12,980 --> 00:00:16,813
+Here we're going to focus on setter injection.
+
+6
+00:00:17,688 --> 00:00:19,619
+Alright, so with this type of injection,
+
+7
+00:00:19,619 --> 00:00:22,361
+we basically inject dependencies by calling
+
+8
+00:00:22,361 --> 00:00:24,778
+setter methods on your class.
+
+9
+00:00:26,783 --> 00:00:28,842
+Now we'll continue to use that same example
+
+10
+00:00:28,842 --> 00:00:31,511
+that we've worked on so far.
+
+11
+00:00:31,511 --> 00:00:33,696
+We're basically going to inject a FortuneService
+
+12
+00:00:33,696 --> 00:00:35,712
+into a Coach implementation.
+
+13
+00:00:35,712 --> 00:00:38,235
+And again, Spring's going to scan all components
+
+14
+00:00:38,235 --> 00:00:40,134
+and it'll see if there's anyone
+
+15
+00:00:40,134 --> 00:00:42,851
+that implements the FortuneService interface,
+
+16
+00:00:42,851 --> 00:00:45,684
+and if so, then it will inject it.
+
+17
+00:00:47,648 --> 00:00:48,891
+Here's the development process.
+
+18
+00:00:48,891 --> 00:00:50,882
+Again, step by the step.
+
+19
+00:00:50,882 --> 00:00:52,992
+The first step is we're going to create
+
+20
+00:00:52,992 --> 00:00:55,595
+setter methods in our class for injections
+
+21
+00:00:55,595 --> 00:00:57,788
+and then in step two, we'll configure
+
+22
+00:00:57,788 --> 00:01:01,955
+the dependency injection with the Autowired Annotation.
+
+23
+00:01:04,590 --> 00:01:07,313
+Alright, so here's step one, creating the setter methods
+
+24
+00:01:07,313 --> 00:01:08,257
+in your class.
+
+25
+00:01:08,257 --> 00:01:09,739
+So here we have our tennis coach
+
+26
+00:01:09,739 --> 00:01:11,896
+and then we're going to define a setter method
+
+27
+00:01:11,896 --> 00:01:13,302
+for the fortuneService.
+
+28
+00:01:13,302 --> 00:01:17,219
+So we have setFortuneService and they pass in a param
+
+29
+00:01:17,219 --> 00:01:18,704
+and them we simply assign it.
+
+30
+00:01:18,704 --> 00:01:22,956
+Again, a very basic setter method here, nothing new.
+
+31
+00:01:22,956 --> 00:01:25,020
+But now with step two is that we're going
+
+32
+00:01:25,020 --> 00:01:26,474
+to configure the dependency injection
+
+33
+00:01:26,474 --> 00:01:29,156
+with the Autowired Annotation.
+
+34
+00:01:29,156 --> 00:01:31,587
+So in this scenario, in this example,
+
+35
+00:01:31,587 --> 00:01:35,124
+we're going to add the at-Autowired annotation
+
+36
+00:01:35,124 --> 00:01:38,675
+right on that method setFortuneService.
+
+37
+00:01:38,675 --> 00:01:41,358
+Alright, now previously in the previous videos,
+
+38
+00:01:41,358 --> 00:01:44,537
+we would set the annotation on the actual constructor,
+
+39
+00:01:44,537 --> 00:01:46,636
+but here instead we're going to place
+
+40
+00:01:46,636 --> 00:01:50,716
+the Autowired annotation on the setter method.
+
+41
+00:01:50,716 --> 00:01:52,536
+So when Spring goes to resolve this
+
+42
+00:01:52,536 --> 00:01:55,471
+or to inject the dependency, it'll say hey,
+
+43
+00:01:55,471 --> 00:01:57,654
+I have a method here called setFortuneService.
+
+44
+00:01:57,654 --> 00:02:00,299
+I need a component that implements
+
+45
+00:02:00,299 --> 00:02:02,612
+the fortuneService interface.
+
+46
+00:02:02,612 --> 00:02:04,879
+And if it finds it, then it'll actually inject it
+
+47
+00:02:04,879 --> 00:02:09,046
+and make it available here for the dependency injection.
+
+48
+00:02:10,426 --> 00:02:11,668
+Alright, this looks good.
+
+49
+00:02:11,668 --> 00:02:13,270
+In the next video, we're going to dive
+
+50
+00:02:13,270 --> 00:02:16,770
+into the clips and write some of the code.
+

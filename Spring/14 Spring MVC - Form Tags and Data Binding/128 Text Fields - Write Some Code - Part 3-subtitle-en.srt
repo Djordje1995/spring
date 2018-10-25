@@ -1,0 +1,400 @@
+1
+00:00:02,376 --> 00:00:04,928 line:15% 
+<v ->Alrighty, so we're making some really good progress here.</v>
+
+2
+00:00:04,928 --> 00:00:08,905 line:15% 
+So, our final step here was creating the confirmation page,
+
+3
+00:00:08,905 --> 00:00:11,145 line:15% 
+so we simply want to display the information
+
+4
+00:00:11,145 --> 00:00:13,633 line:15% 
+on the webpage as far as what the user entered.
+
+5
+00:00:13,633 --> 00:00:16,505 line:15% 
+So we'll create this file here called student confirmation.
+
+6
+00:00:16,505 --> 00:00:19,407
+So let me swing back over to the directories here
+
+7
+00:00:19,407 --> 00:00:22,259
+on the web view and I'll just do
+
+8
+00:00:22,259 --> 00:00:23,897
+a right click on this folder and I'll say
+
+9
+00:00:23,897 --> 00:00:24,730
+new file.
+
+10
+00:00:26,966 --> 00:00:28,555
+An actual name of the file,
+
+11
+00:00:28,555 --> 00:00:31,638
+I'll call it studentconfirmation.jsp.
+
+12
+00:00:33,538 --> 00:00:37,081
+I'll hit finish, and actually what I want to do is
+
+13
+00:00:37,081 --> 00:00:39,775
+copy some of the basic html stuff
+
+14
+00:00:39,775 --> 00:00:41,374 line:15% 
+from our other student form,
+
+15
+00:00:41,374 --> 00:00:42,785 line:15% 
+I don't want to type it all again.
+
+16
+00:00:42,785 --> 00:00:44,966 line:15% 
+I'm getting a little lazy here,
+
+17
+00:00:44,966 --> 00:00:49,368 line:15% 
+so I'll just copy all the doctype header body stuff.
+
+18
+00:00:49,368 --> 00:00:51,230 line:15% 
+Just do a copy on that
+
+19
+00:00:51,230 --> 00:00:54,250 line:15% 
+and I'll just swing over to my confirmation page
+
+20
+00:00:54,250 --> 00:00:56,352
+and just do a paste
+
+21
+00:00:56,352 --> 00:01:00,516
+and then I'll just do a /body/html there.
+
+22
+00:01:00,516 --> 00:01:01,701
+Cool. Alright, good.
+
+23
+00:01:01,701 --> 00:01:03,289
+So, that's the basics there and instead of
+
+24
+00:01:03,289 --> 00:01:04,641
+student registration form,
+
+25
+00:01:04,641 --> 00:01:07,141
+I'll say student confirmation.
+
+26
+00:01:09,832 --> 00:01:10,665
+Cool.
+
+27
+00:01:10,665 --> 00:01:13,928
+So it takes care of all the regular stuff.
+
+28
+00:01:13,928 --> 00:01:15,063
+Now, I simply want to give the
+
+29
+00:01:15,063 --> 00:01:17,165 line:15% 
+confirmation message here.
+
+30
+00:01:17,165 --> 00:01:20,204 line:15% 
+So I'll say, "The student is confirmed."
+
+31
+00:01:20,204 --> 00:01:21,763 line:15% 
+And basically I need to give the student's
+
+32
+00:01:21,763 --> 00:01:23,392 line:15% 
+first name and last name.
+
+33
+00:01:23,392 --> 00:01:25,316 line:15% 
+So I use the dollar sign curly brace
+
+34
+00:01:25,316 --> 00:01:28,272 line:15% 
+student.firstName then a space with
+
+35
+00:01:28,272 --> 00:01:32,487 line:15% 
+dollar sign curly brace student.lastName.
+
+36
+00:01:32,487 --> 00:01:33,790 line:15% 
+So again, remember here, they'll simply
+
+37
+00:01:33,790 --> 00:01:35,873 line:15% 
+call student.getFirstName
+
+38
+00:01:39,298 --> 00:01:43,330
+and likewise they'll call student.getLastName.
+
+39
+00:01:43,330 --> 00:01:45,017
+That will give us the output here
+
+40
+00:01:45,017 --> 00:01:46,399
+for this confirmation page,
+
+41
+00:01:46,399 --> 00:01:48,086
+which you've seen all this before,
+
+42
+00:01:48,086 --> 00:01:49,971
+this is really simple for you now.
+
+43
+00:01:49,971 --> 00:01:51,274
+You're an expert now.
+
+44
+00:01:51,274 --> 00:01:53,357
+This is easy. Easy, easy.
+
+45
+00:01:54,373 --> 00:01:55,596
+Alright good, so this looks really good.
+
+46
+00:01:55,596 --> 00:01:57,156
+We're in good shape.
+
+47
+00:01:57,156 --> 00:01:58,508
+I think we're at the point where
+
+48
+00:01:58,508 --> 00:01:59,682
+we can actually go through and
+
+49
+00:01:59,682 --> 00:02:01,774
+test out the application.
+
+50
+00:02:01,774 --> 00:02:03,708
+Actually, there's one thing I wanna do.
+
+51
+00:02:03,708 --> 00:02:06,876
+I wanna go back and actually change our main menu.
+
+52
+00:02:06,876 --> 00:02:09,205
+I wanna add a link there to the main menu
+
+53
+00:02:09,205 --> 00:02:11,889
+to point to this new form that we just created,
+
+54
+00:02:11,889 --> 00:02:15,718 line:15% 
+so let's go ahead and open up main-menu.jsp
+
+55
+00:02:15,718 --> 00:02:18,126 line:15% 
+and update our links.
+
+56
+00:02:18,126 --> 00:02:19,222 line:15% 
+So here it is.
+
+57
+00:02:19,222 --> 00:02:21,630 line:15% 
+So we currently have a link for the Hello World form,
+
+58
+00:02:21,630 --> 00:02:24,580 line:15% 
+I'll add some BRs, some line breaks here.
+
+59
+00:02:24,580 --> 00:02:27,086
+I'll copy this href from line 10.
+
+60
+00:02:27,086 --> 00:02:29,148
+I'll paste it on line 14
+
+61
+00:02:29,148 --> 00:02:32,000
+and now instead of Hello, this will be
+
+62
+00:02:32,000 --> 00:02:36,167
+student/showForm and I'll call it student form.
+
+63
+00:02:38,109 --> 00:02:39,638
+So on our main menu, we simply have
+
+64
+00:02:39,638 --> 00:02:43,805
+a link that will take us directly to our student form.
+
+65
+00:02:44,849 --> 00:02:46,615
+Alright, so this is really shaping up
+
+66
+00:02:46,615 --> 00:02:47,967
+to be a nice little app.
+
+67
+00:02:47,967 --> 00:02:48,800
+I'm happy.
+
+68
+00:02:50,079 --> 00:02:51,974
+I'm happy I'm getting excited.
+
+69
+00:02:51,974 --> 00:02:54,875
+I think I can start running it now, yeah.
+
+70
+00:02:54,875 --> 00:02:57,254
+Alright, let's go ahead and move to our app.
+
+71
+00:02:57,254 --> 00:02:59,514
+Let's bring the MDC demo, right click,
+
+72
+00:02:59,514 --> 00:03:02,681
+choose run as, and then run on server.
+
+73
+00:03:05,948 --> 00:03:07,339
+Alright, so the app is up.
+
+74
+00:03:07,339 --> 00:03:09,165
+There's our new link for our student form.
+
+75
+00:03:09,165 --> 00:03:12,082
+Let's go ahead and click that link.
+
+76
+00:03:16,951 --> 00:03:18,471
+Shows our form, so we just enter
+
+77
+00:03:18,471 --> 00:03:21,984
+our first name and our last name, John Doe.
+
+78
+00:03:21,984 --> 00:03:24,651
+And let's hit the submit button.
+
+79
+00:03:27,116 --> 00:03:28,409
+Cool, so there's our confirmation page,
+
+80
+00:03:28,409 --> 00:03:30,017
+the student is confirmed.
+
+81
+00:03:30,017 --> 00:03:33,185
+Now we've done a lot of this stuff earlier in the class,
+
+82
+00:03:33,185 --> 00:03:34,448
+but now we're actually making use of
+
+83
+00:03:34,448 --> 00:03:37,606
+Spring MVC Form Tags and we're also making use of
+
+84
+00:03:37,606 --> 00:03:41,773
+@ModelAttribute to bind form data to java objects.
+
+85
+00:03:43,843 --> 00:03:44,676
+And that's really cool.
+
+86
+00:03:44,676 --> 00:03:48,008
+We're making use of this data binding here in Spring.
+
+87
+00:03:48,008 --> 00:03:49,488
+Oh and also let's take a peek here
+
+88
+00:03:49,488 --> 00:03:51,728
+at our output for our controller.
+
+89
+00:03:51,728 --> 00:03:53,455
+So, when we log that information,
+
+90
+00:03:53,455 --> 00:03:56,465
+it's showing up right here in the console window
+
+91
+00:03:56,465 --> 00:03:58,143
+for that controller output,
+
+92
+00:03:58,143 --> 00:03:59,998
+so this is cool also.
+
+93
+00:03:59,998 --> 00:04:01,380
+I'm happy, I'm excited.
+
+94
+00:04:01,380 --> 00:04:03,112
+So we kind of walked through this whole
+
+95
+00:04:03,112 --> 00:04:05,032
+developmental process and we did it step by step.
+
+96
+00:04:05,032 --> 00:04:07,805
+So we created our student class, controller,
+
+97
+00:04:07,805 --> 00:04:10,164
+form, processing code, and finally,
+
+98
+00:04:10,164 --> 00:04:12,138
+our confirmation page.
+
+99
+00:04:12,138 --> 00:04:14,506
+So, good job with everything.
+
+100
+00:04:14,506 --> 00:04:15,339
+Woohoo.
+

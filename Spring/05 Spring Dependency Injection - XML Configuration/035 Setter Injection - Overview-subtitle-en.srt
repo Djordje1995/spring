@@ -1,0 +1,300 @@
+1
+00:00:01,497 --> 00:00:02,533
+<v Instructor>In this video,</v>
+
+2
+00:00:02,533 --> 00:00:05,700
+we're going to cover setter injection.
+
+3
+00:00:06,837 --> 00:00:09,014
+So we've already covered constructor injection
+
+4
+00:00:09,014 --> 00:00:10,528
+in the previous videos.
+
+5
+00:00:10,528 --> 00:00:14,695
+And this video will focus on making use of setter injection.
+
+6
+00:00:17,750 --> 00:00:19,628
+So with setter injection,
+
+7
+00:00:19,628 --> 00:00:21,794
+this is where the spring framework will inject
+
+8
+00:00:21,794 --> 00:00:25,961
+your dependencies by calling setter methods on your class.
+
+9
+00:00:28,467 --> 00:00:30,449
+So looking at the development process,
+
+10
+00:00:30,449 --> 00:00:33,822
+and again, I love to do things step-by-step.
+
+11
+00:00:33,822 --> 00:00:35,058
+The first thing we'll have to do,
+
+12
+00:00:35,058 --> 00:00:36,389
+or the first step we'll have is
+
+13
+00:00:36,389 --> 00:00:40,503
+creating the setter methods in our class for injections.
+
+14
+00:00:40,503 --> 00:00:44,223
+Then the second step is configuring the dependency
+
+15
+00:00:44,223 --> 00:00:46,973
+in the Spring configuration file.
+
+16
+00:00:50,792 --> 00:00:53,213
+Okay, so let's take a look at step one,
+
+17
+00:00:53,213 --> 00:00:54,797
+creating the setter method.
+
+18
+00:00:54,797 --> 00:00:58,160
+So we'll have this new class called CricketCoach.
+
+19
+00:00:58,160 --> 00:00:59,959
+We're going to explore a new sport here.
+
+20
+00:00:59,959 --> 00:01:03,067
+So CricketCoach, they'll have a private field,
+
+21
+00:01:03,067 --> 00:01:05,198
+they'll have a no-argument constructor,
+
+22
+00:01:05,198 --> 00:01:06,976
+and then we'll have a setter method
+
+23
+00:01:06,976 --> 00:01:08,965
+for setFortuneService.
+
+24
+00:01:08,965 --> 00:01:11,890
+This is the method that will be called by Spring
+
+25
+00:01:11,890 --> 00:01:13,846
+when they inject the dependency
+
+26
+00:01:13,846 --> 00:01:15,763
+using setter injection.
+
+27
+00:01:19,093 --> 00:01:21,282
+So in step two, we have to configure
+
+28
+00:01:21,282 --> 00:01:22,683
+the dependency injection
+
+29
+00:01:22,683 --> 00:01:24,447
+in our Spring config file.
+
+30
+00:01:24,447 --> 00:01:26,590
+So up top, we have our FortuneService,
+
+31
+00:01:26,590 --> 00:01:28,433
+like from the previous videos.
+
+32
+00:01:28,433 --> 00:01:30,130
+And now here, on the bottom,
+
+33
+00:01:30,130 --> 00:01:32,202
+we'll have this myCricketCoach.
+
+34
+00:01:32,202 --> 00:01:35,438
+We inject the dependency using setter injection.
+
+35
+00:01:35,438 --> 00:01:37,007
+So here we say property.
+
+36
+00:01:37,007 --> 00:01:39,666
+We give the name of the property, fortuneService,
+
+37
+00:01:39,666 --> 00:01:42,422
+and then the ref myFortuneService.
+
+38
+00:01:42,422 --> 00:01:44,494
+And the ref refers to the bean
+
+39
+00:01:44,494 --> 00:01:49,421
+that was defined a little earlier in this example.
+
+40
+00:01:49,421 --> 00:01:52,691
+Now we have property name="fortuneService".
+
+41
+00:01:52,691 --> 00:01:54,296
+What Spring will actually do is
+
+42
+00:01:54,296 --> 00:01:56,074
+it'll take that property name,
+
+43
+00:01:56,074 --> 00:01:58,542
+and call the setter method on your class
+
+44
+00:01:58,542 --> 00:01:59,914
+for that given property.
+
+45
+00:01:59,914 --> 00:02:01,830
+So they'll look for a public method
+
+46
+00:02:01,830 --> 00:02:03,913
+called setFortuneService.
+
+47
+00:02:04,786 --> 00:02:07,776
+So Spring will actually call the setFortuneService,
+
+48
+00:02:07,776 --> 00:02:11,747
+and they'll pass in that value for that call.
+
+49
+00:02:11,747 --> 00:02:15,588
+So, in general, any property name you have,
+
+50
+00:02:15,588 --> 00:02:19,073
+Spring will attempt to make a call to the setter method
+
+51
+00:02:19,073 --> 00:02:20,658
+for that given property.
+
+52
+00:02:20,658 --> 00:02:23,571
+So if I had a property name BestAthlete,
+
+53
+00:02:23,571 --> 00:02:25,419
+Spring will look for a method called
+
+54
+00:02:25,419 --> 00:02:28,145
+public void setBestAthlete.
+
+55
+00:02:28,145 --> 00:02:29,973
+So, it takes that property name,
+
+56
+00:02:29,973 --> 00:02:32,349
+the first letter of that property,
+
+57
+00:02:32,349 --> 00:02:33,580
+and makes it a capital,
+
+58
+00:02:33,580 --> 00:02:37,163
+and then it makes a method call on the fly.
+
+59
+00:02:38,212 --> 00:02:40,974
+So this is how Spring will process your config file.
+
+60
+00:02:40,974 --> 00:02:44,043
+So up top, we have the bean ID of myFortuneService.
+
+61
+00:02:44,043 --> 00:02:45,465
+And like we've seen before,
+
+62
+00:02:45,465 --> 00:02:47,921
+Spring simply creates an instance
+
+63
+00:02:47,921 --> 00:02:49,626
+of your FortuneService by using
+
+64
+00:02:49,626 --> 00:02:52,972
+the new keyword for the no-argument constructor.
+
+65
+00:02:52,972 --> 00:02:54,932
+Then for our CricketCoach,
+
+66
+00:02:54,932 --> 00:02:57,493
+Spring will create a new CricketCoach
+
+67
+00:02:57,493 --> 00:02:59,606
+using its no-argument constructor,
+
+68
+00:02:59,606 --> 00:03:02,215
+and then it'll inject that dependency
+
+69
+00:03:02,215 --> 00:03:04,115
+by calling the setter method.
+
+70
+00:03:04,115 --> 00:03:05,782
+So whatever the property name is,
+
+71
+00:03:05,782 --> 00:03:08,259
+in this case the property name is FortuneService,
+
+72
+00:03:08,259 --> 00:03:11,325
+Spring will call setFortuneService,
+
+73
+00:03:11,325 --> 00:03:14,499
+and they'll pass in a reference to that given bean.
+
+74
+00:03:14,499 --> 00:03:16,954
+And that's what happens behind the scenes
+
+75
+00:03:16,954 --> 00:03:20,787
+when Spring processes your configuration file.
+

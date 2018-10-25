@@ -1,0 +1,400 @@
+1
+00:00:01,674 --> 00:00:02,568
+<v Voiceover>In this video,</v>
+
+2
+00:00:02,568 --> 00:00:05,901
+we're gonna define beans with Java code.
+
+3
+00:00:07,922 --> 00:00:08,758
+Earlier in the course,
+
+4
+00:00:08,758 --> 00:00:10,881
+we learned how to define beans using XML,
+
+5
+00:00:10,881 --> 00:00:13,075
+so we would list each bean out separately
+
+6
+00:00:13,075 --> 00:00:14,773
+in the XML file.
+
+7
+00:00:14,773 --> 00:00:16,031
+Well, now we're making use of these
+
+8
+00:00:16,031 --> 00:00:18,232
+Java configuration classes.
+
+9
+00:00:18,232 --> 00:00:19,950
+Right now our classes are empty.
+
+10
+00:00:19,950 --> 00:00:22,639
+We're actually gonna add beans into this class,
+
+11
+00:00:22,639 --> 00:00:25,472
+and we're gonna do it with no XML.
+
+12
+00:00:27,046 --> 00:00:28,298
+Let's take a look at a new class.
+
+13
+00:00:28,298 --> 00:00:30,501
+We're gonna introduce here our new coach
+
+14
+00:00:30,501 --> 00:00:31,878
+called SwimCoach.
+
+15
+00:00:31,878 --> 00:00:33,295
+He's gonna implement the Coach interface,
+
+16
+00:00:33,295 --> 00:00:35,123
+and it's a plain old Java class
+
+17
+00:00:35,123 --> 00:00:37,456
+with no special annotations.
+
+18
+00:00:39,570 --> 00:00:40,941
+So we'll have a coach.
+
+19
+00:00:40,941 --> 00:00:43,788
+He'll also have a fortune service implementation,
+
+20
+00:00:43,788 --> 00:00:46,090
+and we'll learn how to inject that fortune service
+
+21
+00:00:46,090 --> 00:00:48,173
+using just raw Java code.
+
+22
+00:00:49,989 --> 00:00:51,243
+So here's the development process
+
+23
+00:00:51,243 --> 00:00:53,604
+kind of step by step.
+
+24
+00:00:53,604 --> 00:00:55,434
+So the first thing we're gonna do is
+
+25
+00:00:55,434 --> 00:00:58,779
+define methods to expose the bean,
+
+26
+00:00:58,779 --> 00:01:01,966
+then we'll inject the bean dependencies,
+
+27
+00:01:01,966 --> 00:01:04,703
+then we'll read this Spring configuration class
+
+28
+00:01:04,703 --> 00:01:06,355
+in our main program,
+
+29
+00:01:06,355 --> 00:01:08,856
+and then finally we'll retrieve the bean
+
+30
+00:01:08,856 --> 00:01:11,056
+from the Spring container.
+
+31
+00:01:11,056 --> 00:01:12,269
+So we have a lot of things here,
+
+32
+00:01:12,269 --> 00:01:14,091
+but we'll, of course, we'll go through it
+
+33
+00:01:14,091 --> 00:01:15,174
+step by step.
+
+34
+00:01:16,219 --> 00:01:17,563
+So let's start with the first step,
+
+35
+00:01:17,563 --> 00:01:19,444
+defining a method to expose the bean.
+
+36
+00:01:19,444 --> 00:01:22,523
+So in our configuration class, SportConfig,
+
+37
+00:01:22,523 --> 00:01:24,306
+we're gonna make use of a new annotation
+
+38
+00:01:24,306 --> 00:01:28,281
+called @Bean, so this basically defines a bean.
+
+39
+00:01:28,281 --> 00:01:30,697
+So here we'll provide a method called SwimCoach
+
+40
+00:01:30,697 --> 00:01:32,314
+that returns Coach.
+
+41
+00:01:32,314 --> 00:01:33,732
+Internally inside of this method,
+
+42
+00:01:33,732 --> 00:01:36,110
+we actually create a new instance of this bean.
+
+43
+00:01:36,110 --> 00:01:40,181
+So I say mySwimCoach = new SwimCoach,
+
+44
+00:01:40,181 --> 00:01:42,148
+return mySwimCoach.
+
+45
+00:01:42,148 --> 00:01:44,137
+So the method name here, SwimCoach,
+
+46
+00:01:44,137 --> 00:01:46,956
+that's the actual bean ID that will be registered
+
+47
+00:01:46,956 --> 00:01:49,737
+by the Spring container.
+
+48
+00:01:49,737 --> 00:01:50,607
+And in this example,
+
+49
+00:01:50,607 --> 00:01:53,270
+notice we're not using component scan.
+
+50
+00:01:53,270 --> 00:01:55,540
+In this configuration, we're actually gonna define
+
+51
+00:01:55,540 --> 00:01:59,707
+each bean individually within this configuration class.
+
+52
+00:02:04,481 --> 00:02:05,860
+The next question you may have is like,
+
+53
+00:02:05,860 --> 00:02:07,551
+well, what about our dependencies?
+
+54
+00:02:07,551 --> 00:02:09,442
+How will we inject our dependencies?
+
+55
+00:02:09,442 --> 00:02:11,529
+Because we know that a coach needs
+
+56
+00:02:11,529 --> 00:02:13,803
+a fortune service dependency.
+
+57
+00:02:13,803 --> 00:02:14,656
+So how will we do that,
+
+58
+00:02:14,656 --> 00:02:16,010
+or how will we pull it in?
+
+59
+00:02:16,010 --> 00:02:19,427
+And I'll show you how in this next slide.
+
+60
+00:02:20,819 --> 00:02:23,496
+In step two, to actually inject the bean dependencies,
+
+61
+00:02:23,496 --> 00:02:25,533
+we make use of this @Bean,
+
+62
+00:02:25,533 --> 00:02:28,291
+and we define the bean here for happyFortuneService.
+
+63
+00:02:28,291 --> 00:02:30,190
+So again, I'll create another method here
+
+64
+00:02:30,190 --> 00:02:32,640
+called happyFortuneService that returns
+
+65
+00:02:32,640 --> 00:02:36,362
+a new instance of happyFortuneService.
+
+66
+00:02:36,362 --> 00:02:39,661
+Now, the bean method name here, happyFortuneService,
+
+67
+00:02:39,661 --> 00:02:41,555
+that's the actual bean ID
+
+68
+00:02:41,555 --> 00:02:44,586
+that Spring will use when they register this bean
+
+69
+00:02:44,586 --> 00:02:47,003
+with the application context.
+
+70
+00:02:48,230 --> 00:02:50,002
+Then we simply use that later on
+
+71
+00:02:50,002 --> 00:02:51,395
+when we create the SwimCoach.
+
+72
+00:02:51,395 --> 00:02:52,718
+We say new SwimCoach,
+
+73
+00:02:52,718 --> 00:02:55,116
+and then we pass in happyFortuneService.
+
+74
+00:02:55,116 --> 00:02:56,341
+Note the parens here.
+
+75
+00:02:56,341 --> 00:02:58,781
+We're actually calling that bean reference up top,
+
+76
+00:02:58,781 --> 00:03:00,018
+and Spring will intercept that
+
+77
+00:03:00,018 --> 00:03:04,185
+and handle the quarterly based on the bean configuration.
+
+78
+00:03:06,106 --> 00:03:07,599
+Then the next step here is reading the
+
+79
+00:03:07,599 --> 00:03:10,065
+Spring Java configuration class.
+
+80
+00:03:10,065 --> 00:03:13,132
+So, same thing we saw before, the AnnotationConfig.
+
+81
+00:03:13,132 --> 00:03:17,299
+We simply give a reference to our SportConfig.class.
+
+82
+00:03:19,301 --> 00:03:21,774
+And then finally, just for completeness here,
+
+83
+00:03:21,774 --> 00:03:23,656
+retrieving the bean from the container.
+
+84
+00:03:23,656 --> 00:03:26,166
+So again, just like we've worked on before,
+
+85
+00:03:26,166 --> 00:03:28,270
+you simply say context.getBean,
+
+86
+00:03:28,270 --> 00:03:30,163
+and you simply give the bean ID.
+
+87
+00:03:30,163 --> 00:03:32,092
+And again, the bean ID's the actual method name
+
+88
+00:03:32,092 --> 00:03:34,251
+for that @Bean annotation,
+
+89
+00:03:34,251 --> 00:03:36,189
+so in this case, it's swimCoach.
+
+90
+00:03:36,189 --> 00:03:37,716
+And that's basically it.
+
+91
+00:03:37,716 --> 00:03:39,219
+So we went through the gory process
+
+92
+00:03:39,219 --> 00:03:41,953
+of actually using the Java source code
+
+93
+00:03:41,953 --> 00:03:43,669
+of the Java config approach
+
+94
+00:03:43,669 --> 00:03:45,551
+to actually define two beans
+
+95
+00:03:45,551 --> 00:03:48,272
+and then also inject the dependencies.
+
+96
+00:03:48,272 --> 00:03:50,682
+So this is really good stuff.
+
+97
+00:03:50,682 --> 00:03:51,515
+In the next video,
+
+98
+00:03:51,515 --> 00:03:52,694
+we'll dive into the clips,
+
+99
+00:03:52,694 --> 00:03:54,369
+and we'll start writing some code.
+
+100
+00:03:54,369 --> 00:03:56,202
+So I'll see you there.
+

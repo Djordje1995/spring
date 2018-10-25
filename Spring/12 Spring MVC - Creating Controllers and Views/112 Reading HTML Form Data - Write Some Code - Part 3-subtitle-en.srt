@@ -1,0 +1,252 @@
+1
+00:00:01,497 --> 00:00:02,754
+<v Instructor>Alrighty, so let's go ahead</v>
+
+2
+00:00:02,754 --> 00:00:05,194 line:15% 
+and run our application, I think we're ready
+
+3
+00:00:05,194 --> 00:00:07,111 line:15% 
+to test this thing out!
+
+4
+00:00:09,169 --> 00:00:10,905
+So we'll right-click on our project
+
+5
+00:00:10,905 --> 00:00:15,009
+and we'll choose Run As and run on the server!
+
+6
+00:00:15,009 --> 00:00:16,491
+Alright, so here's our page.
+
+7
+00:00:16,491 --> 00:00:19,630
+Now let's go ahead and enter /showForm
+
+8
+00:00:19,630 --> 00:00:22,218
+in the URL up top and hit enter.
+
+9
+00:00:22,218 --> 00:00:23,457
+Okay, great, there's our page.
+
+10
+00:00:23,457 --> 00:00:26,017
+So let's go ahead and enter a student name.
+
+11
+00:00:26,017 --> 00:00:28,885
+So I'll enter the student name of John
+
+12
+00:00:28,885 --> 00:00:31,597
+and I'll hit the submit button
+
+13
+00:00:31,597 --> 00:00:34,214
+and whoo-hoo, there we go.
+
+14
+00:00:34,214 --> 00:00:35,988
+Hello World of Spring, and student name
+
+15
+00:00:35,988 --> 00:00:39,991
+John, and John's the actual form data that we entered
+
+16
+00:00:39,991 --> 00:00:42,429
+so we're able to read
+
+17
+00:00:42,429 --> 00:00:45,262
+form data with Spring MVC, ya-hoo!
+
+18
+00:00:49,038 --> 00:00:52,621
+Alright, I'm having too much fun over here.
+
+19
+00:00:53,797 --> 00:00:55,437
+But one thing I wanna do is actually kinda
+
+20
+00:00:55,437 --> 00:00:58,037
+clean this up a bit, so that I don't have to enter
+
+21
+00:00:58,037 --> 00:00:59,889 line:15% 
+the show form every time.
+
+22
+00:00:59,889 --> 00:01:01,271 line:15% 
+I liked to be able to just have a link
+
+23
+00:01:01,271 --> 00:01:04,508 line:15% 
+that they will simply click and go to this form
+
+24
+00:01:04,508 --> 00:01:08,796 line:15% 
+just to kinda clean it up, make it a bit more professional.
+
+25
+00:01:08,796 --> 00:01:10,664
+So what I'm gonna do is actually move over
+
+26
+00:01:10,664 --> 00:01:13,189 line:15% 
+to this main-menu.jsp.
+
+27
+00:01:13,189 --> 00:01:14,899 line:15% 
+So this is the first page that's shown
+
+28
+00:01:14,899 --> 00:01:17,232 line:15% 
+whenever we run our project.
+
+29
+00:01:18,249 --> 00:01:21,082 line:15% 
+And I'm gonna set up an html link.
+
+30
+00:01:22,504 --> 00:01:24,813
+So here I'll set up
+
+31
+00:01:24,813 --> 00:01:27,902
+a little label here saying hello world form,
+
+32
+00:01:27,902 --> 00:01:30,520
+and then I will put an actual link for it here,
+
+33
+00:01:30,520 --> 00:01:31,853
+so a href equals
+
+34
+00:01:32,785 --> 00:01:36,285
+and then this will simply go to show form.
+
+35
+00:01:37,539 --> 00:01:40,695
+And then we'll put the end anchor tag at the end
+
+36
+00:01:40,695 --> 00:01:44,300 line:15% 
+and that's it, so now we'll have this Hello World form
+
+37
+00:01:44,300 --> 00:01:46,703 line:15% 
+show up as a hyperlink, and when they click it,
+
+38
+00:01:46,703 --> 00:01:48,643 line:15% 
+it'll go to show form.
+
+39
+00:01:48,643 --> 00:01:50,660 line:15% 
+It's the actual request mapping in our
+
+40
+00:01:50,660 --> 00:01:52,721 line:15% 
+Spring MVC code.
+
+41
+00:01:52,721 --> 00:01:55,256
+So here, let me just remove that show form at the beginning
+
+42
+00:01:55,256 --> 00:01:57,423
+of the URL, and hit enter.
+
+43
+00:01:58,529 --> 00:01:59,888
+And great, so that's our home page
+
+44
+00:01:59,888 --> 00:02:01,582
+and note the new link here, whoo-hoo!
+
+45
+00:02:01,582 --> 00:02:02,748
+Looking good, looking good.
+
+46
+00:02:02,748 --> 00:02:06,094
+And then let's click this link and
+
+47
+00:02:06,094 --> 00:02:08,561
+magic (chuckle) shows the form.
+
+48
+00:02:08,561 --> 00:02:11,833
+Nothing really fancy, this is very basic html 101.
+
+49
+00:02:11,833 --> 00:02:14,266
+But anyway, we've kinda cleaned up our example a bit
+
+50
+00:02:14,266 --> 00:02:16,846
+so that we don't have to manually enter information
+
+51
+00:02:16,846 --> 00:02:18,184
+in the URL.
+
+52
+00:02:18,184 --> 00:02:19,867
+Enter the student name Billy, hit submit,
+
+53
+00:02:19,867 --> 00:02:22,568
+and everything works out as desired.
+
+54
+00:02:22,568 --> 00:02:24,544
+So anyway, just wanna kinda go full circle
+
+55
+00:02:24,544 --> 00:02:27,580
+building out that example, reading form data,
+
+56
+00:02:27,580 --> 00:02:29,802
+and then finally here at the end,
+
+57
+00:02:29,802 --> 00:02:32,535
+we just added a hyperlink to actually
+
+58
+00:02:32,535 --> 00:02:34,184
+automatically show the form
+
+59
+00:02:34,184 --> 00:02:36,030
+and end process on it, so
+
+60
+00:02:36,030 --> 00:02:37,497
+good example, I'm happy.
+
+61
+00:02:37,497 --> 00:02:38,829
+I hope you're happy.
+
+62
+00:02:38,829 --> 00:02:41,264
+We made some very good progress here.
+
+63
+00:02:41,264 --> 00:02:44,097
+So I'll see you in the next video.
+

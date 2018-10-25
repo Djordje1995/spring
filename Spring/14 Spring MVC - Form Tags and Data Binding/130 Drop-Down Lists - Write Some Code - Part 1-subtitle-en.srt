@@ -1,0 +1,396 @@
+1
+00:00:01,219 --> 00:00:02,052
+<v Instructor>All right, so let's go ahead</v>
+
+2
+00:00:02,052 --> 00:00:04,735
+and move into Eclipse, three steps here:
+
+3
+00:00:04,735 --> 00:00:08,144
+updating our HTML form, updating our student class
+
+4
+00:00:08,144 --> 00:00:11,477
+and also updating our confirmation page.
+
+5
+00:00:15,317 --> 00:00:17,055
+So, let's go ahead and start with Step One,
+
+6
+00:00:17,055 --> 00:00:19,296
+updating the HTML form.
+
+7
+00:00:19,296 --> 00:00:20,934
+So, I'll go into our View
+
+8
+00:00:20,934 --> 00:00:23,848
+and I'll find our student-form.jsp,
+
+9
+00:00:23,848 --> 00:00:27,368
+I'll double-click that file and open it up,
+
+10
+00:00:27,368 --> 00:00:30,268
+stretch it out and I'll move down here,
+
+11
+00:00:30,268 --> 00:00:31,418
+right below Last name,
+
+12
+00:00:31,418 --> 00:00:35,467
+I'm gonna add a new entry here for country
+
+13
+00:00:35,467 --> 00:00:37,818
+because I want to have a little drop-down list for country.
+
+14
+00:00:37,818 --> 00:00:41,318
+So, I'll just copy the br's there for a second
+
+15
+00:00:41,318 --> 00:00:42,151
+and I'll just zoom in.
+
+16
+00:00:42,151 --> 00:00:45,245
+I'll go ahead and enter the label here, Country,
+
+17
+00:00:45,245 --> 00:00:48,162
+and then I'll set up my form:select
+
+18
+00:00:51,125 --> 00:00:55,325
+and I'll set the path equals="country"
+
+19
+00:00:55,325 --> 00:00:57,636
+and then I'll do a /form:select.
+
+20
+00:00:57,636 --> 00:01:00,803
+All right, so that looks good, so far.
+
+21
+00:01:02,503 --> 00:01:04,871
+So, now, I need to give 'em some options
+
+22
+00:01:04,871 --> 00:01:08,788
+for the drop-down list, so I'll say form:option
+
+23
+00:01:10,003 --> 00:01:14,081
+and then I give value= and then I give label=
+
+24
+00:01:14,081 --> 00:01:16,293
+and for right now, I'll just make it an empty string.
+
+25
+00:01:16,293 --> 00:01:19,343
+I'm just gonna copy paste this x number of times,
+
+26
+00:01:19,343 --> 00:01:21,781
+'cause I, you know, I have a lot of coding here to do,
+
+27
+00:01:21,781 --> 00:01:23,691
+so, again, I'm being lazy.
+
+28
+00:01:23,691 --> 00:01:25,102
+So, I'll just copy paste that
+
+29
+00:01:25,102 --> 00:01:27,232
+and now I'll just go ahead and enter the values here
+
+30
+00:01:27,232 --> 00:01:29,612
+for the different countries.
+
+31
+00:01:29,612 --> 00:01:31,653
+So, I'll start with value for Brazil,
+
+32
+00:01:31,653 --> 00:01:34,373
+copy paste that for label and then I'll go ahead
+
+33
+00:01:34,373 --> 00:01:36,696
+and kind of speed the video up here for a second.
+
+34
+00:01:36,696 --> 00:01:40,863
+I'll do a similar thing for France, Germany and India.
+
+35
+00:01:46,113 --> 00:01:47,161
+All right, so there we go,
+
+36
+00:01:47,161 --> 00:01:49,475
+so we have this drop-down list set up
+
+37
+00:01:49,475 --> 00:01:50,435
+and the important thing here is
+
+38
+00:01:50,435 --> 00:01:52,255
+that when we actually do a submit,
+
+39
+00:01:52,255 --> 00:01:54,338
+Spring MVC is gonna call,
+
+40
+00:01:55,275 --> 00:01:58,507
+it's gonna call student.setCountry,
+
+41
+00:01:58,507 --> 00:01:59,417
+so we'll have to make sure
+
+42
+00:01:59,417 --> 00:02:02,917
+that our java object has support for that.
+
+43
+00:02:04,396 --> 00:02:06,178
+So, that's actually our next step here, Step Two.
+
+44
+00:02:06,178 --> 00:02:10,570
+We're going to add the property to the Student class.
+
+45
+00:02:10,570 --> 00:02:11,629
+So, I'll move over to,
+
+46
+00:02:11,629 --> 00:02:15,510
+over here to my Java source code, under Resources,
+
+47
+00:02:15,510 --> 00:02:17,593
+student.java, beam it up.
+
+48
+00:02:19,266 --> 00:02:20,966
+All right, so let's move into student.java.
+
+49
+00:02:20,966 --> 00:02:22,934
+We're going to add a new field,
+
+50
+00:02:22,934 --> 00:02:25,264
+so this is gonna be a field for Country, which is a String,
+
+51
+00:02:25,264 --> 00:02:27,596
+so I'll say private String country;
+
+52
+00:02:27,596 --> 00:02:29,674
+so that's the new field that we've added,
+
+53
+00:02:29,674 --> 00:02:31,534
+but now we need to expose it as a property
+
+54
+00:02:31,534 --> 00:02:33,142
+by using those getter setter methods.
+
+55
+00:02:33,142 --> 00:02:36,255
+So, let me kind of move down to the bottom of this file
+
+56
+00:02:36,255 --> 00:02:38,926
+and I make use of my right-click.
+
+57
+00:02:38,926 --> 00:02:41,050
+Then, I'll go to Source
+
+58
+00:02:41,050 --> 00:02:44,550
+and I'll say Generate Getters and Setters.
+
+59
+00:02:47,801 --> 00:02:51,110
+And, I'll kind of zoom in, here, and I'll chose country,
+
+60
+00:02:51,110 --> 00:02:52,250
+so that's the field
+
+61
+00:02:52,250 --> 00:02:55,420
+that we want to generate getters and setters for
+
+62
+00:02:55,420 --> 00:02:58,503
+and I'll kind of zoom out and hit OK.
+
+63
+00:02:59,391 --> 00:03:00,224
+All right, so there we go,
+
+64
+00:03:00,224 --> 00:03:03,756
+so we have our new methods here, getCountry, setCountry.
+
+65
+00:03:03,756 --> 00:03:05,615
+So, again, when they submit the data,
+
+66
+00:03:05,615 --> 00:03:08,867
+they're gonna call student.setCountry.
+
+67
+00:03:08,867 --> 00:03:10,165
+Okay, we're in good shape, here.
+
+68
+00:03:10,165 --> 00:03:13,096
+Now, Step Three is updating the confirmation page,
+
+69
+00:03:13,096 --> 00:03:15,064
+so, basically, once they've submitted their data,
+
+70
+00:03:15,064 --> 00:03:18,094
+we at least want to tell the user, "Hey, you selected X."
+
+71
+00:03:18,094 --> 00:03:18,978
+All right, so I'm gonna go ahead
+
+72
+00:03:18,978 --> 00:03:21,958
+and add a little linebreak here
+
+73
+00:03:21,958 --> 00:03:25,177
+and also I want to display the actual student.
+
+74
+00:03:25,177 --> 00:03:26,927
+So, stretch out a bit
+
+75
+00:03:28,864 --> 00:03:30,697
+and I'll say, Country,
+
+76
+00:03:31,540 --> 00:03:34,608
+and I'll say, :student.country
+
+77
+00:03:34,608 --> 00:03:37,548
+and, again, remember it's gonna call student.getCountry
+
+78
+00:03:37,548 --> 00:03:40,068
+'cause were using the jsp expression language
+
+79
+00:03:40,068 --> 00:03:41,607
+and that'll basically display
+
+80
+00:03:41,607 --> 00:03:44,940
+whatever the user selected on that form.
+
+81
+00:03:47,927 --> 00:03:49,484
+Alrighty, so this looks pretty good, so far.
+
+82
+00:03:49,484 --> 00:03:50,845
+Let's go ahead and test it out.
+
+83
+00:03:50,845 --> 00:03:52,595
+Let's run it, run it.
+
+84
+00:03:54,105 --> 00:03:58,105
+So, I'll just right-click, Run As, Run on Server
+
+85
+00:04:02,604 --> 00:04:06,687
+and there's our link to our form, select the link
+
+86
+00:04:09,493 --> 00:04:11,453
+and, now, we have our drop-down list.
+
+87
+00:04:11,453 --> 00:04:13,914
+Woo hoo, looks pretty, looks fancy, let's check it out.
+
+88
+00:04:13,914 --> 00:04:15,900
+Let's check it out.
+
+89
+00:04:15,900 --> 00:04:19,072
+So, I'll go ahead and enter the name John Doe
+
+90
+00:04:19,072 --> 00:04:22,750
+and then my drop-down list, Brazil, France, Germany, India.
+
+91
+00:04:22,750 --> 00:04:23,704
+Whew, I like it.
+
+92
+00:04:23,704 --> 00:04:24,589
+It looks good.
+
+93
+00:04:24,589 --> 00:04:27,042
+I'll choose Germany and I'll do a submit
+
+94
+00:04:27,042 --> 00:04:28,740
+and then there's our confirmation page.
+
+95
+00:04:28,740 --> 00:04:31,393
+Country, Germany, whatever the user selected on the form,
+
+96
+00:04:31,393 --> 00:04:32,782
+so this looks really good.
+
+97
+00:04:32,782 --> 00:04:35,409
+So, again, we made use of the Spring MVC form tag
+
+98
+00:04:35,409 --> 00:04:36,942
+for creating drop-down lists
+
+99
+00:04:36,942 --> 00:04:41,109
+and we read the data and put it on our confirmation page.
+

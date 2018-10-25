@@ -1,0 +1,496 @@
+1
+00:00:01,269 --> 00:00:02,612
+<v ->Let's go ahead and move into Eclipse</v>
+
+2
+00:00:02,612 --> 00:00:05,209
+and let's get our hands dirty writing some code.
+
+3
+00:00:05,209 --> 00:00:06,857
+So again, our development process,
+
+4
+00:00:06,857 --> 00:00:08,761
+we'll walk through this step-by-step.
+
+5
+00:00:08,761 --> 00:00:10,106
+We'll start off here with our first step
+
+6
+00:00:10,106 --> 00:00:11,606
+of creating a Java class
+
+7
+00:00:11,606 --> 00:00:15,439
+and then we'll annotate it as a configuration.
+
+8
+00:00:17,122 --> 00:00:19,378 line:15% 
+So here I'll simply create a new class
+
+9
+00:00:19,378 --> 00:00:23,711 line:15% 
+and I'll give the @Configuration annotation.
+
+10
+00:00:23,711 --> 00:00:25,310
+I'll simply right-click on my package.
+
+11
+00:00:25,310 --> 00:00:26,977
+I'll say New, Class.
+
+12
+00:00:30,088 --> 00:00:30,977
+And for the name of the class,
+
+13
+00:00:30,977 --> 00:00:32,190
+I'll do just like the slides.
+
+14
+00:00:32,190 --> 00:00:35,570
+I'll say SportConfig and that's it.
+
+15
+00:00:35,570 --> 00:00:39,737
+We can keep all the other defaults and hit Finish.
+
+16
+00:00:40,649 --> 00:00:42,840
+Okay, great, it gives me a very basic class.
+
+17
+00:00:42,840 --> 00:00:46,532
+I'm going go ahead and expand my window here for a second.
+
+18
+00:00:46,532 --> 00:00:47,618 line:15% 
+And the first thing I like to do
+
+19
+00:00:47,618 --> 00:00:48,861 line:15% 
+as far as my step one is that
+
+20
+00:00:48,861 --> 00:00:51,511 line:15% 
+I like to add the annotation here.
+
+21
+00:00:51,511 --> 00:00:55,401 line:15% 
+So I'll add the @Configuration annotation.
+
+22
+00:00:55,401 --> 00:00:56,594 line:15% 
+This basically will tell spring,
+
+23
+00:00:56,594 --> 00:00:58,946 line:15% 
+hey, this is a Java configuration
+
+24
+00:00:58,946 --> 00:01:02,403
+and follow the appropriate rules or directions here
+
+25
+00:01:02,403 --> 00:01:04,653
+in this configuration file.
+
+26
+00:01:06,252 --> 00:01:08,955
+Alright, now we have our very basic SportConfig.
+
+27
+00:01:08,955 --> 00:01:09,788
+But it's empty.
+
+28
+00:01:09,788 --> 00:01:10,621
+There's nothing in it.
+
+29
+00:01:10,621 --> 00:01:12,238
+There's no beans to find. Nothing.
+
+30
+00:01:12,238 --> 00:01:15,311
+So we need to somehow go by and fix that.
+
+31
+00:01:15,311 --> 00:01:17,644
+And we'll do that right now.
+
+32
+00:01:18,974 --> 00:01:20,365 line:15% 
+Step two is that we're going to
+
+33
+00:01:20,365 --> 00:01:22,199 line:15% 
+add component scanning support
+
+34
+00:01:22,199 --> 00:01:25,266 line:15% 
+by simply adding the @ComponentScan annotation.
+
+35
+00:01:25,266 --> 00:01:27,850
+And you simply give the actual package
+
+36
+00:01:27,850 --> 00:01:31,407
+that you want to use to have spring to start scanning.
+
+37
+00:01:31,407 --> 00:01:35,841
+And, again, this works exactly like XML component scanning.
+
+38
+00:01:35,841 --> 00:01:37,791
+They'll simply scan this package,
+
+39
+00:01:37,791 --> 00:01:41,400
+find all the classes that have the @Component annotation
+
+40
+00:01:41,400 --> 00:01:43,391
+and then register them in the spring container.
+
+41
+00:01:43,391 --> 00:01:46,675
+So, again, exactly the same as what you've learned so far.
+
+42
+00:01:46,675 --> 00:01:48,042
+Instead, here we're simply using
+
+43
+00:01:48,042 --> 00:01:50,186
+a Java class for setting this up.
+
+44
+00:01:50,186 --> 00:01:51,856
+But in the previous examples we used XML.
+
+45
+00:01:51,856 --> 00:01:54,781
+Again, exactly the same there.
+
+46
+00:01:54,781 --> 00:01:55,824
+Alright, so this looks pretty good.
+
+47
+00:01:55,824 --> 00:01:59,934
+We have our very basic Java configuration class set up.
+
+48
+00:01:59,934 --> 00:02:02,194
+We have the @Configuration annotation.
+
+49
+00:02:02,194 --> 00:02:05,213
+And we also tell it to do the component scanning
+
+50
+00:02:05,213 --> 00:02:08,130
+with the @ComponentScan annotation.
+
+51
+00:02:09,028 --> 00:02:11,365
+Now what we need to do is set up our main program.
+
+52
+00:02:11,365 --> 00:02:13,347
+What I'll do is I'll do some copy/paste programming
+
+53
+00:02:13,347 --> 00:02:14,712
+here for this.
+
+54
+00:02:14,712 --> 00:02:17,866
+I'll actually start with our AnnotationDemoApp.
+
+55
+00:02:17,866 --> 00:02:22,552
+So I'll simply just copy this AnnotationDemoApp.
+
+56
+00:02:22,552 --> 00:02:25,635
+With just a right-click, choose Copy.
+
+57
+00:02:27,314 --> 00:02:28,368
+And then I'll simply paste it
+
+58
+00:02:28,368 --> 00:02:31,118
+by doing a right-click and Paste.
+
+59
+00:02:34,034 --> 00:02:38,347
+And for the new name here I'll call it JavaConfigDemo.
+
+60
+00:02:38,347 --> 00:02:40,556
+I'll take off the 2 at the end and leave it at that.
+
+61
+00:02:40,556 --> 00:02:43,580
+So, JavaConfigDemoApp and once you're happy with all of that
+
+62
+00:02:43,580 --> 00:02:45,663
+then hit the Okay button.
+
+63
+00:02:51,095 --> 00:02:54,910
+We have this new file here JavaConfigDemoApp.
+
+64
+00:02:54,910 --> 00:02:55,794
+Open it up.
+
+65
+00:02:55,794 --> 00:02:57,294
+Expand the window.
+
+66
+00:02:58,134 --> 00:03:01,129
+And, again, pretty much everything like we've seen before.
+
+67
+00:03:01,129 --> 00:03:03,347
+We're only going to make one slight change here.
+
+68
+00:03:03,347 --> 00:03:07,942 line:15% 
+On lines 9 through 11, instead of reading the XML file,
+
+69
+00:03:07,942 --> 00:03:09,256 line:15% 
+we're going to instead make use of our
+
+70
+00:03:09,256 --> 00:03:13,423 line:15% 
+spring java configuration class that we just created.
+
+71
+00:03:16,382 --> 00:03:18,267
+I'll make use of that class here
+
+72
+00:03:18,267 --> 00:03:21,767
+called AnnotationConfigApplicationContext.
+
+73
+00:03:24,676 --> 00:03:27,996
+I'll simply copy that name because
+
+74
+00:03:27,996 --> 00:03:30,752
+that's one big name there.
+
+75
+00:03:30,752 --> 00:03:33,617
+Actually, I'll fix the imports first here.
+
+76
+00:03:33,617 --> 00:03:35,961
+I fixed the import, okay, so I have it.
+
+77
+00:03:35,961 --> 00:03:38,527
+Then I'll simply copy AnnotationConfigApplicationContext
+
+78
+00:03:38,527 --> 00:03:40,427
+and paste it right there.
+
+79
+00:03:40,427 --> 00:03:41,922
+So, no more XML.
+
+80
+00:03:41,922 --> 00:03:42,922
+No more XML!
+
+81
+00:03:44,013 --> 00:03:45,055
+We're going to make use of our
+
+82
+00:03:45,055 --> 00:03:47,409
+annotation configuration class.
+
+83
+00:03:47,409 --> 00:03:49,871
+So I'll say SportConfig.class.
+
+84
+00:03:49,871 --> 00:03:52,694
+That's the class that we just created.
+
+85
+00:03:52,694 --> 00:03:53,527
+And that's it.
+
+86
+00:03:53,527 --> 00:03:57,740
+That's how you read your spring config java class.
+
+87
+00:03:57,740 --> 00:04:01,635
+Let me even update my documentation here.
+
+88
+00:04:01,635 --> 00:04:04,747
+So read spring config java class.
+
+89
+00:04:04,747 --> 00:04:05,622
+Okay, that looks good.
+
+90
+00:04:05,622 --> 00:04:08,066
+So we're in good shape here.
+
+91
+00:04:08,066 --> 00:04:10,186
+Now the final step, step four.
+
+92
+00:04:10,186 --> 00:04:11,849
+Nothing new.
+
+93
+00:04:11,849 --> 00:04:13,950 line:15% 
+That step is basically retrieving the bean
+
+94
+00:04:13,950 --> 00:04:15,132 line:15% 
+from the container.
+
+95
+00:04:15,132 --> 00:04:18,234 line:15% 
+And it's the exact same process you've seen before.
+
+96
+00:04:18,234 --> 00:04:21,017 line:15% 
+We already have a application context created.
+
+97
+00:04:21,017 --> 00:04:21,850 line:15% 
+We simply say
+
+98
+00:04:21,850 --> 00:04:23,402
+context, get bean, tennis coach.
+
+99
+00:04:23,402 --> 00:04:24,235
+And that's it.
+
+100
+00:04:24,235 --> 00:04:25,375
+Everything else is the same.
+
+101
+00:04:25,375 --> 00:04:26,978
+So really lines 10 through 12,
+
+102
+00:04:26,978 --> 00:04:28,604
+those are the only changes here
+
+103
+00:04:28,604 --> 00:04:30,874
+that we made for this example.
+
+104
+00:04:30,874 --> 00:04:33,250
+So let's go ahead and run the application.
+
+105
+00:04:33,250 --> 00:04:35,750
+Right-click, Run As, Java App.
+
+106
+00:04:36,831 --> 00:04:39,843
+Then we open it up and oh, yeah!
+
+107
+00:04:39,843 --> 00:04:42,543
+So this app is going to work exactly the same.
+
+108
+00:04:42,543 --> 00:04:44,078
+The only difference here is
+
+109
+00:04:44,078 --> 00:04:46,539
+that instead of reading the configuration
+
+110
+00:04:46,539 --> 00:04:49,431
+from an XML file, we're actually reading it
+
+111
+00:04:49,431 --> 00:04:51,708
+from our Java class.
+
+112
+00:04:51,708 --> 00:04:53,609
+Our Java class that's configured,
+
+113
+00:04:53,609 --> 00:04:55,926
+it's handling all of the configuration
+
+114
+00:04:55,926 --> 00:04:57,811
+of the spring container.
+
+115
+00:04:57,811 --> 00:05:00,411
+At this point there's no XML being used.
+
+116
+00:05:00,411 --> 00:05:03,111
+We can verify that by looking here in the spring logs
+
+117
+00:05:03,111 --> 00:05:05,745
+where it says AnnotationConfigAppContext
+
+118
+00:05:05,745 --> 00:05:08,115
+so that we know that it's actually reading our
+
+119
+00:05:08,115 --> 00:05:11,872
+Java configuration class for handling or managing
+
+120
+00:05:11,872 --> 00:05:13,152
+this spring configuration.
+
+121
+00:05:13,152 --> 00:05:14,100
+So this is great.
+
+122
+00:05:14,100 --> 00:05:16,032
+We made some good progress here.
+
+123
+00:05:16,032 --> 00:05:17,423
+We were successful.
+
+124
+00:05:17,423 --> 00:05:20,590
+And, again, I'd like to say great job.
+

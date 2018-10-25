@@ -1,0 +1,668 @@
+1
+00:00:01,345 --> 00:00:02,685
+<v Instructor>Let's move into Eclipse and let's</v>
+
+2
+00:00:02,685 --> 00:00:05,501
+get ready to write some code.
+
+3
+00:00:05,501 --> 00:00:07,414
+The first thing I wanna do here is create
+
+4
+00:00:07,414 --> 00:00:10,752
+a new main class for this demo.
+
+5
+00:00:10,752 --> 00:00:12,994
+So I'll simply select my package here
+
+6
+00:00:12,994 --> 00:00:14,451
+and I'll do a right click
+
+7
+00:00:14,451 --> 00:00:16,368
+and I'll say New Class.
+
+8
+00:00:19,556 --> 00:00:21,674
+And the actual name for this class
+
+9
+00:00:21,674 --> 00:00:25,007
+I'll call it AnnotationBeanScopeDemoApp.
+
+10
+00:00:26,363 --> 00:00:28,078
+I know that's a lot of words there but,
+
+11
+00:00:28,078 --> 00:00:29,390
+let's be very specific here.
+
+12
+00:00:29,390 --> 00:00:31,523
+AnnotationBeanScopeDemoApp.
+
+13
+00:00:31,523 --> 00:00:33,252
+We're also gonna make use of that main method
+
+14
+00:00:33,252 --> 00:00:36,688
+so check the box there for Main at the bottom.
+
+15
+00:00:36,688 --> 00:00:38,322
+And then keep all the other defaults
+
+16
+00:00:38,322 --> 00:00:39,572
+and hit Finish.
+
+17
+00:00:42,337 --> 00:00:43,735
+Okay, this looks really good here.
+
+18
+00:00:43,735 --> 00:00:45,802
+So we have our very basic app here.
+
+19
+00:00:45,802 --> 00:00:48,208
+Let's go ahead and clear out the auto generated comments
+
+20
+00:00:48,208 --> 00:00:50,842
+and let's go ahead and provide my own comments
+
+21
+00:00:50,842 --> 00:00:52,288
+just to kind of again,
+
+22
+00:00:52,288 --> 00:00:53,613
+keep myself on track as far as
+
+23
+00:00:53,613 --> 00:00:57,446
+the code I need to write for this application.
+
+24
+00:00:59,107 --> 00:00:59,940
+And this will really just be
+
+25
+00:00:59,940 --> 00:01:02,225
+the same old Bootstrap code that you saw before
+
+26
+00:01:02,225 --> 00:01:04,357
+as far as reading in the config file,
+
+27
+00:01:04,357 --> 00:01:08,524
+and then retrieving a bean from the Spring container.
+
+28
+00:01:10,349 --> 00:01:11,923
+So let's go ahead and do this first part
+
+29
+00:01:11,923 --> 00:01:13,297
+right now so we're gonna use that class
+
+30
+00:01:13,297 --> 00:01:15,714
+path xml application context.
+
+31
+00:01:16,610 --> 00:01:18,802
+We'll say context = new.
+
+32
+00:01:18,802 --> 00:01:21,989
+Again, my little copy paste trick here.
+
+33
+00:01:21,989 --> 00:01:25,769
+And in parens, I'll give the actual configuration
+
+34
+00:01:25,769 --> 00:01:26,642
+file name.
+
+35
+00:01:26,642 --> 00:01:28,725
+So applicationContext.xml
+
+36
+00:01:31,470 --> 00:01:32,668
+Alright, looks good.
+
+37
+00:01:32,668 --> 00:01:33,543
+Looks good.
+
+38
+00:01:33,543 --> 00:01:36,210
+Let me fix the imports actually.
+
+39
+00:01:38,419 --> 00:01:40,918
+Import, alright good.
+
+40
+00:01:40,918 --> 00:01:42,538
+So line three, we have our imports in here.
+
+41
+00:01:42,538 --> 00:01:43,413
+We're good to go.
+
+42
+00:01:43,413 --> 00:01:44,288
+Great.
+
+43
+00:01:44,288 --> 00:01:45,163
+Let me stretch out here,
+
+44
+00:01:45,163 --> 00:01:47,004
+give myself some white space at the bottom.
+
+45
+00:01:47,004 --> 00:01:49,303
+Now let's go ahead and retrieve the bean from the
+
+46
+00:01:49,303 --> 00:01:50,382
+container.
+
+47
+00:01:50,382 --> 00:01:52,968
+So I'll go ahead and save a Coach = context,
+
+48
+00:01:52,968 --> 00:01:54,083
+I get bean.
+
+49
+00:01:54,083 --> 00:01:57,761
+And I'll retrieve that TennisCoach.
+
+50
+00:01:57,761 --> 00:01:59,594
+Now is it Coach.class?
+
+51
+00:02:01,252 --> 00:02:04,522
+So that's for the Coach and let's do a similar thing
+
+52
+00:02:04,522 --> 00:02:06,442
+here, so I'm just gonna copy, paste
+
+53
+00:02:06,442 --> 00:02:07,275
+line 14.
+
+54
+00:02:08,250 --> 00:02:11,253
+So I copied it, I pasted it on Line 16
+
+55
+00:02:11,253 --> 00:02:13,117
+and then I'll have Alpha Coach.
+
+56
+00:02:13,117 --> 00:02:15,568
+So I'm basically making two requests
+
+57
+00:02:15,568 --> 00:02:18,901
+for that bean from the spring container.
+
+58
+00:02:24,690 --> 00:02:26,735
+Now what I wanna do is actually check to see
+
+59
+00:02:26,735 --> 00:02:29,412
+if they're the same object.
+
+60
+00:02:29,412 --> 00:02:32,554
+So here I'll say, boolean result =
+
+61
+00:02:32,554 --> 00:02:34,247
+and then I'll check to see if the Coach
+
+62
+00:02:34,247 --> 00:02:36,017
+is equal, equal, alphaCoach.
+
+63
+00:02:36,017 --> 00:02:38,408
+Basically are they pointing to the same area
+
+64
+00:02:38,408 --> 00:02:39,241
+of memory?
+
+65
+00:02:41,507 --> 00:02:44,856
+I have that assigned into a variable called Result.
+
+66
+00:02:44,856 --> 00:02:46,912
+Now let's go ahead and print out some information.
+
+67
+00:02:46,912 --> 00:02:48,606
+Let's print out the results
+
+68
+00:02:48,606 --> 00:02:50,106
+of our comparison.
+
+69
+00:02:52,580 --> 00:02:54,663
+Use my sysout print line.
+
+70
+00:02:58,747 --> 00:03:01,449
+Pointing to the same object and I'll simply
+
+71
+00:03:01,449 --> 00:03:04,448
+append that variable that we have, results.
+
+72
+00:03:04,448 --> 00:03:07,698
+So that's our boolean of true or false.
+
+73
+00:03:13,888 --> 00:03:15,198
+And now I'll go through and actually
+
+74
+00:03:15,198 --> 00:03:16,822
+print out the memory location
+
+75
+00:03:16,822 --> 00:03:19,902
+for our first object, the Coach.
+
+76
+00:03:19,902 --> 00:03:21,485
+Simply do an append
+
+77
+00:03:22,325 --> 00:03:23,572
+with the Coach.
+
+78
+00:03:23,572 --> 00:03:24,446
+There we go.
+
+79
+00:03:24,446 --> 00:03:26,125
+So that takes care of that.
+
+80
+00:03:26,125 --> 00:03:27,875
+Looks pretty good.
+
+81
+00:03:27,875 --> 00:03:29,268
+Just give me some white space.
+
+82
+00:03:29,268 --> 00:03:30,614
+And I'll do a similar thing here
+
+83
+00:03:30,614 --> 00:03:31,864
+for alphaCoach.
+
+84
+00:03:37,451 --> 00:03:40,034
+Memory location for alphaCoach.
+
+85
+00:03:43,407 --> 00:03:44,614
+And a similar thing here,
+
+86
+00:03:44,614 --> 00:03:46,349
+the append, alphaCoach.
+
+87
+00:03:46,349 --> 00:03:47,889
+So this will basically just print out
+
+88
+00:03:47,889 --> 00:03:49,530
+the two string method here.
+
+89
+00:03:49,530 --> 00:03:50,946
+Now the actual class name
+
+90
+00:03:50,946 --> 00:03:52,181
+and the memory location.
+
+91
+00:03:52,181 --> 00:03:53,343
+So that's it.
+
+92
+00:03:53,343 --> 00:03:54,347
+Just basic coding here,
+
+93
+00:03:54,347 --> 00:03:56,549
+just printing out results.
+
+94
+00:03:56,549 --> 00:03:59,466
+Alright, so this looks good so far.
+
+95
+00:04:03,383 --> 00:04:05,652
+And as usual, I'm always gonna be nice,
+
+96
+00:04:05,652 --> 00:04:08,514
+and I'll simply close the Spring application
+
+97
+00:04:08,514 --> 00:04:09,347
+context.
+
+98
+00:04:14,500 --> 00:04:15,512
+So that's our coding here.
+
+99
+00:04:15,512 --> 00:04:17,362
+We load the Spring config file,
+
+100
+00:04:17,362 --> 00:04:19,542
+retrieve the beans from the container,
+
+101
+00:04:19,542 --> 00:04:21,222
+check to see if they're the same,
+
+102
+00:04:21,222 --> 00:04:25,305
+and then finally we simply print out the results.
+
+103
+00:04:27,690 --> 00:04:30,630
+Alrighty, so let's go ahead and run this application,
+
+104
+00:04:30,630 --> 00:04:34,130
+do a right click, Run As Java application.
+
+105
+00:04:37,570 --> 00:04:40,917
+And let's check out the results here.
+
+106
+00:04:40,917 --> 00:04:43,984
+Alright, TennisCoach inside default constructor.
+
+107
+00:04:43,984 --> 00:04:46,091
+That looks okay.
+
+108
+00:04:46,091 --> 00:04:48,809
+And it says, Pointing to the same object: true.
+
+109
+00:04:48,809 --> 00:04:50,966
+Because the default scope is singleton.
+
+110
+00:04:50,966 --> 00:04:54,383
+We haven't changed the scope or anything.
+
+111
+00:04:55,276 --> 00:04:57,573
+And memory location for the Coach
+
+112
+00:04:57,573 --> 00:05:00,573
+is this 78 alpha and memory location
+
+113
+00:05:01,572 --> 00:05:03,790
+for alphaCoach is 78 alpha.
+
+114
+00:05:03,790 --> 00:05:04,916
+Great, so they're both pointing
+
+115
+00:05:04,916 --> 00:05:05,838
+to the same area of memory.
+
+116
+00:05:05,838 --> 00:05:08,758
+So it really is a singleton scope here
+
+117
+00:05:08,758 --> 00:05:11,091
+for that TennisCoach object.
+
+118
+00:05:16,304 --> 00:05:18,684
+And I just fix the little typo I had
+
+119
+00:05:18,684 --> 00:05:20,196
+in that print line.
+
+120
+00:05:20,196 --> 00:05:22,306
+So anyway, that's good.
+
+121
+00:05:22,306 --> 00:05:24,882
+Now let's go ahead and change the scope
+
+122
+00:05:24,882 --> 00:05:27,061
+on our TennisCoach.
+
+123
+00:05:27,061 --> 00:05:29,379
+And we're gonna use that annotation
+
+124
+00:05:29,379 --> 00:05:30,212
+@Scope.
+
+125
+00:05:33,246 --> 00:05:34,745
+And the scope I'll change it to
+
+126
+00:05:34,745 --> 00:05:35,828
+is Prototype.
+
+127
+00:05:36,831 --> 00:05:40,081
+I'll go ahead and fix the imports here.
+
+128
+00:05:41,709 --> 00:05:43,376
+And we'll save this.
+
+129
+00:05:44,587 --> 00:05:46,040
+Okay.
+
+130
+00:05:46,040 --> 00:05:46,950
+That looks good.
+
+131
+00:05:46,950 --> 00:05:48,780
+The imports are okay, great.
+
+132
+00:05:48,780 --> 00:05:50,113
+Happy with that.
+
+133
+00:05:51,464 --> 00:05:53,028
+So again, prototype scope
+
+134
+00:05:53,028 --> 00:05:55,067
+means that it's gonna create a new instance
+
+135
+00:05:55,067 --> 00:05:56,516
+every time.
+
+136
+00:05:56,516 --> 00:05:58,421
+So whenever they make a request for TennisCoach,
+
+137
+00:05:58,421 --> 00:06:00,343
+from the Spring container,
+
+138
+00:06:00,343 --> 00:06:04,010
+it's gonna create a new instance every time.
+
+139
+00:06:06,699 --> 00:06:07,847
+Alright, so I'm moving back to my
+
+140
+00:06:07,847 --> 00:06:10,266
+AnnotationBeanScopeDemoApp
+
+141
+00:06:10,266 --> 00:06:12,016
+and I'll just run it.
+
+142
+00:06:16,075 --> 00:06:19,408
+Right click, run it as Java application.
+
+143
+00:06:21,177 --> 00:06:23,553
+And our application's running.
+
+144
+00:06:23,553 --> 00:06:25,028
+Okay, now couple of things here.
+
+145
+00:06:25,028 --> 00:06:25,903
+Prototype scope.
+
+146
+00:06:25,903 --> 00:06:27,430
+It's gonna create a new instance every time
+
+147
+00:06:27,430 --> 00:06:30,169
+so we see two constructors being called.
+
+148
+00:06:30,169 --> 00:06:31,856
+So they're calling the constructor twice
+
+149
+00:06:31,856 --> 00:06:33,664
+meaning that they're creating two objects.
+
+150
+00:06:33,664 --> 00:06:35,449
+Alright, that looks pretty good.
+
+151
+00:06:35,449 --> 00:06:37,498
+That's kind of what I was expecting.
+
+152
+00:06:37,498 --> 00:06:39,704
+Pointing to the same object is false
+
+153
+00:06:39,704 --> 00:06:41,717
+because now, prototype scope
+
+154
+00:06:41,717 --> 00:06:44,190
+there's a new object for each request
+
+155
+00:06:44,190 --> 00:06:47,248
+and then also check the memory locations.
+
+156
+00:06:47,248 --> 00:06:48,599
+The memory locations here
+
+157
+00:06:48,599 --> 00:06:50,666
+are different for the Coach
+
+158
+00:06:50,666 --> 00:06:51,544
+and alphaCoach.
+
+159
+00:06:51,544 --> 00:06:53,700
+So it really is prototype scope.
+
+160
+00:06:53,700 --> 00:06:57,138
+It's creating a new object every time.
+
+161
+00:06:57,138 --> 00:06:58,013
+This is great.
+
+162
+00:06:58,013 --> 00:06:58,889
+I'm happy.
+
+163
+00:06:58,889 --> 00:07:01,913
+We made use of that @Scope annotation
+
+164
+00:07:01,913 --> 00:07:04,484
+to give us the desire output
+
+165
+00:07:04,484 --> 00:07:06,878
+for singleton and also for prototype.
+
+166
+00:07:06,878 --> 00:07:07,711
+So I'll say good job,
+
+167
+00:07:07,711 --> 00:07:11,878
+congratulations and you are rockin' and rollin' baby.
+

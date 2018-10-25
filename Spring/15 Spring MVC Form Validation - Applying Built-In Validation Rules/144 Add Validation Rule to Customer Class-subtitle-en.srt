@@ -1,0 +1,232 @@
+1
+00:00:00,475 --> 00:00:01,308
+<v Darby>All right.</v>
+
+2
+00:00:01,308 --> 00:00:02,723
+So let's go ahead and dive in here.
+
+3
+00:00:02,723 --> 00:00:05,078
+Just a quick review of our development process.
+
+4
+00:00:05,078 --> 00:00:07,453
+So the first thing that we wanna do in this video
+
+5
+00:00:07,453 --> 00:00:11,536
+is add the validation rule to our customer class.
+
+6
+00:00:13,431 --> 00:00:16,548 line:15% 
+Moving into Eclipse, first thing I need to do
+
+7
+00:00:16,548 --> 00:00:18,211 line:15% 
+is write the code for the Customer class,
+
+8
+00:00:18,211 --> 00:00:19,970 line:15% 
+'cause I don't have a Customer class yet.
+
+9
+00:00:19,970 --> 00:00:22,696 line:15% 
+So let's go ahead and create this new class.
+
+10
+00:00:22,696 --> 00:00:24,049
+So I'll just do a right click.
+
+11
+00:00:24,049 --> 00:00:25,716
+I'll say New, Class.
+
+12
+00:00:30,211 --> 00:00:34,378
+And the name that I'll give for the class is Customer
+
+13
+00:00:36,722 --> 00:00:40,889
+I'll keep all the other defaults, and then I'll hit Finish.
+
+14
+00:00:42,005 --> 00:00:42,838
+Excellent.
+
+15
+00:00:42,838 --> 00:00:44,482
+So we have this empty class right now.
+
+16
+00:00:44,482 --> 00:00:46,255
+I'll expand my window here.
+
+17
+00:00:46,255 --> 00:00:47,812
+Now, this is gonna be really simple.
+
+18
+00:00:47,812 --> 00:00:50,044
+We're simply gonna have two fields,
+
+19
+00:00:50,044 --> 00:00:52,127
+first name and last name.
+
+20
+00:00:56,240 --> 00:00:57,808
+And I also wanna add
+
+21
+00:00:57,808 --> 00:01:01,480
+some getter and setter methods here for these properties.
+
+22
+00:01:01,480 --> 00:01:03,472
+So I'll simply just do a right click,
+
+23
+00:01:03,472 --> 00:01:07,444
+and I'll say Source, Generate Getters and Setters.
+
+24
+00:01:07,444 --> 00:01:09,266
+And you've seen all this before, right?
+
+25
+00:01:09,266 --> 00:01:13,433
+You're accustomed to all of my tips, tricks, and techniques.
+
+26
+00:01:15,672 --> 00:01:16,505
+All right.
+
+27
+00:01:16,505 --> 00:01:17,463
+Zoom in here.
+
+28
+00:01:17,463 --> 00:01:19,196
+We'll go ahead and select both of those
+
+29
+00:01:19,196 --> 00:01:20,211
+for firstName and lastName
+
+30
+00:01:20,211 --> 00:01:21,837
+Or if you wanted to get really fancy,
+
+31
+00:01:21,837 --> 00:01:23,201
+you could hit the Select All button
+
+32
+00:01:23,201 --> 00:01:25,175
+in the top right, but it's up to you.
+
+33
+00:01:25,175 --> 00:01:29,454
+Anyways, we're here and we hit the OK button.
+
+34
+00:01:29,454 --> 00:01:30,287
+All right. Great.
+
+35
+00:01:30,287 --> 00:01:32,253
+So there's the code that Eclipse just generated for us,
+
+36
+00:01:32,253 --> 00:01:36,420
+the getters and setters for firstName and lastName
+
+37
+00:01:37,441 --> 00:01:38,274
+All right.
+
+38
+00:01:38,274 --> 00:01:39,461
+So now for the real work here,
+
+39
+00:01:39,461 --> 00:01:41,993
+that's actually adding the validation rules.
+
+40
+00:01:41,993 --> 00:01:44,710
+So we're gonna add a validation rule for lastName
+
+41
+00:01:44,710 --> 00:01:46,952
+So we're gonna say @NotNull
+
+42
+00:01:46,952 --> 00:01:50,440
+and then we give the actual message for this error.
+
+43
+00:01:50,440 --> 00:01:52,281
+And I actually misspoke in my previous video.
+
+44
+00:01:52,281 --> 00:01:55,238
+I called it @Null, but it's really @NotNull
+
+45
+00:01:55,238 --> 00:01:56,758
+But you already knew that, right?
+
+46
+00:01:56,758 --> 00:01:58,290
+And then we'll also give the annotation here
+
+47
+00:01:58,290 --> 00:02:01,027
+for @Size(min=1)
+
+48
+00:02:01,027 --> 00:02:02,311
+So those are the validation rules
+
+49
+00:02:02,311 --> 00:02:04,739
+that we'll have here for this field.
+
+50
+00:02:04,739 --> 00:02:08,906
+I'll go through and just fix the imports for @NotNull
+
+51
+00:02:12,191 --> 00:02:15,358
+And I'll also fix the import for @Size
+
+52
+00:02:17,544 --> 00:02:19,458
+And then I'll just scroll up to the top
+
+53
+00:02:19,458 --> 00:02:21,446
+and just make sure that my imports are correct.
+
+54
+00:02:21,446 --> 00:02:22,279
+So make sure you have
+
+55
+00:02:22,279 --> 00:02:26,446
+the javax.validation.constraints.NotNull and Size.
+
+56
+00:02:27,969 --> 00:02:29,555
+So this looks pretty good so far,
+
+57
+00:02:29,555 --> 00:02:32,213
+so we have the basic validation rules added
+
+58
+00:02:32,213 --> 00:02:34,130
+to this Customer class.
+

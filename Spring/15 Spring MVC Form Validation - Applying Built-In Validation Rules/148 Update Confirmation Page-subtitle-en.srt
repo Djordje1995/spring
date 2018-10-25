@@ -1,0 +1,340 @@
+1
+00:00:01,188 --> 00:00:02,533
+<v Darby>All right, so we're making</v>
+
+2
+00:00:02,533 --> 00:00:04,093
+really good progress here.
+
+3
+00:00:04,093 --> 00:00:06,158
+We've covered the first three steps.
+
+4
+00:00:06,158 --> 00:00:09,837
+Our last step here is updating the confirmation page.
+
+5
+00:00:09,837 --> 00:00:11,934
+Or in fact, we actually have to create
+
+6
+00:00:11,934 --> 00:00:14,973
+the confirmation page so we can send them
+
+7
+00:00:14,973 --> 00:00:16,605
+to our success page.
+
+8
+00:00:16,605 --> 00:00:19,688 line:15% 
+And we'll do that here in this video.
+
+9
+00:00:21,453 --> 00:00:24,582 line:15% 
+So I'm just going to move over to my View folder
+
+10
+00:00:24,582 --> 00:00:26,501
+here on the WEB-INF view.
+
+11
+00:00:26,501 --> 00:00:30,668
+And I'll create a new file for customer confirmation.
+
+12
+00:00:35,139 --> 00:00:39,306
+For the file name, I'll give it customer-confirmation.jsp.
+
+13
+00:00:42,802 --> 00:00:44,184
+And once you're happy with that,
+
+14
+00:00:44,184 --> 00:00:47,517
+go ahead and click on the finish button.
+
+15
+00:00:52,313 --> 00:00:54,629
+All right, so here we go.
+
+16
+00:00:54,629 --> 00:00:57,509
+Let me go and maximize my screen for a second.
+
+17
+00:00:57,509 --> 00:00:59,261
+I'm gonna add in the taglib reference.
+
+18
+00:00:59,261 --> 00:01:02,195
+We're not using it immediately yet,
+
+19
+00:01:02,195 --> 00:01:03,786
+but we will use it in some later videos,
+
+20
+00:01:03,786 --> 00:01:06,822
+so I'll just go ahead and put it in now for safe keepings.
+
+21
+00:01:06,822 --> 00:01:09,136
+Again, you can pause the video and type it in exactly
+
+22
+00:01:09,136 --> 00:01:10,475
+like I have it here.
+
+23
+00:01:10,475 --> 00:01:11,873
+And let's go ahead and set up some work here
+
+24
+00:01:11,873 --> 00:01:13,373
+for our HTML page.
+
+25
+00:01:15,164 --> 00:01:18,473
+So I'll set up HTML, set my head,
+
+26
+00:01:18,473 --> 00:01:22,640
+and also kinda spell out the body here for a second.
+
+27
+00:01:25,849 --> 00:01:29,615
+Drop in a quick title here for "Customer Confirmation."
+
+28
+00:01:29,615 --> 00:01:32,115
+This is my success page, yeah.
+
+29
+00:01:38,634 --> 00:01:40,807
+And this confirmation page is gonna be really simple.
+
+30
+00:01:40,807 --> 00:01:43,412
+All I'm doing is I'm simply echoing
+
+31
+00:01:43,412 --> 00:01:46,870
+the customer's first name and the customer's last name.
+
+32
+00:01:46,870 --> 00:01:50,412
+And I'm making use of the JSP expression language
+
+33
+00:01:50,412 --> 00:01:54,062
+to display the information for the first and last name.
+
+34
+00:01:54,062 --> 00:01:55,244
+And we've all seen this before,
+
+35
+00:01:55,244 --> 00:01:58,848
+so this is nothing new here right now.
+
+36
+00:01:58,848 --> 00:02:00,881
+But I have to at least create the page
+
+37
+00:02:00,881 --> 00:02:02,878
+just so with our validation we're actually sending it
+
+38
+00:02:02,878 --> 00:02:05,932
+to a confirmation page that has been created.
+
+39
+00:02:05,932 --> 00:02:10,099
+So that's kinda why we're going through this process.
+
+40
+00:02:13,060 --> 00:02:14,336
+Fun, fun, fun.
+
+41
+00:02:14,336 --> 00:02:16,522
+Now, let's go ahead and let's run the application
+
+42
+00:02:16,522 --> 00:02:18,185
+because we've covered all four steps here
+
+43
+00:02:18,185 --> 00:02:19,713
+of our validation process here.
+
+44
+00:02:19,713 --> 00:02:21,393
+So let's go ahead and run it.
+
+45
+00:02:21,393 --> 00:02:25,048
+So right-click "Run As," and choose "Run On Server."
+
+46
+00:02:25,048 --> 00:02:26,727
+And here's our main menu.
+
+47
+00:02:26,727 --> 00:02:30,894
+Let's go ahead and click the link here for "Customer form."
+
+48
+00:02:32,010 --> 00:02:33,490
+And let's just test it real quick,
+
+49
+00:02:33,490 --> 00:02:34,747
+let's just go ahead and hit submit
+
+50
+00:02:34,747 --> 00:02:37,197
+without providing any data.
+
+51
+00:02:37,197 --> 00:02:40,197
+And, okay, not what I was expecting.
+
+52
+00:02:43,735 --> 00:02:44,902
+What the what?
+
+53
+00:02:47,659 --> 00:02:49,922
+Okay, this is fun.
+
+54
+00:02:49,922 --> 00:02:52,806
+So I think I know what happened.
+
+55
+00:02:52,806 --> 00:02:56,387
+So let me go and dig back into the source code
+
+56
+00:02:56,387 --> 00:02:59,220
+and try to identify what happened.
+
+57
+00:03:00,949 --> 00:03:05,116
+So let's move back over to our customer.java class.
+
+58
+00:03:12,636 --> 00:03:15,926
+Ah, I see the problem in customer.java.
+
+59
+00:03:15,926 --> 00:03:17,978
+I didn't follow my own slides.
+
+60
+00:03:17,978 --> 00:03:20,940
+So in the slides I actually have the message
+
+61
+00:03:20,940 --> 00:03:23,414
+for the size, but I didn't have it there.
+
+62
+00:03:23,414 --> 00:03:26,050
+So I'm just getting the default error message.
+
+63
+00:03:26,050 --> 00:03:28,709
+So here I'm going to give my own custom message,
+
+64
+00:03:28,709 --> 00:03:31,209
+of message="is required".
+
+65
+00:03:32,149 --> 00:03:33,466
+That's what I should really have here.
+
+66
+00:03:33,466 --> 00:03:36,013
+Now, note for @NotNull I kind of left that empty,
+
+67
+00:03:36,013 --> 00:03:38,304
+I'm not matching my slides exactly.
+
+68
+00:03:38,304 --> 00:03:39,739
+But I will come back to that later.
+
+69
+00:03:39,739 --> 00:03:43,450
+So let's just cover one thing at a time here.
+
+70
+00:03:43,450 --> 00:03:45,700
+So let me refresh the form.
+
+71
+00:03:46,891 --> 00:03:48,717
+And then do a submit, and great.
+
+72
+00:03:48,717 --> 00:03:51,509
+So now I'm getting the "is required" as desired.
+
+73
+00:03:51,509 --> 00:03:54,241
+So that is working and I'm getting
+
+74
+00:03:54,241 --> 00:03:56,665
+the proper error message for that.
+
+75
+00:03:56,665 --> 00:03:58,087
+So let me go ahead and enter some data here
+
+76
+00:03:58,087 --> 00:04:02,938
+for a Bob Smith, and then go ahead and hit submit.
+
+77
+00:04:02,938 --> 00:04:05,585
+And ooh, good, so that passes.
+
+78
+00:04:05,585 --> 00:04:07,535
+So our validation logic is working.
+
+79
+00:04:07,535 --> 00:04:10,185
+If there were errors, it sent me back to the form.
+
+80
+00:04:10,185 --> 00:04:11,485
+If everything was okay,
+
+81
+00:04:11,485 --> 00:04:13,092
+then it sent us the confirmation page.
+
+82
+00:04:13,092 --> 00:04:16,128
+So that's good, we're making some good steps here.
+
+83
+00:04:16,128 --> 00:04:18,520
+But there are some other things I'm gonna show you
+
+84
+00:04:18,520 --> 00:04:20,351
+in some of the following videos,
+
+85
+00:04:20,351 --> 00:04:23,101
+so don't go anywhere, stay tuned.
+

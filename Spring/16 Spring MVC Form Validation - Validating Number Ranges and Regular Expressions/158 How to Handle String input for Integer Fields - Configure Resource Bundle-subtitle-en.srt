@@ -1,0 +1,253 @@
+1
+00:00:01,469 --> 00:00:02,940
+All righty, so we have the file saved.
+
+2
+00:00:02,940 --> 00:00:07,200
+This is our custom error message for the Spring
+validation, but we need to tell Spring about
+
+3
+00:00:07,200 --> 00:00:08,320
+this file.
+
+4
+00:00:08,320 --> 00:00:12,510
+One thing that's really important that I want
+to point out here is that the location is
+
+5
+00:00:12,510 --> 00:00:13,740
+very important.
+
+6
+00:00:13,740 --> 00:00:18,740
+This file has to be under src/resources and
+then the file name is messages.properties.
+
+7
+00:00:20,289 --> 00:00:22,250
+That's very, very important.
+
+8
+00:00:22,250 --> 00:00:27,039
+Now, let's go ahead and tell Spring about
+this in step two, so load the custom messages
+
+9
+00:00:27,039 --> 00:00:29,480
+resources in our Spring config file.
+
+10
+00:00:29,480 --> 00:00:34,480
+I'll simply open up my spring-mvc-demo-servlet.xml
+file.
+
+11
+00:00:37,640 --> 00:00:42,640
+Go ahead and expand the window here so I can
+see more of the file.
+
+12
+00:00:43,010 --> 00:00:47,130
+Let's go ahead and scroll down to the bottom.
+
+13
+00:00:47,130 --> 00:00:52,130
+What I'll do here is I'll actually load the
+custom message resource, so that actual file
+
+14
+00:00:56,530 --> 00:01:00,450
+that we created previously, we're going to
+tell Spring about it so Spring can load it
+
+15
+00:01:00,450 --> 00:01:03,470
+and then use it for our validation error messages.
+
+16
+00:01:03,470 --> 00:01:07,420
+I'm going to kind of stretch out here at the
+bottom, give myself some white space, some
+
+17
+00:01:07,420 --> 00:01:12,420
+room to work with.
+
+18
+00:01:14,720 --> 00:01:19,720
+I'll create this special bean with a bean
+ID of messageSource, and then I give the actual
+
+19
+00:01:21,060 --> 00:01:23,640
+class name for the resource bundle loader.
+
+20
+00:01:23,640 --> 00:01:27,380
+This is going to be a really long class name,
+so kind of hang in there with me as we type
+
+21
+00:01:27,380 --> 00:01:29,530
+it.
+
+22
+00:01:29,530 --> 00:01:34,530
+This is going to be organization.springframework.context.support.ResourceBundleMessageSource.
+
+23
+00:01:42,430 --> 00:01:47,430
+The class name has to be exactly the same
+and also the bean ID has to be exactly the
+
+24
+00:01:48,670 --> 00:01:49,670
+same.
+
+25
+00:01:49,670 --> 00:01:54,670
+Make sure you have the exact code that I have
+here on lines 28 and 29.
+
+26
+00:01:55,580 --> 00:02:00,580
+Now, I need to also specify where to find
+the file, and I set this up by making use
+
+27
+00:02:03,580 --> 00:02:08,580
+of a property here for basenames.
+
+28
+00:02:11,280 --> 00:02:16,280
+I have basenames and I give value as resources/Messages.
+
+29
+00:02:20,720 --> 00:02:25,720
+What this configuration will do is it'll actually
+load the file under resources/messages.properties
+
+30
+00:02:28,400 --> 00:02:33,400
+and Spring will automatically append the .properties
+on there for you, you don't have to specify
+
+31
+00:02:33,640 --> 00:02:35,329
+it on line 31.
+
+32
+00:02:35,329 --> 00:02:37,540
+Spring will do that for you in the background.
+
+33
+00:02:37,540 --> 00:02:42,540
+It's very important that you have this exactly
+like I have here on the screen.
+
+34
+00:02:43,260 --> 00:02:48,260
+All right, so we're in good shape here.
+
+35
+00:02:50,240 --> 00:02:53,130
+Let's go ahead and test this out and see if
+it works.
+
+36
+00:02:53,130 --> 00:02:58,130
+I go over to my application and I'll get it
+up and running on my server.
+
+37
+00:02:59,860 --> 00:03:03,760
+Go ahead and click on the link for customer.
+
+38
+00:03:03,760 --> 00:03:05,690
+For last name, I'll just give Smith.
+
+39
+00:03:05,690 --> 00:03:08,470
+Now, I'll add a lot of text.
+
+40
+00:03:08,470 --> 00:03:10,459
+Ooh, let's try and break it.
+
+41
+00:03:10,459 --> 00:03:11,470
+Boom.
+
+42
+00:03:11,470 --> 00:03:13,500
+Oh, yeah.
+
+43
+00:03:13,500 --> 00:03:16,420
+There's our custom error message, "Invalid
+number."
+
+44
+00:03:16,420 --> 00:03:19,700
+That's great, so it's actually reading our
+custom message from the file and displaying
+
+45
+00:03:19,700 --> 00:03:24,700
+it to the user, so no more of that long-winded
+Java stuff.
+
+46
+00:03:26,250 --> 00:03:29,420
+We get a simple message that we can show to
+the user.
+
+47
+00:03:29,420 --> 00:03:34,360
+Again, that was defined in our messages.properties
+file, so you can simply change that to anything
+
+48
+00:03:34,360 --> 00:03:39,360
+you want, reload the app, and it will have
+that new error message being displayed there
+
+49
+00:03:39,459 --> 00:03:40,940
+on the screen.
+
+50
+00:03:40,940 --> 00:03:42,580
+Good job.
+
+51
+00:03:42,580 --> 00:03:47,580
+Now, you may notice that there was a lot of
+stuff that we put there, in that messages.properties.
+
+52
+00:03:48,390 --> 00:03:52,180
+In the following video, I'll actually break
+it down even further.
+
+53
+00:03:52,180 --> 00:03:57,180
+I'll go in depth and I'll decipher how we
+came up with that big, long piece of text
+
+54
+00:03:58,790 --> 00:04:01,430
+that we added in at messages.properties.
+
+55
+00:04:01,430 --> 00:04:04,790
+Stay tuned and we'll do a deep dive in the
+next video.
+
+56
+00:04:04,790 --> 00:04:06,560
+Yo, yo.
+

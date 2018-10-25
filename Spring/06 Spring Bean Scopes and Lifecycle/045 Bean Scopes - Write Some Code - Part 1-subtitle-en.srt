@@ -1,0 +1,456 @@
+1
+00:00:00,941 --> 00:00:02,599
+<v Instructor>Alright, so let's go ahead</v>
+
+2
+00:00:02,599 --> 00:00:04,431
+and dive in to Eclipse and we're gonna run
+
+3
+00:00:04,431 --> 00:00:06,858
+some demos here on Bean Scopes.
+
+4
+00:00:06,858 --> 00:00:08,850
+We'll take a look at those singleton scope
+
+5
+00:00:08,850 --> 00:00:10,726
+and a prototype scope and we'll see
+
+6
+00:00:10,726 --> 00:00:12,471
+all of this code running in action
+
+7
+00:00:12,471 --> 00:00:15,888
+and I don't know, just get a good feel for it.
+
+8
+00:00:15,888 --> 00:00:17,924
+The first thing we wanna do is,
+
+9
+00:00:17,924 --> 00:00:20,753
+copy our application context file.
+
+10
+00:00:20,753 --> 00:00:23,108
+We're actually going to create a new version of it,
+
+11
+00:00:23,108 --> 00:00:26,371 line:15% 
+so we'll take this existing application context,
+
+12
+00:00:26,371 --> 00:00:29,954 line:15% 
+we'll just do a right click and choose copy
+
+13
+00:00:33,169 --> 00:00:35,451
+and then, we'll simply paste it,
+
+14
+00:00:35,451 --> 00:00:39,368
+so we just do a right click and we choose paste
+
+15
+00:00:40,997 --> 00:00:43,667
+and this new version, we'll give it a new name here.
+
+16
+00:00:43,667 --> 00:00:47,500
+I'll call it, beanScope-applicationContext.xml
+
+17
+00:00:50,457 --> 00:00:52,643
+and so, with these spring config files,
+
+18
+00:00:52,643 --> 00:00:54,703
+you can really give them any name that you want.
+
+19
+00:00:54,703 --> 00:00:57,313
+Your project can actually have multiple config files
+
+20
+00:00:57,313 --> 00:00:58,986
+and here you simply reference the one that you want,
+
+21
+00:00:58,986 --> 00:01:02,071
+so you can call it anything, fubar.xml if you wanted to,
+
+22
+00:01:02,071 --> 00:01:04,382
+as long as you reference it with that name.
+
+23
+00:01:04,382 --> 00:01:07,912
+Anyway, I have my beanScope-applicationContext.xml,
+
+24
+00:01:07,912 --> 00:01:09,176
+now let's go ahead and bean it up,
+
+25
+00:01:09,176 --> 00:01:11,926
+let's go ahead and open this file
+
+26
+00:01:14,583 --> 00:01:16,318
+and what I wanna do is, I just clean it up.
+
+27
+00:01:16,318 --> 00:01:20,401
+There's some lines in here that I want to delete.
+
+28
+00:01:22,018 --> 00:01:24,711
+I'll select lines 10 and 11, I'll highlight those
+
+29
+00:01:24,711 --> 00:01:26,677
+and I'll delete these lines because we're
+
+30
+00:01:26,677 --> 00:01:30,844
+not going to use any of the property placeholder stuff here.
+
+31
+00:01:31,697 --> 00:01:33,987
+I'm moving down a little bit further
+
+32
+00:01:33,987 --> 00:01:36,509
+and I'll also remove that bean for myCricketCoach,
+
+33
+00:01:36,509 --> 00:01:39,896
+so I'll just highlight the lines 24 through 34
+
+34
+00:01:39,896 --> 00:01:42,923
+and I'll actually delete those lines
+
+35
+00:01:42,923 --> 00:01:45,963
+and I'll just clean up some of this white space,
+
+36
+00:01:45,963 --> 00:01:48,195
+move up and let's do a little quick check point,
+
+37
+00:01:48,195 --> 00:01:50,031
+so in this config file that we just created,
+
+38
+00:01:50,031 --> 00:01:52,969
+beanScope-applicationContext.xml,
+
+39
+00:01:52,969 --> 00:01:55,162
+these are the only two entries that we should have
+
+40
+00:01:55,162 --> 00:01:58,186
+inside of here for beans, so we'll have our FortuneService
+
+41
+00:01:58,186 --> 00:02:02,022
+and we'll have our Coach, that points to our TrackCoach
+
+42
+00:02:02,022 --> 00:02:05,409
+and that's all we should have, at this point.
+
+43
+00:02:05,409 --> 00:02:07,777
+Now, by default, since we didn't specify
+
+44
+00:02:07,777 --> 00:02:10,149
+a scope for our track coach, well, what's the scope?
+
+45
+00:02:10,149 --> 00:02:11,520
+Well, it's singleton right?
+
+46
+00:02:11,520 --> 00:02:13,508
+Basic information we've learned so far,
+
+47
+00:02:13,508 --> 00:02:16,165
+so it'll simply be a single bean,
+
+48
+00:02:16,165 --> 00:02:20,232
+now, everyone will reference when we run our application.
+
+49
+00:02:20,232 --> 00:02:22,356
+Let's go ahead and create another main app,
+
+50
+00:02:22,356 --> 00:02:26,292
+I'll call this guy, BeanScopeDemoApp.java,
+
+51
+00:02:26,292 --> 00:02:30,459
+so I'll just do a right click, I'll say, new class
+
+52
+00:02:31,856 --> 00:02:36,023
+and the actual name of the class again, BeanScopeDemoApp
+
+53
+00:02:37,981 --> 00:02:42,136
+and I'll also go down and I'll check the box there
+
+54
+00:02:42,136 --> 00:02:44,534
+for the public static void main,
+
+55
+00:02:44,534 --> 00:02:45,970
+because I'll have a main method,
+
+56
+00:02:45,970 --> 00:02:48,398
+just a little separate demo app that I'll use for
+
+57
+00:02:48,398 --> 00:02:51,286
+testing out this scoping stuff.
+
+58
+00:02:51,286 --> 00:02:54,373
+Alright, okay with all that stuff, hit, finish.
+
+59
+00:02:54,373 --> 00:02:58,621
+Alright, so we have a very simple bean scope demo app.
+
+60
+00:02:58,621 --> 00:03:00,764
+I'll just move in here and I'll just remove the
+
+61
+00:03:00,764 --> 00:03:03,718
+auto-generated stuff and I'll write some quick comments
+
+62
+00:03:03,718 --> 00:03:05,916
+here, as well as what I need to do.
+
+63
+00:03:05,916 --> 00:03:08,668
+This is kinda, you're getting really used to this now,
+
+64
+00:03:08,668 --> 00:03:09,683
+the first thing we need to do is,
+
+65
+00:03:09,683 --> 00:03:12,457
+load the spring configuration file
+
+66
+00:03:12,457 --> 00:03:16,346
+and then, simply retrieve beans from the spring container.
+
+67
+00:03:16,346 --> 00:03:17,681
+Alright, that's kinda the game plan,
+
+68
+00:03:17,681 --> 00:03:19,477
+let's write the code right here
+
+69
+00:03:19,477 --> 00:03:22,269
+and you should probably know most of this now,
+
+70
+00:03:22,269 --> 00:03:24,107
+from memory because you've seen this a lot
+
+71
+00:03:24,107 --> 00:03:27,069
+so this is good practice, this is how you can really learn
+
+72
+00:03:27,069 --> 00:03:28,777
+the technology, just by repeating it
+
+73
+00:03:28,777 --> 00:03:30,765
+over and over again, just like a sport,
+
+74
+00:03:30,765 --> 00:03:33,182
+practice, practice, practice.
+
+75
+00:03:39,509 --> 00:03:43,054
+Let me go ahead and use that ClassPathXmlApplicationContext,
+
+76
+00:03:43,054 --> 00:03:45,574
+I'll just do a copy paste, I say, new
+
+77
+00:03:45,574 --> 00:03:47,682
+and I give the actual name, so this is gonna be
+
+78
+00:03:47,682 --> 00:03:51,000
+the actual name of my new configuration file
+
+79
+00:03:51,000 --> 00:03:52,711
+that we just created, so that's
+
+80
+00:03:52,711 --> 00:03:54,530
+the file that we created called,
+
+81
+00:03:54,530 --> 00:03:57,280
+beanScope-applicationContext.xml,
+
+82
+00:03:58,771 --> 00:04:01,611
+let me go ahead and fix up the imports right here.
+
+83
+00:04:01,611 --> 00:04:04,671
+I'll just hover over and say, import that given class,
+
+84
+00:04:04,671 --> 00:04:07,671
+looks good and there we go, so yeah,
+
+85
+00:04:09,353 --> 00:04:12,074
+that's our new config file that we're reading in here,
+
+86
+00:04:12,074 --> 00:04:14,741
+beanScope-applicationContext.xml
+
+87
+00:04:15,612 --> 00:04:18,186
+so again, you can have as many config files
+
+88
+00:04:18,186 --> 00:04:19,738
+up here as you like for your project,
+
+89
+00:04:19,738 --> 00:04:21,558
+simply load the appropriate one.
+
+90
+00:04:21,558 --> 00:04:22,969
+Also, if you have multiple, you simply give
+
+91
+00:04:22,969 --> 00:04:24,681
+a common denominated list, you can load in
+
+92
+00:04:24,681 --> 00:04:26,642
+multiple configs if you wanted to.
+
+93
+00:04:26,642 --> 00:04:29,112
+Alright, let's keep it simple for now.
+
+94
+00:04:29,112 --> 00:04:31,751
+Now, let's go ahead and get some white space
+
+95
+00:04:31,751 --> 00:04:35,918
+and let's go ahead and retrieve the bean from the container.
+
+96
+00:04:37,440 --> 00:04:39,316
+I'm actually gonna retrieve two beans,
+
+97
+00:04:39,316 --> 00:04:40,843
+so I'll start off with the first one here.
+
+98
+00:04:40,843 --> 00:04:44,843
+I'll say, Coach theCoach = context.getBean,
+
+99
+00:04:46,631 --> 00:04:50,005
+I give the name, which is, myCoach
+
+100
+00:04:50,005 --> 00:04:53,588
+and then I give the interface, Coach.class.
+
+101
+00:04:54,905 --> 00:04:58,001
+Looks good, and also you can just copy paste this line,
+
+102
+00:04:58,001 --> 00:05:00,751
+for the second reference, so I'll
+
+103
+00:05:01,952 --> 00:05:04,688
+just do a paste on that one, instead of the coach,
+
+104
+00:05:04,688 --> 00:05:07,694
+I'll call it alphaCoach and everything
+
+105
+00:05:07,694 --> 00:05:10,834
+else here stays the same, so basically,
+
+106
+00:05:10,834 --> 00:05:13,094
+this is the code here for retrieving
+
+107
+00:05:13,094 --> 00:05:15,378
+the bean from the spring container.
+
+108
+00:05:15,378 --> 00:05:18,325
+Right now, it's a singleton, so
+
+109
+00:05:18,325 --> 00:05:20,323
+we should get the same reference
+
+110
+00:05:20,323 --> 00:05:22,141
+and we'll actually write some code in a second
+
+111
+00:05:22,141 --> 00:05:25,489
+to show us the reference, but I'll kinda pause for now.
+
+112
+00:05:25,489 --> 00:05:27,790
+In the next video, we'll write more code
+
+113
+00:05:27,790 --> 00:05:30,527
+to print out the results of this reference.
+
+114
+00:05:30,527 --> 00:05:33,110
+I'll see you in the next video.
+

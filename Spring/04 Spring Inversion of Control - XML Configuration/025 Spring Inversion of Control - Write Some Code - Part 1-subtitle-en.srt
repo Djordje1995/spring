@@ -1,0 +1,732 @@
+1
+00:00:01,296 --> 00:00:02,977
+<v Instructor>Alright, so moving into Eclipse</v>
+
+2
+00:00:02,977 --> 00:00:05,155
+we're gonna go ahead and write some code,
+
+3
+00:00:05,155 --> 00:00:08,452
+so we'll make use of the existing project that we've had,
+
+4
+00:00:08,452 --> 00:00:11,468
+spring-demo-one and this is the same project
+
+5
+00:00:11,468 --> 00:00:12,702
+that we had in our previous videos
+
+6
+00:00:12,702 --> 00:00:14,303
+as far as making use of our coach,
+
+7
+00:00:14,303 --> 00:00:15,608
+baseball coach and track coach,
+
+8
+00:00:15,608 --> 00:00:18,358
+so again, the same project there.
+
+9
+00:00:21,431 --> 00:00:23,086
+And what we wanna do is make use of some code
+
+10
+00:00:23,086 --> 00:00:24,950
+that we've downloaded for this course,
+
+11
+00:00:24,950 --> 00:00:26,723
+so in previous videos we gave you the links
+
+12
+00:00:26,723 --> 00:00:29,755
+on how to download the course files.
+
+13
+00:00:29,755 --> 00:00:31,280
+So, once you download it you'll get
+
+14
+00:00:31,280 --> 00:00:34,228
+this spring-hibernate-source-code.zip,
+
+15
+00:00:34,228 --> 00:00:36,407
+you can extract it and then you'll get this folder,
+
+16
+00:00:36,407 --> 00:00:38,691
+so again, look at the previous videos in the course
+
+17
+00:00:38,691 --> 00:00:42,099
+as far as how to download the actual course zip file
+
+18
+00:00:42,099 --> 00:00:44,737
+but anyways, once you have it,
+
+19
+00:00:44,737 --> 00:00:45,828
+you've unzipped it,
+
+20
+00:00:45,828 --> 00:00:47,944
+there's this spring-hibernate-source-code
+
+21
+00:00:47,944 --> 00:00:49,114
+and we'll look in this directory here
+
+22
+00:00:49,114 --> 00:00:50,843
+called spring-core
+
+23
+00:00:50,843 --> 00:00:54,227
+because what we wanna do is actually copy a starter file
+
+24
+00:00:54,227 --> 00:00:58,417
+that'll help us out with the XML configurations.
+
+25
+00:00:58,417 --> 00:01:01,303
+So, I just move down into spring-demo-one starter file
+
+26
+00:01:01,303 --> 00:01:04,637
+and there's a file there called applicationContext.xml.
+
+27
+00:01:04,637 --> 00:01:07,664
+It's just a basic starter file, basic shell
+
+28
+00:01:07,664 --> 00:01:09,752
+but let's go ahead and copy this file,
+
+29
+00:01:09,752 --> 00:01:12,919
+just do a right click and choose copy,
+
+30
+00:01:14,276 --> 00:01:16,465
+and let's move back over to Eclipse
+
+31
+00:01:16,465 --> 00:01:18,978
+and we wanna place this in our source directory, alright?
+
+32
+00:01:18,978 --> 00:01:21,313
+So, highlight that source directory,
+
+33
+00:01:21,313 --> 00:01:24,480
+do a right click and then choose paste
+
+34
+00:01:25,406 --> 00:01:26,470
+because what this will actually do
+
+35
+00:01:26,470 --> 00:01:27,777
+it'll paste the file
+
+36
+00:01:27,777 --> 00:01:30,619
+and actually put it on our application's class path,
+
+37
+00:01:30,619 --> 00:01:34,344
+so we can make use of our class path applicationContext.
+
+38
+00:01:34,344 --> 00:01:35,415
+So, there's our file.
+
+39
+00:01:35,415 --> 00:01:37,321
+Now if we just double click this file,
+
+40
+00:01:37,321 --> 00:01:40,784
+our first step is configuring our Spring beans, alright?
+
+41
+00:01:40,784 --> 00:01:44,090
+So, this file has a lot of header information here
+
+42
+00:01:44,090 --> 00:01:46,718
+for the XML namespaces and that's what's required
+
+43
+00:01:46,718 --> 00:01:49,983
+for Spring to be able to process this file
+
+44
+00:01:49,983 --> 00:01:53,547
+using it's grammar, and XML schema,
+
+45
+00:01:53,547 --> 00:01:55,498
+and now let's go ahead and define our bean.
+
+46
+00:01:55,498 --> 00:01:56,956
+So, we have this bean,
+
+47
+00:01:56,956 --> 00:01:59,682
+and now I need to sep up two attributes.
+
+48
+00:01:59,682 --> 00:02:02,724
+The first attribute I need to set is ID equals
+
+49
+00:02:02,724 --> 00:02:05,638
+and this is basically our alias of what the app will use.
+
+50
+00:02:05,638 --> 00:02:07,747
+I'll just call it myCoach
+
+51
+00:02:07,747 --> 00:02:09,435
+and then I give class.
+
+52
+00:02:09,435 --> 00:02:12,963
+Now I give the fully qualified class name
+
+53
+00:02:12,963 --> 00:02:14,529
+of our implementation,
+
+54
+00:02:14,529 --> 00:02:16,193
+so in this case I want the BaseballCoach,
+
+55
+00:02:16,193 --> 00:02:20,360
+so I know that BaseballCoach is in com.Luv2code.springdemo.
+
+56
+00:02:21,214 --> 00:02:23,615
+Oh and actually this is TrackCoach, sorry.
+
+57
+00:02:23,615 --> 00:02:27,058
+So, com.Luv2code.springdemo.TrackCoach
+
+58
+00:02:27,058 --> 00:02:30,542
+and that's our bean definition there.
+
+59
+00:02:30,542 --> 00:02:32,269
+So, that pretty much covers step one
+
+60
+00:02:32,269 --> 00:02:35,519
+as far as configuring our Spring beans.
+
+61
+00:02:37,684 --> 00:02:39,540
+Alright, so now let's go ahead
+
+62
+00:02:39,540 --> 00:02:42,373
+and take a look at one other item,
+
+63
+00:02:46,362 --> 00:02:47,980
+and now what I'm gonna do is actually make use
+
+64
+00:02:47,980 --> 00:02:52,317
+of a Java class, so I'm gonna create a new class
+
+65
+00:02:52,317 --> 00:02:54,150
+called SpringHelloApp.
+
+66
+00:02:55,645 --> 00:03:00,279
+So, I'll select my package here, I'll do a right click
+
+67
+00:03:00,279 --> 00:03:02,196
+and I'll say new class.
+
+68
+00:03:07,001 --> 00:03:09,180
+And the actual name of the class here,
+
+69
+00:03:09,180 --> 00:03:12,263
+I'll actually call it HelloSpringApp.
+
+70
+00:03:16,180 --> 00:03:18,394
+And also I'll check the box here at the bottom,
+
+71
+00:03:18,394 --> 00:03:19,879
+public static void main,
+
+72
+00:03:19,879 --> 00:03:23,014
+just so it'll give us a main method for our application
+
+73
+00:03:23,014 --> 00:03:25,400
+and then I'll just hit the finish button.
+
+74
+00:03:25,400 --> 00:03:27,057
+Okay, great, so again, just like before,
+
+75
+00:03:27,057 --> 00:03:30,224
+this gives us a very basic Java class.
+
+76
+00:03:33,494 --> 00:03:34,791
+Now what I'd like to do is, you know,
+
+77
+00:03:34,791 --> 00:03:36,135
+always like to put in comments for us
+
+78
+00:03:36,135 --> 00:03:37,680
+before I start writing code.
+
+79
+00:03:37,680 --> 00:03:39,005
+So, the first thing I wanna do here
+
+80
+00:03:39,005 --> 00:03:42,172
+is load the Spring configuration file.
+
+81
+00:03:44,535 --> 00:03:46,526
+And then actually wanna go ahead and retrieve a bean
+
+82
+00:03:46,526 --> 00:03:48,693
+from the Spring container.
+
+83
+00:03:50,151 --> 00:03:52,793
+Now that I have the bean, then I call methods on the bean,
+
+84
+00:03:52,793 --> 00:03:54,218
+or a method on the bean
+
+85
+00:03:54,218 --> 00:03:56,072
+and then finally just to be nice,
+
+86
+00:03:56,072 --> 00:03:59,852
+I'll close the actual application context.
+
+87
+00:03:59,852 --> 00:04:01,564
+So, that's my basic game plan here
+
+88
+00:04:01,564 --> 00:04:04,231
+for building our HelloSpringApp.
+
+89
+00:04:07,752 --> 00:04:09,304
+Alright, so let me stretch out here at the bottom,
+
+90
+00:04:09,304 --> 00:04:11,038
+give myself some white space,
+
+91
+00:04:11,038 --> 00:04:13,772
+and now let's go ahead and cover step two
+
+92
+00:04:13,772 --> 00:04:15,608
+of creating a Spring container.
+
+93
+00:04:15,608 --> 00:04:16,887
+So, again here we're gonna use
+
+94
+00:04:16,887 --> 00:04:20,150
+this ClassPathXmlApplicationContext
+
+95
+00:04:20,150 --> 00:04:22,539
+and I say new and that's a really long name,
+
+96
+00:04:22,539 --> 00:04:26,601
+so I'm just gonna copy, paste that name.
+
+97
+00:04:26,601 --> 00:04:29,528
+I'm taking a shortcut, paste.
+
+98
+00:04:29,528 --> 00:04:31,515
+And then in the construct
+
+99
+00:04:31,515 --> 00:04:33,619
+I give the actual name of the config file,
+
+100
+00:04:33,619 --> 00:04:35,701
+so just like in the previous example here,
+
+101
+00:04:35,701 --> 00:04:38,083
+ApplicationContext.xml, that's the name
+
+102
+00:04:38,083 --> 00:04:39,956
+of our XML config file.
+
+103
+00:04:39,956 --> 00:04:41,619
+Now it'll give us error messages for us,
+
+104
+00:04:41,619 --> 00:04:42,698
+so we wanna import,
+
+105
+00:04:42,698 --> 00:04:45,149
+so we'll simply hover over that error message
+
+106
+00:04:45,149 --> 00:04:48,782
+and then we choose that first option of importing.
+
+107
+00:04:48,782 --> 00:04:50,176
+So, if you move up top,
+
+108
+00:04:50,176 --> 00:04:52,121
+Eclipse will help you out with importing
+
+109
+00:04:52,121 --> 00:04:56,162
+that class from the appropriate package,
+
+110
+00:04:56,162 --> 00:04:58,500
+so that's a nice little feature there.
+
+111
+00:04:58,500 --> 00:05:02,667
+Okay, so now let's retrieve the bean from the container.
+
+112
+00:05:04,234 --> 00:05:07,074
+So, here I say context.getBean
+
+113
+00:05:07,074 --> 00:05:09,530
+and I give myCoach, that's the ID,
+
+114
+00:05:09,530 --> 00:05:12,592
+comma Coach.class, that's the actual name
+
+115
+00:05:12,592 --> 00:05:15,925
+of the interface for our implementation.
+
+116
+00:05:17,839 --> 00:05:19,665
+So, now I'm simply gonna call methods on the bean,
+
+117
+00:05:19,665 --> 00:05:22,011
+so I simply use my system out print line trick,
+
+118
+00:05:22,011 --> 00:05:24,284
+sysout, control, space,
+
+119
+00:05:24,284 --> 00:05:27,867
+and then I'll say theCoach.getDailyWorkout.
+
+120
+00:05:32,829 --> 00:05:34,971
+And now I simply go through and close the context
+
+121
+00:05:34,971 --> 00:05:36,703
+by saying context.close,
+
+122
+00:05:36,703 --> 00:05:40,870
+just to be nice, just to clean up after ourselves.
+
+123
+00:05:42,264 --> 00:05:44,385
+Alright, so that's kind of the basic game plan here
+
+124
+00:05:44,385 --> 00:05:45,571
+with this HelloSpringApp.
+
+125
+00:05:45,571 --> 00:05:46,404
+So, the first thing we do
+
+126
+00:05:46,404 --> 00:05:49,118
+is we load the Spring configuration file,
+
+127
+00:05:49,118 --> 00:05:50,469
+then we go through and retrieve the bean
+
+128
+00:05:50,469 --> 00:05:52,052
+from the container.
+
+129
+00:05:53,192 --> 00:05:55,621
+Then I call methods on that bean,
+
+130
+00:05:55,621 --> 00:05:57,329
+and then finally I close the context
+
+131
+00:05:57,329 --> 00:05:59,014
+by doing my clean up,
+
+132
+00:05:59,014 --> 00:06:01,537
+and now that's the basic game plan.
+
+133
+00:06:01,537 --> 00:06:04,214
+And that's kinda your first Spring application right there.
+
+134
+00:06:04,214 --> 00:06:05,047
+Wohoo.
+
+135
+00:06:05,047 --> 00:06:06,058
+Now let's go ahead and try this out,
+
+136
+00:06:06,058 --> 00:06:07,382
+let's run it.
+
+137
+00:06:07,382 --> 00:06:11,549
+So, just do a right click, run as a Java application.
+
+138
+00:06:12,682 --> 00:06:13,515
+And there we go.
+
+139
+00:06:13,515 --> 00:06:15,453
+Booya, check the output.
+
+140
+00:06:15,453 --> 00:06:17,794
+So, here look at some of the info messages,
+
+141
+00:06:17,794 --> 00:06:19,699
+so it's loading XML bean definitions
+
+142
+00:06:19,699 --> 00:06:21,136
+from your class path resource,
+
+143
+00:06:21,136 --> 00:06:22,822
+that's our configuration file,
+
+144
+00:06:22,822 --> 00:06:24,840
+applicationContext.xml,
+
+145
+00:06:24,840 --> 00:06:26,616
+and then we called our sysout print line
+
+146
+00:06:26,616 --> 00:06:28,394
+on the getDailyWorkout,
+
+147
+00:06:28,394 --> 00:06:30,370
+and our TrackCoach said hey,
+
+148
+00:06:30,370 --> 00:06:33,629
+we need you to run a hard five K.
+
+149
+00:06:33,629 --> 00:06:35,628
+So, this looks really good.
+
+150
+00:06:35,628 --> 00:06:36,757
+Kinda excited about this.
+
+151
+00:06:36,757 --> 00:06:38,219
+I hope you are too.
+
+152
+00:06:38,219 --> 00:06:40,378
+This is our first real Spring application
+
+153
+00:06:40,378 --> 00:06:43,267
+and it actually works which is cool.
+
+154
+00:06:43,267 --> 00:06:45,437
+So again, there's the code up top
+
+155
+00:06:45,437 --> 00:06:48,561
+and then our messages being displayed there
+
+156
+00:06:48,561 --> 00:06:51,653
+at the bottom, reading a config file,
+
+157
+00:06:51,653 --> 00:06:54,598
+getting a bean from the container,
+
+158
+00:06:54,598 --> 00:06:56,871
+and then simply calling methods on that bean,
+
+159
+00:06:56,871 --> 00:06:59,763
+and that gives us the desired output in our console window.
+
+160
+00:06:59,763 --> 00:07:00,596
+Cool.
+
+161
+00:07:03,849 --> 00:07:06,062
+So, let me kind of switch back to our slides here
+
+162
+00:07:06,062 --> 00:07:08,636
+for a second because now we've kind of come
+
+163
+00:07:08,636 --> 00:07:09,618
+full circle here.
+
+164
+00:07:09,618 --> 00:07:13,055
+So, now we have an app that meets the requirements.
+
+165
+00:07:13,055 --> 00:07:14,962
+Our app is configurable
+
+166
+00:07:14,962 --> 00:07:16,230
+based on that configuration file
+
+167
+00:07:16,230 --> 00:07:17,334
+we just worked on
+
+168
+00:07:17,334 --> 00:07:19,344
+and also we can easily change the coach
+
+169
+00:07:19,344 --> 00:07:21,576
+for another sport by simply putting in
+
+170
+00:07:21,576 --> 00:07:23,728
+a different coach implementation.
+
+171
+00:07:23,728 --> 00:07:27,118
+So, I like to say mission accomplished,
+
+172
+00:07:27,118 --> 00:07:29,460
+and I'd like to say that we've met all of those requirements
+
+173
+00:07:29,460 --> 00:07:30,877
+from our manager.
+
+174
+00:07:32,250 --> 00:07:34,262
+So, hey boss, we got it all covered here.
+
+175
+00:07:34,262 --> 00:07:35,334
+We're all done for the day
+
+176
+00:07:35,334 --> 00:07:39,781
+and thanks to Spring our life is much easier.
+
+177
+00:07:39,781 --> 00:07:40,929
+So, good job here.
+
+178
+00:07:40,929 --> 00:07:41,864
+Our first Spring app,
+
+179
+00:07:41,864 --> 00:07:44,169
+it's up, it's running and it's working.
+
+180
+00:07:44,169 --> 00:07:46,145
+A lot of great Spring stuff coming on later
+
+181
+00:07:46,145 --> 00:07:47,821
+but hey, this is a good start,
+
+182
+00:07:47,821 --> 00:07:50,286
+so give yourself a pat on the back.
+
+183
+00:07:50,286 --> 00:07:51,536
+Job well done.
+

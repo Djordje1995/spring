@@ -1,0 +1,512 @@
+1
+00:00:01,143 --> 00:00:02,467
+<v Instructor>In this video, we're gonna learn</v>
+
+2
+00:00:02,467 --> 00:00:05,634
+about adding data to the spring model.
+
+3
+00:00:07,515 --> 00:00:09,934
+So the main focus here is on the model.
+
+4
+00:00:09,934 --> 00:00:12,311
+So far, we've covered the controller code.
+
+5
+00:00:12,311 --> 00:00:13,814
+We've covered view templates.
+
+6
+00:00:13,814 --> 00:00:16,322
+But we didn't really talk about the model,
+
+7
+00:00:16,322 --> 00:00:18,165
+and so that's where we're gonna kind of zoom in here,
+
+8
+00:00:18,165 --> 00:00:21,438
+and see how we can use it, how we can add data to it,
+
+9
+00:00:21,438 --> 00:00:25,453
+and also how we can read data from the model.
+
+10
+00:00:25,453 --> 00:00:28,370
+It's all about the model right now.
+
+11
+00:00:29,853 --> 00:00:32,688
+So the spring model is really just a container
+
+12
+00:00:32,688 --> 00:00:34,967
+for your application data.
+
+13
+00:00:34,967 --> 00:00:37,181
+So in your controller code, you can put
+
+14
+00:00:37,181 --> 00:00:39,219
+anything in the model.
+
+15
+00:00:39,219 --> 00:00:43,118
+You can put in strings, objects, information
+
+16
+00:00:43,118 --> 00:00:45,948
+that you get from the database, et cetera.
+
+17
+00:00:45,948 --> 00:00:47,278
+And you can load it up.
+
+18
+00:00:47,278 --> 00:00:49,625
+And then your actual view page, or your JSP,
+
+19
+00:00:49,625 --> 00:00:52,958
+can actually access data from the model.
+
+20
+00:00:55,941 --> 00:00:57,733
+So what I'll do here is I'll actually walk
+
+21
+00:00:57,733 --> 00:00:59,146
+through a code example.
+
+22
+00:00:59,146 --> 00:01:02,729
+So I'm gonna create a new method to process form data.
+
+23
+00:01:02,729 --> 00:01:04,941
+I'm gonna read the form data.
+
+24
+00:01:04,941 --> 00:01:09,367
+And then I want to convert the form data to all upper case.
+
+25
+00:01:09,367 --> 00:01:13,784
+And then I'll add this upper case version of the data
+
+26
+00:01:13,784 --> 00:01:17,951
+to the model, and then we'll display it in the page.
+
+27
+00:01:20,906 --> 00:01:24,347
+When we make use of our spring controller,
+
+28
+00:01:24,347 --> 00:01:27,011
+we can actually pass the model to our controller,
+
+29
+00:01:27,011 --> 00:01:30,373
+and we can also read form data in our controller.
+
+30
+00:01:30,373 --> 00:01:32,690
+So what I'm gonna do here is create this new method
+
+31
+00:01:32,690 --> 00:01:35,767
+called letsShoutDude 'cause I'm gonna shout
+
+32
+00:01:35,767 --> 00:01:38,037
+and use everything in all caps.
+
+33
+00:01:38,037 --> 00:01:40,595
+That's just my little joke here.
+
+34
+00:01:40,595 --> 00:01:43,665
+And we're gonna set up a request mapping up top,
+
+35
+00:01:43,665 --> 00:01:47,832
+so the name of this request will be processFormVersionTwo.
+
+36
+00:01:49,359 --> 00:01:51,753
+All right so our method letsShoutDude
+
+37
+00:01:51,753 --> 00:01:53,546
+we're gonna pass in two parameters.
+
+38
+00:01:53,546 --> 00:01:56,406
+So in spring and receive, when you create your controller
+
+39
+00:01:56,406 --> 00:01:59,411
+methods, they're actually very flexible on the parameters
+
+40
+00:01:59,411 --> 00:02:02,785
+you can pass in, so if you need to read form data
+
+41
+00:02:02,785 --> 00:02:05,142
+in your controller code, then you pass
+
+42
+00:02:05,142 --> 00:02:07,434
+in the HttpServletRequest.
+
+43
+00:02:07,434 --> 00:02:09,778
+And it's working like the normal servlet request
+
+44
+00:02:09,778 --> 00:02:11,912
+that you've learned already.
+
+45
+00:02:11,912 --> 00:02:13,502
+And also, you can pass in the model.
+
+46
+00:02:13,502 --> 00:02:15,053
+So again, the model is just a container
+
+47
+00:02:15,053 --> 00:02:17,061
+that can hold your form data.
+
+48
+00:02:17,061 --> 00:02:19,414
+When the model comes in initially, it's empty,
+
+49
+00:02:19,414 --> 00:02:21,664
+and you can add data to it.
+
+50
+00:02:23,066 --> 00:02:26,064
+So let's kind of walk through this code here step by step.
+
+51
+00:02:26,064 --> 00:02:28,494
+So the first thing we want to do is read the request
+
+52
+00:02:28,494 --> 00:02:30,911
+parameter from the HTML form.
+
+53
+00:02:31,930 --> 00:02:35,090
+The form has a field name called studentName.
+
+54
+00:02:35,090 --> 00:02:39,257
+I simply say request.getParameter, studentName.
+
+55
+00:02:39,257 --> 00:02:41,012
+That allows me to read that form data,
+
+56
+00:02:41,012 --> 00:02:45,645
+and I simply assign it to a variable here called theName.
+
+57
+00:02:45,645 --> 00:02:48,873
+Now, in my little example, I want to convert the name
+
+58
+00:02:48,873 --> 00:02:52,936
+to all upper case, so I simply say theName.toUpperCase,
+
+59
+00:02:52,936 --> 00:02:55,050
+and assign it to itself.
+
+60
+00:02:55,050 --> 00:02:57,934
+So now I have an all caps version of the name,
+
+61
+00:02:57,934 --> 00:02:59,959
+kind of the way of shouting.
+
+62
+00:02:59,959 --> 00:03:01,214
+In the online world we always say
+
+63
+00:03:01,214 --> 00:03:03,349
+if you type in all caps, it's shouting.
+
+64
+00:03:03,349 --> 00:03:05,508
+So that's why we have this whole little shouting thing
+
+65
+00:03:05,508 --> 00:03:07,541
+going on here. (laughs)
+
+66
+00:03:07,541 --> 00:03:08,977
+Then, we're gonna create a message.
+
+67
+00:03:08,977 --> 00:03:12,003
+So our message is gonna be simply, yo,
+
+68
+00:03:12,003 --> 00:03:13,778
+and then whatever the person's name is.
+
+69
+00:03:13,778 --> 00:03:15,540
+Like, yo, Pauly.
+
+70
+00:03:15,540 --> 00:03:16,855
+Yo, Andrian.
+
+71
+00:03:16,855 --> 00:03:17,688
+Okay.
+
+72
+00:03:17,688 --> 00:03:21,521
+And that'll give us the message or the result.
+
+73
+00:03:22,371 --> 00:03:25,282
+So now that I have the result, I want to add
+
+74
+00:03:25,282 --> 00:03:27,449
+this message to the model.
+
+75
+00:03:28,739 --> 00:03:32,906
+So to add something to the model, I say model.addAttribute,
+
+76
+00:03:34,368 --> 00:03:36,440
+and the attribute I give the actual name
+
+77
+00:03:36,440 --> 00:03:39,771
+of the attribute, comma, the value.
+
+78
+00:03:39,771 --> 00:03:43,938
+So the name here is message, and the actual value is result.
+
+79
+00:03:45,438 --> 00:03:47,520
+So result is the object that we just created
+
+80
+00:03:47,520 --> 00:03:49,863
+on the previous line.
+
+81
+00:03:49,863 --> 00:03:52,283
+Now, the actual name of the attribute message,
+
+82
+00:03:52,283 --> 00:03:55,028
+you can give any name you want for the attribute.
+
+83
+00:03:55,028 --> 00:03:57,878
+You can call it fubar, funny, silly.
+
+84
+00:03:57,878 --> 00:03:59,691
+It's totally up to you as long as you're consistent
+
+85
+00:03:59,691 --> 00:04:02,913
+in other parts of your application.
+
+86
+00:04:02,913 --> 00:04:06,258
+And that's it for actually adding data to the model.
+
+87
+00:04:06,258 --> 00:04:07,548
+And then finally, I say return helloworld.
+
+88
+00:04:07,548 --> 00:04:10,472
+It'll go off to that helloworld.jsp page.
+
+89
+00:04:10,472 --> 00:04:13,760
+So that's the basic coding there for passing the model
+
+90
+00:04:13,760 --> 00:04:17,927
+to your controller and also adding data to the model.
+
+91
+00:04:22,124 --> 00:04:26,335
+All right, now in my actual view page, or my JSP,
+
+92
+00:04:26,335 --> 00:04:29,866
+I can access data from the model.
+
+93
+00:04:29,866 --> 00:04:31,908
+In order to access data from the model,
+
+94
+00:04:31,908 --> 00:04:35,646
+I simply make use of the dollar sign curly brace,
+
+95
+00:04:35,646 --> 00:04:39,592
+and I give the actual model attribute name.
+
+96
+00:04:39,592 --> 00:04:42,296
+So in the previous example, we set something
+
+97
+00:04:42,296 --> 00:04:44,234
+with the attribute name of message.
+
+98
+00:04:44,234 --> 00:04:48,779
+I can access it using that same name, message,
+
+99
+00:04:48,779 --> 00:04:50,615
+and whatever data was placed there,
+
+100
+00:04:50,615 --> 00:04:53,307
+it'll be displayed right here on the screen.
+
+101
+00:04:53,307 --> 00:04:54,325
+So that's the key there.
+
+102
+00:04:54,325 --> 00:04:56,541
+So in your controller, you add an attribute
+
+103
+00:04:56,541 --> 00:04:57,683
+with the given name.
+
+104
+00:04:57,683 --> 00:04:59,795
+In your JSP page, you can display it
+
+105
+00:04:59,795 --> 00:05:02,378
+using that same attribute name.
+
+106
+00:05:04,703 --> 00:05:06,789
+And then finally you may have the question, well,
+
+107
+00:05:06,789 --> 00:05:09,033
+what if I need to add more data?
+
+108
+00:05:09,033 --> 00:05:10,688
+What if it's more than just one item?
+
+109
+00:05:10,688 --> 00:05:12,447
+Well, you can add as much data here
+
+110
+00:05:12,447 --> 00:05:13,943
+as you'd like to the model.
+
+111
+00:05:13,943 --> 00:05:16,532
+All you do is you simply call addAttribute
+
+112
+00:05:16,532 --> 00:05:18,361
+X number of times.
+
+113
+00:05:18,361 --> 00:05:21,116
+So in this example, I have, up top I get data.
+
+114
+00:05:21,116 --> 00:05:22,623
+I have three variables:
+
+115
+00:05:22,623 --> 00:05:26,168
+results, theStudentList, theShoppingCart.
+
+116
+00:05:26,168 --> 00:05:28,608
+Then, I can add that data to the model.
+
+117
+00:05:28,608 --> 00:05:31,016
+I simply say model, addAttribute, message,
+
+118
+00:05:31,016 --> 00:05:34,315
+attribute, student, addAttribute, ShopingCart.
+
+119
+00:05:34,315 --> 00:05:35,148
+So that's it.
+
+120
+00:05:35,148 --> 00:05:37,943
+So you simply give your name, value pair
+
+121
+00:05:37,943 --> 00:05:40,194
+that you're adding for a given attribute,
+
+122
+00:05:40,194 --> 00:05:43,041
+and you can continue doing that X number of times.
+
+123
+00:05:43,041 --> 00:05:45,984
+So that's the basic process.
+
+124
+00:05:45,984 --> 00:05:47,259
+All right, so this is good stuff here.
+
+125
+00:05:47,259 --> 00:05:49,415
+Let's go ahead and move into Eclipse,
+
+126
+00:05:49,415 --> 00:05:51,023
+and let's get our hands dirty.
+
+127
+00:05:51,023 --> 00:05:53,238
+Let's go bang out some code.
+
+128
+00:05:53,238 --> 00:05:55,071
+So I'll see you there.
+

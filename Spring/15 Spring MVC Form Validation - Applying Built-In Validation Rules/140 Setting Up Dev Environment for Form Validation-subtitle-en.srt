@@ -1,0 +1,140 @@
+1
+00:00:01,302 --> 00:00:02,653
+<v Darby>In this video, we're gonna learn</v>
+
+2
+00:00:02,653 --> 00:00:04,616
+how to set up our development environment
+
+3
+00:00:04,616 --> 00:00:07,199
+for Spring MVC form validation.
+
+4
+00:00:08,593 --> 00:00:10,751
+Now we've already discussed the Java standard
+
+5
+00:00:10,751 --> 00:00:14,243
+Bean Validation API, but the important thing here
+
+6
+00:00:14,243 --> 00:00:17,052
+is to know that this is only a specification.
+
+7
+00:00:17,052 --> 00:00:19,391
+It's vendor independent, it's portable.
+
+8
+00:00:19,391 --> 00:00:22,789
+However, we still need an implementation.
+
+9
+00:00:22,789 --> 00:00:25,904
+We need something that implements the spec.
+
+10
+00:00:25,904 --> 00:00:28,595
+So this is where Hibernate comes in the play.
+
+11
+00:00:28,595 --> 00:00:30,443
+Hibernate to the rescue!
+
+12
+00:00:30,443 --> 00:00:33,796
+So Hibernate originally started as an ORM project,
+
+13
+00:00:33,796 --> 00:00:36,033
+or object to relational mapping project.
+
+14
+00:00:36,033 --> 00:00:38,342
+However, in recent years, they've expanded
+
+15
+00:00:38,342 --> 00:00:40,487
+into other areas.
+
+16
+00:00:40,487 --> 00:00:42,679
+So now they have a fully compliant
+
+17
+00:00:42,679 --> 00:00:45,334
+JSR-303/309 implementation.
+
+18
+00:00:45,334 --> 00:00:48,107
+So they have an implementation of the validation framework,
+
+19
+00:00:48,107 --> 00:00:50,286
+which is really, really cool.
+
+20
+00:00:50,286 --> 00:00:53,775
+And also it's not tied to the ORM or database work.
+
+21
+00:00:53,775 --> 00:00:57,942
+It's actually a separate project just for doing validation.
+
+22
+00:00:59,420 --> 00:01:01,207
+So here's the actual website,
+
+23
+00:01:01,207 --> 00:01:03,207
+hibernate.org/validator.
+
+24
+00:01:03,207 --> 00:01:06,395
+Again, it's its own separate project for doing validation,
+
+25
+00:01:06,395 --> 00:01:09,309
+and it's fully compliant with the Java Beans
+
+26
+00:01:09,309 --> 00:01:12,372
+Validation API, so they implement the spec
+
+27
+00:01:12,372 --> 00:01:16,289
+to the T, and it works out really, really nice.
+
+28
+00:01:17,543 --> 00:01:19,903
+Here's the actual development process.
+
+29
+00:01:19,903 --> 00:01:21,702
+Basically what you'll do is you'll download
+
+30
+00:01:21,702 --> 00:01:24,693
+the Validation JAR files from the Hibernate website,
+
+31
+00:01:24,693 --> 00:01:28,012
+and then you'll add those JAR files to your project.
+
+32
+00:01:28,012 --> 00:01:30,768
+So in the following videos, we'll actually go through this
+
+33
+00:01:30,768 --> 00:01:33,210
+step by step, and I'll show you how to get your project
+
+34
+00:01:33,210 --> 00:01:36,978
+set up to make use of Spring MVC form validation
+
+35
+00:01:36,978 --> 00:01:40,311
+with the Hibernate Validation JAR files.
+

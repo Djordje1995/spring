@@ -1,0 +1,476 @@
+1
+00:00:01,236 --> 00:00:02,069
+<v Instructor>Alrighty, so let's go ahead</v>
+
+2
+00:00:02,069 --> 00:00:03,358
+and pick up where we left off.
+
+3
+00:00:03,358 --> 00:00:06,113
+So, the previous video we simply retrieved those beans
+
+4
+00:00:06,113 --> 00:00:08,838
+from a container for theCoach and alphaCoach,
+
+5
+00:00:08,838 --> 00:00:11,851
+now let's go ahead and just do some more work here.
+
+6
+00:00:11,851 --> 00:00:14,308
+So, the first thing I wanna do is check
+
+7
+00:00:14,308 --> 00:00:16,979
+to see if these are the same beans.
+
+8
+00:00:16,979 --> 00:00:20,869
+So, I'll simply set up a boolean variable result
+
+9
+00:00:20,869 --> 00:00:23,058
+and I will actually compare these two,
+
+10
+00:00:23,058 --> 00:00:25,140
+I'll compare their object references.
+
+11
+00:00:25,140 --> 00:00:28,497
+So, I'll say theCoach equals equal alphaCoach
+
+12
+00:00:28,497 --> 00:00:29,712
+and I'll put that in parens
+
+13
+00:00:29,712 --> 00:00:31,324
+just to show you that I'm comparing
+
+14
+00:00:31,324 --> 00:00:33,674
+these two items, I'm comparing our object reference
+
+15
+00:00:33,674 --> 00:00:36,766
+to see if they are pointing to the same area of memory
+
+16
+00:00:36,766 --> 00:00:39,611
+or if they're pointing to the same object.
+
+17
+00:00:39,611 --> 00:00:40,444
+That's what we're doing here
+
+18
+00:00:40,444 --> 00:00:43,111
+with this boolean result equals.
+
+19
+00:00:44,056 --> 00:00:48,162
+Now let's go ahead and display the results here
+
+20
+00:00:48,162 --> 00:00:49,070
+and so we can see, you know,
+
+21
+00:00:49,070 --> 00:00:50,121
+exactly what's going on.
+
+22
+00:00:50,121 --> 00:00:53,797
+So, let me set up my quick comment here
+
+23
+00:00:53,797 --> 00:00:55,086
+to print out the results
+
+24
+00:00:55,086 --> 00:00:58,391
+and I'll use my sysop print line
+
+25
+00:00:58,391 --> 00:01:00,144
+and then inside of here
+
+26
+00:01:00,144 --> 00:01:03,894
+I'll actually say pointing to the same object
+
+27
+00:01:05,194 --> 00:01:07,623
+and then plus result
+
+28
+00:01:07,623 --> 00:01:09,648
+and I put a backslash in at the beginning
+
+29
+00:01:09,648 --> 00:01:11,707
+of that stream just to give me a character turn
+
+30
+00:01:11,707 --> 00:01:13,101
+just so I can have some extra white space
+
+31
+00:01:13,101 --> 00:01:16,670
+when I'm looking at the results here of my run.
+
+32
+00:01:16,670 --> 00:01:18,613
+Alright, so that's the first one here.
+
+33
+00:01:18,613 --> 00:01:21,551
+And then I also wanna actually print out
+
+34
+00:01:21,551 --> 00:01:25,048
+the memory location for each one of these.
+
+35
+00:01:25,048 --> 00:01:28,798
+So, I'll say the memory location for theCoach
+
+36
+00:01:33,895 --> 00:01:36,514
+and then I'm just doing a plus theCoach
+
+37
+00:01:36,514 --> 00:01:37,928
+and so by default,
+
+38
+00:01:37,928 --> 00:01:40,464
+the default version of this display here,
+
+39
+00:01:40,464 --> 00:01:42,650
+it'll call the two string method of this object,
+
+40
+00:01:42,650 --> 00:01:44,889
+and the default implementation of the two strings,
+
+41
+00:01:44,889 --> 00:01:46,852
+it'll simply be the class name
+
+42
+00:01:46,852 --> 00:01:49,200
+and the internal memory address
+
+43
+00:01:49,200 --> 00:01:51,435
+for that given object reference.
+
+44
+00:01:51,435 --> 00:01:55,996
+So, I'll do a similar thing here for alphaCoach.
+
+45
+00:01:55,996 --> 00:01:57,080
+Alright, that looks okay,
+
+46
+00:01:57,080 --> 00:01:58,512
+and I'll add an extra character turn
+
+47
+00:01:58,512 --> 00:02:01,512
+just to make the output look pretty.
+
+48
+00:02:02,773 --> 00:02:05,127
+And also I'll be nice, add a Spring container
+
+49
+00:02:05,127 --> 00:02:07,377
+and I'll close the context.
+
+50
+00:02:09,939 --> 00:02:10,778
+Alright, so that's kind of it.
+
+51
+00:02:10,778 --> 00:02:13,324
+So, you know, we already read in the config up top,
+
+52
+00:02:13,324 --> 00:02:16,114
+then we retrieved the bean from the container,
+
+53
+00:02:16,114 --> 00:02:17,834
+we moved down and we just checked the result
+
+54
+00:02:17,834 --> 00:02:19,178
+to see if they were the same,
+
+55
+00:02:19,178 --> 00:02:20,381
+and then we print out the result
+
+56
+00:02:20,381 --> 00:02:22,428
+and we also print out the memory location
+
+57
+00:02:22,428 --> 00:02:24,761
+for theCoach and alphaCoach.
+
+58
+00:02:27,436 --> 00:02:29,352
+Oh actually, let me fix that quick typo here.
+
+59
+00:02:29,352 --> 00:02:33,076
+So, pointing, I put a colon space right there
+
+60
+00:02:33,076 --> 00:02:34,710
+on line 22 just to make my output
+
+61
+00:02:34,710 --> 00:02:36,205
+look a little bit prettier.
+
+62
+00:02:36,205 --> 00:02:39,122
+Alright, so run as Java application
+
+63
+00:02:40,803 --> 00:02:42,595
+and good stuff here.
+
+64
+00:02:42,595 --> 00:02:44,761
+Alright, let's check out this output.
+
+65
+00:02:44,761 --> 00:02:46,778
+Okay, great, so first off
+
+66
+00:02:46,778 --> 00:02:49,084
+it says, you know, loading XML bean definitions
+
+67
+00:02:49,084 --> 00:02:52,452
+from this file, beanScope-applicationContext,
+
+68
+00:02:52,452 --> 00:02:54,274
+so that's our new file that we just created
+
+69
+00:02:54,274 --> 00:02:57,045
+and so we are reading that file which is good,
+
+70
+00:02:57,045 --> 00:03:01,203
+and then here's the print out of the results
+
+71
+00:03:01,203 --> 00:03:04,028
+pointing to the same object is true,
+
+72
+00:03:04,028 --> 00:03:07,685
+and also we have the memory location for theCoach
+
+73
+00:03:07,685 --> 00:03:09,782
+which is 5e85
+
+74
+00:03:09,782 --> 00:03:12,918
+and also the memory location for alphaCoach 5e85,
+
+75
+00:03:12,918 --> 00:03:15,447
+so basically those numbers are the same,
+
+76
+00:03:15,447 --> 00:03:19,392
+so it's actually printing to the same area of memory
+
+77
+00:03:19,392 --> 00:03:20,521
+for both of these objects.
+
+78
+00:03:20,521 --> 00:03:21,938
+So, that's great.
+
+79
+00:03:24,069 --> 00:03:25,924
+Now let's go ahead and switch this up.
+
+80
+00:03:25,924 --> 00:03:28,920
+Let's test this with scope equals prototype.
+
+81
+00:03:28,920 --> 00:03:32,034
+So, scope equals prototype means that it'll actually create
+
+82
+00:03:32,034 --> 00:03:35,155
+a new object every time we request it.
+
+83
+00:03:35,155 --> 00:03:37,596
+So, here I'll say scope equals prototype
+
+84
+00:03:37,596 --> 00:03:39,179
+in the config file.
+
+85
+00:03:42,041 --> 00:03:42,914
+Alright, so this looks good,
+
+86
+00:03:42,914 --> 00:03:43,844
+so let's go equals prototype,
+
+87
+00:03:43,844 --> 00:03:46,997
+so I'm gonna create a new object for each request.
+
+88
+00:03:46,997 --> 00:03:48,891
+Let's go ahead and save this file
+
+89
+00:03:48,891 --> 00:03:50,662
+and now all we need to do is go back
+
+90
+00:03:50,662 --> 00:03:53,338
+to the bean scope demo app
+
+91
+00:03:53,338 --> 00:03:54,272
+and then just run it.
+
+92
+00:03:54,272 --> 00:03:56,530
+No changes here, everything here stays the same.
+
+93
+00:03:56,530 --> 00:03:59,447
+Just right click and choose run as.
+
+94
+00:04:02,370 --> 00:04:05,672
+Alright, so looking at the output.
+
+95
+00:04:05,672 --> 00:04:08,312
+Okay, now, okay, reading from that config
+
+96
+00:04:08,312 --> 00:04:10,289
+beanScope-appContext,
+
+97
+00:04:10,289 --> 00:04:13,188
+now it says pointing to the same object is false.
+
+98
+00:04:13,188 --> 00:04:15,717
+Whoa, yeah, 'cause it's a prototype, right?
+
+99
+00:04:15,717 --> 00:04:17,961
+So that means that they create a new object
+
+100
+00:04:17,961 --> 00:04:19,931
+for each reference, alright?
+
+101
+00:04:19,931 --> 00:04:23,289
+So, theCoach has one memory address
+
+102
+00:04:23,289 --> 00:04:26,731
+and then alphaCoach has a different memory address,
+
+103
+00:04:26,731 --> 00:04:29,181
+so these are two separate objects,
+
+104
+00:04:29,181 --> 00:04:31,708
+two separate areas of memory
+
+105
+00:04:31,708 --> 00:04:36,070
+because again, right, we using the prototype scope.
+
+106
+00:04:36,070 --> 00:04:37,777
+Alright, so nice little example here
+
+107
+00:04:37,777 --> 00:04:39,103
+of making use of singleton scope
+
+108
+00:04:39,103 --> 00:04:40,606
+and prototype scope
+
+109
+00:04:40,606 --> 00:04:42,062
+and here you're able to see the output,
+
+110
+00:04:42,062 --> 00:04:43,672
+see the results and so on.
+
+111
+00:04:43,672 --> 00:04:47,894
+So, you should feel very comfortable now with bean scopes.
+
+112
+00:04:47,894 --> 00:04:49,928
+So again, the default is singleton
+
+113
+00:04:49,928 --> 00:04:51,502
+and it's only one instance
+
+114
+00:04:51,502 --> 00:04:54,175
+and then you can also specify prototype scope
+
+115
+00:04:54,175 --> 00:04:56,830
+which will create a new one for each request.
+
+116
+00:04:56,830 --> 00:04:58,088
+Alright, you're ready,
+
+117
+00:04:58,088 --> 00:05:00,663
+you're ready for a Spring job interview.
+
+118
+00:05:00,663 --> 00:05:02,257
+Alright, cool, good stuff.
+
+119
+00:05:02,257 --> 00:05:05,007
+So, I'll see you the next video.
+

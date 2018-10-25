@@ -1,0 +1,160 @@
+1
+00:00:01,255 --> 00:00:02,766
+<v Narrator>Hey, so I wanna give you a quick video</v>
+
+2
+00:00:02,766 --> 00:00:05,213
+regarding the different injection types.
+
+3
+00:00:05,213 --> 00:00:07,079
+So, we covered constructor injection.
+
+4
+00:00:07,079 --> 00:00:10,263
+We also looked at how to do setter injection
+
+5
+00:00:10,263 --> 00:00:13,079
+and finally, we discussed field injection.
+
+6
+00:00:13,079 --> 00:00:17,239
+You may wonder well, which one should I use?
+
+7
+00:00:17,239 --> 00:00:21,957
+So, I always say, choose a style and stay consistent
+
+8
+00:00:21,957 --> 00:00:23,888
+within your project, alright.
+
+9
+00:00:23,888 --> 00:00:26,114
+And, that'll make things easy for you, but also make
+
+10
+00:00:26,114 --> 00:00:29,219
+it easy for other team members on your project
+
+11
+00:00:29,219 --> 00:00:32,221
+if it's one consistent approach throughout.
+
+12
+00:00:32,221 --> 00:00:35,500
+Now, you may wonder, is one injection type better
+
+13
+00:00:35,500 --> 00:00:37,209
+than the other?
+
+14
+00:00:37,209 --> 00:00:39,743
+Well, you get the same functionality regardless
+
+15
+00:00:39,743 --> 00:00:42,063
+of either injection type that you use.
+
+16
+00:00:42,063 --> 00:00:43,938
+So, constructor, setter, field you get
+
+17
+00:00:43,938 --> 00:00:45,489
+the same functionality.
+
+18
+00:00:45,489 --> 00:00:48,198
+So, again, choose one injection type that you
+
+19
+00:00:48,198 --> 00:00:50,234
+feel comfortable with you like to use
+
+20
+00:00:50,234 --> 00:00:54,242
+and then make use of that in your application.
+
+21
+00:00:54,242 --> 00:00:56,807
+So, full disclosure, I'll go ahead and tell you now
+
+22
+00:00:56,807 --> 00:00:58,640
+that you'll see certain blog posts out there
+
+23
+00:00:58,640 --> 00:01:01,635
+written by certain Spring fans boys or fan girls
+
+24
+00:01:01,635 --> 00:01:04,415
+where they will taut a specific injection type
+
+25
+00:01:04,415 --> 00:01:06,808
+as being superior to all.
+
+26
+00:01:06,808 --> 00:01:10,008
+Now, this is a very debatable topic.
+
+27
+00:01:10,008 --> 00:01:13,399
+I always joke, it's kinda like a religious argument.
+
+28
+00:01:13,399 --> 00:01:16,143
+There's no right or wrong answer,
+
+29
+00:01:16,143 --> 00:01:18,186
+even in the Spring documentation they state
+
+30
+00:01:18,186 --> 00:01:20,197
+that with the injection types you pretty much
+
+31
+00:01:20,197 --> 00:01:23,250
+get the same functionality across the board.
+
+32
+00:01:23,250 --> 00:01:26,015
+So again, just choose the type that works best
+
+33
+00:01:26,015 --> 00:01:28,886
+for your team or what your team is more comfortable with
+
+34
+00:01:28,886 --> 00:01:30,783
+seeing and then simply stay consistent
+
+35
+00:01:30,783 --> 00:01:33,020
+throughout your project.
+
+36
+00:01:33,020 --> 00:01:34,075
+Alright, just a quick video.
+
+37
+00:01:34,075 --> 00:01:35,998
+I know you may have had questions about that
+
+38
+00:01:35,998 --> 00:01:37,772
+and I wanted to give you just a quick answer
+
+39
+00:01:37,772 --> 00:01:39,104
+to help you out.
+
+40
+00:01:39,104 --> 00:01:42,437
+Alright, I'll see you in the next video.
+

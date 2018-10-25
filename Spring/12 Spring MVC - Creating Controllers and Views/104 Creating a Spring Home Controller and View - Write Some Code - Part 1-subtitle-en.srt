@@ -1,0 +1,396 @@
+1
+00:00:01,008 --> 00:00:02,264
+<v Instructor>Alright. So let's go ahead</v>
+
+2
+00:00:02,264 --> 00:00:03,972
+and move into Eclipse.
+
+3
+00:00:03,972 --> 00:00:06,073
+What we're gonna do is walk through our development process
+
+4
+00:00:06,073 --> 00:00:07,684
+of creating a controller class,
+
+5
+00:00:07,684 --> 00:00:09,777
+the method, adding the mapping,
+
+6
+00:00:09,777 --> 00:00:12,315
+returning view name, and developing the view page.
+
+7
+00:00:12,315 --> 00:00:14,720
+And again, we'll go through all of this step by step
+
+8
+00:00:14,720 --> 00:00:18,387
+and we'll do it all from scratch right here.
+
+9
+00:00:19,950 --> 00:00:21,997 line:15% 
+So there's some prep work that we have to do first
+
+10
+00:00:21,997 --> 00:00:25,231 line:15% 
+and that is actually creating a new package.
+
+11
+00:00:25,231 --> 00:00:27,732 line:15% 
+So I'll move into my Java Resources directory,
+
+12
+00:00:27,732 --> 00:00:31,003 line:15% 
+into the source package, I'll do a right click
+
+13
+00:00:31,003 --> 00:00:33,086
+and I'll say new package.
+
+14
+00:00:36,416 --> 00:00:37,908
+And the actual name for the package
+
+15
+00:00:37,908 --> 00:00:42,075
+that I'm gonna use here is com.luv2code.springdemo.mvc
+
+16
+00:00:43,744 --> 00:00:47,077
+'cause we're doing some Spring mvc baby.
+
+17
+00:00:48,011 --> 00:00:49,374
+Alright, that looks good.
+
+18
+00:00:49,374 --> 00:00:52,733
+Go ahead and hit the finish button.
+
+19
+00:00:52,733 --> 00:00:53,994
+Alright, so we have our new package,
+
+20
+00:00:53,994 --> 00:00:55,500 line:15% 
+so now we can start with step one,
+
+21
+00:00:55,500 --> 00:00:57,282 line:15% 
+creating the controller class.
+
+22
+00:00:57,282 --> 00:00:59,911 line:15% 
+So I'll simply right click on our new package,
+
+23
+00:00:59,911 --> 00:01:02,911
+and I'll say new and I'll say class.
+
+24
+00:01:05,680 --> 00:01:08,134
+And the actual class name that we're gonna give here is
+
+25
+00:01:08,134 --> 00:01:09,384
+HomeController.
+
+26
+00:01:14,647 --> 00:01:16,398
+And I'll keep all the other defaults
+
+27
+00:01:16,398 --> 00:01:18,065
+and I'll hit finish.
+
+28
+00:01:23,587 --> 00:01:25,634
+Alright, great. So here's a very basic class.
+
+29
+00:01:25,634 --> 00:01:27,356
+It's empty, nothing's there.
+
+30
+00:01:27,356 --> 00:01:30,939
+Let me expand the window here for a second.
+
+31
+00:01:31,976 --> 00:01:33,467
+And the first thing we want to do here
+
+32
+00:01:33,467 --> 00:01:36,213
+is add the @Controller annotation.
+
+33
+00:01:36,213 --> 00:01:37,948
+So this basically tells Spring that,
+
+34
+00:01:37,948 --> 00:01:41,350
+hey this is an mvc controller and to make use of it.
+
+35
+00:01:41,350 --> 00:01:44,576
+So I'll simply fix the imports here
+
+36
+00:01:44,576 --> 00:01:47,601
+and I get the Spring stereotype controller, great.
+
+37
+00:01:47,601 --> 00:01:49,384
+So again remember that @Controller
+
+38
+00:01:49,384 --> 00:01:51,599
+extends off of @Component,
+
+39
+00:01:51,599 --> 00:01:54,648 line:15% 
+so they get picked up during component scanning.
+
+40
+00:01:54,648 --> 00:01:56,288 line:15% 
+Alright, so the next thing here is step two,
+
+41
+00:01:56,288 --> 00:01:58,705 line:15% 
+defining a controller method.
+
+42
+00:02:00,330 --> 00:02:01,299 line:15% 
+So just like in the slides,
+
+43
+00:02:01,299 --> 00:02:03,858 line:15% 
+I'll have a public String showPage.
+
+44
+00:02:03,858 --> 00:02:06,990 line:15% 
+For right now I'll just say return null
+
+45
+00:02:06,990 --> 00:02:09,593 line:15% 
+and remember it can be any method name.
+
+46
+00:02:09,593 --> 00:02:11,089
+Here I just called it a showPage,
+
+47
+00:02:11,089 --> 00:02:13,287
+but we could easily call it something totally different,
+
+48
+00:02:13,287 --> 00:02:14,454
+if you'd like.
+
+49
+00:02:17,297 --> 00:02:18,702 line:15% 
+And what I'll do now is in step three,
+
+50
+00:02:18,702 --> 00:02:21,191 line:15% 
+is I'll add the request mapping to the controller method.
+
+51
+00:02:21,191 --> 00:02:23,574 line:15% 
+So I'm basically gonna map a URL request
+
+52
+00:02:23,574 --> 00:02:25,408 line:15% 
+to this actual method.
+
+53
+00:02:25,408 --> 00:02:26,977 line:15% 
+So that's why the method name can be anything,
+
+54
+00:02:26,977 --> 00:02:28,512
+'cause we're gonna simply set up this
+
+55
+00:02:28,512 --> 00:02:33,350
+annotation mapping to attach this path to the given method.
+
+56
+00:02:33,350 --> 00:02:35,392
+And again, I go through and just fix my imports
+
+57
+00:02:35,392 --> 00:02:37,929
+here on @RequestMapping
+
+58
+00:02:37,929 --> 00:02:38,913
+and choose the first one there,
+
+59
+00:02:38,913 --> 00:02:43,085
+so I should get the web bind request mapping.
+
+60
+00:02:43,085 --> 00:02:43,918
+Alright, so this is cool.
+
+61
+00:02:43,918 --> 00:02:46,078
+So this method here, showPage, it'll handle
+
+62
+00:02:46,078 --> 00:02:50,242
+all types of http requests for getting posts for
+
+63
+00:02:50,242 --> 00:02:52,958
+this slash and all the other http methods.
+
+64
+00:02:52,958 --> 00:02:54,184
+Alright, so this looks good so far.
+
+65
+00:02:54,184 --> 00:02:55,893 line:15% 
+Now let's go ahead in step four
+
+66
+00:02:55,893 --> 00:02:57,839 line:15% 
+and let's actually return the view names.
+
+67
+00:02:57,839 --> 00:03:01,511 line:15% 
+This is gonna be the name of the page that we wanna return.
+
+68
+00:03:01,511 --> 00:03:04,114 line:15% 
+Again remember, it's not the complete name of the page
+
+69
+00:03:04,114 --> 00:03:07,632 line:15% 
+because we make use of information from the config file
+
+70
+00:03:07,632 --> 00:03:10,350 line:15% 
+while they'll actually add a prefix
+
+71
+00:03:10,350 --> 00:03:12,675 line:15% 
+and they'll actually add the suffix.
+
+72
+00:03:12,675 --> 00:03:16,302 line:15% 
+So it'll be WEB-INF/view/main-menu.jsp
+
+73
+00:03:16,302 --> 00:03:18,897 line:15% 
+So Spring will do this automatically for you
+
+74
+00:03:18,897 --> 00:03:22,980 line:15% 
+in the background, some of Spring's little magic.
+
+75
+00:03:24,407 --> 00:03:25,273
+Alright, so this looks good.
+
+76
+00:03:25,273 --> 00:03:27,635
+So let's go ahead and create that view page.
+
+77
+00:03:27,635 --> 00:03:29,567
+So I'll move back over into my project,
+
+78
+00:03:29,567 --> 00:03:31,378
+under WebContent, WEB-INF
+
+79
+00:03:31,378 --> 00:03:32,926
+and then view folder.
+
+80
+00:03:32,926 --> 00:03:35,508
+I'll simply just do a right click
+
+81
+00:03:35,508 --> 00:03:37,341
+and I'll say new file.
+
+82
+00:03:46,780 --> 00:03:50,947
+And the name for the file, we'll call it main-menu.jsp.
+
+83
+00:03:55,488 --> 00:03:56,594
+And once you're happy with that,
+
+84
+00:03:56,594 --> 00:03:59,927
+go ahead and click on the finish button.
+
+85
+00:04:03,323 --> 00:04:04,549
+Alright, great. So at this point,
+
+86
+00:04:04,549 --> 00:04:06,973
+this is just a regular jsp file.
+
+87
+00:04:06,973 --> 00:04:09,855
+We can write any HTML markup here that we'd like.
+
+88
+00:04:09,855 --> 00:04:12,038
+So I'll just go ahead and start off with the DOCTYPE,
+
+89
+00:04:12,038 --> 00:04:13,205
+I'll say html,
+
+90
+00:04:14,218 --> 00:04:17,718
+do the basic header stuff, the body stuff,
+
+91
+00:04:25,160 --> 00:04:26,465
+and here I'll just put a title here,
+
+92
+00:04:26,465 --> 00:04:28,228
+Spring MVC Demo - Home Page.
+
+93
+00:04:28,228 --> 00:04:29,678
+And this'll kinda be like our starting point
+
+94
+00:04:29,678 --> 00:04:32,543
+or our main menu for some of the following examples
+
+95
+00:04:32,543 --> 00:04:34,344
+that we'll build here in this course.
+
+96
+00:04:34,344 --> 00:04:35,365
+Alright, so this looks good so far.
+
+97
+00:04:35,365 --> 00:04:36,666
+You can save it
+
+98
+00:04:36,666 --> 00:04:38,582
+and um, I don't know, it looks good.
+
+99
+00:04:38,582 --> 00:04:41,749
+I think we're in good shape right now.
+

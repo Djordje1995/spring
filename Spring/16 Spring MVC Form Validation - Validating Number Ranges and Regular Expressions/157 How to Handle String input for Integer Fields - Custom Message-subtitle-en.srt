@@ -1,0 +1,236 @@
+1
+00:00:01,380 --> 00:00:06,380
+In this video, we're going to learn how to handle string input for integer fields.
+
+2
+00:00:09,559 --> 00:00:11,500
+So we have our form that we've created.
+
+3
+00:00:11,500 --> 00:00:16,500
+In the previous video we added supports to make sure that the free passes field is required,
+
+4
+00:00:18,109 --> 00:00:22,779
+but I hinted that we have a little problem.
+
+5
+00:00:22,779 --> 00:00:25,070
+So let me show you here real quick.
+
+6
+00:00:25,070 --> 00:00:30,069
+So I'll go ahead and enter something for last name, and then for free passes, let's go ahead
+
+7
+00:00:30,069 --> 00:00:35,069
+and oo, let's break it by entering some text.
+
+8
+00:00:35,930 --> 00:00:38,170
+And then hit the submit button.
+
+9
+00:00:38,170 --> 00:00:42,370
+And come on, really?
+
+10
+00:00:42,370 --> 00:00:44,450
+So this thing's failing again.
+
+11
+00:00:44,450 --> 00:00:48,430
+We've entered some text, and it just blows up.
+
+12
+00:00:48,430 --> 00:00:49,430
+All right?
+
+13
+00:00:49,430 --> 00:00:50,940
+Failed to convert property value.
+
+14
+00:00:50,940 --> 00:00:52,400
+Number format exception.
+
+15
+00:00:52,400 --> 00:00:53,600
+Blah blah blah.
+
+16
+00:00:53,600 --> 00:00:54,700
+Ah, boy.
+
+17
+00:00:54,700 --> 00:00:58,400
+Okay, but don't worry, we can actually work this out.
+
+18
+00:00:58,400 --> 00:01:02,890
+We have a development process that we can use to resolve this issue.
+
+19
+00:01:02,890 --> 00:01:05,000
+And here it is, step by step.
+
+20
+00:01:05,000 --> 00:01:10,000
+So, what we'll do is we'll first create a custom error message, so we won't see that
+
+21
+00:01:10,090 --> 00:01:11,950
+big, long, ugly error message.
+
+22
+00:01:11,950 --> 00:01:15,950
+We'll simply give them a simple message of, "Hey, invalid number."
+
+23
+00:01:15,950 --> 00:01:20,060
+And then in step two, we'll actually load that custom resource into the Spring configuration
+
+24
+00:01:20,060 --> 00:01:25,060
+file, and then that information will be displayed and used on our screen during spring validation.
+
+25
+00:01:26,479 --> 00:01:31,479
+So in effect, we're simply going to add our own custom error message for that scenario.
+
+26
+00:01:32,499 --> 00:01:37,499
+All right, so let's go ahead and move back in to Eclipse.
+
+27
+00:01:38,569 --> 00:01:39,569
+Let's take a look at our code.
+
+28
+00:01:39,569 --> 00:01:43,439
+So let's go ahead and do step one, creating the custom error message.
+
+29
+00:01:43,439 --> 00:01:48,079
+Now the key is that we have to place this inside of a new folder inside of a new file.
+
+30
+00:01:48,079 --> 00:01:52,219
+So the first thing I'll do here is on the src directory, I'll go New, and Other.
+
+31
+00:01:52,219 --> 00:01:57,219
+Because I'm basically going to create a new folder.
+
+32
+00:01:57,659 --> 00:02:02,369
+And here in the wizards here I'll simply do a filter for folder, find folder, because
+
+33
+00:02:02,369 --> 00:02:04,590
+we're going to create a new folder.
+
+34
+00:02:04,590 --> 00:02:09,590
+Go ahead and click on next, and then I give the actual name of the folder.
+
+35
+00:02:12,170 --> 00:02:15,371
+So this folder's going to be under the src directory, so make sure you have source there.
+
+36
+00:02:15,371 --> 00:02:19,380
+And then the folder name is resources.
+
+37
+00:02:19,380 --> 00:02:23,310
+And then click on finish.
+
+38
+00:02:23,310 --> 00:02:28,310
+Okay great, so now we should have this resources directory here underneath src directory.
+
+39
+00:02:29,520 --> 00:02:33,470
+So I'll go ahead and choose resources, and now I'll create a new file in this resources
+
+40
+00:02:33,470 --> 00:02:35,360
+directory or folder here.
+
+41
+00:02:35,360 --> 00:02:40,360
+So I'll go new, and I'll choose other, and here I'm going to create a new file.
+
+42
+00:02:40,850 --> 00:02:45,850
+So new, other, and then in the list here I simply select file.
+
+43
+00:02:45,990 --> 00:02:50,300
+Alrighty, so I have the file selected.
+
+44
+00:02:50,300 --> 00:02:52,080
+Go ahead and click on next.
+
+45
+00:02:52,080 --> 00:02:56,860
+And what I'll do here is create a new file called messages.properties.
+
+46
+00:02:56,860 --> 00:03:01,860
+And make sure you use the exact same name that I have here on the screen.
+
+47
+00:03:03,480 --> 00:03:05,230
+messages.properties.
+
+48
+00:03:05,230 --> 00:03:08,820
+And then go ahead and hit the finish button.
+
+49
+00:03:08,820 --> 00:03:10,930
+All right, great.
+
+50
+00:03:10,930 --> 00:03:13,820
+So we have this blank file here called messages.properties.
+
+51
+00:03:13,820 --> 00:03:18,820
+What we're going to do here is actually add our own custom error message for that scenario.
+
+52
+00:03:22,940 --> 00:03:27,940
+So here I'll give typeMismatch.customer.freePasses equals, and then I give the actual custom
+
+53
+00:03:31,210 --> 00:03:33,680
+error message that we're going to use for this scenario.
+
+54
+00:03:33,680 --> 00:03:35,440
+So, "Invalid number."
+
+55
+00:03:35,440 --> 00:03:38,340
+All right, so there's a lot of stuff here.
+
+56
+00:03:38,340 --> 00:03:41,180
+Let me kind of break this down for you and explain it.
+
+57
+00:03:41,180 --> 00:03:43,600
+So the first item here is the actual error type, type Mismatch.
+
+58
+00:03:43,600 --> 00:03:47,040
+Then we have the actual attribute name.
+
+59
+00:03:47,040 --> 00:03:52,040
+Next we give the actual field name, and then finally we specify our own custom error message.
+

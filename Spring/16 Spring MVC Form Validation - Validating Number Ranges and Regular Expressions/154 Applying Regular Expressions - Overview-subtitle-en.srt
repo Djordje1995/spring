@@ -1,0 +1,220 @@
+1
+00:00:01,604 --> 00:00:03,073
+<v Darby>In this video, we're gonna learn</v>
+
+2
+00:00:03,073 --> 00:00:07,240
+about Spring MVC Validation, with Regular Expressions.
+
+3
+00:00:09,634 --> 00:00:11,888
+So a regular expression is just a sequence
+
+4
+00:00:11,888 --> 00:00:14,340
+of characters that define a search pattern.
+
+5
+00:00:14,340 --> 00:00:17,178
+You can use this pattern of find or match strings
+
+6
+00:00:17,178 --> 00:00:19,764
+but you can also use it for validation.
+
+7
+00:00:19,764 --> 00:00:22,765
+Now, Regular Expressions it's like its own language.
+
+8
+00:00:22,765 --> 00:00:25,182
+This is really an advanced topic,
+
+9
+00:00:25,182 --> 00:00:27,248
+so I'm gonna assume you already know about
+
+10
+00:00:27,248 --> 00:00:29,042
+Regular Expressions and I'll simply
+
+11
+00:00:29,042 --> 00:00:31,957
+show you how to apply it with Spring MVC.
+
+12
+00:00:31,957 --> 00:00:33,739
+Now, if you don't have any experience
+
+13
+00:00:33,739 --> 00:00:34,917
+with Regular Expressions there's plenty
+
+14
+00:00:34,917 --> 00:00:36,753
+of free tutorials available.
+
+15
+00:00:36,753 --> 00:00:40,420
+Check the link here, available on this line.
+
+16
+00:00:42,231 --> 00:00:43,385
+So what we'll do is we'll actually
+
+17
+00:00:43,385 --> 00:00:46,784
+use Regular Expressions to validate a postal code.
+
+18
+00:00:46,784 --> 00:00:49,765
+So our form will have a new field for postal code.
+
+19
+00:00:49,765 --> 00:00:53,810
+And the user can only enter five characters or digits
+
+20
+00:00:53,810 --> 00:00:56,097
+in order to pass validation.
+
+21
+00:00:56,097 --> 00:00:57,734
+And again, we'll actually apply
+
+22
+00:00:57,734 --> 00:01:01,901
+a pattern for Regular Expressions for this validation.
+
+23
+00:01:05,171 --> 00:01:07,824
+Now let's look at the development process very similar.
+
+24
+00:01:07,824 --> 00:01:09,631
+We'll simply add a validation rule
+
+25
+00:01:09,631 --> 00:01:11,411
+to the customer class.
+
+26
+00:01:11,411 --> 00:01:13,061
+Then we'll display the error messages
+
+27
+00:01:13,061 --> 00:01:14,661
+on the HTML form.
+
+28
+00:01:14,661 --> 00:01:16,835
+And finally, we'll update the confirmation page.
+
+29
+00:01:16,835 --> 00:01:18,755
+So this is all very similar to what
+
+30
+00:01:18,755 --> 00:01:22,922
+we've seen before, in some of the previous videos.
+
+31
+00:01:24,868 --> 00:01:26,713
+All righty, so adding the validation rule
+
+32
+00:01:26,713 --> 00:01:28,430
+to the customer class.
+
+33
+00:01:28,430 --> 00:01:31,316
+So basically what we do is make use of a pattern.
+
+34
+00:01:31,316 --> 00:01:33,512
+And then we have regex, that's Regular Expression.
+
+35
+00:01:33,512 --> 00:01:37,058
+And we simply, drop in that regular expression.
+
+36
+00:01:37,058 --> 00:01:38,425
+So what you see there in blue
+
+37
+00:01:38,425 --> 00:01:39,934
+that's the actual regular expression
+
+38
+00:01:39,934 --> 00:01:42,859
+that will only match on five characters and digits.
+
+39
+00:01:42,859 --> 00:01:45,006
+Now, I know the expression looks a little bit scary,
+
+40
+00:01:45,006 --> 00:01:46,732
+a little bit cryptic, but that's kind of
+
+41
+00:01:46,732 --> 00:01:48,813
+the language of Regular Expressions.
+
+42
+00:01:48,813 --> 00:01:50,682
+So once you know Regular Expressions.
+
+43
+00:01:50,682 --> 00:01:53,182
+You can simply drop in your appropriate expression
+
+44
+00:01:53,182 --> 00:01:54,974
+and you're ready to go.
+
+45
+00:01:54,974 --> 00:01:57,250
+So, again, here we have the Regular Expression
+
+46
+00:01:57,250 --> 00:01:58,770
+and then we have the actual error message.
+
+47
+00:01:58,770 --> 00:02:01,879
+We simply apply this pattern, to a field,
+
+48
+00:02:01,879 --> 00:02:03,449
+for a postal code.
+
+49
+00:02:03,449 --> 00:02:04,921
+And that's it, and we create our normal
+
+50
+00:02:04,921 --> 00:02:07,441
+getters and setters, and then we're up and running.
+
+51
+00:02:07,441 --> 00:02:09,274
+And we're ready to go.
+
+52
+00:02:10,456 --> 00:02:12,071
+And that's it for step one.
+
+53
+00:02:12,071 --> 00:02:14,618
+We'll cover steps two and three in the next video,
+
+54
+00:02:14,618 --> 00:02:16,424
+once we move into Eclipse.
+
+55
+00:02:16,424 --> 00:02:19,174
+So I'll see ya in the next video.
+

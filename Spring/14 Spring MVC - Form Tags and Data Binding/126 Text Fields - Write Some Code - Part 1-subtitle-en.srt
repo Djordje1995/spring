@@ -1,0 +1,384 @@
+1
+00:00:01,466 --> 00:00:03,875
+<v Instructor>Let's go ahead and move into Eclipse.</v>
+
+2
+00:00:03,875 --> 00:00:06,180
+We're gonna work through our development process
+
+3
+00:00:06,180 --> 00:00:08,406
+and we're gonna do everything step by step
+
+4
+00:00:08,406 --> 00:00:10,528
+and we'll build it all from scratch.
+
+5
+00:00:10,528 --> 00:00:12,021
+The first thing we're gonna work on
+
+6
+00:00:12,021 --> 00:00:15,354
+is step one, creating the Student class.
+
+7
+00:00:22,222 --> 00:00:23,584 line:15% 
+What I'll do here is I'll move down
+
+8
+00:00:23,584 --> 00:00:25,565 line:15% 
+to my Java Resources directory,
+
+9
+00:00:25,565 --> 00:00:28,130
+to my source directory, to my package
+
+10
+00:00:28,130 --> 00:00:32,297
+and I'll do a right click and I'll say, New, Class.
+
+11
+00:00:36,145 --> 00:00:37,850
+The actual name that I'll give for this class,
+
+12
+00:00:37,850 --> 00:00:39,600
+I'll call it Student.
+
+13
+00:00:40,986 --> 00:00:42,404
+Real simple.
+
+14
+00:00:42,404 --> 00:00:46,571
+I'll keep all the other defaults and I'll hit Finish.
+
+15
+00:00:50,999 --> 00:00:52,601
+We have our basic class here.
+
+16
+00:00:52,601 --> 00:00:54,979
+I'll expand the window.
+
+17
+00:00:54,979 --> 00:00:57,233
+This Student is gonna have two fields.
+
+18
+00:00:57,233 --> 00:01:00,816
+It's gonna have a firstName and a lastName.
+
+19
+00:01:06,652 --> 00:01:10,819
+I've also set up a no argument constructor for our Student.
+
+20
+00:01:13,856 --> 00:01:15,655
+Now what I need to do is actually generate
+
+21
+00:01:15,655 --> 00:01:18,748
+some getter and setter methods for this Student.
+
+22
+00:01:18,748 --> 00:01:20,989
+Again, I'll make use of that Eclipse trick
+
+23
+00:01:20,989 --> 00:01:22,865
+where I'll simply just do a right click
+
+24
+00:01:22,865 --> 00:01:27,032
+and I'll go to Source, Generate Getters and Setters.
+
+25
+00:01:34,934 --> 00:01:36,732
+Eclipse will bring up the dialog.
+
+26
+00:01:36,732 --> 00:01:38,364
+I'll go ahead and check the box here
+
+27
+00:01:38,364 --> 00:01:41,016
+for firstName and lastName and that'll generate
+
+28
+00:01:41,016 --> 00:01:43,515
+getters and setters for both of those.
+
+29
+00:01:43,515 --> 00:01:45,343
+I'll go ahead and keep all the other defaults
+
+30
+00:01:45,343 --> 00:01:46,676
+and I'll hit OK.
+
+31
+00:01:48,543 --> 00:01:50,751
+Again, Eclipse does a lot of great work for us.
+
+32
+00:01:50,751 --> 00:01:52,993
+It generates all this great code for us.
+
+33
+00:01:52,993 --> 00:01:54,547
+So there you have it.
+
+34
+00:01:54,547 --> 00:01:57,059
+We have getFirstName, setFirstName
+
+35
+00:01:57,059 --> 00:01:59,058
+and getLastName, setLastName.
+
+36
+00:01:59,058 --> 00:02:00,642
+All right, we're good to go.
+
+37
+00:02:00,642 --> 00:02:04,207
+That's basically it for this Student class.
+
+38
+00:02:04,207 --> 00:02:06,870 line:15% 
+I can save this, move out.
+
+39
+00:02:06,870 --> 00:02:08,135 line:15% 
+Moving over to step two is creating
+
+40
+00:02:08,135 --> 00:02:11,170 line:15% 
+a Student controller class.
+
+41
+00:02:11,170 --> 00:02:14,141 line:15% 
+So that's our spring-mvc controller.
+
+42
+00:02:14,141 --> 00:02:15,727
+Again, I'll go to my package,
+
+43
+00:02:15,727 --> 00:02:19,310
+I'll do a right click, I'll say New, Class.
+
+44
+00:02:25,308 --> 00:02:26,713
+And again, as you'd expect,
+
+45
+00:02:26,713 --> 00:02:30,046
+the name here will be StudentController.
+
+46
+00:02:34,744 --> 00:02:36,452
+And then again, we'll keep all the other defaults
+
+47
+00:02:36,452 --> 00:02:39,535
+and then we'll hit the Finish button.
+
+48
+00:02:43,807 --> 00:02:45,344
+So here's our controller and this is where
+
+49
+00:02:45,344 --> 00:02:46,746
+we have to actually do our work.
+
+50
+00:02:46,746 --> 00:02:49,047
+Up top we set up some annotations.
+
+51
+00:02:49,047 --> 00:02:52,523
+We basically say it's @Controller.
+
+52
+00:02:52,523 --> 00:02:55,889
+And we also set up the RequestMapping for this one.
+
+53
+00:02:55,889 --> 00:03:00,049
+Everything's gonna be based off of /student.
+
+54
+00:03:00,049 --> 00:03:03,966
+Swing over here and fix the imports real quick.
+
+55
+00:03:11,492 --> 00:03:13,230
+The first thing we need to do is
+
+56
+00:03:13,230 --> 00:03:17,397
+actually create a method for actually showing our form.
+
+57
+00:03:25,491 --> 00:03:27,871
+So I'll go ahead and give the method name ShowForm.
+
+58
+00:03:27,871 --> 00:03:32,038
+It's gonna take the parameter from Mode, theModel.
+
+59
+00:03:37,428 --> 00:03:38,261
+And I'll just go ahead and do a
+
+60
+00:03:38,261 --> 00:03:42,215
+quick return to say return student-form.
+
+61
+00:03:42,215 --> 00:03:46,116
+That'll actually return it back to the student-form.jsp.
+
+62
+00:03:46,116 --> 00:03:49,116
+I'll fix the imports here for Model.
+
+63
+00:03:51,863 --> 00:03:55,307
+So we took care of all the dotting the I's
+
+64
+00:03:55,307 --> 00:03:56,996
+and crossing the T type stuff.
+
+65
+00:03:56,996 --> 00:04:00,287
+I'll also set up the annotation up top for Request Mapping.
+
+66
+00:04:00,287 --> 00:04:03,204
+So this'll be /showForm.
+
+67
+00:04:06,017 --> 00:04:07,327
+On the inside of my Method I'll just write
+
+68
+00:04:07,327 --> 00:04:09,583
+some quick comments here to kind of keep myself on track
+
+69
+00:04:09,583 --> 00:04:13,684
+as far as what I actually need to do in this item.
+
+70
+00:04:13,684 --> 00:04:15,128
+Again, remember we're using forms here,
+
+71
+00:04:15,128 --> 00:04:18,133
+so we're gonna make use of a Model attribute.
+
+72
+00:04:18,133 --> 00:04:19,718
+The first thing I need to do here
+
+73
+00:04:19,718 --> 00:04:22,301
+is create a new student object.
+
+74
+00:04:26,714 --> 00:04:28,887
+And then I need to actually add that student object
+
+75
+00:04:28,887 --> 00:04:30,637
+as a Model attribute.
+
+76
+00:04:33,511 --> 00:04:35,566
+So I basically add it to the model.
+
+77
+00:04:35,566 --> 00:04:37,882
+So those are the comments there.
+
+78
+00:04:37,882 --> 00:04:39,985
+I have a good feel for what I need to do.
+
+79
+00:04:39,985 --> 00:04:41,569
+Let's go ahead and start cutting some code.
+
+80
+00:04:41,569 --> 00:04:43,202
+Creating the Student, we simply say
+
+81
+00:04:43,202 --> 00:04:46,414
+theStudent = new Student.
+
+82
+00:04:46,414 --> 00:04:48,945
+Again, very simple Java coding there.
+
+83
+00:04:48,945 --> 00:04:50,649
+Now we need to add this to the model,
+
+84
+00:04:50,649 --> 00:04:53,482
+so I'll say theModel.addAtrribute.
+
+85
+00:04:55,589 --> 00:04:58,726 line:15% 
+I'll give the actual name of the attribute
+
+86
+00:04:58,726 --> 00:05:01,976 line:15% 
+and the actual value for the attribute.
+
+87
+00:05:05,644 --> 00:05:07,200 line:15% 
+So we create the Student object
+
+88
+00:05:07,200 --> 00:05:09,290 line:15% 
+and then we add it as an attribute,
+
+89
+00:05:09,290 --> 00:05:13,495 line:15% 
+giving the name of Student and the value of theStudent.
+
+90
+00:05:13,495 --> 00:05:17,245 line:15% 
+That's the object that we created on line 15.
+
+91
+00:05:18,099 --> 00:05:20,405
+That's basically it here for this showForm
+
+92
+00:05:20,405 --> 00:05:21,942
+that we simply create our object,
+
+93
+00:05:21,942 --> 00:05:23,696
+add it to the model and then we simply
+
+94
+00:05:23,696 --> 00:05:25,487
+do a return over to student-form
+
+95
+00:05:25,487 --> 00:05:28,298
+and that'll pass it over to student-form.jsp.
+
+96
+00:05:28,298 --> 00:05:30,215
+This looks good so far.
+

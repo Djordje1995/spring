@@ -1,0 +1,288 @@
+1
+00:00:01,569 --> 00:00:06,569
+In this video, we're going to learn how to make an integer field required.
+
+2
+00:00:07,570 --> 00:00:11,870
+So far we've created this nice form, we've added some validation rules already.
+
+3
+00:00:11,870 --> 00:00:16,059
+We have last name that's required, we have our free passes, we've also added pattern
+
+4
+00:00:16,059 --> 00:00:18,150
+matching to our postal code.
+
+5
+00:00:18,150 --> 00:00:23,150
+What I'd like to do is actually make this free passes field required such that, if the
+
+6
+00:00:24,200 --> 00:00:29,200
+user doesn't provide a value, then we'll actually give them a error message saying, "Hey, this
+
+7
+00:00:29,361 --> 00:00:32,330
+given field is required."
+
+8
+00:00:32,330 --> 00:00:37,330
+All righty, let's go ahead and move into our coda, shouldn't be too hard right, 'cause
+
+9
+00:00:37,710 --> 00:00:40,000
+we've added required fields before.
+
+10
+00:00:40,000 --> 00:00:45,000
+Let's go ahead and move into our source directory, and let's open up customer.java, all right,
+
+11
+00:00:45,210 --> 00:00:48,130
+expand the window here.
+
+12
+00:00:48,130 --> 00:00:52,191
+Let's take a look, so yeah, so we've already added our required fields for last name, so
+
+13
+00:00:52,191 --> 00:00:57,191
+hopefully we can do something similar here for free passes.
+
+14
+00:00:57,969 --> 00:01:01,949
+For free passes here, we have our min, and our max value, and this is the field that
+
+15
+00:01:01,949 --> 00:01:04,230
+I want to make required.
+
+16
+00:01:04,230 --> 00:01:09,230
+Basically, I simply do a copy paste exercise, I'll copy the @NotNull from last name, and
+
+17
+00:01:10,890 --> 00:01:15,890
+I'll simply move down to my free passes field and paste it.
+
+18
+00:01:16,070 --> 00:01:21,030
+All right, so there we go, so we have this @NotNull that we've added here for our free
+
+19
+00:01:21,030 --> 00:01:22,030
+passes field.
+
+20
+00:01:22,030 --> 00:01:25,240
+This will basically make sure that's this given field is required.
+
+21
+00:01:25,240 --> 00:01:30,240
+If they didn't provide a value, then we'll actually display the error message, is required.
+
+22
+00:01:30,560 --> 00:01:33,140
+That's the game plan, we've kind of seen this before.
+
+23
+00:01:33,140 --> 00:01:37,250
+All righty let's go ahead and test this out.
+
+24
+00:01:37,250 --> 00:01:42,250
+I'll save my file, move over here, and run my application, run as an run on server.
+
+25
+00:01:44,420 --> 00:01:49,420
+I'll through and choose this link for customer form, and I'll test the field free passes
+
+26
+00:01:50,110 --> 00:01:51,110
+is required.
+
+27
+00:01:51,110 --> 00:01:53,680
+I'll give something for last name, for free passes, I'll empty this field out, make it
+
+28
+00:01:53,680 --> 00:01:55,820
+empty, make it blank.
+
+29
+00:01:55,820 --> 00:02:00,820
+I'll go ahead and hit on the submit button here, and ugh, okay, what the what?
+
+30
+00:02:07,960 --> 00:02:12,960
+I get this long message here, it says, oh gosh, this is crazy, just double checking
+
+31
+00:02:15,560 --> 00:02:19,400
+something real quick here, let's empty out last name, and I hit submit.
+
+32
+00:02:19,400 --> 00:02:23,490
+Okay, so last name is required, that part worked, but what's up with this guy?
+
+33
+00:02:23,490 --> 00:02:27,910
+Says, "Failed to convert property of string to required type."
+
+34
+00:02:27,910 --> 00:02:30,650
+Okay, so the root cause is it's a type conversion error.
+
+35
+00:02:30,650 --> 00:02:33,850
+Couldn't convert a string to the primitive type of int.
+
+36
+00:02:33,850 --> 00:02:34,850
+Ah, gosh.
+
+37
+00:02:34,850 --> 00:02:37,800
+A lot of stuff here.
+
+38
+00:02:37,800 --> 00:02:41,800
+All right, let's go ahead and try and fix this, or resolve it.
+
+39
+00:02:41,800 --> 00:02:44,690
+We can actually resolve this by refactoring our field.
+
+40
+00:02:44,690 --> 00:02:49,470
+Instead of using the primitive type, we can use the Integer type.
+
+41
+00:02:49,470 --> 00:02:53,790
+That's with a capital I, this is basically a wrapper class.
+
+42
+00:02:53,790 --> 00:02:55,080
+Why won't this work?
+
+43
+00:02:55,080 --> 00:03:00,080
+Because, if our field is blank, or has spaces, then they'll actually trim it to null, using
+
+44
+00:03:01,470 --> 00:03:06,340
+that string trimmer editor that we've added before, and then this'll handle the appropriate
+
+45
+00:03:06,340 --> 00:03:07,340
+issue.
+
+46
+00:03:07,340 --> 00:03:12,340
+Again, we're going from int to Integer, and Integer's a special wrapper class in java.
+
+47
+00:03:13,150 --> 00:03:15,680
+That's our field on line 22.
+
+48
+00:03:15,680 --> 00:03:20,180
+We also have to update our getter and setter methods in this class.
+
+49
+00:03:20,180 --> 00:03:22,640
+Let's go ahead and scroll down to the bottom.
+
+50
+00:03:22,640 --> 00:03:27,640
+For get free passes, we get the return type of Integer, with a capital I, and then we
+
+51
+00:03:28,500 --> 00:03:33,500
+have to do a similar thing here for our setter method, Integer with a capital I.
+
+52
+00:03:35,020 --> 00:03:40,020
+Again, we're basically using classes here, instead of the primitives here, and hopefully,
+
+53
+00:03:41,100 --> 00:03:46,100
+this should help us out with that validation as far as the type conversions from strings
+
+54
+00:03:46,370 --> 00:03:47,370
+to ints.
+
+55
+00:03:47,370 --> 00:03:52,060
+All right, let's go ahead and save all this stuff, move back over here, and let's run
+
+56
+00:03:52,060 --> 00:03:57,060
+our application one more time, and let's cross our fingers, hope it works.
+
+57
+00:03:57,090 --> 00:04:02,090
+We move in here to customer form.
+
+58
+00:04:02,540 --> 00:04:06,390
+Free passes, we'll leave it blank, we won't put any information in there, and we'll hit
+
+59
+00:04:06,390 --> 00:04:11,170
+submit, and boo-yah, oh yeah, just the way I wanted it.
+
+60
+00:04:11,170 --> 00:04:15,750
+Is required, so they can handle the nulls and all that stuff, and that's working out
+
+61
+00:04:15,750 --> 00:04:16,750
+just fine.
+
+62
+00:04:16,750 --> 00:04:17,760
+Let's just check it with last name.
+
+63
+00:04:17,760 --> 00:04:22,760
+We give a last name, we hit submit, and great, so is required is being applied to our free
+
+64
+00:04:23,950 --> 00:04:26,970
+passes field, so that's kind of working out as desired.
+
+65
+00:04:26,970 --> 00:04:30,530
+Give real values, it goes through, and the validation passes.
+
+66
+00:04:30,530 --> 00:04:33,040
+Oh boy, woo.
+
+67
+00:04:33,040 --> 00:04:38,040
+The key here was simply converting from an int to an Integer type, or refactoring from
+
+68
+00:04:38,130 --> 00:04:41,380
+int to Integer, and that helped us resolve this issue.
+
+69
+00:04:41,380 --> 00:04:46,380
+Great job, but we're not really, really done.
+
+70
+00:04:47,060 --> 00:04:52,060
+There is some other issues with this form, you may have discovered them, if not, we'll
+
+71
+00:04:52,480 --> 00:04:55,070
+actually talk about them in the next video.
+
+72
+00:04:55,070 --> 00:04:56,540
+Stay tuned.
+

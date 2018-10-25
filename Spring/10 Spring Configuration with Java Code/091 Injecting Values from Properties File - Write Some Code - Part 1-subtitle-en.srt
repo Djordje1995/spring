@@ -1,0 +1,172 @@
+1
+00:00:01,237 --> 00:00:02,517
+<v Instructor>Alright, so let's move into Eclipse</v>
+
+2
+00:00:02,517 --> 00:00:04,676
+and let's get ready to write some code!
+
+3
+00:00:04,676 --> 00:00:06,663
+So here starting with our development process,
+
+4
+00:00:06,663 --> 00:00:08,077
+the first thing we need to do
+
+5
+00:00:08,077 --> 00:00:10,217
+is create our Properties File.
+
+6
+00:00:10,217 --> 00:00:12,208
+That's gonna hold our name value pairs
+
+7
+00:00:12,208 --> 00:00:15,125
+of the data that we want to inject.
+
+8
+00:00:16,914 --> 00:00:19,135 line:15% 
+So what I'll do is on my source directory,
+
+9
+00:00:19,135 --> 00:00:21,666 line:15% 
+I'll do a right click, and say new file
+
+10
+00:00:21,666 --> 00:00:24,176
+and make sure you select the source directory there,
+
+11
+00:00:24,176 --> 00:00:25,009
+new file.
+
+12
+00:00:28,267 --> 00:00:30,143
+The actual name of the file that I'll have
+
+13
+00:00:30,143 --> 00:00:31,810
+is sport.properties,
+
+14
+00:00:34,994 --> 00:00:36,879
+and again make sure that it's in the source directory,
+
+15
+00:00:36,879 --> 00:00:40,162
+cause that's our actual class path for our application,
+
+16
+00:00:40,162 --> 00:00:44,440
+and then go ahead and select the finish button.
+
+17
+00:00:44,440 --> 00:00:46,023
+Alright, so we have an empty file right now.
+
+18
+00:00:46,023 --> 00:00:49,732
+So now what we need to do is add some name value pairs here
+
+19
+00:00:49,732 --> 00:00:50,815
+to this file.
+
+20
+00:01:01,384 --> 00:01:03,842
+So the first property is foo.email
+
+21
+00:01:03,842 --> 00:01:08,007
+and the actual email address is myeasycoach@luv2code.com.
+
+22
+00:01:08,007 --> 00:01:11,039
+My second property name is foo.team
+
+23
+00:01:11,039 --> 00:01:15,206
+and then I give the actual team name of Awesome Java Coders,
+
+24
+00:01:16,439 --> 00:01:17,772
+that's us, yeah!
+
+25
+00:01:20,073 --> 00:01:21,765
+Alright, so that's our properties file.
+
+26
+00:01:21,765 --> 00:01:25,534
+Once you're happy with that, go ahead and save it.
+
+27
+00:01:25,534 --> 00:01:27,147
+So that pretty much takes care of step one.
+
+28
+00:01:27,147 --> 00:01:29,484 line:15% 
+Now we need to get ready for step two,
+
+29
+00:01:29,484 --> 00:01:31,718 line:15% 
+and that's actually loading the Properties File
+
+30
+00:01:31,718 --> 00:01:33,527 line:15% 
+into our Spring config.
+
+31
+00:01:33,527 --> 00:01:35,135 line:15% 
+So we go back to our Java class,
+
+32
+00:01:35,135 --> 00:01:37,320 line:15% 
+our SportConfig.Java, right?
+
+33
+00:01:37,320 --> 00:01:41,237 line:15% 
+We're doing this Java based configuration here.
+
+34
+00:01:43,606 --> 00:01:46,342
+And let's move down to line seven.
+
+35
+00:01:46,342 --> 00:01:47,276
+Just right after line seven,
+
+36
+00:01:47,276 --> 00:01:48,390
+we're gonna add a new entry here.
+
+37
+00:01:48,390 --> 00:01:52,136
+So line eight, will actually make a reference
+
+38
+00:01:52,136 --> 00:01:53,719
+to that annotation.
+
+39
+00:01:57,903 --> 00:02:00,792
+We'll make use of that annotation Add Property Source
+
+40
+00:02:00,792 --> 00:02:02,072
+and then we simply give the location
+
+41
+00:02:02,072 --> 00:02:06,497
+of that Properties File, classpath:sport.properties.
+
+42
+00:02:06,497 --> 00:02:09,330
+I'll go ahead and fix the imports.
+
+43
+00:02:10,339 --> 00:02:14,006
+And there we go, so this looks pretty good.
+

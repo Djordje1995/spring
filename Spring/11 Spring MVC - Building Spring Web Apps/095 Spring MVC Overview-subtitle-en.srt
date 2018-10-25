@@ -1,0 +1,304 @@
+1
+00:00:01,252 --> 00:00:02,812
+<v Instructor>In this video, we're going to get an</v>
+
+2
+00:00:02,812 --> 00:00:04,729
+overview of Spring MVC.
+
+3
+00:00:08,222 --> 00:00:10,133
+So what is Spring MVC?
+
+4
+00:00:10,133 --> 00:00:12,549
+Well, basically, it's a framework for building web
+
+5
+00:00:12,549 --> 00:00:14,480
+applications in Java.
+
+6
+00:00:14,480 --> 00:00:16,573
+As the name suggests, it's based on the
+
+7
+00:00:16,573 --> 00:00:19,900
+Model-View-Controller design pattern.
+
+8
+00:00:19,900 --> 00:00:22,452
+And also, the nice thing about it is that it leverages
+
+9
+00:00:22,452 --> 00:00:25,392
+the features of the Core Spring Framework, so you can
+
+10
+00:00:25,392 --> 00:00:27,565
+leverage all of your inversion of control,
+
+11
+00:00:27,565 --> 00:00:29,021
+and dependency of injection.
+
+12
+00:00:29,021 --> 00:00:31,727
+So everything that you've learned in the class so far
+
+13
+00:00:31,727 --> 00:00:34,894
+you'll be able to apply in Spring MVC.
+
+14
+00:00:36,921 --> 00:00:40,114
+Okay, so here's a big picture here of the MVC framework,
+
+15
+00:00:40,114 --> 00:00:43,109
+and the process flow and how it works.
+
+16
+00:00:43,109 --> 00:00:45,695
+So basically you have an incoming request coming from
+
+17
+00:00:45,695 --> 00:00:48,620
+the browser, it'll encounter the Spring MVC
+
+18
+00:00:48,620 --> 00:00:50,341
+front controller.
+
+19
+00:00:50,341 --> 00:00:53,042
+This person will actually delegate the request off to a
+
+20
+00:00:53,042 --> 00:00:54,395
+controller code.
+
+21
+00:00:54,395 --> 00:00:57,252
+This controller code is code that you create that contains
+
+22
+00:00:57,252 --> 00:00:58,770
+your business logic.
+
+23
+00:00:58,770 --> 00:01:01,509
+You basically create a model, and you send the model back
+
+24
+00:01:01,509 --> 00:01:04,297
+to the front controller, and then the front controller,
+
+25
+00:01:04,297 --> 00:01:06,968
+will pass that model over to your view template.
+
+26
+00:01:06,968 --> 00:01:10,177
+So your view template is basically like a html page,
+
+27
+00:01:10,177 --> 00:01:13,570
+or a JSP page that will take that data, and then render
+
+28
+00:01:13,570 --> 00:01:15,751
+a response to the browser.
+
+29
+00:01:15,751 --> 00:01:19,746
+So that's kind of the big picture of the MVC framework.
+
+30
+00:01:19,746 --> 00:01:22,096
+In following videos, I'll kind of break this down,
+
+31
+00:01:22,096 --> 00:01:25,020
+and I'll go into more details on each step of the process.
+
+32
+00:01:25,020 --> 00:01:28,181
+But anyway, this is a big picture here on how Spring MVC
+
+33
+00:01:28,181 --> 00:01:30,431
+will process a web request.
+
+34
+00:01:32,656 --> 00:01:36,180
+Alright, so what are the benefits of using Spring MVC?
+
+35
+00:01:36,180 --> 00:01:39,105
+Well it's basically Spring's way of building
+
+36
+00:01:39,105 --> 00:01:40,868
+web apps using Java.
+
+37
+00:01:40,868 --> 00:01:44,138
+So basically you can leverage a set of reusable UI
+
+38
+00:01:44,138 --> 00:01:46,268
+components, and these are available in the form of
+
+39
+00:01:46,268 --> 00:01:48,806
+Spring JSP custom tags.
+
+40
+00:01:48,806 --> 00:01:51,980
+You can also manage your application state for web requests
+
+41
+00:01:51,980 --> 00:01:55,389
+for session tracking, or application tracking,
+
+42
+00:01:55,389 --> 00:01:58,203
+and you can also process your form data, so you can also
+
+43
+00:01:58,203 --> 00:02:01,066
+perform validation on the form data, conversion,
+
+44
+00:02:01,066 --> 00:02:02,606
+so on and so forth.
+
+45
+00:02:02,606 --> 00:02:06,088
+And finally, Spring MVC has a very flexible configuration
+
+46
+00:02:06,088 --> 00:02:08,797
+for the view layers, so you're not limited to only using
+
+47
+00:02:08,797 --> 00:02:12,686
+JSP, you can use other view layers like Thymeleaf,
+
+48
+00:02:12,686 --> 00:02:14,686
+Velocity, or FreeMarker.
+
+49
+00:02:15,638 --> 00:02:19,616
+And I'll talk about this in some of the following videos.
+
+50
+00:02:19,616 --> 00:02:22,648
+Alright, now as far as documentation, there's a lot of
+
+51
+00:02:22,648 --> 00:02:24,493
+good documentation available.
+
+52
+00:02:24,493 --> 00:02:27,606
+Here's the official documentation from Spring.
+
+53
+00:02:27,606 --> 00:02:29,132
+You can go to this website I have here,
+
+54
+00:02:29,132 --> 00:02:32,108
+luv2code.com/spring-mvc-docs.
+
+55
+00:02:32,108 --> 00:02:35,434
+This will basically just redirect you to the official
+
+56
+00:02:35,434 --> 00:02:37,606
+documentation at the Spring website.
+
+57
+00:02:37,606 --> 00:02:39,870
+So they have a very good write up on how the framework
+
+58
+00:02:39,870 --> 00:02:43,646
+works, details, and pretty much everything you need to know
+
+59
+00:02:43,646 --> 00:02:46,281
+is available in that documentation.
+
+60
+00:02:46,281 --> 00:02:49,804
+That's the actually Spring reference manual.
+
+61
+00:02:49,804 --> 00:02:52,033
+And if you wanted to have more information about Spring,
+
+62
+00:02:52,033 --> 00:02:54,256
+well there's plenty of books online.
+
+63
+00:02:54,256 --> 00:02:57,203
+So you can simply go to Amazon, you can type in the word
+
+64
+00:02:57,203 --> 00:02:59,803
+Spring MVC and do a search, and you'll have a lot of good
+
+65
+00:02:59,803 --> 00:03:02,017
+hits out there, so a lot of good books out there.
+
+66
+00:03:02,017 --> 00:03:05,006
+Go ahead and read the reviews, see which ones work for you,
+
+67
+00:03:05,006 --> 00:03:06,777
+and you can proceed accordingly.
+
+68
+00:03:06,777 --> 00:03:09,641
+But a lot of information's available at Amazon, and also
+
+69
+00:03:09,641 --> 00:03:12,147
+there's a lot of free websites that have Spring MVC
+
+70
+00:03:12,147 --> 00:03:13,397
+tutorials, too.
+
+71
+00:03:15,128 --> 00:03:17,412
+Alright, so that was just a quick overview of Spring MVC.
+
+72
+00:03:17,412 --> 00:03:19,701
+In the following videos I'll go into some details,
+
+73
+00:03:19,701 --> 00:03:22,741
+I'll give you a quick behind-the-scenes tour of Spring MVC,
+
+74
+00:03:22,741 --> 00:03:24,964
+and then we'll set up our development environment,
+
+75
+00:03:24,964 --> 00:03:27,222
+and then we'll start writing some code.
+
+76
+00:03:27,222 --> 00:03:30,055
+So I'll see you in the next video.
+

@@ -1,0 +1,256 @@
+1
+00:00:01,256 --> 00:00:02,773
+<v Darby>All right, so we have the basic stub</v>
+
+2
+00:00:02,773 --> 00:00:04,177
+for our annotation setup.
+
+3
+00:00:04,177 --> 00:00:07,611
+Now what I need to do is actually define the attributes
+
+4
+00:00:07,611 --> 00:00:10,845
+that we can pass into our annotation.
+
+5
+00:00:10,845 --> 00:00:12,664
+So we've already saw the usage example
+
+6
+00:00:12,664 --> 00:00:15,783
+where we're gonna have two attributes, one for value,
+
+7
+00:00:15,783 --> 00:00:18,394
+and one for the actual error message.
+
+8
+00:00:18,394 --> 00:00:20,995
+We'll actually define these attributes here,
+
+9
+00:00:20,995 --> 00:00:25,162
+and we'll also set up some default values for them.
+
+10
+00:00:27,241 --> 00:00:30,174
+And then we'll also make use of two other entries here
+
+11
+00:00:30,174 --> 00:00:34,769
+for this annotation for groups and also for payloads,
+
+12
+00:00:34,769 --> 00:00:37,178
+so groups is where you can actually group validation
+
+13
+00:00:37,178 --> 00:00:39,614
+constraints together, and then payload is where you can
+
+14
+00:00:39,614 --> 00:00:43,781
+give additional information about the validation error.
+
+15
+00:00:46,354 --> 00:00:48,529
+All right, so that's kinda like the basic layout here
+
+16
+00:00:48,529 --> 00:00:50,256
+of things that we need to do
+
+17
+00:00:50,256 --> 00:00:51,860
+and things that we need to fill in.
+
+18
+00:00:51,860 --> 00:00:53,693
+So let's start typing.
+
+19
+00:00:54,741 --> 00:00:56,927
+So, we're gonna have this one attribute called value
+
+20
+00:00:56,927 --> 00:00:59,183
+that the user can pass in, and if they don't
+
+21
+00:00:59,183 --> 00:01:03,802
+pass in a value, then we'll say the default is LUV.
+
+22
+00:01:03,802 --> 00:01:06,954
+So that's the actual prefix that we'll validate against.
+
+23
+00:01:06,954 --> 00:01:09,300
+Then also for message, they can pass in their own
+
+24
+00:01:09,300 --> 00:01:11,838
+custom message, but if not, then we'll give
+
+25
+00:01:11,838 --> 00:01:16,668
+this default error message of "must start with LUV."
+
+26
+00:01:16,668 --> 00:01:17,513
+This is primarily for people
+
+27
+00:01:17,513 --> 00:01:20,967
+who are using the actual annotation.
+
+28
+00:01:20,967 --> 00:01:23,171
+Then we set up our default groups, and so here,
+
+29
+00:01:23,171 --> 00:01:26,372
+we're not gonna use any grouping of grouping constraints,
+
+30
+00:01:26,372 --> 00:01:30,082
+so we'll simply just give the basic boilerplate here of
+
+31
+00:01:30,082 --> 00:01:34,249
+groups, and we'll simply just give an empty collection.
+
+32
+00:01:35,639 --> 00:01:37,742
+And then for payloads, we're not gonna use any payloads,
+
+33
+00:01:37,742 --> 00:01:41,909
+so we'll simply just give the default here for payload.
+
+34
+00:01:43,032 --> 00:01:45,757
+And again, payload can basically give you additional details
+
+35
+00:01:45,757 --> 00:01:49,257
+about the error message that has occurred.
+
+36
+00:01:50,095 --> 00:01:51,560
+So again, just anything will do.
+
+37
+00:01:51,560 --> 00:01:53,478
+All right, so that's the basic layout here.
+
+38
+00:01:53,478 --> 00:01:55,419
+Let me go through and, let's see,
+
+39
+00:01:55,419 --> 00:01:58,249
+I have a small little typo here.
+
+40
+00:01:58,249 --> 00:01:59,717
+Oh, yeah, yeah, yeah, I'm missing the parens here.
+
+41
+00:01:59,717 --> 00:02:00,656
+I'm missing parens.
+
+42
+00:02:00,656 --> 00:02:02,739
+There we go, there we go.
+
+43
+00:02:03,845 --> 00:02:05,757
+Let me go ahead and put the open paren,
+
+44
+00:02:05,757 --> 00:02:07,070
+close paren right there.
+
+45
+00:02:07,070 --> 00:02:08,224
+All-righty.
+
+46
+00:02:08,224 --> 00:02:12,209
+And then a similar thing here for the word payload,
+
+47
+00:02:12,209 --> 00:02:15,126
+lowercase, open paren, close paren.
+
+48
+00:02:15,997 --> 00:02:17,630
+All right, good.
+
+49
+00:02:17,630 --> 00:02:18,463
+Took care of that.
+
+50
+00:02:18,463 --> 00:02:21,257
+Let me go through and fix some of these imports here
+
+51
+00:02:21,257 --> 00:02:23,174
+for payload, just to import.
+
+52
+00:02:23,174 --> 00:02:27,007
+Make sure you perform the correct import here.
+
+53
+00:02:31,998 --> 00:02:34,290
+All right, so this looks pretty good.
+
+54
+00:02:34,290 --> 00:02:35,943
+We got all of the big items here,
+
+55
+00:02:35,943 --> 00:02:39,313
+a javax.validation.Payload, we got that importing correctly,
+
+56
+00:02:39,313 --> 00:02:41,912
+and we went through and we listed the attributes
+
+57
+00:02:41,912 --> 00:02:44,763
+that the user can call or pass in
+
+58
+00:02:44,763 --> 00:02:46,416
+to this given annotation.
+
+59
+00:02:46,416 --> 00:02:47,632
+So we're in good shape.
+
+60
+00:02:47,632 --> 00:02:49,443
+So we went through and defined the default course code,
+
+61
+00:02:49,443 --> 00:02:52,022
+error message, and then also groups and payloads,
+
+62
+00:02:52,022 --> 00:02:53,715
+and so the two key things that we're gonna use
+
+63
+00:02:53,715 --> 00:02:56,619
+in this demo is that we're gonna make use of the actual
+
+64
+00:02:56,619 --> 00:03:00,786
+value for course code and a message for error messages.
+

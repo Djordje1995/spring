@@ -1,0 +1,536 @@
+1
+00:00:01,120 --> 00:00:03,235
+<v Darby>Okay, so let's go ahead and look at step one,</v>
+
+2
+00:00:03,235 --> 00:00:05,809
+creating the @CourseCode annotation.
+
+3
+00:00:05,809 --> 00:00:08,366
+Now first, I just wanna show you the usage example
+
+4
+00:00:08,366 --> 00:00:11,010
+of how we're gonna use our annotation.
+
+5
+00:00:11,010 --> 00:00:13,463
+So in your Entity class, you'll have a field
+
+6
+00:00:13,463 --> 00:00:16,891
+and then we'll make use of the @CourseCode annotation.
+
+7
+00:00:16,891 --> 00:00:18,935
+So we're gonna attach this validation rule
+
+8
+00:00:18,935 --> 00:00:20,353
+to this given field.
+
+9
+00:00:20,353 --> 00:00:22,142
+Then I'll pass in two parameters for it,
+
+10
+00:00:22,142 --> 00:00:23,874
+the value and the message.
+
+11
+00:00:23,874 --> 00:00:26,143
+So value's the actual value I'm gonna start with.
+
+12
+00:00:26,143 --> 00:00:28,374
+And then the message is the actual error message
+
+13
+00:00:28,374 --> 00:00:31,207
+that you can use on the HTML page.
+
+14
+00:00:32,774 --> 00:00:36,638
+All righty, so Step 1a: Creating the @CourseCode annotation.
+
+15
+00:00:36,638 --> 00:00:39,057
+So the first thing to notice here's that we're creating
+
+16
+00:00:39,057 --> 00:00:40,421
+this annotation.
+
+17
+00:00:40,421 --> 00:00:42,085
+Now, when you create an annotation, you make use
+
+18
+00:00:42,085 --> 00:00:43,720
+of some special syntax.
+
+19
+00:00:43,720 --> 00:00:47,470
+So here we have public @interface CourseCode.
+
+20
+00:00:48,490 --> 00:00:49,985
+Okay, so this is new.
+
+21
+00:00:49,985 --> 00:00:52,896
+So it's a special type of interface.
+
+22
+00:00:52,896 --> 00:00:55,380
+So use the @interface.
+
+23
+00:00:55,380 --> 00:00:59,848
+In effect, this is how you define a custom annotation
+
+24
+00:00:59,848 --> 00:01:01,669
+for anything in Java.
+
+25
+00:01:01,669 --> 00:01:04,181
+But here we're gonna use it for our Spring MVC.
+
+26
+00:01:04,181 --> 00:01:07,078
+So you use the @interface, so that's not a typo,
+
+27
+00:01:07,078 --> 00:01:09,212
+@interface, and then you give the name
+
+28
+00:01:09,212 --> 00:01:11,140
+of your annotation, CourseCode.
+
+29
+00:01:11,140 --> 00:01:13,009
+All right, so that's kinda the basic structure.
+
+30
+00:01:13,009 --> 00:01:15,615
+Then up top, we add some additional annotations
+
+31
+00:01:15,615 --> 00:01:17,733
+to describe this annotation.
+
+32
+00:01:17,733 --> 00:01:20,169
+So up top we have Constraint.
+
+33
+00:01:20,169 --> 00:01:23,461
+It's gonna be validatedBy and you give the actual class
+
+34
+00:01:23,461 --> 00:01:28,023
+that has the business rules for validating this process.
+
+35
+00:01:28,023 --> 00:01:31,109
+So CourseCodeConstraintValidator.class.
+
+36
+00:01:31,109 --> 00:01:34,154
+We'll cover that in Step 1b, that's coming up.
+
+37
+00:01:34,154 --> 00:01:36,172
+Then we have @Target.
+
+38
+00:01:36,172 --> 00:01:38,859
+So this basically says hey, where can you apply
+
+39
+00:01:38,859 --> 00:01:42,285
+this annotation or where can you list this annotation?
+
+40
+00:01:42,285 --> 00:01:44,259
+So here we're gonna say you can use this annotation
+
+41
+00:01:44,259 --> 00:01:47,995
+on a method or on a field, all right?
+
+42
+00:01:47,995 --> 00:01:50,300
+So either way, a method or a field.
+
+43
+00:01:50,300 --> 00:01:52,873
+Then for @Retention, it says all right,
+
+44
+00:01:52,873 --> 00:01:55,809
+this annotation that's here, how long should we retain it?
+
+45
+00:01:55,809 --> 00:01:58,465
+So there's different types here.
+
+46
+00:01:58,465 --> 00:02:02,127
+Here we're gonna say RetentionPolicy.RUNTIME
+
+47
+00:02:02,127 --> 00:02:06,294
+meaning keep this annotation in the compiled Java bytecode
+
+48
+00:02:07,203 --> 00:02:10,708
+so we can use it, and introspect on it, and instrument on it
+
+49
+00:02:10,708 --> 00:02:12,726
+during runtime.
+
+50
+00:02:12,726 --> 00:02:16,955
+All right, so that's the basics there with setting this up.
+
+51
+00:02:16,955 --> 00:02:19,607
+Now just taking a look at some other items here.
+
+52
+00:02:19,607 --> 00:02:22,594
+We actually have to setup parameters here
+
+53
+00:02:22,594 --> 00:02:23,988
+for this annotation.
+
+54
+00:02:23,988 --> 00:02:26,305
+And this annotation's gonna have to parameters:
+
+55
+00:02:26,305 --> 00:02:27,805
+value and message.
+
+56
+00:02:29,560 --> 00:02:31,892
+All righty, so now we'll actually add some
+
+57
+00:02:31,892 --> 00:02:33,583
+method declarations here.
+
+58
+00:02:33,583 --> 00:02:35,937
+So we have public String value.
+
+59
+00:02:35,937 --> 00:02:38,172
+That basically says this annotation has a parameter
+
+60
+00:02:38,172 --> 00:02:39,907
+called value.
+
+61
+00:02:39,907 --> 00:02:42,503
+Now if the user doesn't provide a value,
+
+62
+00:02:42,503 --> 00:02:45,836
+then we'll use the default value of LUV.
+
+63
+00:02:48,729 --> 00:02:52,193
+And then we'll also add another method here for message.
+
+64
+00:02:52,193 --> 00:02:54,276
+So public String message.
+
+65
+00:02:55,568 --> 00:02:57,513
+And if they don't give an actual message,
+
+66
+00:02:57,513 --> 00:03:00,477
+we'll default to must start with LUV to code.
+
+67
+00:03:00,477 --> 00:03:02,264
+Now you're probably wondering, well, hey,
+
+68
+00:03:02,264 --> 00:03:04,182
+why are you using these defaults in your passing
+
+69
+00:03:04,182 --> 00:03:05,274
+and values here?
+
+70
+00:03:05,274 --> 00:03:07,690
+Well, I wanna keep this annotation customizable.
+
+71
+00:03:07,690 --> 00:03:10,205
+I could've hardcoded those values in there,
+
+72
+00:03:10,205 --> 00:03:12,579
+but I wanna keep it customizable so we could actually
+
+73
+00:03:12,579 --> 00:03:15,832
+apply @CourseCode and give a different prefix.
+
+74
+00:03:15,832 --> 00:03:18,443
+I'll actually show you how we can customize the usage
+
+75
+00:03:18,443 --> 00:03:21,983
+of this annotation in the following video demos.
+
+76
+00:03:21,983 --> 00:03:24,173
+So I'm just kinda doin' a little work up front
+
+77
+00:03:24,173 --> 00:03:27,852
+just to make it easier for you a little bit down the ways,
+
+78
+00:03:27,852 --> 00:03:29,450
+which you'll see it all come together.
+
+79
+00:03:29,450 --> 00:03:31,377
+But that's the basics here on actually defining
+
+80
+00:03:31,377 --> 00:03:33,427
+the @CourseCode annotation.
+
+81
+00:03:33,427 --> 00:03:35,249
+So you have those annotations up top,
+
+82
+00:03:35,249 --> 00:03:37,072
+public @interface CourseCode,
+
+83
+00:03:37,072 --> 00:03:39,155
+and then the method list.
+
+84
+00:03:42,669 --> 00:03:45,135
+Now we're moving ahead here and we look at
+
+85
+00:03:45,135 --> 00:03:47,186
+the actual ConstraintValidator.
+
+86
+00:03:47,186 --> 00:03:49,563
+So this is the guy who actually has the business rules
+
+87
+00:03:49,563 --> 00:03:53,747
+that'll give you true, false if the actual value passes.
+
+88
+00:03:53,747 --> 00:03:57,238
+All righty, so CourseCodeConstraintValidator
+
+89
+00:03:57,238 --> 00:04:00,801
+implements ConstraintValidator, has generics
+
+90
+00:04:00,801 --> 00:04:03,945
+so they'll pass in the actual CourseCode annotation
+
+91
+00:04:03,945 --> 00:04:07,495
+and the actual type of data that we're validating against.
+
+92
+00:04:07,495 --> 00:04:11,216
+Then I setup my field here, private String coursePrefix.
+
+93
+00:04:11,216 --> 00:04:14,020
+And then I have public void initialize
+
+94
+00:04:14,020 --> 00:04:16,675
+so when they create this validator,
+
+95
+00:04:16,675 --> 00:04:19,026
+they actually initialize it so I get a handle
+
+96
+00:04:19,026 --> 00:04:21,026
+to the actual annotation that was passed in
+
+97
+00:04:21,026 --> 00:04:23,187
+and I say theCourseCode.value.
+
+98
+00:04:23,187 --> 00:04:26,314
+So that would give me the actual prefix that we're gonna use
+
+99
+00:04:26,314 --> 00:04:28,677
+to validate data against.
+
+100
+00:04:28,677 --> 00:04:30,543
+So this basically just sets everything up.
+
+101
+00:04:30,543 --> 00:04:32,815
+So our validator's up and running, it's ready.
+
+102
+00:04:32,815 --> 00:04:35,006
+Now someone can actually use it.
+
+103
+00:04:35,006 --> 00:04:38,136
+Someone can actually say hey, is the given value valid?
+
+104
+00:04:38,136 --> 00:04:40,833
+That takes us to this next method here, isValid.
+
+105
+00:04:40,833 --> 00:04:43,574 line:15% 
+So this is what Spring MVC will call at runtime
+
+106
+00:04:43,574 --> 00:04:46,476 line:15% 
+when they actually say hey, the user just submitted a form,
+
+107
+00:04:46,476 --> 00:04:49,225 line:15% 
+here's the data, is this data valid?
+
+108
+00:04:49,225 --> 00:04:51,263 line:15% 
+And then we apply our business rules to it.
+
+109
+00:04:51,263 --> 00:04:52,852 line:15% 
+So they'll call isValid
+
+110
+00:04:52,852 --> 00:04:54,038
+passing string to the code.
+
+111
+00:04:54,038 --> 00:04:55,917
+So the code is data from the form.
+
+112
+00:04:55,917 --> 00:04:58,206
+They'll also pass in a ConstraintValidatorContext.
+
+113
+00:04:58,206 --> 00:05:02,032
+That's just a helper class we can use to add additional data
+
+114
+00:05:02,032 --> 00:05:03,962
+or messages to later.
+
+115
+00:05:03,962 --> 00:05:05,808
+And then I go through and write my code.
+
+116
+00:05:05,808 --> 00:05:08,411
+So here I say if theCode is not equal to null,
+
+117
+00:05:08,411 --> 00:05:13,011
+then I check to see if theCode.startswith coursePrefix.
+
+118
+00:05:13,011 --> 00:05:16,556
+So whatever code the user entered on their HTML form,
+
+119
+00:05:16,556 --> 00:05:19,325
+I'm gonna see if it starts with our given prefix.
+
+120
+00:05:19,325 --> 00:05:23,277
+So say our prefix is LUV, L-U-V, I'll check to see
+
+121
+00:05:23,277 --> 00:05:25,777
+if their code starts with LUV.
+
+122
+00:05:27,606 --> 00:05:29,867
+I'll return true or false based on that.
+
+123
+00:05:29,867 --> 00:05:32,271
+And that's basically it how that works out.
+
+124
+00:05:32,271 --> 00:05:35,087
+The else block here says result equals true,
+
+125
+00:05:35,087 --> 00:05:37,817
+meaning that if the code passed in was empty,
+
+126
+00:05:37,817 --> 00:05:40,484
+then we simply just return true.
+
+127
+00:05:41,665 --> 00:05:44,483
+So that's the basic layout here for
+
+128
+00:05:44,483 --> 00:05:47,240
+the CourseCodeConstraintValidator.
+
+129
+00:05:47,240 --> 00:05:49,358
+Now I know it looks really scary, but don't worry.
+
+130
+00:05:49,358 --> 00:05:51,792
+We'll actually move into Eclipse and we'll actually break
+
+131
+00:05:51,792 --> 00:05:53,874
+this down piece by piece and we'll write it out
+
+132
+00:05:53,874 --> 00:05:56,673
+line by line so you'll understand how this all works out
+
+133
+00:05:56,673 --> 00:05:58,059
+for you, okay?
+
+134
+00:05:58,059 --> 00:06:00,809
+So I'll see ya in the next video.
+

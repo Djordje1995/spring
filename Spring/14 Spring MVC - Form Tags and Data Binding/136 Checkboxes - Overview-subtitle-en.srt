@@ -1,0 +1,124 @@
+1
+00:00:01,422 --> 00:00:02,726
+<v Instructor>In this video, we're gonna cover</v>
+
+2
+00:00:02,726 --> 00:00:05,809
+Spring MVC form tags for check boxes.
+
+3
+00:00:07,534 --> 00:00:08,653
+So, let's imagine the scenario
+
+4
+00:00:08,653 --> 00:00:10,188
+where we're gonna ask the student
+
+5
+00:00:10,188 --> 00:00:13,040
+"Hey, which Operating Systems do you have experience with?"
+
+6
+00:00:13,040 --> 00:00:14,832
+So, in this case they may not select only one,
+
+7
+00:00:14,832 --> 00:00:18,288
+they may have experience with multiple Operating Systems.
+
+8
+00:00:18,288 --> 00:00:21,336
+So, with check boxes you can check multiple items,
+
+9
+00:00:21,336 --> 00:00:25,513
+Linux, Mac or Windows, all three, one or two of 'em.
+
+10
+00:00:25,513 --> 00:00:26,346
+Very easy.
+
+11
+00:00:27,998 --> 00:00:30,141
+So, how do we do this with Spring MVC?
+
+12
+00:00:30,141 --> 00:00:31,980
+Well, a check box is represented using
+
+13
+00:00:31,980 --> 00:00:34,408
+the form:checkbox tag.
+
+14
+00:00:34,408 --> 00:00:37,241
+Very simple, very straightforward.
+
+15
+00:00:38,609 --> 00:00:40,192
+And you kind of get in the groove here.
+
+16
+00:00:40,192 --> 00:00:42,158
+Once you've seen one of the Spring form tags
+
+17
+00:00:42,158 --> 00:00:44,063
+you can kind of pick up how the others work.
+
+18
+00:00:44,063 --> 00:00:46,377
+So, here's an example here using check boxes.
+
+19
+00:00:46,377 --> 00:00:48,824
+You say, form:checkbox, you give the path
+
+20
+00:00:48,824 --> 00:00:51,893
+that we're gonna bind to, in this example operatingSystems,
+
+21
+00:00:51,893 --> 00:00:53,720
+and then the value equals Linux.
+
+22
+00:00:53,720 --> 00:00:56,790
+And you can repeat that process for the other fields here
+
+23
+00:00:56,790 --> 00:00:59,873
+for Mac OS and for Microsoft Windows.
+
+24
+00:01:02,640 --> 00:01:03,670
+So, the only difference here is
+
+25
+00:01:03,670 --> 00:01:07,910
+that for check boxes, they can choose more than one option.
+
+26
+00:01:07,910 --> 00:01:09,342
+So, in your Java class,
+
+27
+00:01:09,342 --> 00:01:11,872
+you're gonna have more than just a single field.
+
+28
+00:01:11,872 --> 00:01:14,275
+You'll have a field that's actually a collection
+
+29
+00:01:14,275 --> 00:01:18,897
+so it can hold multiple input items from the user
+
+30
+00:01:18,897 --> 00:01:21,384
+and in the following videos we'll dive into Eclipse
+
+31
+00:01:21,384 --> 00:01:25,551
+and I'll show you how to actually write the code for that.
+

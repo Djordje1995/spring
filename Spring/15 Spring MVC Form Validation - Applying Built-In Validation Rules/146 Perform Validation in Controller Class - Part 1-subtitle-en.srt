@@ -1,0 +1,380 @@
+1
+00:00:01,684 --> 00:00:03,326
+<v Darby>All right, so we're making good progress</v>
+
+2
+00:00:03,326 --> 00:00:04,718
+with our development process here.
+
+3
+00:00:04,718 --> 00:00:05,822
+We've already covered step one,
+
+4
+00:00:05,822 --> 00:00:08,462
+of adding the validation rule to Customer class.
+
+5
+00:00:08,462 --> 00:00:09,915
+And we also finished with step two,
+
+6
+00:00:09,915 --> 00:00:12,952
+of displaying the error message on the HTML form.
+
+7
+00:00:12,952 --> 00:00:14,690
+Now we actually need to move to step three,
+
+8
+00:00:14,690 --> 00:00:15,902
+and that's performing the validation
+
+9
+00:00:15,902 --> 00:00:17,902
+in the Controller class.
+
+10
+00:00:22,034 --> 00:00:23,380 line:15% 
+Now what I actually need to do,
+
+11
+00:00:23,380 --> 00:00:25,083 line:15% 
+is I actually need to create the Controller class.
+
+12
+00:00:25,083 --> 00:00:27,232 line:15% 
+Because I don't have it yet.
+
+13
+00:00:27,232 --> 00:00:29,259 line:15% 
+So I need to move on to my source directory.
+
+14
+00:00:29,259 --> 00:00:33,426
+And to our package here, and I'll create a new class.
+
+15
+00:00:36,036 --> 00:00:37,620
+And the name that I'll give for this class
+
+16
+00:00:37,620 --> 00:00:39,537
+is customer controller.
+
+17
+00:00:43,848 --> 00:00:45,252
+I'll keep all the other defaults here.
+
+18
+00:00:45,252 --> 00:00:46,919
+And I'll hit finish.
+
+19
+00:00:49,951 --> 00:00:51,114
+All righty, so let me go ahead and, kind of,
+
+20
+00:00:51,114 --> 00:00:52,915
+expand the window here.
+
+21
+00:00:52,915 --> 00:00:54,390
+For this customer controller, I'm gonna set up
+
+22
+00:00:54,390 --> 00:00:58,223
+a request mapping, up top for this controller.
+
+23
+00:01:02,037 --> 00:01:03,739
+And this is work that we've all seen before.
+
+24
+00:01:03,739 --> 00:01:05,001
+We already know how to do all of this stuff.
+
+25
+00:01:05,001 --> 00:01:09,001
+Let me go ahead and fix the imports, real quick.
+
+26
+00:01:13,290 --> 00:01:16,028
+Okay, great, so the basics are set up for right now.
+
+27
+00:01:16,028 --> 00:01:19,257
+What I'd like to do is actually set up a request mapping,
+
+28
+00:01:19,257 --> 00:01:22,172
+just to show the actual form.
+
+29
+00:01:22,172 --> 00:01:26,255
+And also to add the model attribute for the form.
+
+30
+00:01:29,880 --> 00:01:31,262
+So I'll define this method here.
+
+31
+00:01:31,262 --> 00:01:33,929
+Show form, that takes the model.
+
+32
+00:01:35,233 --> 00:01:37,396
+And inside of this method here,
+
+33
+00:01:37,396 --> 00:01:39,796
+I basically, just wanna add a model attribute here.
+
+34
+00:01:39,796 --> 00:01:42,363
+So I'll say, the model dot add attribute.
+
+35
+00:01:42,363 --> 00:01:44,882
+I'll give the name comma value pair
+
+36
+00:01:44,882 --> 00:01:46,682
+for that model attribute.
+
+37
+00:01:46,682 --> 00:01:48,531
+From our form, we know that the model attribute
+
+38
+00:01:48,531 --> 00:01:50,283
+name is customer.
+
+39
+00:01:50,283 --> 00:01:52,715 line:15% 
+And then we simply give it a new customer object.
+
+40
+00:01:52,715 --> 00:01:53,951 line:15% 
+Just a blank customer object.
+
+41
+00:01:53,951 --> 00:01:55,274 line:15% 
+Just to start out with.
+
+42
+00:01:55,274 --> 00:01:58,024 line:15% 
+For the actual form data binding.
+
+43
+00:02:00,328 --> 00:02:02,449 line:15% 
+And then I go, return on customer form
+
+44
+00:02:02,449 --> 00:02:05,950 line:15% 
+I'll actually return it back to customer form dot jsp.
+
+45
+00:02:05,950 --> 00:02:08,092 line:15% 
+Based on our configuration.
+
+46
+00:02:08,092 --> 00:02:08,925 line:15% 
+Oh yeah, one more thing
+
+47
+00:02:08,925 --> 00:02:10,079 line:15% 
+I forgot up here.
+
+48
+00:02:10,079 --> 00:02:11,831 line:15% 
+I actually need to put in request mapping
+
+49
+00:02:11,831 --> 00:02:13,820 line:15% 
+the actual path to show this form.
+
+50
+00:02:13,820 --> 00:02:15,737 line:15% 
+So I'll say, show form.
+
+51
+00:02:24,596 --> 00:02:27,083 line:15% 
+And that's basically it here for this first method here.
+
+52
+00:02:27,083 --> 00:02:30,284 line:15% 
+Our request mapping for actually showing the form.
+
+53
+00:02:30,284 --> 00:02:31,959 line:15% 
+And we've seen this work before
+
+54
+00:02:31,959 --> 00:02:35,023 line:15% 
+of simply adding an attribute for the model attribute.
+
+55
+00:02:35,023 --> 00:02:37,194 line:15% 
+Giving it a new customer object.
+
+56
+00:02:37,194 --> 00:02:40,027 line:15% 
+All right, this looks good so far.
+
+57
+00:02:43,484 --> 00:02:44,756
+So now, I actually wanna move to my
+
+58
+00:02:44,756 --> 00:02:46,936
+main menu dot jsp and set up a link
+
+59
+00:02:46,936 --> 00:02:48,188
+for the customer form.
+
+60
+00:02:48,188 --> 00:02:49,198
+Just so we can access it,
+
+61
+00:02:49,198 --> 00:02:51,308
+directly from our main menu.
+
+62
+00:02:51,308 --> 00:02:53,165
+So we don't have to do any manual pecking
+
+63
+00:02:53,165 --> 00:02:55,892
+on the URL location bar.
+
+64
+00:02:55,892 --> 00:02:57,379
+So let me just do a little copy paste here.
+
+65
+00:02:57,379 --> 00:02:59,877
+I'll just copy this section here for student form.
+
+66
+00:02:59,877 --> 00:03:01,688
+Then I'll just paste it real quick.
+
+67
+00:03:01,688 --> 00:03:03,419
+Then I'll simply just do an update here.
+
+68
+00:03:03,419 --> 00:03:05,362
+So I'll call it, customer form.
+
+69
+00:03:05,362 --> 00:03:06,658
+And for the link.
+
+70
+00:03:06,658 --> 00:03:10,825
+I'll make use of the href customer slash show form.
+
+71
+00:03:14,254 --> 00:03:17,837
+All righty, so this looks pretty good here.
+
+72
+00:03:20,336 --> 00:03:21,370
+Well now what I want to do is actually
+
+73
+00:03:21,370 --> 00:03:22,931
+test this out to make sure that we can
+
+74
+00:03:22,931 --> 00:03:25,257
+actually show the customer form.
+
+75
+00:03:25,257 --> 00:03:26,709
+All right, so let's go over to our
+
+76
+00:03:26,709 --> 00:03:28,556
+application here and let's run it.
+
+77
+00:03:28,556 --> 00:03:29,781
+Just do a right click, say run as
+
+78
+00:03:29,781 --> 00:03:31,281
+and run on server.
+
+79
+00:03:33,272 --> 00:03:35,567
+And here's our main menu, our home page.
+
+80
+00:03:35,567 --> 00:03:36,957
+And we have a new link here, customer form.
+
+81
+00:03:36,957 --> 00:03:38,266
+It looks really good.
+
+82
+00:03:38,266 --> 00:03:39,683
+Let's try it out.
+
+83
+00:03:41,324 --> 00:03:42,575
+And all right, good job.
+
+84
+00:03:42,575 --> 00:03:44,327
+So here's our form.
+
+85
+00:03:44,327 --> 00:03:47,096
+Kind of like the stuff we put in the previous video.
+
+86
+00:03:47,096 --> 00:03:48,813
+It's there but we don't really have
+
+87
+00:03:48,813 --> 00:03:50,314
+any processing code yet.
+
+88
+00:03:50,314 --> 00:03:53,240
+We haven't really done that part of it yet.
+
+89
+00:03:53,240 --> 00:03:54,431
+So if I hit the submit button,
+
+90
+00:03:54,431 --> 00:03:56,083
+Whahhhh!
+
+91
+00:03:56,083 --> 00:03:58,067 line:15% 
+404, but we know about that, right?
+
+92
+00:03:58,067 --> 00:04:01,101 line:15% 
+We don't have the mapping yet, for process form.
+
+93
+00:04:01,101 --> 00:04:03,191 line:15% 
+We'll actually add that in the next video.
+
+94
+00:04:03,191 --> 00:04:04,535 line:15% 
+So we still have some work to do.
+
+95
+00:04:04,535 --> 00:04:07,368 line:15% 
+So I'll see you in the next video.
+
